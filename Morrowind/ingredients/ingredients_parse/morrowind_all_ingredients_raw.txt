@@ -1,0 +1,1062 @@
+|
+|Alit Hide 
+|1.0 
+|5 
+|Drain Intelligence 
+|Resist Poison (Morrowind)|Resist Poison 
+|Telekinesis (Morrowind)|Telekinesis 
+|Detect Animal 
+|ingred_alit_hide_01 
+|
+|Ampoule Pod 
+|0.1 
+|2 
+|Water Walking (Morrowind)|Water Walking 
+|Paralyze (Morrowind)|Paralyze 
+|Detect Animal 
+|Drain Willpower 
+|ingred_bc_ampoule_pod 
+|
+|Ash Salts 
+|0.1 
+|25 
+|Drain Agility 
+|Resist Magicka (Morrowind)|Resist Magicka 
+|Cure Blight Disease 
+|Resist Magicka (Morrowind)|Resist Magicka 
+|ingred_ash_salts_01 
+|
+|Ash Yam (Morrowind)|Ash Yam 
+|0.5 
+|1 
+|Fortify Intelligence (Morrowind)|Fortify Intelligence 
+|Fortify Strength (Morrowind)|Fortify Strength 
+|Resist Common Disease 
+|Detect Key 
+|ingred_ash_yam_01 
+|
+|Bittergreen Petals (Morrowind)|Bittergreen Petals 
+|0.1 
+|5 
+|Restore Intelligence (Morrowind)|Restore Intelligence 
+|Invisibility (Morrowind)|Invisibility 
+|Drain Endurance 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|ingred_bittergreen_petals_01 
+|
+|Black Anther 
+|0.1 
+|2 
+|Drain Agility 
+|Resist Fire (Morrowind)|Resist Fire 
+|Drain Endurance 
+|Light (Morrowind)|Light 
+|ingred_black_anther_01 
+|
+|Black Lichen 
+|0.1 
+|2 
+|Drain Strength 
+|Resist Frost (Morrowind)|Resist Frost 
+|Drain Speed 
+|Cure Poison (Morrowind)|Cure Poison 
+|ingred_black_lichen_01 
+|
+|Bloat 
+|0.1 
+|5 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|Fortify Intelligence (Morrowind)|Fortify Intelligence 
+|Fortify Willpower (Morrowind)|Fortify Willpower 
+|Detect Animal 
+|ingred_bloat_01 
+|
+|Bonemeal (Morrowind)|Bonemeal 
+|0.2 
+|2 
+|Restore Agility (Morrowind)|Restore Agility 
+|Telekinesis (Morrowind)|Telekinesis 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Personality 
+|ingred_bonemeal_01 
+|
+|Bread (Morrowind)|Bread 
+|0.2 
+|1 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+| - 
+| - 
+| - 
+|ingred_bread_01, ingred_bread_01_UNI2 
+|
+|Bungler's Bane (Morrowind)|Bungler's Bane 
+|0.5 
+|1 
+|Drain Speed 
+|Drain Endurance 
+|Dispel (Morrowind)|Dispel 
+|Drain Strength 
+|ingred_bc_bungler's_bane 
+|
+|Chokeweed 
+|0.1 
+|1 
+|Drain Luck 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Cure Common Disease 
+|Drain Willpower 
+|ingred_chokeweed_01 
+|
+|Coda Flower 
+|0.1 
+|23 
+|Drain Personality 
+|Levitate (Morrowind)|Levitate 
+|Drain Intelligence 
+|Drain Health (Morrowind)|Drain Health 
+|ingred_bc_coda_flower 
+|
+|Comberry (Morrowind)|Comberry 
+|0.1 
+|2 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Restore Magicka (Morrowind)|Restore Magicka 
+|Fire Shield (Morrowind)|Fire Shield 
+|Reflect (Morrowind)|Reflect 
+|ingred_comberry_01 
+|
+|Corkbulb Root 
+|0.1 
+|5 
+|Cure Paralyzation 
+|Restore Health (Morrowind)|Restore Health 
+|Lightning Shield (Morrowind)|Lightning Shield 
+|Fortify Luck (Morrowind)|Fortify Luck 
+|ingred_corkbulb_root_01 
+|
+|Corprus Weepings 
+|0.1 
+|50 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Fortify Luck (Morrowind)|Fortify Luck 
+|Drain Willpower 
+|Restore Health (Morrowind)|Restore Health 
+|ingred_corprus_weepings_01 
+|
+|Crab Meat (Morrowind)|Crab Meat 
+|0.5 
+|1 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Resist Shock (Morrowind)|Resist Shock 
+|Lightning Shield (Morrowind)|Lightning Shield 
+|Restore Luck (Morrowind)|Restore Luck 
+|ingred_crab_meat_01 
+|
+|Daedra Skin (Item)|Daedra Skin 
+|0.2 
+|200 
+|Fortify Strength (Morrowind)|Fortify Strength 
+|Cure Common Disease 
+|Paralyze (Morrowind)|Paralyze 
+|Swift Swim 
+|ingred_daedra_skin_01 
+|
+|Daedra's Heart (Morrowind)|Daedra's Heart 
+|1.0 
+|200 
+|Restore Magicka (Morrowind)|Restore Magicka 
+|Fortify Endurance (Morrowind)|Fortify Endurance 
+|Drain Agility 
+|Night-Eye (Morrowind)|Night-Eye 
+|ingred_daedras_heart_01, ingred_cursed_daedras_heart_01 
+|
+|Diamond (Morrowind)|Diamond 
+|0.2 
+|250 
+|Drain Agility 
+|Invisibility (Morrowind)|Invisibility 
+|Reflect (Morrowind)|Reflect 
+|Detect Key 
+|ingred_diamond_01, ingred_Dae_cursed_diamond_01 
+|
+|Dreugh Wax (Morrowind)|Dreugh Wax 
+|0.2 
+|100 
+|Fortify Strength (Morrowind)|Fortify Strength 
+|Restore Strength (Morrowind)|Restore Strength 
+|Drain Luck 
+|Drain Willpower 
+|ingred_dreugh_wax_01 
+|
+|Ectoplasm (Morrowind)|Ectoplasm 
+|0.1 
+|10 
+|Fortify Agility (Morrowind)|Fortify Agility 
+|Detect Animal 
+|Drain Strength 
+|Drain Health (Morrowind)|Drain Health 
+|ingred_ectoplasm_01 
+|
+|Emerald (Morrowind)|Emerald 
+|0.2 
+|150 
+|Fortify Magicka (Morrowind)|Fortify Magicka 
+|Restore Health (Morrowind)|Restore Health 
+|Drain Agility 
+|Drain Endurance 
+|ingred_emerald_01, ingred_Dae_cursed_emerald_01 
+|
+|Fire Petal 
+|0.1 
+|2 
+|Resist Fire (Morrowind)|Resist Fire 
+|Drain Health (Morrowind)|Drain Health 
+|Spell Absorption (Morrowind)|Spell Absorption 
+|Paralyze (Morrowind)|Paralyze 
+|ingred_fire_petal_01 
+|
+|Fire Salts (Morrowind)|Fire Salts 
+|0.1 
+|100 
+|Drain Health (Morrowind)|Drain Health 
+|Fortify Agility (Morrowind)|Fortify Agility 
+|Resist Frost (Morrowind)|Resist Frost 
+|Fire Shield (Morrowind)|Fire Shield 
+|ingred_fire_salts_01 
+|
+|Frost Salts (Morrowind)|Frost Salts 
+|0.1 
+|75 
+|Drain Speed 
+|Restore Magicka (Morrowind)|Restore Magicka 
+|Frost Shield (Morrowind)|Frost Shield 
+|Resist Fire (Morrowind)|Resist Fire 
+|ingred_frost_salts_01 
+|
+|Ghoul Heart 
+|0.5 
+|150 
+|Paralyze (Morrowind)|Paralyze 
+|Cure Poison (Morrowind)|Cure Poison 
+|Fortify Attack 
+| - 
+|ingred_ghoul_heart_01 
+|
+|Girith's Guar Hide 
+|1.0 
+|5 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Fortify Endurance (Morrowind)|Fortify Endurance 
+|Restore Personality (Morrowind)|Restore Personality 
+|Fortify Luck (Morrowind)|Fortify Luck 
+|ingred_guar_hide_girith 
+|
+|Gold Kanet 
+|0.1 
+|5 
+|Drain Health (Morrowind)|Drain Health 
+|Burden (Morrowind)|Burden 
+|Drain Luck 
+|Restore Strength (Morrowind)|Restore Strength 
+|ingred_gold_kanet_01 
+|
+|Gravedust 
+|0.1 
+|1 
+|Drain Intelligence 
+|Cure Common Disease 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|Restore Endurance (Morrowind)|Restore Endurance 
+|ingred_gravedust_01 
+|
+|Green Lichen 
+|0.1 
+|1 
+|Fortify Personality (Morrowind)|Fortify Personality 
+|Cure Common Disease 
+|Drain Strength 
+|Drain Health (Morrowind)|Drain Health 
+|ingred_green_lichen_01 
+|
+|Guar Hide 
+|1.0 
+|5 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Fortify Endurance (Morrowind)|Fortify Endurance 
+|Restore Personality (Morrowind)|Restore Personality 
+|Fortify Luck (Morrowind)|Fortify Luck 
+|ingred_guar_hide_01 
+|
+|Hackle-Lo Leaf 
+|0.1 
+|30 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Paralyze (Morrowind)|Paralyze 
+|Water Breathing (Morrowind)|Water Breathing 
+|Restore Luck (Morrowind)|Restore Luck 
+|ingred_hackle-lo_leaf_01 
+|
+|Heather (Morrowind)|Heather 
+|0.1 
+|1 
+|Restore Personality (Morrowind)|Restore Personality 
+|Feather (Morrowind)|Feather 
+|Drain Speed 
+|Drain Personality 
+|ingred_heather_01 
+|
+|Hound Meat 
+|1.0 
+|2 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Fortify Fatigue (Morrowind)|Fortify Fatigue 
+|Reflect (Morrowind)|Reflect 
+|Detect Enchantment 
+|ingred_hound_meat_01 
+|
+|Human Flesh (Morrowind)|Human Flesh 
+|1.0 
+|1 
+|Fortify Health (Morrowind)|Fortify Health 
+|Drain Intelligence 
+|Drain Personality 
+| - 
+|ingred_human_meat_01 
+|
+|Hypha Facia 
+|0.1 
+|1 
+|Drain Luck 
+|Drain Agility 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Detect Enchantment 
+|ingred_bc_hypha_facia 
+|
+|Kagouti Hide 
+|1.0 
+|2 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Fortify Speed (Morrowind)|Fortify Speed 
+|Resist Common Disease 
+|Night-Eye (Morrowind)|Night-Eye 
+|ingred_kagouti_hide_01 
+|
+|Kresh Fiber 
+|0.1 
+|1 
+|Restore Luck (Morrowind)|Restore Luck 
+|Fortify Personality (Morrowind)|Fortify Personality 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|Drain Speed 
+|ingred_kresh_fiber_01 
+|
+|Kwama Cuttle 
+|0.1 
+|2 
+|Resist Poison (Morrowind)|Resist Poison 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Water Walking (Morrowind)|Water Walking 
+|Water Breathing (Morrowind)|Water Breathing 
+|ingred_kwama_cuttle_01 
+|
+|Large Corprusmeat Hunk 
+|1.0 
+|0 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Health (Morrowind)|Drain Health 
+|Drain Magicka (Morrowind)|Drain Magicka 
+| - 
+|ingred_6th_corprusmeat_05 
+|
+|Large Kwama Egg 
+|2.0 
+|2 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Paralyze (Morrowind)|Paralyze 
+|Frost Shield (Morrowind)|Frost Shield 
+|Fortify Health (Morrowind)|Fortify Health 
+|food_kwama_egg_02 
+|
+|Large Wrapped Corprusmeat 
+|1.0 
+|0 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Health (Morrowind)|Drain Health 
+|Drain Magicka (Morrowind)|Drain Magicka 
+| - 
+|ingred_6th_corprusmeat_01 
+|
+|Luminous Russula (Morrowind)|Luminous Russula 
+|0.2 
+|1 
+|Water Breathing (Morrowind)|Water Breathing 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Poison (Morrowind)|Poison 
+| - 
+|ingred_russula_01 
+|
+|Marshmerrow 
+|0.1 
+|1 
+|Restore Health (Morrowind)|Restore Health 
+|Detect Enchantment 
+|Drain Willpower 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|ingred_marshmerrow_01 
+|
+|Marsus' Guar Hide 
+|1.0 
+|5 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Fortify Endurance (Morrowind)|Fortify Endurance 
+|Restore Personality (Morrowind)|Restore Personality 
+|Fortify Luck (Morrowind)|Fortify Luck 
+|ingred_guar_hide_marus 
+|
+|Medium Corprusmeat Hunk 
+|0.5 
+|0 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Health (Morrowind)|Drain Health 
+|Drain Magicka (Morrowind)|Drain Magicka 
+| - 
+|ingred_6th_corprusmeat_06 
+|
+|Medium Wrapped Corprusmeat 
+|0.5 
+|0 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Health (Morrowind)|Drain Health 
+|Drain Magicka (Morrowind)|Drain Magicka 
+| - 
+|ingred_6th_corprusmeat_03 
+|
+|Meteor Slime 
+|0.1 
+|10 
+|Fortify Willpower (Morrowind)|Fortify Willpower 
+|Cure Poison (Morrowind)|Cure Poison 
+|Cure Blight Disease 
+|Restore Willpower (Morrowind)|Restore Willpower 
+|ingred_scrib_jelly_02 
+|
+|Moon Sugar (Morrowind)|Moon Sugar 
+|0.1 
+|50 
+|Fortify Speed (Morrowind)|Fortify Speed 
+|Dispel (Morrowind)|Dispel 
+|Drain Endurance 
+|Drain Luck 
+|ingred_moon_sugar_01 
+|
+|Muck 
+|0.1 
+|1 
+|Drain Intelligence 
+|Detect Key 
+|Drain Personality 
+|Cure Common Disease 
+|ingred_muck_01 
+|
+|Muffin (Morrowind) 
+|0.2 
+|1 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+| - 
+| - 
+| - 
+|ingred_bread_01_UNI3 
+|
+|Netch Leather (Morrowind)|Netch Leather 
+|1.0 
+|1 
+|Fortify Endurance (Morrowind)|Fortify Endurance 
+|Fortify Intelligence (Morrowind)|Fortify Intelligence 
+|Drain Personality 
+|Cure Paralyzation 
+|ingred_netch_leather_01 
+|
+|Pearl (Morrowind)|Pearl 
+|0.2 
+|100 
+|Drain Agility 
+|Dispel (Morrowind)|Dispel 
+|Water Breathing (Morrowind)|Water Breathing 
+|Resist Common Disease 
+|ingred_pearl_01, ingred_Dae_cursed_pearl_01 
+|
+|Poison (Ingredient)|Poison 
+|0.1 
+|0 
+|Weakness to Poison (Morrowind)|Weakness to Poison 
+|Damage Health (Morrowind)|Damage Health 
+|Damage Fatigue (Morrowind)|Damage Fatigue 
+|Poison (Morrowind)|Poison 
+|poison_goop00 
+|
+|Racer Plumes 
+|0.1 
+|20 
+|Drain Willpower 
+|Levitate (Morrowind)|Levitate 
+| - 
+| - 
+|ingred_racer_plumes_01 
+|
+|Rat Meat (Morrowind)|Rat Meat 
+|1.0 
+|1 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|Paralyze (Morrowind)|Paralyze 
+|Cure Poison (Morrowind)|Cure Poison 
+|Resist Poison (Morrowind)|Resist Poison 
+|ingred_rat_meat_01 
+|
+|Raw Ebony 
+|10.0 
+|200 
+|Drain Agility 
+|Cure Poison (Morrowind)|Cure Poison 
+|Frost Shield (Morrowind)|Frost Shield 
+|Restore Speed (Morrowind)|Restore Speed 
+|ingred_raw_ebony_01, ingred_Dae_cursed_raw_ebony_01 
+|
+|Raw Glass 
+|2.0 
+|200 
+|Drain Intelligence 
+|Drain Strength 
+|Drain Speed 
+|Fire Shield (Morrowind)|Fire Shield 
+|ingred_raw_glass_01, ingred_raw_glass_tinos 
+|
+|Red Lichen 
+|0.1 
+|25 
+|Drain Speed 
+|Light (Morrowind)|Light 
+|Cure Common Disease 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|ingred_red_lichen_01 
+|
+|Resin (Morrowind)|Resin 
+|0.1 
+|10 
+|Restore Health (Morrowind)|Restore Health 
+|Restore Speed (Morrowind)|Restore Speed 
+|Burden (Morrowind)|Burden 
+|Resist Common Disease 
+|ingred_resin_01 
+|
+|Roland's Tears (Morrowind)|Roland's Tears 
+|0.1 
+|5 
+|Drain Health (Morrowind)|Drain Health 
+|Burden (Morrowind)|Burden 
+|Drain Luck 
+|Restore Strength (Morrowind)|Restore Strength 
+|ingred_gold_kanet_unique 
+|
+|Roobrush 
+|0.1 
+|1 
+|Drain Willpower 
+|Fortify Agility (Morrowind)|Fortify Agility 
+|Drain Health (Morrowind)|Drain Health 
+|Cure Poison (Morrowind)|Cure Poison 
+|ingred_roobrush_01 
+|
+|Ruby (Morrowind)|Ruby 
+|0.2 
+|200 
+|Drain Health (Morrowind)|Drain Health 
+|Feather (Morrowind)|Feather 
+|Restore Intelligence (Morrowind)|Restore Intelligence 
+|Drain Agility 
+|ingred_ruby_01, ingred_Dae_cursed_ruby_01 
+|
+|Saltrice (Morrowind)|Saltrice 
+|0.1 
+|1 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Fortify Magicka (Morrowind)|Fortify Magicka 
+|Drain Strength 
+|Restore Health (Morrowind)|Restore Health 
+|ingred_saltrice_01 
+|
+|Scales (Morrowind)|Scales 
+|0.2 
+|2 
+|Drain Personality 
+|Water Walking (Morrowind)|Water Walking 
+|Restore Endurance (Morrowind)|Restore Endurance 
+|Swift Swim 
+|ingred_scales_01 
+|
+|Scamp Skin (Morrowind)|Scamp Skin 
+|0.1 
+|10 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|Cure Paralyzation 
+|Restore Personality (Morrowind)|Restore Personality 
+|Restore Strength (Morrowind)|Restore Strength 
+|ingred_scamp_skin_01 
+|
+|Scathecraw (Morrowind)|Scathecraw 
+|0.1 
+|2 
+|Drain Strength 
+|Cure Poison (Morrowind)|Cure Poison 
+|Drain Health (Morrowind)|Drain Health 
+|Restore Willpower (Morrowind)|Restore Willpower 
+|ingred_scathecraw_01 
+|
+|Scrap Metal 
+|10.0 
+|20 
+|Drain Health (Morrowind)|Drain Health 
+|Lightning Shield (Morrowind)|Lightning Shield 
+|Resist Shock (Morrowind)|Resist Shock 
+|Restore Intelligence (Morrowind)|Restore Intelligence 
+|ingred_scrap_metal_01 
+|
+|Scrib Jelly (Morrowind)|Scrib Jelly 
+|0.1 
+|10 
+|Fortify Willpower (Morrowind)|Fortify Willpower 
+|Cure Poison (Morrowind)|Cure Poison 
+|Cure Blight Disease 
+|Restore Willpower (Morrowind)|Restore Willpower 
+|ingred_scrib_jelly_01 
+|
+|Scrib Jerky 
+|0.2 
+|5 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Fortify Fatigue (Morrowind)|Fortify Fatigue 
+|Burden (Morrowind)|Burden 
+|Swift Swim 
+|ingred_scrib_jerky_01 
+|
+|Scuttle 
+|0.1 
+|10 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+|Fortify Fatigue (Morrowind)|Fortify Fatigue 
+|Feather (Morrowind)|Feather 
+|Telekinesis (Morrowind)|Telekinesis 
+|ingred_scuttle_01 
+|
+|Shalk Resin 
+|0.1 
+|50 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Fortify Health (Morrowind)|Fortify Health 
+|Drain Personality 
+|Fortify Speed (Morrowind)|Fortify Speed 
+|ingred_shalk_resin_01 
+|
+|Sload Soap 
+|0.1 
+|50 
+|Drain Personality 
+|Fortify Agility (Morrowind)|Fortify Agility 
+|Fire Shield (Morrowind)|Fire Shield 
+|Restore Agility (Morrowind)|Restore Agility 
+|ingred_sload_soap_01 
+|
+|Small Corprusmeat Hunk 
+|0.2 
+|0 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Health (Morrowind)|Drain Health 
+|Drain Magicka (Morrowind)|Drain Magicka 
+| - 
+|ingred_6th_corprusmeat_07 
+|
+|Small Kwama Egg 
+|0.5 
+|1 
+|Restore Fatigue (Morrowind)|Restore Fatigue 
+| - 
+| - 
+| - 
+|food_kwama_egg_01 
+|
+|Small Wrapped Corprusmeat 
+|0.2 
+|0 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Health (Morrowind)|Drain Health 
+|Drain Magicka (Morrowind)|Drain Magicka 
+| - 
+|ingred_6th_corprusmeat_02 
+|
+|Spore Pod 
+|0.1 
+|1 
+|Drain Strength 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Detect Key 
+|Paralyze (Morrowind)|Paralyze 
+|ingred_bc_spore_pod 
+|
+|Stoneflower Petals (Morrowind)|Stoneflower Petals 
+|0.1 
+|1 
+|Restore Strength (Morrowind)|Restore Strength 
+|Fortify Magicka (Morrowind)|Fortify Magicka 
+|Drain Luck 
+|Fortify Personality (Morrowind)|Fortify Personality 
+|ingred_stoneflower_petals_01 
+|
+|Trama Root (Morrowind)|Trama Root 
+|0.1 
+|10 
+|Restore Willpower (Morrowind)|Restore Willpower 
+|Levitate (Morrowind)|Levitate 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|Drain Speed 
+|ingred_trama_root_01 
+|
+|Treated Bittergreen Petals 
+|0.1 
+|10 
+|Restore Intelligence (Morrowind)|Restore Intelligence 
+|Drain Magicka (Morrowind)|Drain Magicka 
+|Drain Endurance 
+|Invisibility (Morrowind)|Invisibility 
+|ingred_treated_bittergreen_uniq 
+|
+|Vampire Dust (Morrowind)|Vampire Dust 
+|0.1 
+|500 
+|Fortify Health (Morrowind)|Fortify Health 
+|Fortify Strength (Morrowind)|Fortify Strength 
+|Spell Absorption (Morrowind)|Spell Absorption 
+|Vampire (Morrowind)|Vampirism
+|ingred_vampire_dust_01 
+|
+|Violet Coprinus (Morrowind)|Violet Coprinus 
+|0.5 
+|1 
+|Water Walking (Morrowind)|Water Walking 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Poison (Morrowind)|Poison 
+| - 
+|ingred_coprinus_01 
+|
+|Void Salts (Morrowind)|Void Salts 
+|0.1 
+|100 
+|Restore Magicka (Morrowind)|Restore Magicka 
+|Spell Absorption (Morrowind)|Spell Absorption 
+|Paralyze (Morrowind)|Paralyze 
+|Drain Endurance 
+|ingred_void_salts_01 
+|
+|Wickwheat 
+|0.1 
+|1 
+|Restore Health (Morrowind)|Restore Health 
+|Fortify Willpower (Morrowind)|Fortify Willpower 
+|Paralyze (Morrowind)|Paralyze 
+|Damage Intelligence 
+|ingred_wickwheat_01 
+|
+|Willow Anther 
+|0.1 
+|10 
+|Drain Personality 
+|Frost Shield (Morrowind)|Frost Shield 
+|Cure Common Disease 
+|Cure Paralyzation 
+|ingred_willow_anther_01 
+|
+|Wrapped Corprusmeat Hunk 
+|0.0 
+|0 
+|Drain Fatigue (Morrowind)|Drain Fatigue 
+|Drain Health (Morrowind)|Drain Health 
+|Drain Magicka (Morrowind)|Drain Magicka 
+| - 
+|ingred_6th_corprusmeat_04
+|
+|Bear Pelt (Bloodmoon)|Bear Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_bear_pelt
+|
+|Blood of an Innocent
+|0.1
+|25
+|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|Light (Morrowind)|Light
+|Cure Common Disease
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_blood_innocent_unique
+|
+|Bristleback Leather
+|1.0
+|2
+|Blind (Morrowind)|Blind
+|Frost Damage (Morrowind)|Frost Damage
+|Resist Frost (Morrowind)|Resist Frost
+|Recall
+|ingred_boar_leather
+|
+|Flaming Eye of the Lightkeeper
+|1.0
+|15
+|Resist Frost (Morrowind)|Resist Frost
+|Night-Eye (Morrowind)|Night-Eye
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Fortify Strength (Morrowind)|Fortify Strength
+|ingred_eyeball_unique
+|
+|Grahl Eyeball
+|1.0
+|15
+|Resist Frost (Morrowind)|Resist Frost
+|Night-Eye (Morrowind)|Night-Eye
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Fortify Strength (Morrowind)|Fortify Strength
+|ingred_eyeball
+|
+|Gravetar
+|0.1
+|5
+|Resist Frost (Morrowind)|Resist Frost
+|Drain Health (Morrowind)|Drain Health
+|Fortify Fatigue (Morrowind)|Fortify Fatigue
+|Drain (Morrowind)|Drain Luck (Morrowind)|Luck
+|ingred_gravetar_01
+|
+|Heart of an Innocent
+|1.0
+|10
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Endurance (Morrowind)|Fortify Endurance
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_innocent_heart
+|
+|Heart of the Udyrfrykte
+|5.0
+|300
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Endurance (Morrowind)|Fortify Endurance
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_udyrfrykte_heart
+|
+|Heart of the Wolf
+|1.0
+|100
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Endurance (Morrowind)|Fortify Endurance
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_wolf_heart
+|
+|Heartwood
+|1.0
+|200
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Agility (Morrowind)|Fortify Agility
+|Drain (Morrowind)|Drain Strength (Morrowind)|Strength
+|Weakness to Fire (Morrowind)|Weakness to Fire Damage (Morrowind)|Fire
+|ingred_heartwood_01
+|
+|Holly Berries
+|0.1
+|5
+|Resist Frost (Morrowind)|Resist Frost
+|Resist Poison (Morrowind)|Resist Poison
+|Frost Damage (Morrowind)|Frost Damage
+|Weakness to Fire (Morrowind)|Weakness to Fire Damage (Morrowind)|Fire
+|ingred_holly_01
+|
+|Horker Tusk (Bloodmoon)|Horker Tusk
+|1.0
+|5
+|Drain (Morrowind)|Drain Alteration (Morrowind)|Alteration
+|Fortify Intelligence (Morrowind)|Fortify Intelligence
+|Fortify Maximum Magicka
+|Detect Animal
+|ingred_horker_tusk_01
+|
+|Pinetear
+|0.2
+|50
+|Fortify Magicka (Morrowind)|Fortify Magicka
+|Restore Health (Morrowind)|Restore Health
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Drain (Morrowind)|Drain Endurance (Morrowind)|Endurance
+|ingred_emerald_pinetear_01
+|
+|Raw Stalhrim
+|0.5
+|300
+|Resist Frost (Morrowind)|Resist Frost
+|Frost Damage (Morrowind)|Frost Damage
+|Paralyze (Morrowind)|Paralyze
+|Restore Health (Morrowind)|Restore Health
+|ingred_raw_Stalhrim_01
+|
+|Ripened Belladonna Berries
+|0.1
+|5
+|Resist (Morrowind)|Resist Magicka (Morrowind)|Magicka
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Magicka (Morrowind)|Fortify Magicka
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_belladonna_01
+|
+|Snow Bear Pelt (Bloodmoon)|Snow Bear Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_snowbear_pelt_unique
+|
+|Snow Wolf Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_snowwolf_pelt_unique
+|
+|Unripened Belladonna Berries
+|0.1
+|5
+|Resist (Morrowind)|Resist Magicka (Morrowind)|Magicka
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Magicka (Morrowind)|Fortify Magicka
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_belladonna_02
+|
+|Wolf Pelt (Bloodmoon)|Wolf Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_wolf_pelt
+|
+|Wolfsbane Petals
+|0.1
+|5
+|Restore Intelligence (Morrowind)|Intelligence
+|Invisibility (Morrowind)|Invisibility
+|Drain (Morrowind)|Drain Endurance (Morrowind)|Endurance
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_wolfsbane_01
+|
+|Adamantium Ore
+|50.0
+|300
+|Burden (Morrowind)|Burden
+|Restore Magicka (Morrowind)|Magicka
+|Poison (Morrowind)|Poison
+|Reflect (Morrowind)|Reflect
+|ingred_adamantium_ore_01
+|
+|Durzog Meat
+|2.0
+|7
+|Fortify Agility (Morrowind)|Fortify Agility
+|Fortify Strength (Morrowind)|Fortify Strength
+|Blind (Morrowind)|Blind
+|Damage (Morrowind)|Damage Magicka (Morrowind)|Magicka
+|ingred_durzog_meat_01
+|
+|Golden Sedge Flowers
+|1.0
+|1
+|Drain Magicka (Morrowind)|Drain Magicka
+|Fortify Strength (Morrowind)|Fortify Strength
+|Fortify Attack
+|Swift Swim
+|ingred_golden_sedge_01
+|
+|Horn Lily Bulb
+|1.0
+|1
+|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
+|Drain Health (Morrowind)|Drain Health
+|Restore Strength (Morrowind)|Strength
+|Restore Endurance (Morrowind)|Endurance
+|ingred_horn_lily_bulb_01
+|
+|Lloramor Spines
+|1.0
+|1
+|Spell Absorption (Morrowind)|Spell Absorption
+|Invisibility (Morrowind)|Invisibility
+|Poison (Morrowind)|Poison
+|Detect Enchantment
+|ingred_lloramor_spines_01
+|
+|Meadow Rye
+|1.0
+|1
+|Fortify Speed (Morrowind)|Fortify Speed
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Restore Speed (Morrowind)|Speed
+|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|ingred_meadow_rye_01
+|
+|Nirthfly Stalks
+|1.0
+|1
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Fortify Speed (Morrowind)|Fortify Speed
+|Restore Speed (Morrowind)|Speed
+|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|ingred_nirthfly_stalks_01
+|
+|Noble Sedge Flowers
+|1.0
+|1
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Restore Agility (Morrowind)|Agility
+|Poison (Morrowind)|Poison
+|Fortify Agility (Morrowind)|Fortify Agility
+|ingred_noble_sedge_01
+|
+|Scrib Cabbage
+|1.0
+|1
+|Drain (Morrowind)|Drain Intelligence (Morrowind)|Intelligence
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Restore Agility (Morrowind)|Agility
+|Fortify Agility (Morrowind)|Fortify Agility
+|ingred_scrib_cabbage_01
+|
+|Sweetpulp
+|1.0
+|1
+|Paralyze (Morrowind)|Paralyze
+|Levitate (Morrowind)|Levitate
+|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
+|Restore Health (Morrowind)|Restore Health (Morrowind)|Health
+|ingred_sweetpulp_01
+|
+|Timsa-Come-By Flowers
+|1.0
+|1
+|Dispel (Morrowind)|Dispel
+|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Restore Endurance (Morrowind)|Endurance
+|ingred_timsa-come-by_01

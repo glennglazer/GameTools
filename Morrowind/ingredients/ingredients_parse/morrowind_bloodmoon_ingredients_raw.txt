@@ -1,0 +1,180 @@
+|
+|Bear Pelt (Bloodmoon)|Bear Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_bear_pelt
+|
+|Blood of an Innocent
+|0.1
+|25
+|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|Light (Morrowind)|Light
+|Cure Common Disease
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_blood_innocent_unique
+|
+|Bristleback Leather
+|1.0
+|2
+|Blind (Morrowind)|Blind
+|Frost Damage (Morrowind)|Frost Damage
+|Resist Frost (Morrowind)|Resist Frost
+|Recall
+|ingred_boar_leather
+|
+|Flaming Eye of the Lightkeeper
+|1.0
+|15
+|Resist Frost (Morrowind)|Resist Frost
+|Night-Eye (Morrowind)|Night-Eye
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Fortify Strength (Morrowind)|Fortify Strength
+|ingred_eyeball_unique
+|
+|Grahl Eyeball
+|1.0
+|15
+|Resist Frost (Morrowind)|Resist Frost
+|Night-Eye (Morrowind)|Night-Eye
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Fortify Strength (Morrowind)|Fortify Strength
+|ingred_eyeball
+|
+|Gravetar
+|0.1
+|5
+|Resist Frost (Morrowind)|Resist Frost
+|Drain Health (Morrowind)|Drain Health
+|Fortify Fatigue (Morrowind)|Fortify Fatigue
+|Drain (Morrowind)|Drain Luck (Morrowind)|Luck
+|ingred_gravetar_01
+|
+|Heart of an Innocent
+|1.0
+|10
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Endurance (Morrowind)|Fortify Endurance
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_innocent_heart
+|
+|Heart of the Udyrfrykte
+|5.0
+|300
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Endurance (Morrowind)|Fortify Endurance
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_udyrfrykte_heart
+|
+|Heart of the Wolf
+|1.0
+|100
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Endurance (Morrowind)|Fortify Endurance
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_wolf_heart
+|
+|Heartwood
+|1.0
+|200
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Agility (Morrowind)|Fortify Agility
+|Drain (Morrowind)|Drain Strength (Morrowind)|Strength
+|Weakness to Fire (Morrowind)|Weakness to Fire Damage (Morrowind)|Fire
+|ingred_heartwood_01
+|
+|Holly Berries
+|0.1
+|5
+|Resist Frost (Morrowind)|Resist Frost
+|Resist Poison (Morrowind)|Resist Poison
+|Frost Damage (Morrowind)|Frost Damage
+|Weakness to Fire (Morrowind)|Weakness to Fire Damage (Morrowind)|Fire
+|ingred_holly_01
+|
+|Horker Tusk (Bloodmoon)|Horker Tusk
+|1.0
+|5
+|Drain (Morrowind)|Drain Alteration (Morrowind)|Alteration
+|Fortify Intelligence (Morrowind)|Fortify Intelligence
+|Fortify Maximum Magicka
+|Detect Animal
+|ingred_horker_tusk_01
+|
+|Pinetear
+|0.2
+|50
+|Fortify Magicka (Morrowind)|Fortify Magicka
+|Restore Health (Morrowind)|Restore Health
+|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Drain (Morrowind)|Drain Endurance (Morrowind)|Endurance
+|ingred_emerald_pinetear_01
+|
+|Raw Stalhrim
+|0.5
+|300
+|Resist Frost (Morrowind)|Resist Frost
+|Frost Damage (Morrowind)|Frost Damage
+|Paralyze (Morrowind)|Paralyze
+|Restore Health (Morrowind)|Restore Health
+|ingred_raw_Stalhrim_01
+|
+|Ripened Belladonna Berries
+|0.1
+|5
+|Resist (Morrowind)|Resist Magicka (Morrowind)|Magicka
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Magicka (Morrowind)|Fortify Magicka
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_belladonna_01
+|
+|Snow Bear Pelt (Bloodmoon)|Snow Bear Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_snowbear_pelt_unique
+|
+|Snow Wolf Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_snowwolf_pelt_unique
+|
+|Unripened Belladonna Berries
+|0.1
+|5
+|Resist (Morrowind)|Resist Magicka (Morrowind)|Magicka
+|Restore Magicka (Morrowind)|Magicka
+|Fortify Magicka (Morrowind)|Fortify Magicka
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_belladonna_02
+|
+|Wolf Pelt (Bloodmoon)|Wolf Pelt
+|1.0
+|2
+|Drain (Morrowind)|Drain Fatigue
+|Fortify Strength (Morrowind)|Fortify Strength
+|Resist Common Disease
+|Night-Eye (Morrowind)|Night-Eye
+|ingred_wolf_pelt
+|
+|Wolfsbane Petals
+|0.1
+|5
+|Restore Intelligence (Morrowind)|Intelligence
+|Invisibility (Morrowind)|Invisibility
+|Drain (Morrowind)|Drain Endurance (Morrowind)|Endurance
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|ingred_wolfsbane_01

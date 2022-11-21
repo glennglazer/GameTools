@@ -1,0 +1,99 @@
+|
+|Adamantium Ore
+|50.0
+|300
+|Burden (Morrowind)|Burden
+|Restore Magicka (Morrowind)|Magicka
+|Poison (Morrowind)|Poison
+|Reflect (Morrowind)|Reflect
+|ingred_adamantium_ore_01
+|
+|Durzog Meat
+|2.0
+|7
+|Fortify Agility (Morrowind)|Fortify Agility
+|Fortify Strength (Morrowind)|Fortify Strength
+|Blind (Morrowind)|Blind
+|Damage (Morrowind)|Damage Magicka (Morrowind)|Magicka
+|ingred_durzog_meat_01
+|
+|Golden Sedge Flowers
+|1.0
+|1
+|Drain Magicka (Morrowind)|Drain Magicka
+|Fortify Strength (Morrowind)|Fortify Strength
+|Fortify Attack
+|Swift Swim
+|ingred_golden_sedge_01
+|
+|Horn Lily Bulb
+|1.0
+|1
+|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
+|Drain Health (Morrowind)|Drain Health
+|Restore Strength (Morrowind)|Strength
+|Restore Endurance (Morrowind)|Endurance
+|ingred_horn_lily_bulb_01
+|
+|Lloramor Spines
+|1.0
+|1
+|Spell Absorption (Morrowind)|Spell Absorption
+|Invisibility (Morrowind)|Invisibility
+|Poison (Morrowind)|Poison
+|Detect Enchantment
+|ingred_lloramor_spines_01
+|
+|Meadow Rye
+|1.0
+|1
+|Fortify Speed (Morrowind)|Fortify Speed
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Restore Speed (Morrowind)|Speed
+|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|ingred_meadow_rye_01
+|
+|Nirthfly Stalks
+|1.0
+|1
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Fortify Speed (Morrowind)|Fortify Speed
+|Restore Speed (Morrowind)|Speed
+|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|ingred_nirthfly_stalks_01
+|
+|Noble Sedge Flowers
+|1.0
+|1
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Restore Agility (Morrowind)|Agility
+|Poison (Morrowind)|Poison
+|Fortify Agility (Morrowind)|Fortify Agility
+|ingred_noble_sedge_01
+|
+|Scrib Cabbage
+|1.0
+|1
+|Drain (Morrowind)|Drain Intelligence (Morrowind)|Intelligence
+|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Restore Agility (Morrowind)|Agility
+|Fortify Agility (Morrowind)|Fortify Agility
+|ingred_scrib_cabbage_01
+|
+|Sweetpulp
+|1.0
+|1
+|Paralyze (Morrowind)|Paralyze
+|Levitate (Morrowind)|Levitate
+|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
+|Restore Health (Morrowind)|Restore Health (Morrowind)|Health
+|ingred_sweetpulp_01
+|
+|Timsa-Come-By Flowers
+|1.0
+|1
+|Dispel (Morrowind)|Dispel
+|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
+|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Restore Endurance (Morrowind)|Endurance
+|ingred_timsa-come-by_01
