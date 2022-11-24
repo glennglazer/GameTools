@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+"""
+File: create_oblivion_ingredients.py
+Author: Glenn Glazer
+
+Utility to create/update database table from JSON"""
+
 import argparse
 import json
 import pandas as pd
