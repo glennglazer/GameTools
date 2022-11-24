@@ -1,0 +1,1169 @@
+|
+|Alkanet Flower
+|0.1
+|1
+|Alkanet
+|Restore Intelligence,Resist Poison,Light,Damage Fatigue
+|0003365C
+|
+|Alocasia Fruit (Oblivion)|Alocasia Fruit 
+|0.25
+|1
+|Vendors, Alocasia Plants
+|Damage Magicka,Light,Restore Fatigue,Restore Health
+|0001AE7A
+|
+|Aloe Vera Leaves
+|0.1
+|1
+|Aloe Vera
+|Restore Fatigue,Restore Health,Damage Magicka,Invisibility
+|000A7924
+|
+|Ambrosia (Oblivion)|Ambrosia
+|1
+|2
+|Mana Bloom
+|Restore Health
+|000704A0
+|
+|Apple (Oblivion)|Apple
+|0.2
+|1
+|Buildings, houses
+|Restore Fatigue,Damage Luck,Fortify Willpower,Damage Health
+|0003365D,00052F85,00040CC0
+|
+|Arrowroot
+|0.1
+|2
+|Arrowroot Plant
+|Restore Agility,Damage Luck,Fortify Strength,Burden
+|0003365E
+|
+|Ashen Remains 
+|0.8
+|5
+|Altar Urns, Cremation Urns
+|Damage Luck,Fortify Fatigue,Silence,Weakness to Fire
+|00081A68
+|
+|Ashes of Hindaril
+|0.2
+|10
+|Hindaril
+|Silence,Resist Disease,Frost Damage,Invisibility
+|000977DD
+|
+|Aster Bloom Core (Oblivion)|Aster Bloom Core 
+|0.1
+|1
+|Aster Blooms, Vendors
+|Burden,Dispel,Restore Agility,Shield
+|0001B035
+|
+|Beating Heart
+|2
+|25
+|Champion's Chest
+|Cannibal Consumption
+|XX001AF2
+|
+|Beef (Oblivion)|Beef
+|1
+|1
+|Buildings, homes
+|Restore Fatigue,Shield,Fortify Agility,Dispel
+|0003365F
+|
+|Bergamot Seeds
+|0.1
+|1
+|Bergamot Plant
+|Resist Disease,Dispel,Damage Magicka,Silence
+|000A7933
+|
+|Black Tar 
+|0.1
+|1
+|Vendors, Saplings
+|Damage Speed,Damage Fatigue,Damage Health,Shock Damage
+|0003BABD
+|
+|Blackberry
+|0.1
+|1
+|Blackberry Bush
+|Restore Fatigue,Resist Shock,Fortify Endurance,Restore Magicka
+|00033663
+|
+|Blind Watcher's Eye 
+|0
+|1
+|
+|Fortify Magicka,Light,Restore Intelligence,Reflect Spell
+|0004340E,00043430
+|
+|Blister Pod Cap (Oblivion)|Blister Pod Cap 
+|0.1
+|1
+|Mushroom Clusters, Vendors
+|Fortify Magicka,Invisibility,Night-Eye,Restore Magicka
+|0001F3AA
+|
+|Bloodgrass
+|0.1
+|1
+|Frostcrag Spire (Location)|Frostcrag Spire,Oblivion (Realm)|Oblivion
+|Chameleon,Resist Paralysis,Burden,Fortify Health
+|00033664
+|
+|Boar Meat (Oblivion)|Boar Meat
+|2
+|20
+|Boar
+|Restore Health,Damage Speed,Fortify Health,Burden
+|00033665
+|
+|Bog Beacon Asco Cap
+|0.1
+|1
+|Bog Beacon
+|Resist Disease,Dispel,Damage Magicka,Damage Endurance
+|0008446C
+|
+|Bone Marrow 
+|0.1
+|2
+|Shambles
+|Damage Health,Damage Magicka,Frost Damage,Paralyze
+|00044E61
+|
+|Bone Shard 
+|0.3
+|1
+|
+|Damage Luck,Damage Magicka,Frost Shield,Restore Willpower
+|00052443
+|
+|Bonemeal (Oblivion)|Bonemeal
+|0.2
+|5
+|Skeleton (Oblivion)|Skeleton,Deranged Zombie,Lich (Oblivion)|Lich
+|Damage Fatigue,Resist Fire,Fortify Luck,Night-Eye
+|0001EBFF
+|
+|Bread Loaf
+|0.5
+|1
+|Buildings, homes
+|Restore Fatigue,Detect Life,Damage Agility,Damage Strength
+|00023D89
+|
+|Cairn Bolete Cap
+|0.1
+|1
+|Cairn Bolete
+|Restore Health,Damage Intelligence,Resist Paralysis,Shock Damage
+|0006251E
+|
+|Carrot (Oblivion)|Carrot
+|0.2
+|1
+|Carrot Plant
+|Restore Fatigue,Night-Eye,Fortify Intelligence,Damage Endurance
+|00033666
+|
+|Carrot of Seeing
+|0.3
+|1
+|
+|Damage Endurance,Fortify Intelligence,Night-Eye,Restore Fatigue
+|00082DE2
+|
+|Cheese Wedge
+|0.2
+|1
+|Buildings, homes
+|Restore Fatigue,Resist Fire,Fire Shield,Damage Agility
+|00033668
+|
+|Cheese Wheel
+|0.3
+|1
+|Buildings, homes
+|Restore Fatigue,Resist Paralysis,Damage Luck,Fortify Willpower
+|00033669
+|
+|Chokeberry
+|0.5
+|15
+|Deepscorn Hollow (Oblivion Location)|Deepscorn Hollow
+|Deadly Poison (bypasses poison resistance)
+|XX009BFE
+|
+|Cinnabar Polypore Red Cap
+|0.1
+|3
+|Cinnabar Polypore
+|Restore Agility,Shield,Damage Personality,Damage Endurance
+|0008529C
+|
+|style="white-space: nowrap"|Cinnabar Polypore Yellow Cap
+|0.1
+|3
+|Cinnabar Polypore
+|Restore Endurance,Fortify Endurance,Damage Personality,Reflect Spell
+|0008529B
+|
+|Clannfear Claws
+|2
+|50
+|Clannfear (Oblivion)|Clannfear
+|Cure Disease,Resist Disease,Paralyze,Damage Health
+|0003366A
+|
+|Clouded Funnel Cap
+|0.1
+|1
+|Clouded Funnel Cap
+|Restore Intelligence,Fortify Intelligence,Damage Endurance,Damage Magicka
+|00084472
+|
+|Columbine Root Pulp
+|0.1
+|1
+|Columbine
+|Restore Personality,Resist Frost,Fortify Magicka,Chameleon
+|000A7925
+|
+|Congealed Putrescence 
+|0.1
+|1
+|
+|Damage Health,Fire Damage,Restore Strength,Restore Magicka
+|000402E9
+|
+|Corn (Oblivion)|Corn
+|0.2
+|1
+|Corn Stalk
+|Restore Fatigue,Restore Intelligence,Damage Agility,Lightning Shield
+|0003366B
+|
+|Crab Meat (Oblivion)|Crab Meat
+|1
+|1
+|Mudcrab (Oblivion)|Mud Crab
+|Restore Endurance,Resist Shock,Damage Fatigue,Fire Shield
+|0003366C
+|
+|Daedra Heart (Oblivion)|Daedra Heart
+|2
+|25
+|Daedra
+|Restore Health,Shock Shield,Damage Magicka,Silence
+|0001EC8F
+|
+|Daedra Silk
+|0.5
+|75
+|Spider Daedra (Oblivion)|Spider Daedra
+|Burden,Night-Eye,Chameleon,Damage Endurance
+|00033670
+|
+|Daedra Venin
+|0.2
+|75
+|Spider Daedra (Oblivion)|Spider Daedra
+|Paralyze,Restore Fatigue,Damage Health,Reflect Damage
+|00033671
+|
+|Daedroth Teeth
+|0.5
+|65
+|Daedroth (Oblivion)|Daedroth
+|Night-Eye,Frost Shield,Burden,Light
+|00033672
+|
+|Deformed Swamp Tentacle 
+|0.2
+|9
+|Deformed Swamp Tentacles
+|Restore Fatigue
+|00043410,00043432
+|
+|Dog Food 
+|2
+|2
+|Ushnargra Shadborgob's House
+|Damage Fatigue,Damage Magicka,Dispel,Fortify Health
+|00071FC8
+|
+|Dragon's Tongue (Oblivion)|Dragon's Tongue
+|0.1
+|5
+|Dragon's Tongue Plant
+|Resist Fire,Damage Health,Restore Health,Fire Shield
+|00025039
+|
+|Dreugh Wax (Oblivion)|Dreugh Wax
+|1
+|70
+|Land Dreugh (Oblivion)|Land Dreugh
+|Damage Fatigue,Resist Poison,Water Breathing,Damage Health
+|00033673
+|
+|Dryad Saddle Polypore Cap
+|0.1
+|10
+|Dryad's Saddel Polypore
+|Restore Luck,Resist Frost,Damage Speed,Frost Damage
+|0008529D
+|
+|Ectoplasm (Oblivion)|Ectoplasm
+|0.2
+|20
+|Ghost (Oblivion)|Ghost, Wraith (Oblivion)|Wraith
+|Shock Damage,Dispel,Fortify Magicka,Damage Health
+|0001EBFE
+|
+|Elf Cup Cap
+|0.1
+|5
+|Elf Cup
+|Damage Willpower,Cure Disease,Fortify Strength,Damage Intelligence
+|0008529E
+|
+|Elytra Ichor 
+|0.1
+|3
+|Elytra
+|Burden,Chameleon,Restore Magicka,Silence
+|00044E5D
+|
+|Emetic Russula Cap
+|0.1
+|4
+|Emetic Russula
+|Restore Agility,Shield,Damage Personality,Damage Endurance
+|0008529F
+|
+|Felldew (Shivering Isles)|Felldew 
+|0.1
+|25
+|Elytra with a green glow, Dunroot Burrow
+|Felldew Effect
+|00013186
+|
+|Fennel Seeds
+|0.1
+|5
+|Fennel
+|Restore Fatigue,Damage Intelligence,Damage Magicka,Paralyze
+|000A7926
+|
+|Fire Salts (Oblivion)|Fire Salts
+|0.1
+|30
+|Flame Atronach (Oblivion)|Flame Atronach
+|Fire Damage,Resist Frost,Restore Magicka,Fire Shield
+|00033675
+|
+|Flame Stalk 
+|0.1
+|1
+|Zoe Malene's House, Dire Warren
+|Fire Damage,Frost Shield,Invisibility,Restore Health
+|0001B6AE,00097613
+|
+|Flax Seeds
+|0.1
+|1
+|Flax
+|Restore Magicka,Feather,Shield,Damage Health
+|000A7927
+|
+|Flour (Oblivion)|Flour
+|0.2
+|1
+|Buildings, homes
+|Restore Fatigue,Damage Personality,Fortify Fatigue,Reflect Damage
+|00033674
+|
+|Fly Amanita Cap
+|0.1
+|1
+|Fly Amanita, Imperial City
+|Restore Agility,Burden,Restore Health,Lightning Damage
+|00084471
+|
+|Foxglove Nectar
+|0.1
+|1
+|Foxglove
+|Resist Poison,Resist Paralysis,Restore Luck,Resist Disease
+|00033687
+|
+|Frost Salts (Oblivion)|Frost Salts
+|0.1
+|60
+|Frost Atronach (Oblivion)|Frost Atronach
+|Frost Damage,Resist Fire,Silence,Frost Shield
+|00022E5B
+|
+|Fungus Stalk 
+|0.1
+|1
+|Fungus Stalk Cluster
+|Fortify Health,Restore Strength,Restore Magicka,Water Walking
+|00019529
+|
+|Garlic (Oblivion)|Garlic
+|0
+|1
+|Garlic Cluster
+|Resist Disease,Damage Agility,Frost Shield,Fortify Strength
+|00033677
+|
+|Ginkgo Leaf
+|0.1
+|1
+|Jakben Imbel's House
+|Restore Speed,Fortify Magicka,Damage Luck,Shock Damage
+|00033678
+|
+|Ginseng (Oblivion)|Ginseng
+|0.1
+|2
+|Ginseng Plant
+|Damage Luck,Cure Poison,Burden,Fortify Magicka
+|00033679
+|
+|Glow Dust (Oblivion)|Glow Dust
+|0.1
+|23
+|Will-o-the-Wisp (Oblivion)|Will-o-the-Wisp
+|Restore Speed,Light,Reflect Spell,Damage Health
+|0001EBE8
+|
+|Gnarl Bark 
+|0.1
+|1
+|Gnarl
+|Damage Health,Fire Shield,Restore Endurance,Shield
+|00044E5E
+|
+|Grapes
+|0.1
+|2
+|Grape Vine
+|Restore Fatigue,Water Walking,Dispel,Damage Health
+|0003367B
+|
+|Green Stain Cup Cap
+|0.1
+|1
+|Green Stain Cup
+|Restore Fatigue,Damage Speed,Reflect Damage,Damage Health
+|0008446A
+|
+|Green Stain Shelf Cap
+|0.1
+|10
+|Green Stain Shelf
+|Restore Luck,Fortify Luck,Damage Fatigue,Restore Health
+|0008529A
+|
+|Greenmote 
+|0.5
+|0
+|Greenmote Silo
+|Greenmote Rapture
+|0005589A
+|
+|Grummite Eggs 
+|0.5
+|1
+|Grummite Egg Sac
+|Chameleon,Damage Magicka,Dispel,Silence
+|0001AE82
+|
+|Ham
+|1
+|1
+|Some buildings, homes
+|Restore Fatigue,Restore Health,Damage Magicka,Damage Luck
+|0003367C
+|
+|Harrada|Harrada Root
+|0.1
+|2
+|Harrada
+|Damage Health,Damage Magicka,Silence,Paralyze
+|0003367D
+|
+|Heart of Order 
+|1
+|20
+|Howling Halls
+|Jyggalag's Favor
+|0004A863
+|
+|Hound Tooth 
+|0.1
+|1
+|Skeletal Hound
+|Burden,Cure Poison,Detect Life,Invisibility
+|00044E62
+|
+|Human Heart (heavy variant)
+|5
+|40
+|Fort Farragut
+|Restore Health,Shock Shield,Damage Magicka,Silence
+|00071F36
+|
+|Human Heart (Oblivion)|Human Heart (light variant)
+|2
+|25
+|Leyawiin Mages Guild,Claudius Arcadia's Basement
+|Restore Health,Shock Shield,Damage Magicka,Silence
+|000CD51C
+|
+|Human Skin
+|1
+|5
+|Leyawiin Mages Guild,Claudius Arcadia's Basement
+|Damage Magicka,Resist Shock,Reflect Damage,Damage Health
+|00071F35
+|
+|Hunger Tongue 
+|0.1
+|4
+|Hunger
+|Cure Disease,Cure Poison,Fire Damage,Fortify Magicka
+|00044E60
+|
+|Hydnum Azure Giant Spore 
+|0.5
+|1
+|Hydnum Azure
+|Detect Life,Fortify Health,Frost Shield,Restore Endurance
+|0003BAD3
+|
+|Imp Fluid
+|0
+|6
+|Imp (Oblivion)|Imp
+|Damage Health
+|000549BE
+|
+|Imp Gall
+|0.2
+|15
+|Imp
+|Fortify Personality,Cure Paralysis,Damage Health,Fire Damage
+|0002EE72
+|
+|Ironwood Nut
+|0.1
+|1
+|Buildings, houses
+|Restore Intelligence,Resist Fire,Damage Fatigue,Fortify Health
+|0003367E
+|
+|Jumbo Potato
+|0
+|1
+|The Potato Snatcher
+|Restore Fatigue,Shield,Burden,Frost Shield
+|00177A2A
+|
+|Lady's Mantle Leaves
+|0.1
+|5
+|Lady's Mantle
+|Restore Health,Damage Endurance,Night-Eye,Feather
+|000A7928
+|
+|Lady's Smock Leaves
+|0.1
+|5
+|Lady's Smock
+|Restore Intelligence,Resist Fire,Damage Fatigue,Fortify Health
+|000A7929
+|
+|Lavender Sprig
+|0.1
+|1
+|Lavender
+|Restore Personality,Fortify Willpower,Restore Health,Damage Luck
+|000A792A
+|
+|Leek (Oblivion)|Leek
+|0.1
+|3
+|Leek Plant, buildings, homes
+|Restore Fatigue,Fortify Agility,Damage Personality,Damage Strength
+|00033680
+|
+|Letifer Orca Digestive Slime 
+|0.1
+|1
+|Pitcher Plant
+|Damage Fatigue,Damage Health,Damage Magicka,Restore Fatigue
+|0003E632
+|
+|Lettuce
+|0.5
+|1
+|Lettuce Plant, buildings, homes
+|Restore Fatigue,Restore Luck,Fire Shield,Damage Personality
+|00033681
+|
+|Lichor
+|1
+|3
+|Mana Bloom
+|Restore Magicka
+|0007049E
+|
+|Mandrake Root
+|0.1
+|1
+|Mandrake
+|Cure Disease,Resist Poison,Damage Agility,Fortify Willpower
+|00033683
+|
+|Milk Thistle Seeds
+|0.1
+|1
+|Milk Thistle
+|Light,Frost Damage,Cure Paralysis,Paralyze
+|000A792C
+|
+|Minotaur Horn
+|5
+|55
+|Minotaur (Oblivion)|Minotaur
+|Restore Willpower,Burden,Fortify Endurance,Resist Paralysis
+|00033568
+|
+|Monkshood Root Pulp
+|0.1
+|1
+|Monkshood
+|Restore Strength,Damage Intelligence,Fortify Endurance,Burden
+|000A792E
+|
+|Morning Glory Root Pulp
+|0.1
+|1
+|Morning Glory
+|Burden,Damage Willpower,Frost Shield,Damage Magicka
+|000A792F
+|
+|Mort Flesh
+|0.2
+|10
+|Zombie (Oblivion)|Zombie
+|Damage Fatigue,Damage Luck,Fortify Health,Silence
+|00033685
+|
+|Motherwort Sprig
+|0.1
+|1
+|Motherwort
+|Resist Poison,Damage Fatigue,Silence,Invisibility
+|000A7930
+|
+|Mugwort Seeds
+|0.1
+|1
+|Mages Guild (Oblivion)|Mages Guild, buildings, and houses
+|Restore Health
+|000A7931
+|
+|Mute Screaming Maw 
+|0.1
+|1
+|
+|Chameleon,Detect Life,Restore Willpower,Restore Health
+|00081E9A,00081EA5
+|
+|Mutton
+|2
+|2
+|Sheep (Oblivion)|Sheep
+|Fortify Health,Damage Fatigue,Dispel,Damage Magicka
+|00033686
+|
+|Nightshade (Oblivion)|Nightshade
+|0.1
+|1
+|Nightshade Plant
+|Damage Health,Burden,Damage Luck,Fortify Magicka
+|00033688
+|
+|Nirnroot (Oblivion)|Nirnroot
+|0.2
+|0
+|Nirnroot Plant (see the quest "Seeking Your Roots")
+|Drain Health,Drain Fatigue,Drain Agility,Drain Speed
+|0004E940
+|
+|Ogre's Teeth
+|3
+|75
+|Ogre (Oblivion)|Ogre
+|Damage Intelligence,Resist Paralysis,Shock Damage,Fortify Strength
+|00033689
+|
+|Onion (Oblivion)|Onion
+|0.2
+|1
+|Buildings, homes
+|Restore Fatigue,Water Breathing,Detect Life,Damage Health
+|0003368A
+|
+|Orange
+|0.2
+|2
+|Buildings, houses
+|Restore Fatigue,Detect Life,Burden,Shield
+|0007588E
+|
+|Painted Troll Fat
+|2
+|75
+|Painted Troll (Oblivion)|Painted Troll
+|Fortify Magicka,Restore Health,Fortify Health,Restore Magicka
+|0009209E
+|
+|Pear
+|0.2
+|1
+|Buildings, homes
+|Restore Fatigue,Damage Speed,Fortify Speed,Damage Health
+|0003368B
+|
+|Peony Seeds
+|0.1
+|1
+|Peony
+|Restore Strength,Damage Health,Damage Speed,Restore Fatigue
+|000A7932
+|
+|Pinarus' Prize Minotaur Horn
+|5
+|55
+|Gweden Farm
+|Restore Willpower,Burden,Restore Endurance,Resist Paralysis
+|000CBD45
+|
+|Poisoned Apple
+|0
+|300
+|Bravil Wizard's Tower (inside lair/grotto)
+|Deadly Poison (bypasses poison resistance)
+|000918F0
+|
+|Potato (Oblivion)|Potato
+|0.2
+|1
+|Potato Plant
+|Restore Fatigue,Shield,Burden,Frost Shield
+|0003368C
+|
+|Primrose Leaves
+|0.1
+|3
+|Primrose
+|Restore Willpower,Restore Personality,Fortify Luck,Damage Strength
+|000A7934
+|
+|Pumpkin (Oblivion Ingredient)|Pumpkin
+|5
+|2
+|Pumpkin Vine
+|Restore Fatigue,Damage Agility,Damage Personality,Detect Life
+|0003368D
+|
+|Purgeblood Salts 
+|0.4
+|0
+|Lair Vile Salt Rock
+|Damage Health,Dispel,Fortify Magicka,Restore Magicka
+|XX001372
+|
+|Radish (Oblivion)|Radish
+|0.1
+|1
+|Radish Plant
+|Restore Fatigue,Damage Endurance,Chameleon,Burden
+|0003368E
+|
+|Rat Meat (Oblivion)|Rat Meat
+|0.5
+|1
+|Rat (Oblivion)|Rat
+|Damage Fatigue,Detect Life,Damage Magicka,Silence
+|0003368F
+|
+|Rat Poison
+|1
+|0
+|
+|Rat Poison
+|00026B08
+|
+|Red Kelp Gas Bladder 
+|0.1
+|1
+|Red Kelp
+|Cure Disease,Fortify Magicka,Restore Speed,Water Breathing
+|0001A16E
+|
+|Redwort Flower
+|0.1
+|4
+|Domica Redwort
+|Resist Frost,Cure Poison,Damage Health,Invisibility
+|0002503A
+|
+|Refined Frost Salts
+|0.1
+|40
+|Part of quest "Tears of the Savior"
+|Frost Damage,Frost Shield,Resist Fire,Silence
+|00022F1A
+|
+|Rice (Oblivion)|Rice
+|0.2
+|1
+|Rice Plant
+|Restore Fatigue,Silence,Shock Shield,Damage Agility
+|00033690
+|
+|Root Pulp
+|0.1
+|1
+|Brotch Calus' House,West Weald Inn's cellar,The Main Ingredient, basement (2)
+|Cure Disease,Damage Willpower,Fortify Strength,Damage Intelligence
+|00033691
+|
+|Rot Scale 
+|0.1
+|1
+|Rot Scale
+|Burden,Damage Health,Paralyze,Silence
+|0001B6B2
+|
+|Rumare Slaughterfish Scales
+|0
+|2
+|Rumare Slaughterfish for the Quests (Oblivion)|quest Go Fish
+|Damage Willpower,Water Breathing,Damage Health,Water Walking
+|00185FE2
+|
+|S'jirra's Famous Potato Bread
+|0.5
+|30
+|S'jirra at the Faregyl Inn
+|Damage Agility,Damage Strength,Detect Life,Restore Health
+|00177A29
+|
+|Sacred Lotus Seeds
+|0.1
+|1
+|Sacred Lotus
+|Resist Frost,Damage Health,Feather,Dispel
+|000A7936
+|
+|Scales (Oblivion)|Scales
+|0.1
+|5
+|Slaughterfish (Oblivion)|Slaughterfish,Bitterfish Goblin
+|Damage Willpower,Water Breathing,Damage Health,Water Walking
+|00033692
+|
+|Scalon Fin 
+|0.1
+|1
+|Scalon
+|Burden,Damage Health,Shock Damage,Water Breathing
+|00044E5F
+|
+|Scamp Skin (Oblivion)|Scamp Skin
+|1
+|10
+|Scamp (Oblivion)|Scamp,Fleshy Pod
+|Damage Magicka,Resist Shock,Reflect Damage,Damage Health
+|00033693
+|
+|Screaming Maw 
+|0.1
+|1
+|
+|Chameleon,Detect Life,Restore Willpower,Restore Health
+|0001B6B0
+|
+|Shepherd's Pie
+|1
+|0
+|Derelict Mine by the Goblin (Oblivion)|Goblin Chef,Hrota Cave (Oblivion)|Hrota Cave,Eyja in Rosethorn Hall after completing the "Helping Hands (Oblivion)|Helping Hands" quest
+|Cure Disease,Shield,Fortify Agility,Dispel
+|000B97E9
+|
+|Smoked Baliwog Leg (Oblivion)|Smoked Baliwog Leg 
+|1
+|2
+|
+|Damage Fatigue,Feather,Restore Fatigue,Restore Health
+|0007D048
+|
+|Somnalius Frond
+|0.1
+|3
+|Somnalius Plant
+|Restore Speed,Damage Endurance,Fortify Health,Feather
+|00033696
+|
+|Spiddal Stick
+|0.1
+|2
+|Oblivion (Realm)|Oblivion
+|Damage Magicka,Damage Health,Fire Damage,Restore Fatigue
+|00033697
+|
+|St. Jahn's Wort Nectar
+|0.1
+|5
+|St. Jahn's Wort
+|Resist Shock,Damage Health,Cure Poison,Chameleon
+|000A7939
+|
+|Steel-Blue Entoloma Cap
+|0.1
+|1
+|Steel-Blue Entoloma
+|Restore Magicka,Fire Damage,Resist Frost,Burden
+|0008446B
+|
+|Stinkhorn Cap
+|0.1
+|3
+|Stinkhorn
+|Damage Health,Restore Magicka,Water Walking,Invisibility
+|0008446D
+|
+|Strawberry
+|0.1
+|1
+|Strawberry Bush
+|Restore Fatigue,Cure Poison,Damage Health,Reflect Damage
+|00033699
+|
+|Summer Bolete Cap
+|0.1
+|1
+|Summer Bolete
+|Restore Agility,Shield,Damage Personality,Damage Endurance
+|00084470
+|
+|Swamp Tentacle 
+|0.2
+|2
+|Swamp Tentacle, Brithaur's House
+|Fortify Health,Restore Personality,Water Breathing,Water Walking
+|000413DC
+|
+|Sweetcake
+|0.2
+|1
+|Usually elegant buildings, homes
+|Restore Fatigue,Feather,Restore Health,Burden
+|0003369A
+|
+|Sweetroll (Oblivion)|Sweetroll
+|0.2
+|1
+|Buildings, homes
+|Restore Fatigue,Resist Disease,Damage Personality,Fortify Health
+|0003369B
+|
+|Taproot (Oblivion)|Taproot
+|0.3
+|1
+|Spriggan (Oblivion)|Spriggan
+|Restore Luck,Damage Endurance,Resist Poison,Shock Shield
+|000AF06E
+|
+|Thorn Hook 
+|0.1
+|1
+|
+|Damage Luck,Damage Health,Fortify Health,Restore Magicka
+|0001B6B1
+|
+|Tiger Lily Nectar
+|0.1
+|3
+|Tiger Lily,Lily of the Valley
+|Restore Endurance,Damage Strength,Water Walking,Damage Willpower
+|000A792B
+|
+|Tinder Polypore Cap
+|0.1
+|1
+|Tinder Polypore
+|Restore Willpower,Resist Disease,Invisibility,Damage Magicka
+|0008446F
+|
+|Tobacco
+|0.1
+|5
+|Tobacco Plant
+|Restore Fatigue,Resist Paralysis,Damage Magicka,Dispel
+|0003369D
+|
+|Tomato (Oblivion)|Tomato
+|0.2
+|2
+|Tomato Plant
+|Restore Fatigue,Detect Life,Burden,Shield
+|0003369E
+|
+|Troll Fat (Oblivion)|Troll Fat
+|2
+|25
+|Troll (Oblivion)|Troll
+|Damage Agility,Fortify Personality,Damage Willpower,Damage Health
+|00026B5C
+|
+|Unicorn Horn (Oblivion)|Unicorn Horn
+|1.5
+|0
+|Unicorn (Oblivion)|Unicorn
+|Fortify Health
+|0001EC5B
+|
+|Unrefined Greenmote 
+|0.5
+|1
+|Saplings, Greenmote Urn
+|Drain Intelligence,Drain Fatigue,Drain Health,Drain Magicka
+|00077AD9
+|
+|Vampire Dust (Oblivion)|Vampire Dust
+|0.2
+|50
+|Vampire (Oblivion)|Vampire
+|Silence,Resist Disease,Frost Damage,Invisibility
+|00009182
+|
+|Venison (Oblivion)|Venison
+|2
+|1
+|Deer (Oblivion)|Deer
+|Restore Health,Feather,Damage Health,Chameleon
+|0002229B
+|
+|Viper's Bugloss Leaves
+|0.1
+|1
+|Viper's Bugloss
+|Resist Paralysis,Night-Eye,Burden,Cure Paralysis
+|000A793B
+|
+|Void Essence 
+|0.2
+|50
+|Flesh Atronach
+|Fortify Strength,Fortify Endurance,Fortify Health,Restore Health
+|00044E5C
+|
+|Void Salts (Oblivion)|Void Salts
+|0.4
+|30
+|Storm Atronach (Oblivion)|Storm Atronach
+|Restore Magicka,Damage Health,Fortify Magicka,Dispel
+|0003369F
+|
+|Watcher's Eye 
+|0.2
+|1
+|
+|Fortify Magicka,Light,Restore Intelligence,Reflect Spell
+|0001B6AF
+|
+|Water Hyacinth Nectar
+|0.1
+|2
+|Water Hyacinth
+|Damage Luck,Damage Fatigue,Restore Magicka,Fortify Magicka
+|000A793C
+|
+|Water Root Pod Pit 
+|1
+|3
+|Water Root Pod
+|Fire Shield,Restore Health,Resist Fire,Water Breathing
+|00040CAF
+|
+|Watermelon
+|5
+|2
+|Watermelon Vine
+|Restore Fatigue,Light,Burden,Damage Health
+|000336A0
+|
+|Wheat Grain
+|0.2
+|1
+|Wheat Stalk
+|Restore Fatigue,Damage Magicka,Fortify Health,Damage Personality
+|000336A1
+|
+|White Seed Pod
+|0.1
+|5
+|Goldenrod
+|Restore Strength,Water Breathing,Silence,Light
+|000336A2
+|
+|Wisp Core 
+|0.1
+|2
+|Root Stalk
+|Burden,Chameleon,Light,Restore Intelligence
+|0007D04E
+|
+|Wisp Stalk Caps
+|0.1
+|1
+|Wisp Stalks
+|Damage Health,Damage Willpower,Damage Intelligence,Fortify Speed
+|0006251F
+|
+|Withering Moon 
+|0.1
+|1
+|
+|Cure Disease,Restore Magicka,Reflect Spell,Shield
+|0001B6B3
+|
+|Worm's Head Cap 
+|0.2
+|1
+|Worm's Head
+|Fortify Fatigue,Night-Eye,Paralyze,Restore Luck
+|0001B5AA
+|
+|Wormwood Leaves
+|0.1
+|2
+|Wormwood
+|Fortify Fatigue,Invisibility,Damage Health,Damage Magicka
+|000A793E
