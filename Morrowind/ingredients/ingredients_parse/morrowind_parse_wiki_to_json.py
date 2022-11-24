@@ -42,6 +42,8 @@ import sys
 
 from pprint import pprint
 
+NUMBER_OF_WIKI_LINES = 9
+
 # just uniform one from position zero, other pipes are handled later
 def remove_pipe(value: str) -> str:
     if value is not None and "|" in value:
@@ -75,7 +77,7 @@ def parse(infile: str, verbose: bool = False) -> dict:
     with open(infile, mode='r') as inf:
         lines = inf.read().splitlines()
         # an entry has exactly 9 properties, if the list is 0 < len < 9 at the end, some entry(ies) are incorrectly formatted
-        while len(lines) >= 9:
+        while len(lines) >= NUMBER_OF_WIKI_LINES:
             # skip the blank at line[0], not needed
             name = remove_wiki_link(remove_pipe(lines[1]))
             weight = float(remove_pipe(lines[2]))
@@ -98,7 +100,7 @@ def parse(infile: str, verbose: bool = False) -> dict:
             if verbose:
                 print(f"entry: {entry} rv so far: {rv}\n")
             # move down to the next entry
-            lines = lines[9:]
+            lines = lines[NUMBER_OF_WIKI_LINES:]
         return rv
 
 def write_file(parsed: dict, outfile: str) -> bool:
