@@ -115,6 +115,7 @@ if __name__ == "__main__":
     
     if not args.infile or not args.outfile:
         parser.print_usage()
+        sys.exit(1)
     
     parsed = parse(args.infile, args.verbose)
     if args.verbose:
