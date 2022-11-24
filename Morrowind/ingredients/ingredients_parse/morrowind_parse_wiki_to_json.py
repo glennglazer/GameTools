@@ -23,17 +23,14 @@ for better readability, though the parsing will work either way
 
 Output JSON format:
 
-{"Alit Hide": 
-    { "weight": 1.0,
-      "value": 5,
-      "effects": 
-       {"first": "Drain Intelligence",
-        "second": "Resist Poison",
-        "third": "Telekinesis",
-        "fourth": "Detect Animal"
-       },
-       "ID": "ingred_alit_hide_01"
-    }
+{"name" : Alit Hide", 
+ "weight": 1.0,
+ "value": 5,
+ "first": "Drain Intelligence",
+ "second": "Resist Poison",
+ "third": "Telekinesis",
+ "fourth": "Detect Animal",
+ "ID": "ingred_alit_hide_01"
 }
 
 """
@@ -71,7 +68,7 @@ def dash_to_null(entry: str) -> str:
 # this assumes a well-formed file per expectations above
 # if the entries seem messed up, check the file format
 def parse(infile: str, verbose: bool = False) -> dict:
-    rv = {}
+    rv = []
     if not op.exists(infile):
         return None
     
@@ -87,17 +84,22 @@ def parse(infile: str, verbose: bool = False) -> dict:
             second = remove_wiki_link(remove_pipe(dash_to_null(lines[5])))
             third = remove_wiki_link(remove_pipe(dash_to_null(lines[6])))
             fourth = remove_wiki_link(remove_pipe(dash_to_null(lines[7])))
-            ID = remove_pipe(lines[8])
-            entry = {name: {'weight': weight, 'value': value,
-                            'effects': {'first': first, 'second': second, 'third': third, 'fourth': fourth,},
-                            'ID': ID,},}
-            rv.update(entry)
+            ID = remove_pipe(lines[8]).rstrip()
+            
+            entry = {'name': name, 'weight': weight, 'value': value,
+                     'first': first, 'second': second, 'third': third, 'fourth': fourth,
+                     'ID': ID}
+            
+            for effect in ('name', 'first', 'second', 'third', 'fourth'):
+                if entry[effect] is not None:
+                    entry[effect] = entry[effect].rstrip()
+
+            rv.append(entry)
             if verbose:
                 print(f"entry: {entry} rv so far: {rv}\n")
             # move down to the next entry
             lines = lines[9:]
         return rv
-        
 
 def write_file(parsed: dict, outfile: str) -> bool:
     # if the file exists, overwrite it
