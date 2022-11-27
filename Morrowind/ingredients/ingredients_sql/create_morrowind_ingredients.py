@@ -54,7 +54,3 @@ if __name__ == "__main__":
     if exists is None:
         result = cur.execute(f"CREATE UNIQUE INDEX m_i_name ON {TABLE_NAME} (name)")
         conn.commit()
-    
-    
-    
-    

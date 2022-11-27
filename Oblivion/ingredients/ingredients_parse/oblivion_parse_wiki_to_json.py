@@ -21,14 +21,14 @@ for better readability, though the parsing will work either way
 
 Output JSON format:
 
-{"name" : Alit Hide", 
- "weight": 1.0,
- "value": 5,
- "first": "Drain Intelligence",
+{"name" : Alkanet Flower", 
+ "weight": 0.1,
+ "value": 1,
+ "first": "Restore Intelligence",
  "second": "Resist Poison",
- "third": "Telekinesis",
- "fourth": "Detect Animal",
- "ID": "ingred_alit_hide_01"
+ "third": "Light",
+ "fourth": "Damage Fatigue",
+ "ID": "0003365C"
 }
 
 """
