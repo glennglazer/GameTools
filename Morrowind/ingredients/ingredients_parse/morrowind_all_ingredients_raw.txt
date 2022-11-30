@@ -785,7 +785,7 @@
 |Bear Pelt (Bloodmoon)|Bear Pelt
 |1.0
 |2
-|Drain (Morrowind)|Drain Fatigue
+|Drain Fatigue
 |Fortify Strength (Morrowind)|Fortify Strength
 |Resist Common Disease
 |Night-Eye (Morrowind)|Night-Eye
@@ -794,10 +794,10 @@
 |Blood of an Innocent
 |0.1
 |25
-|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|Drain Speed
 |Light (Morrowind)|Light
 |Cure Common Disease
-|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Drain Magicka
 |ingred_blood_innocent_unique
 |
 |Bristleback Leather
@@ -814,7 +814,7 @@
 |15
 |Resist Frost (Morrowind)|Resist Frost
 |Night-Eye (Morrowind)|Night-Eye
-|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Drain Magicka
 |Fortify Strength (Morrowind)|Fortify Strength
 |ingred_eyeball_unique
 |
@@ -823,7 +823,7 @@
 |15
 |Resist Frost (Morrowind)|Resist Frost
 |Night-Eye (Morrowind)|Night-Eye
-|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Drain Magicka
 |Fortify Strength (Morrowind)|Fortify Strength
 |ingred_eyeball
 |
@@ -833,43 +833,43 @@
 |Resist Frost (Morrowind)|Resist Frost
 |Drain Health (Morrowind)|Drain Health
 |Fortify Fatigue (Morrowind)|Fortify Fatigue
-|Drain (Morrowind)|Drain Luck (Morrowind)|Luck
+|Drain Luck
 |ingred_gravetar_01
 |
 |Heart of an Innocent
 |1.0
 |10
-|Restore Magicka (Morrowind)|Magicka
+|Restore Magicka
 |Fortify Endurance (Morrowind)|Fortify Endurance
-|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Drain Agility
 |Night-Eye (Morrowind)|Night-Eye
 |ingred_innocent_heart
 |
 |Heart of the Udyrfrykte
 |5.0
 |300
-|Restore Magicka (Morrowind)|Magicka
+|Restore Magicka
 |Fortify Endurance (Morrowind)|Fortify Endurance
-|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Drain Agility
 |Night-Eye (Morrowind)|Night-Eye
 |ingred_udyrfrykte_heart
 |
 |Heart of the Wolf
 |1.0
 |100
-|Restore Magicka (Morrowind)|Magicka
+|Restore Magicka
 |Fortify Endurance (Morrowind)|Fortify Endurance
-|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
+|Drain Agility
 |Night-Eye (Morrowind)|Night-Eye
 |ingred_wolf_heart
 |
 |Heartwood
 |1.0
 |200
-|Restore Magicka (Morrowind)|Magicka
+|Restore Magicka
 |Fortify Agility (Morrowind)|Fortify Agility
-|Drain (Morrowind)|Drain Strength (Morrowind)|Strength
-|Weakness to Fire (Morrowind)|Weakness to Fire Damage (Morrowind)|Fire
+|Drain Strength
+|Weakness to Fire
 |ingred_heartwood_01
 |
 |Holly Berries
@@ -878,13 +878,13 @@
 |Resist Frost (Morrowind)|Resist Frost
 |Resist Poison (Morrowind)|Resist Poison
 |Frost Damage (Morrowind)|Frost Damage
-|Weakness to Fire (Morrowind)|Weakness to Fire Damage (Morrowind)|Fire
+|Weakness to Fire
 |ingred_holly_01
 |
 |Horker Tusk (Bloodmoon)|Horker Tusk
 |1.0
 |5
-|Drain (Morrowind)|Drain Alteration (Morrowind)|Alteration
+|Drain Alteration
 |Fortify Intelligence (Morrowind)|Fortify Intelligence
 |Fortify Maximum Magicka
 |Detect Animal
@@ -895,8 +895,8 @@
 |50
 |Fortify Magicka (Morrowind)|Fortify Magicka
 |Restore Health (Morrowind)|Restore Health
-|Drain (Morrowind)|Drain Agility (Morrowind)|Agility
-|Drain (Morrowind)|Drain Endurance (Morrowind)|Endurance
+|Drain Agility
+|Drain Endurance
 |ingred_emerald_pinetear_01
 |
 |Raw Stalhrim
@@ -911,16 +911,16 @@
 |Ripened Belladonna Berries
 |0.1
 |5
-|Resist (Morrowind)|Resist Magicka (Morrowind)|Magicka
-|Restore Magicka (Morrowind)|Magicka
+|Resist Magicka
+|Restore Magicka
 |Fortify Magicka (Morrowind)|Fortify Magicka
-|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Drain Magicka
 |ingred_belladonna_01
 |
 |Snow Bear Pelt (Bloodmoon)|Snow Bear Pelt
 |1.0
 |2
-|Drain (Morrowind)|Drain Fatigue
+|Drain Fatigue
 |Fortify Strength (Morrowind)|Fortify Strength
 |Resist Common Disease
 |Night-Eye (Morrowind)|Night-Eye
@@ -929,7 +929,7 @@
 |Snow Wolf Pelt
 |1.0
 |2
-|Drain (Morrowind)|Drain Fatigue
+|Drain Fatigue
 |Fortify Strength (Morrowind)|Fortify Strength
 |Resist Common Disease
 |Night-Eye (Morrowind)|Night-Eye
@@ -938,16 +938,16 @@
 |Unripened Belladonna Berries
 |0.1
 |5
-|Resist (Morrowind)|Resist Magicka (Morrowind)|Magicka
-|Restore Magicka (Morrowind)|Magicka
+|Resist Magicka
+|Restore Magicka
 |Fortify Magicka (Morrowind)|Fortify Magicka
-|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Drain Magicka
 |ingred_belladonna_02
 |
 |Wolf Pelt (Bloodmoon)|Wolf Pelt
 |1.0
 |2
-|Drain (Morrowind)|Drain Fatigue
+|Drain Fatigue
 |Fortify Strength (Morrowind)|Fortify Strength
 |Resist Common Disease
 |Night-Eye (Morrowind)|Night-Eye
@@ -958,15 +958,15 @@
 |5
 |Restore Intelligence (Morrowind)|Intelligence
 |Invisibility (Morrowind)|Invisibility
-|Drain (Morrowind)|Drain Endurance (Morrowind)|Endurance
-|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
+|Drain Endurance
+|Drain Magicka
 |ingred_wolfsbane_01
 |
 |Adamantium Ore
 |50.0
 |300
 |Burden (Morrowind)|Burden
-|Restore Magicka (Morrowind)|Magicka
+|Restore Magicka
 |Poison (Morrowind)|Poison
 |Reflect (Morrowind)|Reflect
 |ingred_adamantium_ore_01
@@ -977,7 +977,7 @@
 |Fortify Agility (Morrowind)|Fortify Agility
 |Fortify Strength (Morrowind)|Fortify Strength
 |Blind (Morrowind)|Blind
-|Damage (Morrowind)|Damage Magicka (Morrowind)|Magicka
+|Damage Magicka
 |ingred_durzog_meat_01
 |
 |Golden Sedge Flowers
@@ -992,7 +992,7 @@
 |Horn Lily Bulb
 |1.0
 |1
-|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
+|Resist Paralysis
 |Drain Health (Morrowind)|Drain Health
 |Restore Strength (Morrowind)|Strength
 |Restore Endurance (Morrowind)|Endurance
@@ -1011,25 +1011,25 @@
 |1.0
 |1
 |Fortify Speed (Morrowind)|Fortify Speed
-|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Damage Health
 |Restore Speed (Morrowind)|Speed
-|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|Drain Speed
 |ingred_meadow_rye_01
 |
 |Nirthfly Stalks
 |1.0
 |1
-|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
+|Damage Health
 |Fortify Speed (Morrowind)|Fortify Speed
 |Restore Speed (Morrowind)|Speed
-|Drain (Morrowind)|Drain Speed (Morrowind)|Speed
+|Drain Speed
 |ingred_nirthfly_stalks_01
 |
 |Noble Sedge Flowers
 |1.0
 |1
-|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
-|Restore Agility (Morrowind)|Agility
+|Damage Health
+|Restore Agility
 |Poison (Morrowind)|Poison
 |Fortify Agility (Morrowind)|Fortify Agility
 |ingred_noble_sedge_01
@@ -1037,9 +1037,9 @@
 |Scrib Cabbage
 |1.0
 |1
-|Drain (Morrowind)|Drain Intelligence (Morrowind)|Intelligence
-|Damage Health (Morrowind)|Damage Health (Morrowind)|Health
-|Restore Agility (Morrowind)|Agility
+|Drain Intelligence
+|Damage Health
+|Restore Agility
 |Fortify Agility (Morrowind)|Fortify Agility
 |ingred_scrib_cabbage_01
 |
@@ -1048,15 +1048,15 @@
 |1
 |Paralyze (Morrowind)|Paralyze
 |Levitate (Morrowind)|Levitate
-|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
-|Restore Health (Morrowind)|Restore Health (Morrowind)|Health
+|Resist Paralysis
+|Restore Health
 |ingred_sweetpulp_01
 |
 |Timsa-Come-By Flowers
 |1.0
 |1
 |Dispel (Morrowind)|Dispel
-|Resist Paralysis (Morrowind)|Resist Paralyze (Morrowind)|Paralysis
-|Drain (Morrowind)|Drain Magicka (Morrowind)|Magicka
-|Restore Endurance (Morrowind)|Endurance
+|Resist Paralysis
+|Drain Magicka
+|Restore Endurance
 |ingred_timsa-come-by_01

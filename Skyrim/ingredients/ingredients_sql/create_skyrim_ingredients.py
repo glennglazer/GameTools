@@ -4,7 +4,7 @@
 File: create_skyrim_ingredients.py
 Author: Glenn Glazer
 
-Utility to create/update database table from JSON"""
+Utility to create/update ingredients database table from JSON"""
 
 import argparse
 import json
@@ -16,7 +16,7 @@ TABLE_NAME = 'skyrim_ingredients'
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("json_file", help="absolute path to file to read JSON data from")
+    parser.add_argument("json_file", help="absolute path to file to read ingredients JSON data from")
     parser.add_argument("db", help="absolute path to sqlite db file")
     parser.add_argument("-v", "--verbose", help="debug output", action="store_true")
     args = parser.parse_args()
