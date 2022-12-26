@@ -1,0 +1,250 @@
+ID,Name,Type,Weight,Value,Enchantment
+amulet_Agustas_unique,Agustas' Amulet,Amulet,1,240,600
+amulet_aundae,Aundae Amulet,Amulet,1,120,600
+amulet_berne,Berne Amulet,Amulet,1,120,600
+amulet_Pop00,Pop's Amulet,Amulet,1,240,150
+amulet_quarra,Quarra Amulet,Amulet,1,120,600
+amulet_skink_unique,Skink's Amulet,Amulet,1,1000,600
+BM_Nordic01_gloveL,Common Left Glove,Left Glove,1,4,20
+BM_Nordic01_gloveR,Common Right Glove,Right Glove,1,4,20
+BM_Nordic01_pants,Common Pants,Pants,3,4,20
+BM_Nordic01_Robe,Common Robe,Robe,3,20,50
+BM_Nordic01_shirt,Common Shirt,Shirt,3,4,20
+BM_Nordic01_shoes,Common Shoes,Shoes,3,2,10
+BM_Nordic02_gloveL,Common Left Glove,Left Glove,1,4,20
+BM_Nordic02_gloveR,Common Right Glove,Right Glove,1,4,20
+BM_Nordic02_pants,Common Pants,Pants,3,4,20
+BM_Nordic02_shirt,Common Shirt,Shirt,3,4,20
+BM_Nordic02_shoes,Common Shoes,Shoes,3,2,10
+BM_ring_hircine,Hircine's Ring,Ring,0.1,6400,1200
+bm_ring_view,BlueDev's Ring of Viewing,Ring,0.1,240,1200
+BM_Wool01_gloveL,Common Left Glove,Left Glove,1,4,10
+BM_Wool01_gloveR,Common Right Glove,Right Glove,1,4,10
+BM_Wool01_pants,Common Pants,Pants,3,4,20
+BM_Wool01_Robe,Common Robe,Robe,3,20,50
+BM_Wool01_shirt,Common Shirt,Shirt,3,4,20
+BM_Wool01_shoes,Common Shoes,Shoes,3,2,10
+BM_Wool02_gloveL,Common Left Glove,Left Glove,1,4,10
+BM_Wool02_gloveR,Common Right Glove,Right Glove,1,4,10
+BM_Wool02_pants,Common Pants,Pants,3,4,20
+BM_Wool02_shirt,Common Shirt,Shirt,3,4,20
+BM_Wool02_shoes,Common Shoes,Shoes,3,2,10
+common_amulet_01,Common Amulet,Amulet,1,2,10
+common_amulet_02,Common Amulet,Amulet,1,2,10
+common_amulet_03,Common Amulet,Amulet,1,2,10
+common_amulet_04,Common Amulet,Amulet,1,2,10
+common_amulet_05,Common Amulet,Amulet,1,2,10
+common_belt_01,Common Belt,Belt,1,2,10
+common_belt_02,Common Belt,Belt,1,2,10
+common_belt_03,Common Belt,Belt,1,2,10
+common_belt_04,Common Belt,Belt,1,2,10
+common_belt_05,Common Belt,Belt,1,2,10
+common_glove_l_balmolagmer,Bal Molagmer Left Glove,Left Glove,1,2,10
+common_glove_l_moragtong,Black Left Glove,Left Glove,1,2,10
+common_glove_left_01,Common Left Glove,Left Glove,1,2,10
+common_glove_r_balmolagmer,Bal Molagmer Right Glove,Right Glove,1,2,10
+common_glove_r_moragtong,Black Right Glove,Right Glove,1,2,10
+common_glove_right_01,Common Right Glove,Right Glove,1,2,10
+common_pants_01,Common Pants,Pants,2,4,20
+common_pants_01_a,Common Pants,Pants,2,4,20
+common_pants_01_e,Common Pants,Pants,2,4,20
+common_pants_01_u,Common Pants,Pants,2,4,20
+common_pants_01_z,Common Pants,Pants,2,4,20
+common_pants_02,Common Pants,Pants,2,4,20
+common_pants_02_hentus,Hentus' Pants,Pants,2,1,20
+common_pants_03,Common Pants,Pants,2,4,20
+common_pants_03_b,Common Pants,Pants,2,4,20
+common_pants_03_c,Common Pants,Pants,2,4,20
+common_pants_04,Common Pants,Pants,2,4,20
+common_pants_04_b,Common Pants,Pants,2,4,20
+common_pants_05,Common Pants,Pants,2,4,20
+common_pants_06,Common Pants,Pants,2,4,20
+common_pants_07,Common Pants,Pants,2,4,20
+common_ring_01,Common Ring,Ring,0.1,2,10
+common_ring_01_arena,Common Ring,Ring,0.1,2,10
+common_ring_01_fg_corp01,Common Ring,Ring,0.1,2,10
+common_ring_01_fg_nchur01,Common Ring,Ring,0.1,2,10
+common_ring_01_fg_nchur02,Common Ring,Ring,0.1,2,10
+common_ring_01_fg_nchur03,Common Ring,Ring,0.1,2,10
+common_ring_01_fg_nchur04,Common Ring,Ring,0.1,2,10
+common_ring_01_haunt_Ken,Common Ring,Ring,0.1,2,10
+common_ring_01_mgbwg,Common Ring,Ring,0.1,2,10
+common_ring_01_mge,Common Ring,Ring,0.1,2,10
+common_ring_01_tt_mountkand,Common Ring,Ring,0.1,2,10
+common_ring_02,Common Ring,Ring,0.1,2,10
+common_ring_03,Common Ring,Ring,0.1,2,10
+common_ring_04,Common Ring,Ring,0.1,2,10
+common_ring_05,Common Ring,Ring,0.1,2,10
+common_ring_05_BM_UNI,Common Ring,Ring,0.1,2,10
+common_ring_danar,Danar's Ring,Ring,0.1,2,10
+common_ring_tsiya,Tsiya's Ring,Ring,0.1,2,10
+common_robe_01,Common Robe,Robe,3,2,10
+common_robe_02,Common Robe,Robe,3,2,10
+common_robe_02_h,Common Robe,Robe,3,2,10
+common_robe_02_hh,Common Robe,Robe,3,2,10
+common_robe_02_r,Common Robe,Robe,3,2,10
+common_robe_02_rr,Common Robe,Robe,3,2,10
+common_robe_02_t,Common Robe,Robe,3,2,10
+common_robe_02_tt,Common Robe,Robe,3,2,10
+common_robe_03,Common Robe,Robe,3,2,10
+common_robe_03_a,Common Robe,Robe,3,2,10
+common_robe_03_b,Common Robe,Robe,3,2,10
+common_robe_04,Common Robe,Robe,3,2,10
+common_robe_05,Common Robe,Robe,3,2,10
+common_robe_05_a,Common Robe,Robe,3,2,10
+common_robe_05_b,Common Robe,Robe,3,2,10
+common_robe_05_c,Common Robe,Robe,3,2,10
+common_robe_EOT,Common Robe,Robe,3,2,10
+common_robe_unique,Glenmoril Witch Robe,Robe,3,2,10
+common_shirt_01,Common Shirt,Shirt,2,4,20
+common_shirt_01_a,Common Shirt,Shirt,2,4,20
+common_shirt_01_e,Common Shirt,Shirt,2,4,20
+common_shirt_01_u,Common Shirt,Shirt,2,4,20
+common_shirt_01_z,Common Shirt,Shirt,2,4,20
+common_shirt_02,Common Shirt,Shirt,2,4,20
+common_shirt_02_h,Common Shirt,Shirt,2,4,20
+common_shirt_02_hh,Common Shirt,Shirt,2,4,20
+common_shirt_02_r,Common Shirt,Shirt,2,4,20
+common_shirt_02_rr,Common Shirt,Shirt,2,4,20
+common_shirt_02_t,Common Shirt,Shirt,2,4,20
+common_shirt_02_tt,Common Shirt,Shirt,2,4,20
+common_shirt_03,Common Shirt,Shirt,2,4,20
+common_shirt_03_b,Common Shirt,Shirt,2,4,20
+common_shirt_03_c,Common Shirt,Shirt,2,4,20
+common_shirt_04,Common Shirt,Shirt,2,4,20
+common_shirt_04_a,Common Shirt,Shirt,2,4,20
+common_shirt_04_b,Common Shirt,Shirt,2,4,20
+common_shirt_04_c,Common Shirt,Shirt,2,4,20
+common_shirt_05,Common Shirt,Shirt,2,4,20
+common_shirt_06,Common Shirt,Shirt,2,4,20
+common_shirt_07,Common Shirt,Shirt,2,4,20
+common_shirt_gondolier,Gondolier Shirt,Shirt,6,6,100
+common_shoes_01,Common Shoes,Shoes,3,2,10
+common_shoes_02,Common Shoes,Shoes,3,2,10
+common_shoes_03,Common Shoes,Shoes,3,2,10
+common_shoes_04,Common Shoes,Shoes,3,2,10
+common_shoes_05,Common Shoes,Shoes,3,2,10
+common_shoes_06,Common Shoes,Shoes,3,2,10
+common_shoes_07,Common Shoes,Shoes,3,2,10
+common_skirt_01,Common Skirt,Skirt,2,4,20
+common_skirt_02,Common Skirt,Skirt,2,4,20
+common_skirt_03,Common Skirt,Skirt,2,4,20
+common_skirt_04,Common Skirt,Skirt,2,4,20
+common_skirt_04_c,Common Skirt,Skirt,2,4,20
+common_skirt_05,Common Skirt,Skirt,2,4,20
+common_skirt_06,Common Skirt,Skirt,2,4,20
+common_skirt_07,Common Skirt,Skirt,2,4,20
+Daedric_special,Daedric Sanctuary Amulet,Amulet,3,3100,150
+Daedric_special01,Tel Fyr Amulet,Amulet,3,3100,150
+expensive_amulet_01,Expensive Amulet,Amulet,1,30,150
+expensive_amulet_02,Expensive Amulet,Amulet,1,30,150
+expensive_amulet_03,Expensive Amulet,Amulet,1,30,150
+expensive_amulet_aeta,Expensive Amulet,Amulet,1,50,150
+expensive_amulet_delyna,Delyna's Locket,Amulet,1,30,150
+expensive_amulet_methas,Methas Hlaalu's Amulet,Amulet,1,150,150
+expensive_belt_01,Expensive Belt,Belt,1,10,50
+expensive_belt_02,Expensive Belt,Belt,1,10,50
+expensive_belt_03,Expensive Belt,Belt,1,10,50
+expensive_glove_left_01,Expensive Left Glove,Left Glove,1,10,50
+expensive_glove_left_ilmeni,Ilmeni's glove,Left Glove,1,10,50
+expensive_glove_right_01,Expensive Right Glove,Right Glove,1,10,50
+expensive_pants_01,Expensive Pants,Pants,2,15,75
+expensive_pants_01_a,Expensive Pants,Pants,2,15,75
+expensive_pants_01_e,Expensive Pants,Pants,2,15,75
+expensive_pants_01_u,Expensive Pants,Pants,2,15,75
+expensive_pants_01_z,Expensive Pants,Pants,2,15,75
+expensive_pants_02,Expensive Pants,Pants,2,15,75
+expensive_pants_03,Expensive Pants,Pants,2,15,75
+Expensive_pants_Mournhold,Expensive Pants,Pants,2,15,75
+expensive_ring_01,Expensive Ring,Ring,0.1,30,150
+expensive_ring_01_BILL,Expensive Ring,Ring,0.1,30,150
+expensive_ring_02,Expensive Ring,Ring,0.1,30,150
+expensive_ring_03,Expensive Ring,Ring,0.1,30,150
+expensive_ring_aeta,Expensive Ring,Ring,0.1,50,150
+expensive_ring_erna,Erna the Quiet's Ring,Ring,0.1,30,150
+expensive_robe_01,Expensive Robe,Robe,3,10,50
+expensive_robe_02,Expensive Robe,Robe,3,10,50
+expensive_robe_02_a,Expensive Robe,Robe,3,10,50
+expensive_robe_03,Expensive Robe,Robe,3,10,50
+expensive_shirt_01,Expensive Shirt,Shirt,2,15,75
+expensive_shirt_01_a,Expensive Shirt,Shirt,2,15,75
+expensive_shirt_01_e,Expensive Shirt,Shirt,2,15,75
+expensive_shirt_01_u,Expensive Shirt,Shirt,2,15,75
+expensive_shirt_01_z,Expensive Shirt,Shirt,2,15,75
+expensive_shirt_02,Expensive Shirt,Shirt,2,15,75
+expensive_shirt_03,Expensive Shirt,Shirt,2,15,75
+Expensive_shirt_Mournhold,Expensive Shirt,Shirt,2,15,75
+expensive_shoes_01,Expensive Shoes,Shoes,3,10,50
+expensive_shoes_02,Expensive Shoes,Shoes,3,10,50
+expensive_shoes_03,Expensive Shoes,Shoes,3,10,50
+Expensive_shoes_Mournhold,Expensive Shoes,Shoes,3,10,50
+expensive_skirt_01,Expensive Skirt,Skirt,2,15,75
+expensive_skirt_02,Expensive Skirt,Skirt,2,15,75
+expensive_skirt_03,Expensive Skirt,Skirt,2,15,75
+expensive_skirt_04,Expensive Skirt,Skirt,2,15,75
+expensive_skirt_Mournhold,Expensive Skirt,Skirt,2,15,75
+exquisite_amulet_01,Exquisite Amulet,Amulet,1,240,1200
+exquisite_amulet_hlervu1,Hlervu Locket,Amulet,1,240,1200
+exquisite_belt_01,Exquisite Belt,Belt,1,80,400
+exquisite_pants_01,Exquisite Pants,Pants,2,120,600
+exquisite_ring_01,Exquisite Ring,Ring,0.1,240,1200
+exquisite_ring_02,Exquisite Ring,Ring,0.1,240,1200
+exquisite_ring_brallion,Brallion's Exquisite Ring,Ring,0.1,0,1200
+exquisite_ring_processus,Processus Vitellius' Ring,Ring,0.1,240,1200
+exquisite_robe_01,Exquisite Robe,Robe,3,80,400
+exquisite_shirt_01,Exquisite Shirt,Shirt,2,120,600
+exquisite_shirt_01_rasha,Exquisite Shirt,Shirt,2,120,600
+exquisite_shirt_01_wedding,Ashkhan's Wedding Gift,Shirt,2,120,600
+exquisite_shoes_01,Exquisite Shoes,Shoes,3,80,400
+exquisite_skirt_01,Exquisite Skirt,Skirt,2,120,600
+extravagant_amulet_01,Extravagant Sapphire Amulet,Amulet,1,120,600
+extravagant_amulet_02,Extravagant Ruby Amulet,Amulet,1,120,600
+extravagant_belt_01,Extravagant Belt,Belt,1,40,200
+extravagant_belt_02,Extravagant Belt,Belt,1,40,200
+extravagant_glove_left_01,Extravagant Left Glove,Left Glove,1,40,200
+extravagant_glove_left_maur,Maurrie's Left Glove,Left Glove,1,40,200
+extravagant_glove_right_01,Extravagant Right Glove,Right Glove,1,40,200
+extravagant_glove_right_maur,Maurrie's Right Glove,Right Glove,1,40,200
+extravagant_pants_01,Extravagant Pants,Pants,2,60,300
+extravagant_pants_02,Extravagant Pants,Pants,2,60,300
+extravagant_ring_01,Extravagant Ring,Ring,0.1,120,600
+extravagant_ring_02,Extravagant Ring,Ring,0.1,120,600
+extravagant_ring_aund_uni,Aundae Signet Ring,Ring,0.1,120,600
+extravagant_robe_01,Extravagant Robe,Robe,3,40,200
+extravagant_robe_01_a,Extravagant Robe,Robe,3,40,200
+extravagant_robe_01_b,Extravagant Robe,Robe,3,40,200
+extravagant_robe_01_c,Extravagant Robe,Robe,3,40,200
+extravagant_robe_01_h,Extravagant Robe,Robe,3,40,200
+extravagant_robe_01_r,Extravagant Robe,Robe,3,40,200
+extravagant_robe_01_t,Extravagant Robe,Robe,3,40,200
+extravagant_robe_02,Extravagant Robe,Robe,3,40,200
+extravagant_shirt_01,Extravagant Shirt,Shirt,2,60,300
+extravagant_shirt_01_h,Extravagant Shirt,Shirt,2,60,300
+extravagant_shirt_01_r,Extravagant Shirt,Shirt,2,60,300
+extravagant_shirt_01_t,Extravagant Shirt,Shirt,2,60,300
+extravagant_shirt_02,Extravagant Shirt,Shirt,2,60,300
+extravagant_shoes_01,Extravagant Shoes,Shoes,3,40,200
+extravagant_shoes_02,Extravagant Shoes,Shoes,3,40,200
+extravagant_skirt_01,Extravagant Skirt,Skirt,2,60,300
+extravagant_skirt_02,Extravagant Skirt,Skirt,2,60,300
+glenmoril_ring_BM,,Ring,0.1,0,10
+Helseth's Robe,Robe of King Hlaalu Helseth,Robe,3,78,10
+hroldar_ring,,Ring,0.1,0,10
+imperial belt,Imperial Belt,Belt,2,2,5
+imperial skirt_clothing,Imperial Skirt,Skirt,2,4,5
+indoril_belt,Indoril Belt,Belt,2,5,5
+Julielle_Aumines_Amulet,Julielle Aumine's Amulet,Amulet,1,2,10
+mandas_locket,Mandas Family Locket,Amulet,1,240,1200
+othril_ring,Othril Ring,Ring,0.1,30,10
+ritual_ring,,Ring,0.1,0,10
+sarandas_amulet,Firejade Amulet,Amulet,1,150,150
+sarandas_belt,Racer Suede Belt,Belt,1,100,50
+sarandas_pants_2,Silk Pants,Pants,2,360,600
+sarandas_ring_1,Glass Ring,Ring,0.1,120,150
+sarandas_ring_2,Ebony Ring,Ring,0.1,150,150
+sarandas_shirt_2,Brocade Shirt,Shirt,2,360,600
+templar belt,Imperial Templar Belt,Belt,2,4,100
+templar skirt obj,Imperial Templar Skirt,Skirt,2.5,6,5
+therana's skirt,Therana's Skirt,Skirt,2,4,600
+ulfgar_ring,,Ring,0.1,0,10
+WerewolfRobe,,Robe,1,1,100

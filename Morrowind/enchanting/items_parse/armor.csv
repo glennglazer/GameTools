@@ -1,0 +1,288 @@
+ID,Name,Type,Weight,Value,Enchantment,Health,Rating
+adamantium boots,Adamantium Boots,Boots,15,7000,100,400,40
+adamantium_bracer_left,Adamantium Left Bracer,Left Bracer,4,1000,100,200,40
+adamantium_bracer_right,Adamantium Right Bracer,Right Bracer,4,1000,100,200,40
+adamantium_cuirass,Adamantium Cuirass,Cuirass,25,10000,300,900,40
+adamantium_greaves,Adamantium Greaves,Greaves,13,10000,30,400,40
+adamantium_helm,Adamantium Helm,Helmet,4,5000,500,900,70
+adamantium_pauldron_left,Adamantium Left Pauldron,Left Pauldron,7,800,30,400,40
+adamantium_pauldron_right,Adamantium Right Pauldron,Right Pauldron,7,800,100,400,40
+addamantium_helm,Adamantium Helm,Helmet,4,5000,500,900,70
+BM bear boots,Bear Boots,Boots,14,50,20,105,15
+BM bear cuirass,Bear Cuirass,Cuirass,25,150,60,325,15
+BM bear greaves,Bear Greaves,Greaves,10,120,45,220,15
+BM Bear Helmet,Bear Helmet,Helmet,4,40,20,100,15
+bm bear left gauntlet,Bear Left Gauntlet,Left Gauntlet,4,40,10,80,15
+BM Bear left Pauldron,Bear Left Pauldron,Left Pauldron,7,60,16,100,15
+BM bear right gauntlet,Bear Right Gauntlet,Right Gauntlet,4,40,10,80,15
+BM bear right pauldron,Bear Right Pauldron,Right Pauldron,7,60,16,100,15
+BM bear shield,Bear Shield,Shield,10,100,20,150,15
+BM wolf boots,Wolf Boots,Boots,4,50,20,105,15
+BM wolf cuirass,Wolf Cuirass,Cuirass,9,150,60,325,15
+BM wolf greaves,Wolf Greaves,Greaves,7,120,45,220,15
+BM Wolf Helmet,Wolf Helmet,Helmet,2,40,20,100,15
+bm wolf left gauntlet,Wolf Left Gauntlet,Left Gauntlet,1.5,40,10,80,15
+BM Wolf Left Pauldron,Wolf Left Pauldron,Left Pauldron,2.4,60,16,100,15
+BM wolf right gauntlet,Wolf Right Gauntlet,Right Gauntlet,1.5,40,10,80,15
+BM Wolf right pauldron,Wolf Right Pauldron,Right Pauldron,2.4,60,16,100,15
+BM wolf shield,Wolf Shield,Shield,8,100,50,100,15
+BM_Ice minion_Shield1,Riekling Shield,Shield,2,50,80,200,12
+BM_Ice_Boots,Ice Armor Boots,Boots,17,5000,100,200,50
+BM_Ice_cuirass,Ice Armor Cuirass,Cuirass,27,5000,180,1000,50
+BM_Ice_gauntletL,Ice Armor Left Gauntlet,Left Gauntlet,4,1000,100,300,50
+BM_Ice_gauntletR,Ice Armor Right Gauntlet,Right Gauntlet,4,1000,100,300,50
+BM_Ice_greaves,Ice Armor Greaves,Greaves,12,1000,100,600,50
+BM_Ice_Helmet,Ice Armor Helmet,Helmet,4,2000,175,500,50
+BM_Ice_PauldronL,Ice Armor Left Pauldron,Left Pauldron,8,1200,18,550,50
+BM_Ice_PauldronR,Ice Armor Right Pauldron,Right Pauldron,8,1200,18,550,50
+BM_Ice_Shield,Ice Shield,Shield,13,1000,400,400,50
+BM_NordicMail_Boots,Nordic Mail Boots,Boots,20,5000,85,500,66
+BM_NordicMail_cuirass,Nordic Mail Cuirass,Cuirass,30,5000,300,1000,66
+BM_NordicMail_gauntletL,Nordic Mail Left Gauntlet,Left Gauntlet,8,1000,100,100,66
+BM_NordicMail_gauntletR,Nordic Mail Right Gauntlet,Right Gauntlet,8,1000,100,100,66
+BM_NordicMail_greaves,Nordic Mail Greaves,Greaves,18,2000,80,300,66
+BM_NordicMail_Helmet,Nordic Mail Helmet,Helmet,8,1000,200,350,66
+BM_NordicMail_PauldronL,Nordic Mail Left Pauldron,Left Pauldron,10,1000,100,100,66
+BM_NordicMail_PauldronR,Nordic Mail Right Pauldron,Right Pauldron,10,1000,100,100,66
+BM_NordicMail_Shield,Nordic Mail Shield,Shield,20,1000,100,500,66
+bonemold_armun-an_cuirass,Armun-An Bonemold Cuirass,Cuirass,24,350,160,480,16
+bonemold_armun-an_helm,Native Armun-An Bonemold Helm,Helmet,4,150,200,180,18
+bonemold_armun-an_pauldron_l,Armun-An Left Pauldron,Left Pauldron,8,120,16,150,15
+bonemold_armun-an_pauldron_r,Armun-An Right Pauldron,Right Pauldron,8,120,16,150,15
+bonemold_boots,Bonemold Boots,Boots,16,100,70,150,15
+bonemold_bracer_left,Bonemold Left Bracer,Left Bracer,4,50,160,75,15
+bonemold_bracer_right,Bonemold Right Bracer,Right Bracer,4,50,160,75,15
+bonemold_chuzei_helm,Native Chuzei Bonemold Helm,Helmet,4,175,200,170,17
+bonemold_cuirass,Bonemold Cuirass,Cuirass,24,350,160,480,16
+bonemold_founders_helm,Redoran Founder's Helm,Helmet,4.4,150,200,180,18
+bonemold_gah-julan_cuirass,Gah-Julan Bonemold Cuirass,Cuirass,24,360,160,510,17
+bonemold_gah-julan_helm,Native Gah-Julan Bonemold Helm,Helmet,4,165,200,160,16
+bonemold_gah-julan_hhda,Native Gah-Julan Bonemold Helm,Helmet,4,167,200,160,16
+bonemold_gah-julan_pauldron_l,Gah-Julan Left Pauldron,Left Pauldron,8,140,16,170,17
+bonemold_gah-julan_pauldron_r,Gah-Julan Right Pauldron,Right Pauldron,8,140,16,170,17
+bonemold_greaves,Bonemold Greaves,Greaves,13.4,220,20,150,15
+bonemold_helm,Bonemold Helm,Helmet,4,150,200,180,18
+bonemold_pauldron_l,Bonemold Left Pauldron,Left Pauldron,8,120,16,150,15
+bonemold_pauldron_r,Bonemold Right Pauldron,Right Pauldron,8,120,16,150,15
+bonemold_shield,Bonemold Shield,Shield,10,170,400,300,15
+bonemold_towershield,Bonemold Tower Shield,Shield,13,250,600,340,17
+bonemold_tshield_hlaaluguard,Hlaalu Guard Shield,Shield,13,250,600,340,17
+bonemold_tshield_hrlb,Redoran Banner Shield,Shield,13,250,600,340,17
+bonemold_tshield_redoranguard,Redoran Guard Shield,Shield,13,250,600,340,17
+bonemold_tshield_telvanniguard,Telvanni Guard Shield,Shield,13,250,600,340,17
+cephalopod_helm,Telvanni Cephalopod Helm,Helmet,2,50,1000,80,8
+chitin boots,Chitin Boots,Boots,6,13,44,100,10
+chitin cuirass,Chitin Cuirass,Cuirass,6,45,100,300,10
+chitin greaves,Chitin Greaves,Greaves,5.4,29,13,100,10
+chitin guantlet - left,Chitin Left Gauntlet,Left Gauntlet,1,9,100,50,10
+chitin guantlet - right,Chitin Right Gauntlet,Right Gauntlet,1,9,100,50,10
+chitin helm,Chitin Helm,Helmet,1,19,125,100,10
+chitin pauldron - left,Chitin Left Pauldron,Left Pauldron,2,16,10,100,10
+chitin pauldron - right,Chitin Right Pauldron,Right Pauldron,2,16,10,100,10
+chitin_mask_helm,Chitin Mask Helm,Helmet,1,19,125,100,10
+chitin_shield,Chitin Shield,Shield,4,22,250,200,10
+chitin_towershield,Chitin Tower Shield,Shield,6,32,375,240,12
+chitin_watchman_helm,Redoran Watchman's Helm,Helmet,1,24,125,110,11
+cloth bracer left,Cloth Left Bracer,Left Bracer,1.5,3,60,20,4
+cloth bracer right,Cloth Right Bracer,Right Bracer,1.5,3,60,20,4
+daedric_boots,Daedric Boots,Boots,60,20000,263,800,80
+daedric_cuirass,Daedric Cuirass,Cuirass,90,70000,600,2400,80
+daedric_fountain_helm,Daedric Face of Inspiration,Helmet,15,13000,750,650,65
+daedric_gauntlet_left,Daedric Left Gauntlet,Left Gauntlet,15,14000,600,400,80
+daedric_gauntlet_right,Daedric Right Gauntlet,Right Gauntlet,15,14000,600,400,80
+daedric_god_helm,Daedric Face of God,Helmet,15,15000,750,800,80
+daedric_greaves,Daedric Greaves,Greaves,54,44000,75,800,80
+daedric_pauldron_left,Daedric Left Pauldron,Left Pauldron,30,24000,60,800,80
+daedric_pauldron_right,Daedric Right Pauldron,Right Pauldron,30,24000,60,800,80
+daedric_shield,Daedric Shield,Shield,45,34000,1500,1600,80
+daedric_terrifying_helm,Daedric Face of Terror,Helmet,15,14000,750,750,75
+daedric_towershield,Daedric Tower Shield,Shield,45,50000,2250,1600,80
+DarkBrotherhood Boots,Dark Brotherhood Boots,Boots,2,500,30,200,30
+DarkBrotherhood Cuirass,Dark Brotherhood Cuirass,Cuirass,6,1000,100,300,30
+DarkBrotherhood gauntlet_L,Dark Brotherhood Left Gauntlet,Left Gauntlet,1,200,100,100,30
+DarkBrotherhood gauntlet_R,Dark Brotherhood Right Gauntlet,Right Gauntlet,1,200,100,100,30
+DarkBrotherhood greaves,Dark Brotherhood Greaves,Greaves,3,600,50,250,30
+DarkBrotherhood Helm,Dark Brotherhood Helm,Helmet,1,200,175,300,30
+DarkBrotherhood pauldron_L,Dark Brotherhood Left Pauldron,Left Pauldron,1,500,12,250,30
+DarkBrotherhood pauldron_R,Dark Brotherhood Right Pauldron,Right Pauldron,1,500,12,250,30
+dragonscale_cuirass,Imperial Dragonscale Cuirass,Cuirass,24,340,160,600,20
+dragonscale_helm,Imperial Dragonscale Helm,Helmet,4,130,200,200,20
+dragonscale_towershield,Dragonscale Tower Shield,Shield,12,230,600,440,22
+dreugh_cuirass,Dreugh Cuirass,Cuirass,27,5250,180,1200,40
+dreugh_helm,Dreugh Helm,Helmet,4.5,2250,225,400,40
+dreugh_shield,Dreugh Shield,Shield,13.5,2550,450,800,40
+dust_adept_helm,Telvanni Dust Adept Helm,Helmet,1.5,30,250,50,5
+dwemer_boots,Dwemer Boots,Boots,20,300,88,200,20
+dwemer_bracer_left,Dwemer Left Bracer,Left Bracer,5,150,200,100,20
+dwemer_bracer_right,Dwemer Right Bracer,Right Bracer,5,150,200,100,20
+dwemer_cuirass,Dwemer Cuirass,Cuirass,30,1050,200,600,20
+dwemer_greaves,Dwemer Greaves,Greaves,18,660,25,200,20
+dwemer_helm,Dwemer Helm,Helmet,5,450,250,200,20
+dwemer_pauldron_left,Dwemer Left Pauldron,Left Pauldron,10,360,20,200,20
+dwemer_pauldron_right,Dwemer Right Pauldron,Right Pauldron,10,360,20,200,20
+dwemer_shield,Dwemer Shield,Shield,15,510,500,400,20
+dwemer_shield_battle_unique,Dwemer Battle Shield,Shield,15,510,500,400,20
+ebony_boots,Ebony Boots,Boots,40,10000,175,600,60
+ebony_bracer_left,Ebony Left Bracer,Left Bracer,10,5000,400,300,60
+ebony_bracer_left_tgeb,Ebony Left Bracer,Left Bracer,10,5000,400,300,60
+ebony_bracer_right,Ebony Right Bracer,Right Bracer,10,5000,400,300,60
+ebony_bracer_right_tgeb,Ebony Right Bracer,Right Bracer,10,5000,400,300,60
+ebony_closed_helm,Ebony Closed Helm,Helmet,10,15000,500,600,60
+ebony_closed_helm_fghl,Sarano Ebony Helm,Helmet,10,15000,500,600,60
+ebony_cuirass,Ebony Cuirass,Cuirass,60,35000,400,1800,60
+ebony_greaves,Ebony Greaves,Greaves,36,22000,50,600,60
+ebony_pauldron_left,Ebony Left Pauldron,Left Pauldron,20,12000,40,600,60
+ebony_pauldron_right,Ebony Right Pauldron,Right Pauldron,20,12000,40,600,60
+ebony_shield,Ebony Shield,Shield,30,17000,1000,1200,60
+ebony_shield_auriel,Auriel's Shield,Shield,30,17000,1000,1200,60
+ebony_shield_auriel_x,Auriel's Shield,Shield,30,17000,1000,1200,60
+ebony_towershield,Ebony Tower Shield,Shield,30,25000,1500,1200,60
+fur_bearskin_cuirass,Nordic Bearskin Cuirass,Cuirass,9,35,60,150,5
+fur_boots,Nordic Fur Boots,Boots,6,10,26,50,5
+fur_bracer_left,Nordic Fur Left Bracer,Left Bracer,1.5,5,60,25,5
+fur_bracer_right,Nordic Fur Right Bracer,Right Bracer,1.5,5,60,25,5
+fur_colovian_helm,Colovian Fur Helm,Helmet,2,25,75,70,7
+fur_colovian_helm_red,Red Colovian Fur Helm,Helmet,2,25,75,70,7
+fur_colovian_helm_white,White Colovian Fur Helm,Helmet,2,25,75,70,7
+fur_cuirass,Nordic Fur Cuirass,Cuirass,9,35,60,150,5
+fur_gauntlet_left,Nordic Fur Left Gauntlet,Left Gauntlet,1.5,7,60,25,5
+fur_gauntlet_right,Nordic Fur Right Gauntlet,Right Gauntlet,1.5,7,60,25,5
+fur_greaves,Nordic Fur Greaves,Greaves,5.4,22,10,50,5
+fur_helm,Nordic Fur Helm,Helmet,1.5,15,75,50,5
+fur_pauldron_left,Nordic Fur Left Pauldron,Left Pauldron,3,12,10,50,5
+fur_pauldron_right,Nordic Fur Right Pauldron,Right Pauldron,3,12,10,50,5
+glass_boots,Glass Boots,Boots,3,8000,100,500,50
+glass_bracer_left,Glass Left Bracer,Left Bracer,3,4000,100,400,50
+glass_bracer_right,Glass Right Bracer,Right Bracer,3,4000,100,400,50
+glass_cuirass,Glass Cuirass,Cuirass,18,28000,120,1500,50
+glass_greaves,Glass Greaves,Greaves,9,17600,100,500,50
+glass_helm,Glass Helm,Helmet,3,12000,150,500,50
+glass_pauldron_left,Glass Left Pauldron,Left Pauldron,3,9600,15,500,50
+glass_pauldron_right,Glass Right Pauldron,Right Pauldron,3,9600,15,500,50
+glass_shield,Glass Shield,Shield,9,13600,300,1000,50
+glass_towershield,Glass Tower Shield,Shield,9,20000,450,1100,55
+goblin_shield,Goblin Buckler,Shield,5,1000,100,500,20
+Gold1_Armor_cuirass,Gold Armor Cuirass,Cuirass,26,3500,140,1100,60
+Gold1_Armor_helm,Gold Armor Helmet,Helmet,4,1500,90,360,60
+Gold1_Armor_pauldron_L,Gold Armor Left Pauldron,Left Pauldron,9,1200,50,360,60
+Gold1_Armor_pauldron_R,Gold Armor Right Pauldron,Right Pauldron,9,1200,50,360,60
+gondolier_helm,Gondolier's Helm,Helmet,4,10,100,100,1
+heavy_leather_boots,Heavy Leather Boots,Boots,8,10,26,50,5
+Helsethguard_boots,Royal Guard Boots,Boots,18,2500,150,500,50
+Helsethguard_cuirass,Royal Guard Cuirass,Cuirass,27,8000,250,1500,55
+Helsethguard_gauntlet_left,Royal Guard Left Gauntlet,Left Gauntlet,4,2000,120,225,55
+Helsethguard_gauntlet_right,Royal Guard Right Gauntlet,Right Gauntlet,4,2000,120,225,55
+Helsethguard_greaves,Royal Guard Greaves,Greaves,12,2000,40,300,40
+Helsethguard_Helmet,Royal Guard Helm,Helmet,4,550,300,550,55
+Helsethguard_pauldron_left,Royal Guard Left Pauldron,Left Pauldron,9,3000,30,550,55
+Helsethguard_pauldron_right,Royal Guard Right Pauldron,Right Pauldron,9,3000,30,550,55
+imperial boots,Imperial Steel Boots,Boots,19,50,88,170,16
+imperial cuirass_armor,Imperial Steel Cuirass,Cuirass,29,150,200,460,16
+imperial helmet armor,Imperial Steel Helmet,Helmet,5,70,250,160,16
+imperial helmet armor_Dae_curse,Imperial Steel Helmet,Helmet,5,70,250,160,16
+imperial left gauntlet,Imperial Steel Left Gauntlet,Left Gauntlet,5,33,200,80,16
+imperial left pauldron,Imperial Steel Left Pauldron,Left Pauldron,10,53,20,160,16
+imperial right gauntlet,Imperial Steel Right Gauntlet,Right Gauntlet,5,33,200,80,16
+imperial right pauldron,Imperial Steel Right Pauldron,Right Pauldron,10,53,20,160,16
+imperial shield,Imperial Shield,Shield,14,78,500,320,16
+imperial_chain_coif_helm,Imperial Chain Coif,Helmet,3.5,35,175,100,12
+imperial_chain_cuirass,Imperial Chain Cuirass,Cuirass,21,90,140,300,12
+imperial_chain_greaves,Imperial Chain Greaves,Greaves,10,50,70,100,12
+imperial_chain_pauldron_left,Imperial Chain Left Pauldron,Left Pauldron,7,28,70,100,12
+imperial_chain_pauldron_right,Imperial Chain Right Pauldron,Right Pauldron,7,28,70,100,12
+imperial_greaves,Imperial Steel Greaves,Greaves,17,98,25,170,16
+imperial_studded_cuirass,Imperial Studded Cuirass,Cuirass,9,65,60,300,10
+indoril boots,Indoril Boots,Boots,18,2000,26,450,45
+indoril cuirass,Indoril Cuirass,Cuirass,27,7000,180,1350,45
+indoril helmet,Indoril Helmet,Helmet,4.5,3000,225,450,45
+indoril left gauntlet,Indoril Left Gauntlet,Left Gauntlet,4.5,1400,60,225,45
+indoril pauldron left,Indoril Left Pauldron,Left Pauldron,9,2400,10,450,45
+indoril pauldron right,Indoril Right Pauldron,Right Pauldron,9,2400,10,450,45
+indoril right gauntlet,Indoril Right Gauntlet,Right Gauntlet,4.5,1400,60,225,45
+indoril shield,Indoril Shield,Shield,13.5,2000,450,900,45
+Indoril_MH_Guard_boots,Her Hand's Boots,Boots,60,15000,200,700,70
+Indoril_MH_Guard_Cuirass,Her Hand's Cuirass,Cuirass,90,50000,550,2800,70
+Indoril_MH_Guard_gauntlet_L,Her Hand's Left Gauntlet,Left Gauntlet,15,13000,500,300,70
+Indoril_MH_Guard_gauntlet_R,Her Hand's Right Gauntlet,Right Gauntlet,15,13000,500,300,70
+Indoril_MH_Guard_Greaves,Her Hand's Greaves,Greaves,45,33000,60,700,70
+Indoril_MH_Guard_helmet,Her Hand's Helmet,Helmet,15,12000,650,700,75
+Indoril_MH_Guard_Pauldron_L,Her Hand's Left Pauldron,Left Pauldron,30,20000,50,700,70
+Indoril_MH_Guard_Pauldron_R,Her Hand's Right Pauldron,Right Pauldron,30,20000,50,700,70
+Indoril_MH_Guard_shield,Her Hand's Shield,Shield,17,2500,500,350,55
+iron boots,Iron Boots,Boots,19,20,26,100,10
+iron_bracer_left,Iron Left Bracer,Left Bracer,5,10,200,50,10
+iron_bracer_right,Iron Right Bracer,Right Bracer,5,10,200,50,10
+iron_cuirass,Iron Cuirass,Cuirass,30,70,200,200,10
+iron_gauntlet_left,Iron Left Gauntlet,Left Gauntlet,7,14,25,50,10
+iron_gauntlet_right,Iron Right Gauntlet,Right Gauntlet,7,14,25,50,10
+iron_greaves,Iron Greaves,Greaves,18,44,25,100,10
+iron_helmet,Iron Helmet,Helmet,5,30,25,100,10
+iron_pauldron_left,Iron Left Pauldron,Left Pauldron,10,24,20,100,10
+iron_pauldron_right,Iron Right Pauldron,Right Pauldron,10,24,20,100,10
+iron_shield,Iron Shield,Shield,15,34,500,200,10
+iron_towershield,Iron Tower Shield,Shield,18,50,750,240,12
+left leather bracer,Leather Left Bracer,Left Bracer,1.5,5,60,25,5
+mole_crab_helm,Telvanni Mole Crab Helm,Helmet,2,19,500,60,6
+morag_tong_helm,Morag Tong Helm,Helmet,3,20,200,120,12
+netch_leather_boiled_cuirass,Boiled Netch Leather Cuirass,Cuirass,12,37,60,210,7
+netch_leather_boiled_helm,Boiled Netch Leather Helm,Helmet,3,17,75,70,7
+netch_leather_boots,Netch Leather Boots,Boots,8,10,26,50,5
+netch_leather_cuirass,Netch Leather Cuirass,Cuirass,12,35,60,150,5
+netch_leather_gauntlet_left,Netch Leather Left Gauntlet,Left Gauntlet,3,7,60,25,5
+netch_leather_gauntlet_right,Netch Leather Right Gauntlet,Right Gauntlet,3,7,60,25,5
+netch_leather_greaves,Netch Leather Greaves,Greaves,7,22,10,50,5
+netch_leather_helm,Netch Leather Helm,Helmet,3,15,75,50,5
+netch_leather_pauldron_left,Netch Leather Left Pauldron,Left Pauldron,4,12,10,50,5
+netch_leather_pauldron_right,Netch Leather Right Pauldron,Right Pauldron,4,12,10,50,5
+netch_leather_shield,Netch Leather Shield,Shield,6,17,150,100,5
+netch_leather_towershield,Netch Leather Tower Shield,Shield,9,25,225,100,6
+newtscale_cuirass,Imperial Newtscale Cuirass,Cuirass,9,100,100,300,10
+nordic_iron_cuirass,Nordic Iron Cuirass,Cuirass,35,130,200,480,16
+nordic_iron_helm,Nordic Iron Helm,Helmet,8,50,250,160,16
+nordic_leather_shield,Nordic Leather Shield,Shield,4.5,25,150,100,5
+nordic_ringmail_cuirass,Nordic Ringmail Cuirass,Cuirass,21,80,140,300,10
+orcish_boots,Orcish Boots,Boots,17,800,105,300,30
+orcish_bracer_left,Orcish Left Bracer,Left Bracer,4.4,400,240,150,30
+orcish_bracer_right,Orcish Right Bracer,Right Bracer,4.4,400,240,150,30
+orcish_cuirass,Orcish Cuirass,Cuirass,26.5,2800,240,900,30
+orcish_greaves,Orcish Greaves,Greaves,13.45,1760,30,300,30
+orcish_helm,Orcish Helm,Helmet,4.4,1200,300,300,30
+orcish_pauldron_left,Orcish Left Pauldron,Left Pauldron,8,960,24,300,30
+orcish_pauldron_right,Orcish Right Pauldron,Right Pauldron,8,960,24,300,30
+orcish_towershield,Orcish Tower Shield,Shield,13.4,2000,900,640,32
+psyr_imperial_chain,Woman's Imperial Chain Cuirass,Cuirass,21,90,0,300,12
+redoran_master_helm,Redoran Master Helm,Helmet,4.5,3000,225,450,45
+right leather bracer,Leather Right Bracer,Right Bracer,1.5,5,60,25,5
+silver_cuirass,Imperial Silver Cuirass,Cuirass,30,280,160,540,18
+silver_dukesguard_cuirass,Duke's Guard Silver Cuirass,Cuirass,30,350,160,600,20
+silver_helm,Imperial Silver Helm,Helmet,5,120,200,170,17
+steel_boots,Steel Boots,Boots,20,40,88,150,15
+steel_boots_ancient,Ancient Steel Boots,Boots,20,40,88,75,16
+steel_cuirass,Steel Cuirass,Cuirass,30,150,200,450,15
+steel_cuirass_ancient,Ancient Steel Cuirass,Cuirass,30,150,200,225,16
+steel_gauntlet_left,Steel Left Gauntlet,Left Gauntlet,5,28,200,75,15
+steel_gauntlet_left_ancient,Ancient Steel Left Gauntlet,Left Gauntlet,5,28,200,37,16
+steel_gauntlet_right,Steel Right Gauntlet,Right Gauntlet,5,28,200,75,15
+steel_gauntlet_right_ancient,Ancient Steel Right Gauntlet,Right Gauntlet,5,28,200,37,16
+steel_greaves,Steel Greaves,Greaves,18,88,25,150,15
+steel_greaves_ancient,Ancient Steel Greaves,Greaves,18,88,25,75,16
+steel_helm,Steel Helm,Helmet,5,60,250,150,15
+steel_helm_ancient,Ancient Steel Helm,Helmet,5,60,250,75,16
+steel_pauldron_left,Steel Left Pauldron,Left Pauldron,10,48,20,150,15
+steel_pauldron_left_ancient,Ancient Steel Left Pauldron,Left Pauldron,10,48,20,75,16
+steel_pauldron_right,Steel Right Pauldron,Right Pauldron,10,48,20,150,15
+steel_pauldron_right_ancient,Ancient Steel Right Pauldron,Right Pauldron,10,48,20,75,16
+steel_shield,Steel Shield,Shield,15,68,500,300,15
+steel_towershield,Steel Tower Shield,Shield,20,100,750,360,18
+steel_towershield_ancient,Ancient Steel Tower Shield,Shield,20,100,750,180,19
+templar boots,Imperial Templar Boots,Boots,20,50,88,180,18
+templar bracer left,Imperial Templar Left Bracer,Left Bracer,5,25,200,90,18
+templar bracer right,Imperial Templar Right Bracer,Right Bracer,5,25,200,90,18
+templar_cuirass,Imperial Templar Knight Cuirass,Cuirass,30,175,200,540,18
+templar_greaves,Imperial Templar Greaves,Greaves,18,110,25,180,18
+templar_helmet_armor,Imperial Templar Helmet,Helmet,5,75,250,180,18
+templar_pauldron_left,Imperial Templar Left Pauldron,Left Pauldron,10,60,20,180,18
+templar_pauldron_right,Imperial Templar Right Pauldron,Right Pauldron,10,60,20,180,18
+trollbone_cuirass,Nordic Trollbone Cuirass,Cuirass,32,165,160,540,18
+trollbone_helm,Nordic Trollbone Helm,Helmet,8,65,200,180,18
+trollbone_shield,Nordic Trollbone Shield,Shield,16,78,400,360,18

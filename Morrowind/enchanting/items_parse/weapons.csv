@@ -1,0 +1,217 @@
+ID,Name,Type,Weight,Value,Enchantment,Health,Speed,Reach,Chop Min,Chop Max,Slash Min,Slash Max,Thrust Min,Thrust Max,Ignore Resistance
+6th bell hammer,Sixth House Bell Hammer,BluntTwoClose,75,5000,105,4000,1,1.5,1,50,1,45,1,3,0
+adamantium_axe,Adamantium Axe,AxeTwoClose,35,5000,100,3000,1,1,1,60,1,40,1,6,1
+adamantium_claymore,Adamantium Claymore,LongBladeTwoClose,50,10000,150,4000,1,1,10,40,10,40,10,30,1
+adamantium_mace,Adamantium Mace,BluntOneHand,23,1000,100,2800,1,1,5,20,5,20,1,5,1
+adamantium_shortsword,Adamantium Shortsword,ShortBladeOneHand,20,1000,60,900,2,1,7,15,7,15,7,20,1
+adamantium_spear,Adamantium Spear,SpearTwoWide,25,5000,80,900,1,1,1,10,1,10,10,30,1
+azura_star_unique,Azura's Star,MarksmanThrown,4,1,100,1200,1,1,1,5,1,5,1,5,1
+bladepiece_01,Odd Dwemer Weapon,LongBladeOneHand,35,600,100,100,1.25,1,12,12,15,15,15,15,0
+BM huntsman axe,Huntsman Axe,AxeOneHand,24,100,50,800,1.25,1,1,20,1,15,1,3,0
+BM huntsman crossbow,Huntsman Crossbow,MarksmanCrossbow,10,500,100,650,1,1,25,25,0,1,0,1,0
+BM huntsman longsword,Huntsman Longsword,LongBladeOneHand,18,500,50,800,1.35,1,1,15,1,18,1,15,0
+BM Huntsman Spear,Huntsman Spear,SpearTwoWide,15,500,85,900,1,1.8,1,7,1,7,1,22,0
+BM huntsman war axe,Huntsman War Axe,AxeOneHand,32,125,50,800,1.25,1,1,30,1,20,1,5,0
+BM Huntsmanbolt,Huntsman Bolt,Bolt,0.1,5,10,10,1,1,3,3,0,1,0,1,0
+BM ice dagger,Stalhrim Dagger,ShortBladeOneHand,5,15000,65,800,2.5,1,10,16,10,16,10,16,1
+BM ice longsword,Stalhrim Longsword,LongBladeOneHand,70,65000,80,2500,1.5,1,4,40,4,55,5,50,1
+BM ice mace,Stalhrim Mace,BluntOneHand,65,40000,200,9000,1.3,1.1,5,45,5,45,2,6,1
+BM ice war axe,Stalhrim War Axe,AxeOneHand,35,50000,250,2000,1.25,1,1,40,1,30,1,5,1
+BM nord leg,Severed Nord Leg,BluntOneHand,5,6,70,30,1.3,1,1,15,1,10,1,2,0
+BM Nordic Pick,Ancient Nordic Pick Axe,AxeOneHand,20,8000,100,300,1,1,1,20,1,15,1,5,1
+BM nordic silver axe,Nordic Silver Axe,AxeOneHand,32,1000,65,2000,1.25,1,1,35,1,22,1,5,1
+BM nordic silver battleaxe,Nordic Silver Battle Axe,AxeTwoClose,30,1000,100,2000,1,1,5,50,6,35,1,5,1
+BM nordic silver claymore,Nordic Silver Claymore,LongBladeTwoClose,25,1000,150,2000,1.25,1,6,35,6,30,6,24,1
+BM nordic silver dagger,Nordic Silver Dagger,ShortBladeOneHand,10,1000,70,550,2.5,1,5,10,5,10,7,15,1
+BM nordic silver longsword,Nordic Silver Longsword,LongBladeOneHand,20,1000,80,800,1.35,1,9,28,9,20,9,20,1
+BM nordic silver mace,Nordic Silver Mace,BluntOneHand,30,1000,70,3300,1.3,1,5,20,5,20,1,5,1
+BM nordic silver shortsword,Nordic Silver Shortsword,ShortBladeOneHand,15,1000,70,500,2,1,6,12,6,12,9,15,1
+BM riekling lance,Riekling Lance,ShortBladeOneHand,10,100,80,300,1.3,1,1,10,1,15,13,24,0
+BM riekling sword,Riekling Blade,LongBladeOneHand,20,350,35,500,1,1,13,28,18,30,11,23,0
+BM riekling sword_rusted,Rusted Riekling Blade,LongBladeOneHand,20,150,35,500,1,1,10,18,12,20,4,13,0
+BM silver dagger wolfender,Wolfender Silver Dagger,ShortBladeOneHand,1,1,100,100,1,1,1,5,1,5,1,5,1
+BM_arrow_riekling_uni,Chitin Arrow,Arrow,0.1,1,8,1,1,1,1,2,0,0,0,0,0
+BM_dagger_wolfgiver,Wolfgiver Silver Dagger,ShortBladeOneHand,1,150,100,100,1,1,1,5,1,5,1,5,1
+BM_ice_minion_lance,Riekling Lance,ShortBladeOneHand,10,100,80,300,1.3,1,1,10,1,15,13,24,0
+bonemold arrow,Bonemold Arrow,Arrow,0.15,2,12,10,1,1,1,4,0,0,0,0,0
+bonemold bolt,Bonemold Bolt,Bolt,0.15,2,16,10,1,1,3,4,0,1,0,1,0
+bonemold long bow,Bonemold Long Bow,MarksmanBow,7,250,40,700,1,1,1,30,0,1,0,1,0
+centurion_projectile_dart,Dwarven Dart,MarksmanThrown,0.2,10,100,200,1.5,1,20,50,20,50,20,50,1
+chargen dagger,Worn Iron Dagger,ShortBladeOneHand,3,1,20,400,2.5,1,4,5,4,5,5,5,0
+chitin arrow,Chitin Arrow,Arrow,0.1,1,8,1,1,1,1,2,0,0,0,0,0
+chitin club,Chitin Club,BluntOneHand,6,6,20,320,1.5,1,3,3,2,2,1,2,0
+chitin dagger,Chitin Dagger,ShortBladeOneHand,1.5,6,10,380,2,1,3,3,3,3,4,4,0
+chitin short bow,Chitin Short Bow,MarksmanBow,2,20,10,500,1,1,1,10,0,0,0,0,0
+chitin shortsword,Chitin Shortsword,ShortBladeOneHand,4,13,20,540,2,1,3,7,3,7,4,9,0
+chitin spear,Chitin Spear,SpearTwoWide,7,13,25,500,1,1.8,1,2,1,2,5,13,0
+chitin throwing star,Chitin Throwing Star,MarksmanThrown,0.1,3,7,40,1,1,2,3,0,1,0,1,0
+chitin war axe,Chitin War Axe,AxeOneHand,12,19,25,640,1.25,1,1,11,1,6,1,2,0
+corkbulb arrow,Corkbulb Arrow,Arrow,0.1,1,5,1,1,1,1,1,0,0,0,0,0
+corkbulb bolt,Corkbulb Bolt,Bolt,0.1,5,6,10,1,1,1,1,0,1,0,1,0
+crosierstllothis,Crosier of St. Llothis,BluntTwoWide,4.8,5000,42,180,1.75,1.5,2,12,3,12,1,9,1
+daedric arrow,Daedric Arrow,Arrow,0.3,20,45,1,1,1,10,15,0,0,0,0,1
+daedric battle axe,Daedric Battle Axe,AxeTwoClose,90,50000,165,4800,1,1,1,80,1,60,1,8,1
+daedric claymore,Daedric Claymore,LongBladeTwoClose,81,80000,210,5600,1.25,1,1,60,1,52,1,36,1
+daedric club,Daedric Club,BluntOneHand,36,10000,120,1600,1.5,1,10,12,4,8,4,8,1
+daedric dagger,Daedric Dagger,ShortBladeOneHand,9,10000,60,700,2.5,1,8,12,8,12,8,12,1
+daedric dai-katana,Daedric Dai-katana,LongBladeTwoClose,60,120000,210,7200,1.35,1,1,60,1,52,1,30,1
+daedric dart,Daedric Dart,MarksmanThrown,0.4,4000,45,90,1,1,2,12,0,1,0,1,1
+daedric katana,Daedric Katana,LongBladeOneHand,54,50000,180,4800,1.5,1,3,44,1,40,1,14,1
+daedric long bow,Daedric Long Bow,MarksmanBow,24,50000,105,1000,1,1,2,50,0,0,0,0,1
+daedric longsword,Daedric Longsword,LongBladeOneHand,60,40000,180,3200,1.35,1,2,32,1,44,4,40,1
+daedric mace,Daedric Mace,BluntOneHand,45,24000,150,4800,1.3,1,3,30,3,30,2,4,1
+daedric shortsword,Daedric Shortsword,ShortBladeOneHand,24,20000,120,1500,2,1,10,26,10,26,12,24,1
+daedric spear,Daedric Spear,SpearTwoWide,42,20000,150,1000,1,1.8,2,9,2,9,6,40,1
+daedric staff,Daedric Staff,BluntTwoWide,24,14000,210,1200,1.75,1.8,2,16,3,16,1,12,1
+daedric tanto,Daedric Tanto,ShortBladeOneHand,12,14000,66,1100,2.25,1,9,20,9,20,9,20,1
+daedric wakizashi,Daedric Wakizashi,ShortBladeOneHand,30,48000,135,1100,2.25,1,10,30,10,25,7,11,1
+daedric wakizashi_hhst,Daedric Wakizashi,ShortBladeOneHand,30,48000,135,1100,2.25,1,12,25,10,21,5,11,1
+daedric war axe,Daedric War Axe,AxeOneHand,72,30000,150,3200,1.25,1,1,44,1,24,1,6,1
+daedric warhammer,Daedric Warhammer,BluntTwoClose,96,30000,165,8000,1,1.5,1,70,1,60,1,4,1
+daedric_club_tgdc,Anora's Club,BluntOneHand,36,10000,120,1600,1.5,1,10,12,4,8,6,8,1
+dart_uniq_judgement,Dart of Judgment,MarksmanThrown,0.1,500,0,10,1,1,1,12,0,0,0,0,1
+dreugh club,Dreugh Club,BluntOneHand,10.8,200,36,400,1.5,1,7,8,4,5,3,5,1
+dreugh staff,Dreugh Staff,BluntTwoWide,7.2,400,63,270,1.75,1.5,2,10,3,10,1,8,1
+dwarven battle axe,Dwarven Battle Axe,AxeTwoClose,30,750,55,3000,1,1,1,35,1,33,1,15,1
+dwarven claymore,Dwarven Claymore,LongBladeTwoClose,27,1200,70,3500,1.25,1,1,33,1,29,1,20,1
+dwarven crossbow,Dwarven Crossbow,MarksmanCrossbow,10,1200,50,750,1,1,30,30,0,0,0,0,1
+dwarven halberd,Dwarven Halberd,SpearTwoWide,24,600,70,1000,1,1.8,3,17,1,13,5,28,1
+dwarven mace,Dwarven Mace,BluntOneHand,15,360,50,3000,1.5,1,5,17,5,17,1,2,1
+dwarven shortsword,Dwarven Shortsword,ShortBladeOneHand,8,300,40,1050,2,1,7,14,7,14,8,15,1
+dwarven spear,Dwarven Spear,SpearTwoWide,14,300,50,1400,1,1.8,2,5,2,5,5,21,1
+dwarven war axe,Dwarven War Axe,AxeOneHand,24,450,50,2000,1.25,1,1,24,1,13,1,3,1
+dwarven warhammer,Dwarven Warhammer,BluntTwoClose,32,600,55,5000,1,1.5,1,39,1,33,1,2,1
+dwarven_hammer_volendrung,Volendrung,BluntTwoClose,32,600,55,5000,1,1.5,1,39,1,33,1,2,1
+ebony arrow,Ebony Arrow,Arrow,0.2,10,30,10,1,1,5,10,0,0,0,0,1
+ebony broadsword,Ebony Broadsword,LongBladeOneHand,24,15000,100,1800,1.25,1,4,26,2,26,2,26,1
+ebony broadsword_Dae_cursed,Ebony Broadsword,LongBladeOneHand,24,15000,100,1800,1.25,1,4,26,2,26,2,26,1
+ebony dart,Ebony Dart,MarksmanThrown,0.4,2000,30,60,1,1,2,10,0,1,0,1,1
+ebony dart_db_unique,A Carved Ebony Dart,MarksmanThrown,0.4,2000,30,60,1,1,2,10,0,1,0,1,1
+ebony longsword,Ebony Longsword,LongBladeOneHand,40,20000,120,1600,1.35,1,2,27,1,37,4,34,1
+ebony mace,Ebony Mace,BluntOneHand,30,12000,100,3600,1.5,1,7,26,7,26,1,3,1
+Ebony Scimitar,Ebony Scimitar,LongBladeOneHand,40,15000,800,3000,1.35,1,2,27,1,43,3,34,1
+ebony shortsword,Ebony Shortsword,ShortBladeOneHand,16,10000,80,1200,2,1,10,20,10,22,15,25,1
+ebony spear,Ebony Spear,SpearTwoWide,28,10000,100,1200,1,1.8,2,8,2,8,5,32,1
+ebony staff,Ebony Staff,BluntTwoWide,16,7000,900,900,1.75,1.8,2,16,3,16,1,10,1
+ebony throwing star,Ebony Throwing Star,MarksmanThrown,0.2,2000,30,900,1,1,2,10,0,1,0,1,1
+ebony war axe,Ebony War Axe,AxeOneHand,48,15000,100,2400,1.25,1,1,37,1,20,1,5,1
+ebony_bow_auriel,Auriel's Bow,MarksmanBow,16,30000,70,1000,1,1,2,50,0,0,0,0,1
+ebony_bow_auriel_X,Auriel's Bow,MarksmanBow,16,30000,70,1000,1,1,2,50,0,1,0,1,1
+ebony_dagger_mehrunes,Ebony Shortsword,ShortBladeOneHand,16,5000,80,1200,2.5,1,10,20,10,20,12,22,1
+false_sunder,* Sunder *,BluntTwoClose,32,600,55,5000,1,1.5,1,39,1,33,1,2,1
+fine black dart,Fine Black Dart,MarksmanThrown,0.2,6,15,150,1,1,1,10,0,1,0,1,1
+fine spring dart,Fine Spring Dart,MarksmanThrown,0.2,6,15,150,1,1,55,110,0,1,0,1,0
+foeburner,Foeburner,LongBladeTwoClose,16,1400,48,3500,1.25,1,2,14,1,20,4,18,1
+glass arrow,Glass Arrow,Arrow,0.05,8,9,10,1,1,1,6,0,1,0,1,1
+glass claymore,Glass Claymore,LongBladeTwoClose,16.2,32000,42,840,1.25,1,1,45,1,39,1,27,1
+glass dagger,Glass Dagger,ShortBladeOneHand,1.8,4000,12,300,2.5,1,6,15,6,15,6,12,1
+glass dagger_Dae_cursed,Glass Dagger,ShortBladeOneHand,1.8,4000,12,400,2.5,1,7,9,7,9,6,9,1
+glass halberd,Glass Halberd,SpearTwoWide,8.4,16000,30,600,1,1.8,1,6,1,6,5,38,1
+glass jinkblade,Glass Jinkblade,ShortBladeOneHand,1.8,6500,12,400,2.5,1,7,9,7,9,6,9,1
+glass longsword,Glass Longsword,LongBladeOneHand,12,16000,36,480,1.35,1,2,24,1,33,4,30,1
+glass netch dagger,Glass Netch Dagger,ShortBladeOneHand,1.8,4900,12,400,2.5,1,7,9,7,9,6,9,1
+glass poisonsword,Glass Vipersword,LongBladeOneHand,12,17000,36,640,1.35,1,2,24,1,33,4,30,1
+glass staff,Glass Staff,BluntTwoWide,4.8,5600,42,240,1.75,1.5,2,12,3,12,1,9,1
+glass stormblade,Glass Sparkblade,ShortBladeOneHand,1.8,6500,12,400,2,1,7,9,7,9,6,9,1
+glass stormsword,Glass Sparksword,LongBladeOneHand,12,17000,36,640,1.35,1,2,24,1,33,4,30,1
+glass throwing knife,Glass Throwing Knife,MarksmanThrown,0.2,25,9,80,1,1,1,6,0,1,0,1,1
+glass throwing star,Glass Throwing Star,MarksmanThrown,0.1,20,9,40,1,1,2,9,0,1,0,1,1
+glass war axe,Glass War Axe,AxeOneHand,14.4,12000,30,640,1.25,1,1,33,1,18,1,5,1
+glass_dagger_enamor,Enamor,ShortBladeOneHand,1.8,4000,12,400,2.5,1,7,12,7,12,6,12,1
+goblin_club,Goblin Club,BluntOneHand,25,3000,100,500,1.5,1,1,60,1,60,1,5,1
+goblin_sword,Goblin Sword,ShortBladeOneHand,20,100,50,250,1.5,1,10,35,10,35,10,35,1
+imperial broadsword,Imperial Broadsword,LongBladeOneHand,12,60,70,600,1.25,1,6,12,4,12,4,12,0
+imperial shortsword,Imperial Shortsword,ShortBladeOneHand,9,30,50,700,2,1,4,10,4,10,6,10,0
+iron arrow,Iron Arrow,Arrow,0.1,1,0,10,1,1,1,3,0,0,0,0,0
+iron battle axe,Iron Battle Axe,AxeTwoClose,30,50,55,1200,1,1,1,32,1,24,1,3,0
+iron bolt,Iron Bolt,Bolt,0.1,1,20,10,1,1,2,3,0,1,0,1,0
+iron broadsword,Iron Broadsword,LongBladeOneHand,12,30,50,600,1.25,1,4,12,2,12,2,12,0
+iron claymore,Iron Claymore,LongBladeTwoClose,27,80,70,1400,1.25,1,1,24,1,21,1,14,0
+iron club,Iron Club,BluntOneHand,12,10,40,400,1.5,1,4,5,3,3,1,3,0
+iron dagger,Iron Dagger,ShortBladeOneHand,3,10,20,400,2.5,1,4,5,4,5,5,5,0
+iron dagger_telasero_unique,Iron Dagger,ShortBladeOneHand,3,10,20,400,2.5,1,4,5,4,5,5,5,0
+iron fork,Iron Fork,ShortBladeOneHand,1,1,100,400,2.5,1,3,5,3,5,3,5,0
+iron halberd,Iron Halberd,SpearTwoWide,14,40,50,700,1,1.8,1,3,1,3,5,20,0
+Iron Long Spear,Iron Spear,SpearTwoWide,14,20,50,400,1,1.8,1,3,1,3,5,20,0
+iron longsword,Iron Longsword,LongBladeOneHand,20,40,60,800,1.35,1,2,13,1,18,4,16,0
+iron mace,Iron Mace,BluntOneHand,15,24,50,1200,1.3,1,1,12,1,12,1,2,0
+iron saber,Iron Saber,LongBladeOneHand,15,24,55,700,1.4,1,5,18,4,16,1,4,0
+iron shortsword,Iron Shortsword,ShortBladeOneHand,8,20,40,600,2,1,4,9,4,9,7,11,0
+iron spear,Iron Spear,SpearTwoWide,14,20,50,600,1,1.8,2,4,2,4,6,15,0
+iron tanto,Iron Tanto,ShortBladeOneHand,4,14,22,500,2.25,1,5,6,5,6,6,6,0
+iron throwing knife,Iron Throwing Knife,MarksmanThrown,0.3,3,15,100,1,1,1,3,0,1,0,1,0
+iron wakizashi,Iron Wakizashi,ShortBladeOneHand,10,24,45,500,2.25,1,7,12,5,10,1,5,0
+iron war axe,Iron War Axe,AxeOneHand,24,30,50,800,1.25,1,1,18,1,10,1,2,0
+iron warhammer,Iron Warhammer,BluntTwoClose,32,40,55,2000,1,1.5,1,28,1,24,1,2,0
+long bow,Long Bow,MarksmanBow,8,50,35,550,1,1,1,20,0,0,0,0,0
+lugrub's axe,Lugrub's Axe,AxeOneHand,24,60,50,50,1.25,1,1,18,1,10,1,2,0
+miner's pick,Miner's Pick,AxeTwoClose,20,8,10,400,1,1,3,7,2,3,1,3,0
+nerevarblade_01,Trueflame,LongBladeOneHand,20,15000,100,2000,1.35,1,15,60,40,50,3,30,0
+nordic battle axe,Nordic Battle Axe,AxeTwoClose,30,60,55,1200,1,1,1,30,1,30,1,4,0
+nordic broadsword,Nordic Broadsword,LongBladeOneHand,15,95,60,800,1.25,1,6,18,2,18,2,18,0
+nordic claymore,Nordic Claymore,LongBladeTwoClose,30,180,100,1600,1.25,1,1,30,1,25,1,18,0
+orcish battle axe,Orcish Battle Axe,AxeTwoClose,15,2000,80,2400,1,1,17,28,2,23,0,2,1
+orcish bolt,Orcish Bolt,Bolt,0.15,4,24,10,1,1,1,6,0,1,0,1,1
+orcish warhammer,Orcish Warhammer,BluntTwoClose,38.4,1600,66,4000,1,1.5,1,42,1,36,1,2,1
+Rusty_Dagger_UNIQUE,A Rusty Dagger,ShortBladeOneHand,3,0,20,5,2.5,1,1,2,1,2,2,2,0
+short bow,Short Bow,MarksmanBow,4,60,20,500,1,1,1,15,0,0,0,0,0
+silver arrow,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_0,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_1,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_2,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_3,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_4,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_5,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_6,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_7,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_8,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver arrow_thirsk_9,Silver Arrow,Arrow,0.1,3,12,10,1,1,1,3,0,1,0,1,1
+silver bolt,Silver Bolt,Bolt,0.1,8,16,10,1,1,3,3,0,1,0,1,1
+silver claymore,Silver Claymore,LongBladeTwoClose,21.6,320,56,1260,1.25,1,1,27,1,23,1,16,1
+silver dagger,Silver Dagger,ShortBladeOneHand,2.4,40,16,400,2.5,1,4,5,4,5,5,5,1
+silver dagger_droth_unique,Droth Dagger,ShortBladeOneHand,2.2,500,20,500,2.5,1,4,7,4,7,5,8,1
+silver dagger_droth_unique_a,Droth Dagger,ShortBladeOneHand,2.2,500,20,500,2.5,1,4,7,4,7,5,8,1
+silver dagger_iryon_unique,Iryon Dagger,ShortBladeOneHand,2.2,500,20,500,2.5,1,4,7,4,7,5,8,1
+silver dagger_othril_unique,Othril Dagger,ShortBladeOneHand,2.2,500,20,500,2.5,1,4,7,4,7,5,8,1
+silver dagger_rathalas_unique,Rathalas Dagger,ShortBladeOneHand,2.2,500,20,500,2.5,1,4,7,4,7,5,8,1
+silver dart,Silver Dart,MarksmanThrown,0.2,6,12,24,1,1,2,5,0,1,0,1,1
+silver longsword,Silver Longsword,LongBladeOneHand,16,160,48,640,1.35,1,2,14,1,20,4,18,1
+silver shardsword,Silver Shardsword,LongBladeOneHand,16,200,48,720,1.35,1,2,14,1,20,4,18,1
+silver shortsword,Silver Shortsword,ShortBladeOneHand,6,80,36,570,2,1,5,10,5,10,7,10,1
+silver spear,Silver Spear,SpearTwoWide,11.2,80,40,500,1,1.8,1,4,1,4,5,23,1
+silver staff,Silver Staff,BluntTwoWide,6.4,56,56,270,1.75,1.5,2,7,3,7,1,5,1
+silver throwing star,Silver Throwing Star,MarksmanThrown,0.2,16,12,45,1,1,2,5,0,1,0,1,1
+silver war axe,Silver War Axe,AxeOneHand,19.2,120,40,720,1.25,1,1,20,1,11,1,3,1
+spiked club,Spiked Club,BluntOneHand,12,18,40,400,1.5,1,4,5,4,4,1,2,0
+spring dart,Spring Dart,MarksmanThrown,0.2,6,15,150,1,1,50,100,0,1,0,1,0
+steel arrow,Steel Arrow,Arrow,0.1,2,15,10,1,1,1,4,0,0,0,0,0
+steel axe,Steel Axe,AxeOneHand,24,60,45,1200,1,1,1,18,1,10,1,2,0
+steel battle axe,Steel Battle Axe,AxeTwoClose,30,100,55,1800,1,1,1,36,1,27,1,4,0
+steel bolt,Steel Bolt,Bolt,0.1,2,20,10,1,1,2,4,0,1,0,1,0
+steel broadsword,Steel Broadsword,LongBladeOneHand,12,60,50,900,1.25,1,4,14,4,14,2,14,0
+steel claymore,Steel Claymore,LongBladeTwoClose,27,160,70,2100,1.25,1,1,27,1,23,1,16,0
+steel club,Steel Club,BluntOneHand,12,20,40,600,1.5,1,4,5,3,4,3,4,0
+steel crossbow,Steel Crossbow,MarksmanCrossbow,10,160,50,550,1,1,20,20,0,1,0,1,0
+steel dagger,Steel Dagger,ShortBladeOneHand,3,20,20,450,2.5,1,4,5,4,5,5,5,0
+steel dai-katana,Steel Dai-katana,LongBladeTwoClose,20,240,70,2700,1.35,1,1,27,1,23,1,14,0
+steel dart,Steel Dart,MarksmanThrown,0.2,6,15,150,1,1,2,5,0,1,0,1,0
+steel halberd,Steel Halberd,SpearTwoWide,14,80,50,1000,1,1.8,1,4,1,4,5,23,0
+steel katana,Steel Katana,LongBladeOneHand,18,100,60,1800,1.5,1,3,20,1,18,1,6,0
+steel longbow,Steel Long Bow,MarksmanBow,8,100,35,600,1,1,1,25,0,1,0,1,0
+steel longbow_carnius,Steel Long Bow,MarksmanBow,8,100,35,600,1,1,1,25,0,1,0,1,0
+steel longsword,Steel Longsword,LongBladeOneHand,20,80,60,900,1.35,1,2,14,1,20,4,18,0
+steel mace,Steel Mace,BluntOneHand,15,48,50,1800,1.3,1,3,14,3,14,1,2,0
+steel saber,Steel Saber,LongBladeOneHand,15,48,55,1050,1.4,1,5,20,4,18,1,5,0
+steel saber_elberoth,Elberoth's Saber,LongBladeOneHand,15,48,55,1050,1.4,1,5,20,4,18,1,5,0
+steel shortsword,Steel Shortsword,ShortBladeOneHand,8,40,40,750,2,1,5,12,5,12,7,12,0
+steel spear,Steel Spear,SpearTwoWide,14,40,50,1000,1,1.8,2,5,2,5,6,17,0
+steel staff,Steel Staff,BluntTwoWide,8,28,70,300,1.75,1.8,2,7,3,7,1,5,0
+steel tanto,Steel Tanto,ShortBladeOneHand,4,28,22,600,2.25,1,5,11,5,11,6,11,0
+steel throwing knife,Steel Throwing Knife,MarksmanThrown,0.3,4,15,150,1,1,1,4,0,1,0,1,0
+steel throwing star,Steel Throwing Star,MarksmanThrown,0.1,3,15,75,1,1,2,5,0,1,0,1,0
+steel wakizashi,Steel Wakizashi,ShortBladeOneHand,10,48,45,600,2.25,1,8,11,7,12,2,7,0
+steel war axe,Steel War Axe,AxeOneHand,24,60,50,1200,1.25,1,1,20,1,11,1,3,0
+steel warhammer,Steel Warhammer,BluntTwoClose,32,80,55,3000,1,1.5,1,32,1,27,1,2,0
+sunder_fake,* Sunder *,BluntOneHand,40,300,165,2000,1.3,1,3,40,3,30,1,2,1
+throwing knife of sureflight,Throwing Knife of Sureflight,MarksmanThrown,0.3,7,15,100,1,1,1,4,0,1,0,1,1
+wooden staff,Wooden Staff,BluntTwoWide,8,8,70,300,1.75,1.8,2,6,3,6,1,5,0

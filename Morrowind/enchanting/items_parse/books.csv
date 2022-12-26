@@ -1,0 +1,58 @@
+ID,Name,Weight,Value,Enchantment
+bk_BeramJournal1,Beram Journal Entry 1,0.1,0,100
+bk_BeramJournal2,Beram Journal Entry 2,0.1,0,100
+bk_BeramJournal3,Beram Journal Entry 3,0.1,0,100
+bk_BeramJournal4,Beram Journal Entry 4,0.1,0,100
+bk_BeramJournal5,Beram Journal Entry 5,0.1,0,100
+bk_BlightPotionNotice,Cure Blight Potion Notice,0.1,1,100
+bk_BMtrial_unique,Letter from Rigmor to Risi,0.1,1,100
+bk_clientlist,Client List,0.1,1,100
+bk_colony_Toralf,Tattered Note,0.1,1,100
+bk_contract_ralen,Weapons and Armor Contract,0.1,1,100
+bk_diary_sailor,Diary of a Lost Sailor,0.1,1,100
+bk_eggorders,Order Manifest,0.1,1,100
+bk_falanaamonote,Note to Falanaamo,0.1,1,100
+bk_fur_armor,Custom Fur Armor Price List,0.2,0,100
+bk_ILHermit_Page,Page from History of the Empire,0,0,100
+bk_impmuseumwelcome,Imperial Museum Welcome,0.1,1,100
+bk_joldanote,A hastily scrawled note,1,1,100
+bk_leaflet_false,A Leaflet,0.1,1,100
+bk_letterfromgadayn,Letter from Gadayn,0.1,1,100
+bk_letterfromjzhirr,Letter from J'Zhirr,0.1,1,100
+bk_letterfromllaalam,Letter from Llaalam Dredil,0.1,1,100
+bk_letterfromllaalam2,Letter from Llaalam Dredil,0.1,1,100
+bk_note,A worn and weathered note,1,1,100
+bk_notebyaryon,Notes by Aryon,0.1,1,100
+bk_notefromberwen,Note from Berwen,0.1,1,100
+bk_notefrombildren,Note from Bildren,0.1,1,100
+bk_notefromernil,Note from Ernil,0.1,1,100
+bk_notefromferele,Note from Ferele,0.1,1,100
+bk_notefromirgola,Note from Irgola,0.1,1,100
+bk_NoteFromJ'Zhirr,Note from J'zhirr,0.1,1,100
+bk_notefromnelos,Note from Nelos,0.1,1,100
+bk_notefromradras,Note from Radras,0.1,1,100
+bk_notefromsondaale,Note from Sondaale,0.1,1,100
+bk_notesoldout,Sold-out Notice,0.1,1,100
+bk_notetocalderaguard,Note to Caldera Guards,0.1,1,100
+bk_notetocalderamages,Note to Mages,0.1,1,100
+bk_notetocalderaslaves,Note to Slaves,0.1,1,100
+bk_notetoinorra,Note to Inorra,0.1,1,100
+bk_notetomalsa,Note to Malsa Ules,1,1,100
+bk_notetomenus,Note to Menus,0.1,1,100
+bk_notetotelvon,Note to Telvon,0.1,1,100
+bk_notetovalvius,Note to Valvius,0.1,1,100
+bk_orderfrommollismo,Order From Mollimo,0.1,1,100
+bk_pillowinvoice,Invoice,0.2,0,100
+bk_propertyofjolda,Property of Jolda,0.1,1,100
+bk_SaintNerevar,Saint Nerevar,0.1,1,100
+bk_shalit_note,Note to Giden,0.1,1,100
+bk_shalitjournal_deal,Rels Tenim Journal Page,0.1,1,100
+bk_storagenotice,Notice,0.2,1,100
+bk_V_hlaaluprison,Prisoner Checklist,0.05,1,100
+bk_varoorders,Shipping Notice,0.1,1,100
+note to hrisskar,Note to Hrisskar,0.2,1,100
+note_Peke_Utchoo,Peke Utchoo's last words,0.2,0,100
+sc_fur_armor,Custom Fur Armor Price List,0.2,0,100
+sc_paper plain,Paper,0.2,3,50
+sc_paper_plain_01_canodia,Paper,0.2,3,50
+text_paper_roll_01,Rolled Paper,0.2,1,100
