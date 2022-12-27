@@ -13,7 +13,7 @@ import pandas as pd
 import sqlite3
 import sys
 
-FILE_PREFIXES = ['armor', 'books', 'clothing', 'weapons']
+FILE_PREFIXES = ['armor', 'books', 'clothing', 'weapons', 'soul_gems']
 
 def check_for_files(in_dir: str) -> bool:
     rv = True

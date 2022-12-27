@@ -1,0 +1,44 @@
+[
+ {
+   "ID": "Misc_SoulGem_Petty",
+   "Name": "Petty Soul Gem",
+   "Weight": 0.2,
+   "Value": 10,
+   "Capacity": 30
+ },
+ {
+   "ID": "Misc_SoulGem_Lesser",
+   "Name": "Lesser Soul Gem",
+   "Weight": 0.5,
+   "Value": 20,
+   "Capacity": 60
+ },
+ {
+   "ID": "Misc_SoulGem_Common",
+   "Name": "Common Soul Gem",
+   "Weight": 1,
+   "Value": 40,
+   "Capacity": 120
+ },
+ {
+   "ID": "Misc_SoulGem_Greater",
+   "Name": "Greater Soul Gem",
+   "Weight": 1.5,
+   "Value": 60,
+   "Capacity": 180
+ },
+ {
+   "ID": "Misc_SoulGem_Grand",
+   "Name": "Grand Soul Gem",
+   "Weight": 2,
+   "Value": 200,
+   "Capacity": 600
+ },
+ {
+   "ID": "Misc_SoulGem_Azura",
+   "Name": "Azura's Star",
+   "Weight": 2,
+   "Value": 5000,
+   "Capacity": 15000
+ }
+]

@@ -1,0 +1,7 @@
+ID,Name,Weight,Value,Capacity
+Misc_SoulGem_Petty,Petty Soul Gem,0.2,10,30
+Misc_SoulGem_Lesser,Lesser Soul Gem,0.5,20,60
+Misc_SoulGem_Common,Common Soul Gem,1,40,120
+Misc_SoulGem_Greater,Greater Soul Gem,1.5,60,180
+Misc_SoulGem_Grand,Grand Soul Gem,2,200,600
+Misc_SoulGem_Azura,Azura's Star,2,5000,15000
