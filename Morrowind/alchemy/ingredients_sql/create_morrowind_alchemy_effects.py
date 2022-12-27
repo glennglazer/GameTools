@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-File: create_oblivion_ingredients.py
+File: create_morrowind_ingredients.py
 Author: Glenn Glazer
 
 Utility to create/update effects database table from JSON"""
@@ -12,7 +12,7 @@ import pandas as pd
 import sqlite3
 import sys
 
-TABLE_NAME = 'oblivion_effects'
+TABLE_NAME = 'morrowind_alchemy_effects'
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -62,5 +62,5 @@ if __name__ == "__main__":
     # We can't have a unique index (PK) because some ingredients have the same
     # effect twice, especially in the case of NULLs
     if exists is None:
-        result = cur.execute(f"CREATE INDEX o_e_name_effect ON {TABLE_NAME} (name, effect)")
+        result = cur.execute(f"CREATE INDEX m_e_name_effect ON {TABLE_NAME} (name, effect)")
         conn.commit()

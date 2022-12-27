@@ -43,7 +43,7 @@ if __name__ == "__main__":
     
     for item_type in FILE_PREFIXES:
         item_read = f"{json_dir}/{item_type}.json"
-        table_name = f"morrowind_{item_type}"
+        table_name = f"morrowind_enchant_{item_type}"
     
         # import data file, make it into a DataFrame
         with open(item_read) as jf:

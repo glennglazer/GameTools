@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-File: create_skyrim_ingredients.py
+File: create_morrowind_ingredients.py
 Author: Glenn Glazer
 
 Utility to create/update ingredients database table from JSON"""
@@ -12,7 +12,7 @@ import pandas as pd
 import sqlite3
 import sys
 
-TABLE_NAME = 'skyrim_ingredients'
+TABLE_NAME = 'morrowind_alchemy_ingredients'
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -52,5 +52,5 @@ if __name__ == "__main__":
     
     # if the table didn't exist before, add the PK
     if exists is None:
-        result = cur.execute(f"CREATE UNIQUE INDEX s_i_name ON {TABLE_NAME} (name)")
+        result = cur.execute(f"CREATE UNIQUE INDEX m_i_name ON {TABLE_NAME} (name)")
         conn.commit()
