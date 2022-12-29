@@ -1,0 +1,26 @@
+[
+    {
+        "ID": 0,
+        "Name": "Alteration"
+    },
+    {
+        "ID": 1,
+        "Name": "Conjuration"
+    },
+    {
+        "ID": 2,
+        "Name": "Destruction"
+    },
+    {
+        "ID": 3,
+        "Name": "Illusion"
+    },
+    {
+        "ID": 4,
+        "Name": "Mysticism"
+    },
+    {
+        "ID": 5,
+        "Name": "Restoration"
+    }
+]
