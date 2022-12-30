@@ -1,0 +1,2 @@
+# Source
+The raw text files in this directory were created by grabbing wiki table source from [The Elder Scrolls Wiki](https://elderscrolls.fandom.com/wiki/The_Elder_Scrolls_Wiki) and then converted to json using the parse wiki to JSON script.
