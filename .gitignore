@@ -154,3 +154,7 @@ cython_debug/
 # generated databases, only check in at the end
 database/
 *.sqlite3
+
+# Claude
+.claude/
+CLAUDE.md

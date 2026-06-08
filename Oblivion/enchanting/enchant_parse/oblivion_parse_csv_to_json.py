@@ -60,11 +60,11 @@ if __name__ == "__main__":
         #   "Type","Mod Name","ObjectIndex","Editor Id","Weight","Value"
         # We only want the last three
         with open(item_read, newline='') as item_file:
-            reader = csv.DictReader(item_file)
+            reader = csv.DictReader(item_file, fieldnames=['Type', 'Mod Name', 'ObjectIndex', 'Editor ID', 'Weight', 'Value'])
             try:
                 for row in reader:
-                    smaller_row = {'Editor ID': row['Editor ID'], 'Weight'}
-                    item_list.append(row)
+                    smaller_row = {'Editor ID': row['Editor ID'], 'Weight': row['Weight'], 'Value': row['Value']}
+                    item_list.append(smaller_row)
             except csv.Error as e:
                 print(f"Error parsing {row} in {item_read}: {e}")
                 sys.exit(1)
