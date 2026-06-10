@@ -2,39 +2,38 @@
 
 Unit and integration tests for all GameTools source modules, organized by game.
 
-## Prerequisites
+## Prerequisites — Docker (recommended)
+
+Development runs inside a Docker container (Python 3.14). From the repo root:
 
 ```bash
-pip install pytest pandas
-```
+# Build the image (only needed once, or after requirements.txt changes)
+docker compose build
 
-> **Note:** The default `python3` on this system (3.13) is missing the `_sqlite3` C extension.
-> Use `/usr/bin/python3.11` to run the tests.
-
-## Running the Tests
-
-From the repository root:
-
-```bash
 # Run all tests
-/usr/bin/python3.11 -m pytest unittests/
-
-# Run with verbose output
-/usr/bin/python3.11 -m pytest unittests/ -v
+docker compose run --rm dev python -m pytest unittests/ -v
 
 # Run a specific game's tests
-/usr/bin/python3.11 -m pytest unittests/morrowind/
-/usr/bin/python3.11 -m pytest unittests/oblivion/
-/usr/bin/python3.11 -m pytest unittests/skyrim/
+docker compose run --rm dev python -m pytest unittests/morrowind/
 
-# Run a specific test file
-/usr/bin/python3.11 -m pytest unittests/morrowind/test_alchemy_parse.py
+# Open an interactive shell in the container
+docker compose run --rm dev bash
+```
 
-# Run a specific test function
-/usr/bin/python3.11 -m pytest unittests/morrowind/test_alchemy_parse.py::test_parse_single_entry_ingredient_fields
+> **Note:** If `docker` commands fail with a permissions error, either log out and back in
+> (to pick up the `docker` group), or prefix with `sg docker -c "..."`.
 
-# Show output from print statements (useful for debugging failures)
-/usr/bin/python3.11 -m pytest unittests/ -s
+## Prerequisites — System Python fallback
+
+```bash
+pip install -r requirements.txt
+```
+
+> **Note:** The default `python3` (3.13) on this Debian system is missing `_sqlite3`.
+> Use `/usr/bin/python3.11` if running outside Docker.
+
+```bash
+/usr/bin/python3.11 -m pytest unittests/ -v
 ```
 
 ## Test Structure
