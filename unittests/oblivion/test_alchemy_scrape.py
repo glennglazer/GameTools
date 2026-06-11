@@ -130,9 +130,22 @@ def test_extract_rows_no_table_returns_empty():
 # fields_from_row
 # ---------------------------------------------------------------------------
 
-def test_fields_from_row_valid_returns_list():
+def test_fields_from_row_valid_six_columns():
     cells = ['Alkanet Flower', '0.1', '1', 'Alkanet', 'Restore Intelligence,Resist Poison,Light,Damage Fatigue', '0003365C']
     assert fields_from_row(cells) == cells
+
+def test_fields_from_row_si_five_columns_remapped():
+    # SI table: name, sources, effects, value, weight (no ID)
+    # Expected output order: name, weight, value, sources, effects, ''
+    cells = ['Alocasia Fruit', 'Alocasia', 'Restore Fatigue,Light,Restore Health,Damage Magicka', '1', '0.3']
+    result = fields_from_row(cells)
+    assert result is not None
+    assert result[0] == 'Alocasia Fruit'   # name
+    assert result[1] == '0.3'             # weight (was index 4)
+    assert result[2] == '1'               # value (was index 3)
+    assert result[3] == 'Alocasia'        # sources (was index 1)
+    assert result[4] == 'Restore Fatigue,Light,Restore Health,Damage Magicka'  # effects (was index 2)
+    assert result[5] == ''                # empty ID
 
 def test_fields_from_row_wrong_count_returns_none():
     assert fields_from_row(['a', 'b', 'c']) is None

@@ -184,11 +184,14 @@ def url_to_title(url: str) -> str:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Scrape Skyrim alchemy ingredients from the wiki.')
-    parser.add_argument('--out-dir', help='directory to write raw files to (default: script directory)')
+    parser.add_argument('--out-dir', help='directory to write raw files to (default: repo .out/)')
     args = parser.parse_args()
 
     script_dir = Path(__file__).parent.resolve()
-    out_dir = Path(args.out_dir).resolve() if args.out_dir else script_dir
+    repo_root = script_dir.parent.parent.parent
+    default_out = repo_root / '.out'
+    out_dir = Path(args.out_dir).resolve() if args.out_dir else default_out
+    out_dir.mkdir(parents=True, exist_ok=True)
     source_urls_file = script_dir.parent / 'source_urls.txt'
 
     if not source_urls_file.exists():

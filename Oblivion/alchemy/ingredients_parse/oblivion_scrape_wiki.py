@@ -140,10 +140,19 @@ def extract_rows(soup: BeautifulSoup, all_tables: bool = False) -> list:
 
 
 def fields_from_row(cells: list) -> list:
-    """Validate and return the 6 fields for an Oblivion ingredient row, or None."""
-    if len(cells) != EXPECTED_COLUMNS:
-        return None
-    return list(cells)  # name, weight, value, source, effects, ID
+    """Return 6 fields in standard output order (name, weight, value, source, effects, ID), or None.
+
+    Handles two wiki table formats:
+    - Main Oblivion page (6 cols): name, weight, value, sources, effects, Form ID
+    - Shivering Isles page (5 cols): name, sources, effects, value, weight  (no Form ID)
+      The SI page omits Form IDs, so that field is left empty.
+    """
+    if len(cells) == 6:
+        return list(cells)
+    elif len(cells) == 5:
+        # SI column order: name(0), sources(1), effects(2), value(3), weight(4)
+        return [cells[0], cells[4], cells[3], cells[1], cells[2], '']
+    return None
 
 
 def format_entry(fields: list) -> str:
@@ -172,11 +181,14 @@ def title_to_stem(title: str) -> str:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Scrape Oblivion alchemy ingredients from the wiki.')
-    parser.add_argument('--out-dir', help='directory to write raw files to (default: script directory)')
+    parser.add_argument('--out-dir', help='directory to write raw files to (default: repo .out/)')
     args = parser.parse_args()
 
     script_dir = Path(__file__).parent.resolve()
-    out_dir = Path(args.out_dir).resolve() if args.out_dir else script_dir
+    repo_root = script_dir.parent.parent.parent
+    default_out = repo_root / '.out'
+    out_dir = Path(args.out_dir).resolve() if args.out_dir else default_out
+    out_dir.mkdir(parents=True, exist_ok=True)
     source_urls_file = script_dir.parent / 'source_urls.txt'
 
     if not source_urls_file.exists():
