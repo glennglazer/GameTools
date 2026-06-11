@@ -76,7 +76,7 @@ def test_fetch_parsed_html_non_200_raises():
 
 
 # ---------------------------------------------------------------------------
-# cell_text — Oblivion-specific: <br>-separated effects become comma-joined
+# cell_text — Oblivion-specific: <br>-separated effects comma-joined; DLC markers filtered
 # ---------------------------------------------------------------------------
 
 def test_cell_text_br_separated_joins_with_comma():
@@ -90,9 +90,18 @@ def test_cell_text_single_value():
     tag = BeautifulSoup('<td>Alkanet</td>', 'html.parser').find('td')
     assert cell_text(tag) == 'Alkanet'
 
-def test_cell_text_linked_ingredient_name():
-    tag = BeautifulSoup('<td><a href="...">Alkanet Flower</a></td>', 'html.parser').find('td')
+def test_cell_text_linked_ingredient_name_no_disambiguation():
+    tag = BeautifulSoup('<td><a href="/wiki/Alkanet_Flower">Alkanet Flower</a></td>', 'html.parser').find('td')
     assert cell_text(tag) == 'Alkanet Flower'
+
+def test_cell_text_linked_ingredient_name_with_disambiguation():
+    tag = BeautifulSoup('<td><a href="/wiki/Alkanet_Flower_(Oblivion)">Alkanet Flower</a></td>', 'html.parser').find('td')
+    assert cell_text(tag) == 'Alkanet Flower (Oblivion)|Alkanet Flower'
+
+def test_cell_text_dlc_marker_filtered_from_name():
+    html = '<td><a href="/wiki/Alocasia_Fruit_(Oblivion)">Alocasia Fruit</a><a href="/wiki/Shivering_Isles">SI</a></td>'
+    tag = BeautifulSoup(html, 'html.parser').find('td')
+    assert cell_text(tag) == 'Alocasia Fruit (Oblivion)|Alocasia Fruit'
 
 
 # ---------------------------------------------------------------------------

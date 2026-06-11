@@ -1,0 +1,1880 @@
+|
+|Abecean Longfin
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|Fortify Sneak
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Fortify Restoration
+|0.5
+|15
+|
+|00106E1B
+|
+|Bear Claws
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Health (Skyrim)|Fortify Health
+|Fortify One-Handed
+|Damage Magicka Regen
+|0.1
+|2
+|
+|0006BC02
+|
+|Bee
+|Restore Stamina (Skyrim)|Restore Stamina
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|Regenerate Stamina
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|0.1
+|3
+|
+|000A9195
+|
+|Beehive Husk
+|Resist Poison (Skyrim)|Resist Poison
+|Fortify Light Armor
+|Fortify Sneak
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|1
+|5
+|
+|000A9191
+|
+|Berit's Ashes
+|Damage Stamina (Skyrim)|Damage Stamina
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Conjuration
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|0.2
+|5
+|
+|000705B7
+|
+|Bleeding Crown
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Fortify Block
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Resist Magic (Skyrim)|Resist Magic
+|0.3
+|10
+|
+|0004DA20
+|
+|Blisterwort (Skyrim)|Blisterwort
+|Damage Stamina (Skyrim)|Damage Stamina
+|Frenzy (Skyrim)|Frenzy
+|Restore Health (Skyrim)|Restore Health
+|Fortify Smithing
+|0.2
+|12
+|
+|0004DA25
+|
+|Blue Butterfly Wing
+|Damage Stamina (Skyrim)|Damage Stamina
+|Fortify Conjuration
+|Damage Magicka Regen
+|Fortify Enchanting
+|0.1
+|2
+|
+|000727DE
+|
+|Blue Dartwing
+|Resist Shock (Skyrim)|Resist Shock
+|Fortify Pickpocket
+|Restore Health (Skyrim)|Restore Health
+|Fear (Skyrim)|Fear
+|0.1
+|1
+|
+|000E4F0C
+|
+|Blue Mountain Flower
+|Restore Health (Skyrim)|Restore Health
+|Fortify Conjuration
+|Fortify Health (Skyrim)|Fortify Health
+|Damage Magicka Regen
+|0.1
+|2
+|
+|00077E1C
+|
+|Bone Meal
+|Damage Stamina (Skyrim)|Damage Stamina
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Conjuration
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|0.5
+|5
+|
+|00034CDD
+|
+|Briar Heart
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Block
+|Paralysis (Skyrim)|Paralysis
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|0.5
+|20
+|
+|0003AD61
+|
+|Butterfly Wing (Skyrim)|Butterfly Wing
+|Restore Health (Skyrim)|Restore Health
+|Fortify Barter
+|Lingering Damage Stamina
+|Damage Magicka (Skyrim)|Damage Magicka
+|0.1
+|3
+|
+|000727E0
+|
+|Canis Root (Skyrim)|Canis Root
+|Damage Stamina (Skyrim)|Damage Stamina
+|Fortify One-Handed
+|Fortify Marksman
+|Paralysis (Skyrim)|Paralysis
+|0.1
+|5
+|
+|0006ABCB
+|
+|Charred Skeever Hide
+|Restore Stamina (Skyrim)|Restore Stamina
+|Cure Disease (Skyrim)|Cure Disease
+|Resist Poison (Skyrim)|Resist Poison
+|Restore Health (Skyrim)|Restore Health
+|0.5
+|1
+|
+|00052695
+|
+|Chaurus Eggs
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Fortify Stamina
+|Damage Magicka (Skyrim)|Damage Magicka
+|Invisibility (Skyrim)|Invisibility
+|0.2
+|10
+|
+|0003AD56
+|
+|Chicken's Egg
+|Resist Magic (Skyrim)|Resist Magic
+|Damage Magicka Regen
+|Waterbreathing (Skyrim)|Waterbreathing
+|Lingering Damage Stamina
+|0.5
+|2
+|
+|00023D77
+|
+|Creep Cluster
+|Restore Magicka (Skyrim)|Restore Magicka
+|Damage Stamina Regen
+|Fortify Carry Weight
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|0.2
+|1
+|
+|000B2183
+|
+|Crimson Nirnroot (Skyrim)|Crimson Nirnroot
+|Damage Health (Skyrim)|Damage Health
+|Damage Stamina (Skyrim)|Damage Stamina
+|Invisibility (Skyrim)|Invisibility
+|Resist Magic (Skyrim)|Resist Magic
+|0.2
+|10
+|
+|000B701A
+|
+|Cyrodilic Spadetail
+|Damage Stamina (Skyrim)|Damage Stamina
+|Fortify Restoration
+|Fear (Skyrim)|Fear
+|Ravage Health (Skyrim)|Ravage Health
+|0.3
+|15
+|
+|00106E19
+|
+|Daedra Heart (Skyrim)|Daedra Heart
+|Restore Health (Skyrim)|Restore Health
+|Damage Stamina Regen
+|Damage Magicka (Skyrim)|Damage Magicka
+|Fear (Skyrim)|Fear
+|0.5
+|250
+|
+|0003AD5B
+|
+|Deathbell (Skyrim)|Deathbell
+|Damage Health (Skyrim)|Damage Health
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|Slow
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|0.1
+|4
+|
+|000516C8
+|
+|Dragon's Tongue (Skyrim)|Dragon's Tongue
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Barter
+|Fortify Illusion
+|Fortify Two-Handed
+|0.1
+|5
+|
+|000889A2
+|
+|Dwarven Oil (Skyrim)|Dwarven Oil
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Illusion
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Restore Magicka (Skyrim)|Restore Magicka
+|0.3
+|15
+|
+|000F11C0
+|
+|Ectoplasm (Skyrim)|Ectoplasm
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Damage Health (Skyrim)|Damage Health
+|0.1
+|25
+|
+|0003AD63
+|
+|Elves Ear
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Marksman
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|Resist Fire (Skyrim)|Resist Fire
+|0.1
+|10
+|
+|00034D31
+|
+|Eye of Sabre Cat
+|Restore Stamina (Skyrim)|Restore Stamina
+|Ravage Health (Skyrim)|Ravage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Restore Health (Skyrim)|Restore Health
+|0.1
+|2.0
+|
+|0006BC07
+|
+|Falmer Ear
+|Damage Health (Skyrim)|Damage Health
+|Frenzy (Skyrim)|Frenzy
+|Resist Poison (Skyrim)|Resist Poison
+|Fortify Lockpicking
+|0.2
+|10
+|
+|0003AD5D
+|
+|Fine-Cut Void Salts
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|Resist Magic (Skyrim)|Resist Magic
+|Damage Health (Skyrim)|Damage Health
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|0.2
+|125
+|
+|0003AD60 (base item),0010757A (message)
+|
+|Fire Salts (Skyrim)|Fire Salts
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|Resist Fire (Skyrim)|Resist Fire
+|Restore Magicka (Skyrim)|Restore Magicka
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|0.3
+|50
+|
+|0003AD5E
+|
+|Fly Amanita (Skyrim)|Fly Amanita
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Two-Handed
+|Frenzy (Skyrim)|Frenzy
+|Regenerate Stamina
+|0.1
+|2
+|
+|0004DA00
+|
+|Frost Mirriam (Skyrim)|Frost Mirriam
+|Resist Frost (Skyrim)|Resist Frost
+|Fortify Sneak
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Damage Stamina Regen
+|0.1
+|1
+|
+|00034D32
+|
+|Frost Salts (Skyrim)|Frost Salts
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Resist Frost (Skyrim)|Resist Frost
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Conjuration
+|0.3
+|100
+|
+|0003AD5F
+|
+|Garlic (Skyrim)|Garlic
+|Resist Poison (Skyrim)|Resist Poison
+|Fortify Stamina
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Regenerate Health (Skyrim)|Regenerate Health
+|0.3
+|1
+|
+|00034D22
+|
+|Giant Lichen
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|Ravage Health (Skyrim)|Ravage Health
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Restore Magicka (Skyrim)|Restore Magicka
+|0.3
+|5
+|
+|0007E8C1
+|
+|Giant's Toe
+|Damage Stamina (Skyrim)|Damage Stamina
+|Fortify Health (Skyrim)|Fortify Health
+|Fortify Carry Weight
+|Damage Stamina Regen
+|1
+|20
+|
+|0003AD64
+|
+|Glow Dust (Skyrim)|Glow Dust
+|Damage Magicka (Skyrim)|Damage Magicka
+|Damage Magicka Regen
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|Resist Shock (Skyrim)|Resist Shock
+|0.5
+|20
+|
+|0003AD73
+|
+|Glowing Mushroom (Skyrim)|Glowing Mushroom
+|Resist Shock (Skyrim)|Resist Shock
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|Fortify Smithing
+|Fortify Health (Skyrim)|Fortify Health
+|0.2
+|5
+|
+|0007EE01
+|
+|Grass Pod
+|Resist Poison (Skyrim)|Resist Poison
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Fortify Alteration
+|Restore Magicka (Skyrim)|Restore Magicka
+|0.1
+|1
+|
+|00083E64
+|
+|Hagraven Claw
+|Resist Magic (Skyrim)|Resist Magic
+|Lingering Damage Magicka
+|Fortify Enchanting
+|Fortify Barter
+|0.3
+|20
+|
+|0006B689
+|
+|Hagraven Feathers
+|Damage Magicka (Skyrim)|Damage Magicka
+|Fortify Conjuration
+|Frenzy (Skyrim)|Frenzy
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|0.1
+|20
+|
+|0003AD66
+|
+|Hanging Moss
+|Damage Magicka (Skyrim)|Damage Magicka
+|Fortify Health (Skyrim)|Fortify Health
+|Damage Magicka Regen
+|Fortify One-Handed
+|0.3
+|1
+|
+|00057F91
+|
+|Hawk Beak
+|Restore Stamina (Skyrim)|Restore Stamina
+|Resist Frost (Skyrim)|Resist Frost
+|Fortify Carry Weight
+|Resist Shock (Skyrim)|Resist Shock
+|0.3
+|15
+|
+|000E7EBC
+|
+|Hawk Feathers
+|Cure Disease (Skyrim)|Cure Disease
+|Fortify Light Armor
+|Fortify One-Handed
+|Fortify Sneak
+|0.1
+|15
+|
+|000E7ED0
+|
+|Histcarp (Skyrim)|Histcarp
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Damage Stamina Regen
+|Waterbreathing (Skyrim)|Waterbreathing
+|0.3
+|6
+|
+|00106E18
+|
+|Honeycomb (Skyrim)|Honeycomb
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Block
+|Fortify Light Armor
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|1
+|5
+|
+|000B08C5
+|
+|Human Flesh (Skyrim)|Human Flesh
+|Damage Health (Skyrim)|Damage Health
+|Paralysis (Skyrim)|Paralysis
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Sneak
+|0.3
+|1
+|
+|001016B3
+|
+|Human Heart (Skyrim)|Human Heart
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Damage Magicka Regen
+|Frenzy (Skyrim)|Frenzy
+|1
+|0
+|
+|000B18CD
+|
+|Ice Wraith Teeth
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|Fortify Heavy Armor
+|Invisibility (Skyrim)|Invisibility
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|0.3
+|30
+|
+|0003AD6A
+|
+|Imp Stool (Skyrim)|Imp Stool
+|Damage Health (Skyrim)|Damage Health
+|Lingering Damage Health
+|Paralysis (Skyrim)|Paralysis
+|Restore Health (Skyrim)|Restore Health
+|0.3
+|0
+|
+|0004DA23
+|
+|Jarrin Root
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Damage Stamina (Skyrim)|Damage Stamina
+|Damage Magicka Regen
+|0.5
+|10
+|
+|0001BCBC
+|
+|Jazbay Grapes (Skyrim)|Jazbay Grapes
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Ravage Health (Skyrim)|Ravage Health
+|0.2
+|1
+|
+|0006AC4A
+|
+|Juniper Berries (Skyrim)|Juniper Berries
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Fortify Marksman
+|Regenerate Health (Skyrim)|Regenerate Health
+|Damage Stamina Regen
+|0.1
+|1
+|
+|0005076E
+|
+|Large Antlers
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Stamina
+|Slow
+|Damage Stamina Regen
+|0.1
+|2
+|
+|0006BC0A
+|
+|Lavender (Skyrim)|Lavender
+|Resist Magic (Skyrim)|Resist Magic
+|Fortify Stamina
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Fortify Conjuration
+|0.1
+|1
+|
+|00045C28
+|
+|Luna Moth Wing
+|Damage Magicka (Skyrim)|Damage Magicka
+|Fortify Light Armor
+|Regenerate Health (Skyrim)|Regenerate Health
+|Invisibility (Skyrim)|Invisibility
+|0.1
+|5
+|
+|000727DF
+|
+|Moon Sugar (Skyrim)|Moon Sugar
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Resist Frost (Skyrim)|Resist Frost
+|Restore Magicka (Skyrim)|Restore Magicka
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|0.3
+|50
+|
+|000D8E3F
+|
+|Mora Tapinella
+|Restore Magicka (Skyrim)|Restore Magicka
+|Lingering Damage Health
+|Regenerate Stamina
+|Fortify Illusion
+|0.3
+|4
+|
+|000EC870
+|
+|Mudcrab Chitin (Skyrim)|Mudcrab Chitin
+|Restore Stamina (Skyrim)|Restore Stamina
+|Cure Disease (Skyrim)|Cure Disease
+|Resist Poison (Skyrim)|Resist Poison
+|Resist Fire (Skyrim)|Resist Fire
+|0.3
+|2
+|
+|0006BC00
+|
+|Namira's Rot (Skyrim)|Namira's Rot
+|Damage Magicka (Skyrim)|Damage Magicka
+|Fortify Lockpicking
+|Fear (Skyrim)|Fear
+|Regenerate Health (Skyrim)|Regenerate Health
+|0.3
+|0
+|
+|0004DA24
+|
+|Nightshade (Skyrim)|Nightshade
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka Regen
+|Lingering Damage Stamina
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|0.1
+|8
+|
+|0002F44C
+|
+|Nirnroot (Skyrim)|Nirnroot
+|Damage Health (Skyrim)|Damage Health
+|Damage Stamina (Skyrim)|Damage Stamina
+|Invisibility (Skyrim)|Invisibility
+|Resist Magic (Skyrim)|Resist Magic
+|0.2
+|10
+|
+|00059B86
+|
+|Nordic Barnacle
+|Damage Magicka (Skyrim)|Damage Magicka
+|Waterbreathing (Skyrim)|Waterbreathing
+|Regenerate Health (Skyrim)|Regenerate Health
+|Fortify Pickpocket
+|0.2
+|5
+|
+|0007EDF5
+|
+|Orange Dartwing
+|Restore Stamina (Skyrim)|Restore Stamina
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Fortify Pickpocket
+|Lingering Damage Health
+|0.1
+|1
+|
+|000BB956
+|
+|Pearl (Skyrim)|Pearl
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Block
+|Restore Magicka (Skyrim)|Restore Magicka
+|Resist Shock (Skyrim)|Resist Shock
+|0.1
+|2
+|
+|000854FE
+|
+|Pine Thrush Egg
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Lockpicking
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Resist Shock (Skyrim)|Resist Shock
+|0.5
+|2
+|
+|00023D6F
+|
+|Powdered Mammoth Tusk
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Sneak
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Fear (Skyrim)|Fear
+|0.1
+|2
+|
+|0006BC10
+|
+|Purple Mountain Flower
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Sneak
+|Lingering Damage Magicka
+|Resist Frost (Skyrim)|Resist Frost
+|0.1
+|2
+|
+|00077E1E
+|
+|Red Mountain Flower
+|Restore Magicka (Skyrim)|Restore Magicka
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Damage Health (Skyrim)|Damage Health
+|0.1
+|2
+|
+|00077E1D
+|
+|River Betty
+|Damage Health (Skyrim)|Damage Health
+|Fortify Alteration
+|Slow
+|Fortify Carry Weight
+|0.3
+|15
+|
+|00106E1A
+|
+|Rock Warbler Egg
+|Restore Health (Skyrim)|Restore Health
+|Fortify One-Handed
+|Damage Stamina (Skyrim)|Damage Stamina
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|0.5
+|2
+|
+|0007E8C8
+|
+|Sabre Cat Tooth
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Heavy Armor
+|Fortify Smithing
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|0.1
+|2
+|
+|0006BC04
+|
+|Salt Pile
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Restoration
+|Slow
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|0.2
+|2
+|
+|00034CDF (SaltPile),00074A19 (MS03BlackBriarSecretIngredient)
+|
+|Scaly Pholiota
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Illusion
+|Regenerate Stamina
+|Fortify Carry Weight
+|0.3
+|4
+|
+|0006F950
+|
+|Silverside Perch
+|Restore Stamina (Skyrim)|Restore Stamina
+|Damage Stamina Regen
+|Ravage Health (Skyrim)|Ravage Health
+|Resist Frost (Skyrim)|Resist Frost
+|0.3
+|15
+|
+|00106E1C
+|
+|Skeever Tail
+|Damage Stamina Regen
+|Ravage Health (Skyrim)|Ravage Health
+|Damage Health (Skyrim)|Damage Health
+|Fortify Light Armor
+|0.2
+|3
+|
+|0003AD6F
+|
+|Slaughterfish Egg
+|Resist Poison (Skyrim)|Resist Poison
+|Fortify Pickpocket
+|Lingering Damage Health
+|Fortify Stamina
+|0.2
+|3
+|
+|0007E8C5
+|
+|Slaughterfish Scales
+|Resist Frost (Skyrim)|Resist Frost
+|Lingering Damage Health
+|Fortify Heavy Armor
+|Fortify Block
+|0.1
+|3
+|
+|0003AD70
+|
+|Small Antlers
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Fortify Restoration
+|Lingering Damage Stamina
+|Damage Health (Skyrim)|Damage Health
+|0.1
+|2
+|
+|0006BC0B
+|
+|Small Pearl
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify One-Handed
+|Fortify Restoration
+|Resist Frost (Skyrim)|Resist Frost
+|0.1
+|2
+|
+|00085500
+|
+|Snowberries (Skyrim)|Snowberries
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Enchanting
+|Resist Frost (Skyrim)|Resist Frost
+|Resist Shock (Skyrim)|Resist Shock
+|0.1
+|4
+|
+|0001B3BD
+|
+|Spider Egg (Skyrim)|Spider Egg
+|Damage Stamina (Skyrim)|Damage Stamina
+|Damage Magicka Regen
+|Fortify Lockpicking
+|Fortify Marksman
+|0.2
+|5.0
+|
+|0009151B
+|
+|Spriggan Sap
+|Damage Magicka Regen
+|Fortify Enchanting
+|Fortify Smithing
+|Fortify Alteration
+|0.2
+|5
+|
+|00063B5F
+|
+|Swamp Fungal Pod
+|Resist Shock (Skyrim)|Resist Shock
+|Lingering Damage Magicka
+|Paralysis (Skyrim)|Paralysis
+|Restore Health (Skyrim)|Restore Health
+|0.3
+|5
+|
+|0007E8B7
+|
+|Taproot (Skyrim)|Taproot
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Illusion
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Restore Magicka (Skyrim)|Restore Magicka
+|0.5
+|15
+|
+|0003AD71
+|
+|Thistle Branch (Skyrim)|Thistle Branch
+|Resist Frost (Skyrim)|Resist Frost
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|Resist Poison (Skyrim)|Resist Poison
+|Fortify Heavy Armor
+|0.1
+|1
+|
+|000134AA
+|
+|Torchbug Thorax (Skyrim)|Torchbug Thorax
+|Restore Stamina (Skyrim)|Restore Stamina
+|Lingering Damage Magicka
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Stamina
+|0.1
+|1.0
+|
+|0004DA73
+|
+|Troll Fat (Skyrim)|Troll Fat
+|Resist Poison (Skyrim)|Resist Poison
+|Fortify Two-Handed
+|Frenzy (Skyrim)|Frenzy
+|Damage Health (Skyrim)|Damage Health
+|1
+|15
+|
+|0003AD72
+|
+|Tundra Cotton
+|Resist Magic (Skyrim)|Resist Magic
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Fortify Block
+|Fortify Barter
+|0.1
+|1
+|
+|0003F7F8
+|
+|Vampire Dust (Skyrim)|Vampire Dust
+|Invisibility (Skyrim)|Invisibility
+|Restore Magicka (Skyrim)|Restore Magicka
+|Regenerate Health (Skyrim)|Regenerate Health
+|Cure Disease (Skyrim)|Cure Disease
+|0.2
+|25
+|
+|0003AD76
+|
+|Void Salts (Skyrim)|Void Salts
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|Resist Magic (Skyrim)|Resist Magic
+|Damage Health (Skyrim)|Damage Health
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|0.2
+|125
+|
+|0003AD60
+|
+|Wheat (Skyrim)|Wheat
+|Restore Health (Skyrim)|Restore Health
+|Fortify Health (Skyrim)|Fortify Health
+|Damage Stamina Regen
+|Lingering Damage Magicka
+|0.1
+|5
+|
+|0004B0BA
+|
+|White Cap (Skyrim)|White Cap
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|Fortify Heavy Armor
+|Restore Magicka (Skyrim)|Restore Magicka
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|0.3
+|1
+|
+|0004DA22
+|
+|Wisp Wrappings
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|Fortify Carry Weight
+|Resist Magic (Skyrim)|Resist Magic
+|0.1
+|2
+|
+|0006BC0E
+|
+|Hawk's Egg
+|Resist Magic (Skyrim)|Resist Magic
+|Damage Magicka Regen
+|Waterbreathing (Skyrim)|Waterbreathing
+|Lingering Damage Stamina
+|0.5
+|5
+|
+|Xx|xx xx 00f1cc
+|
+|Salmon Roe
+|Restore Stamina (Skyrim)|Restore Stamina
+|Waterbreathing (Skyrim)|Waterbreathing
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|0.2
+|5
+|
+|Xx|xx xx 003545
+|
+|Ancestor Moth Wing
+|Damage Stamina (Skyrim)|Damage Stamina
+|Fortify Conjuration
+|Damage Magicka Regen
+|Fortify Enchanting
+|0.1
+|2
+|
+|Xx|xx xx 0059ba
+|
+|Chaurus Hunter Antennae
+|Damage Stamina (Skyrim)|Damage Stamina
+|Fortify Conjuration
+|Damage Magicka Regen
+|Fortify Enchanting
+|0.1
+|2
+|
+|Xx|xx xx 0183b7
+|
+|Gleamblossom
+|Resist Magic (Skyrim)|Resist Magic
+|Fear (Skyrim)|Fear
+|Regenerate Health (Skyrim)|Regenerate Health
+|Paralysis (Skyrim)|Paralysis
+|0.1
+|5
+|
+|Xx|xx xx 00b097
+|
+|Poison Bloom
+|Damage Health (Skyrim)|Damage Health
+|Slow
+|Fortify Carry Weight
+|Fear (Skyrim)|Fear
+|0.3
+|5
+|
+|Xx|xx xx 0185fb
+|
+|Yellow Mountain Flower
+|Resist Poison (Skyrim)|Resist Poison
+|Fortify Restoration
+|Fortify Health (Skyrim)|Fortify Health
+|Damage Stamina Regen
+|0.1
+|2
+|
+|Xx|xx xx 002a78
+|
+|Ash Creep Cluster
+|Damage Stamina (Skyrim)|Damage Stamina
+|Invisibility (Skyrim)|Invisibility
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|0.3
+|20
+|
+|Xx|xx xx 01cd74
+|
+|Ash Hopper Jelly
+|Restore Health (Skyrim)|Restore Health
+|Fortify Light Armor
+|Resist Shock (Skyrim)|Resist Shock
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|0.3
+|20
+|
+|Xx|xx xx 01cd71
+|
+|Ashen Grass Pod
+|Resist Fire (Skyrim)|Resist Fire
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|Fortify Lockpicking
+|Fortify Sneak
+|0.1
+|1
+|
+|Xx|xx xx 016e26
+|
+|Boar Tusk
+|Fortify Stamina
+|Fortify Health (Skyrim)|Fortify Health
+|Fortify Block
+|Frenzy (Skyrim)|Frenzy
+|0.5
+|20
+|
+|Xx|xx xx 01cd6f
+|
+|Burnt Spriggan Wood
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Fortify Alteration
+|Damage Magicka Regen
+|Slow
+|0.5
+|20
+|
+|Xx|xx xx 01cd6e
+|
+|Emperor Parasol Moss
+|Damage Health (Skyrim)|Damage Health
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Regenerate Health (Skyrim)|Regenerate Health
+|Fortify Two-Handed
+|0.3
+|1
+|
+|Xx|xx xx 01ff75
+|
+|Felsaad Tern Feathers
+|Restore Health (Skyrim)|Restore Health
+|Fortify Light Armor
+|Cure Disease (Skyrim)|Cure Disease
+|Resist Magic (Skyrim)|Resist Magic
+|0.1
+|15
+|
+|Xx|xx xx 03cd8e
+|
+|Netch Jelly
+|Paralysis (Skyrim)|Paralysis
+|Fortify Carry Weight
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fear (Skyrim)|Fear
+|0.5
+|20
+|
+|Xx|xx xx 01cd72
+|
+|Scathecraw (Dragonborn)|Scathecraw
+|Ravage Health (Skyrim)|Ravage Health
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Lingering Damage Health
+|0.1
+|1
+|
+|Xx|xx xx 017e97
+|
+|Spawn Ash
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Enchanting
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|0.1
+|20
+|
+|Xx|xx xx 01cd6d
+|
+|Trama Root (Dragonborn)|Trama Root
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|Fortify Carry Weight
+|Damage Magicka (Skyrim)|Damage Magicka
+|Slow
+|0.2
+|1
+|
+|Xx|xx xx 017008
+|
+|Alocasia Fruit (Skyrim Creation Club)|Alocasia Fruit
+|Regenerate Stamina
+|Light (Skyrim)|Light
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Regenerate Health (Skyrim)|Regenerate Health
+|0.25
+|22
+|
+|Xx|xxxxx xx ­d62
+|
+|Ambrosia (Skyrim Creation Club)|Ambrosia
+|Restore Health (Skyrim)|Restore Health
+|Regenerate Health (Skyrim)|Regenerate Health
+|Fortify Health (Skyrim)|Fortify Health
+|Cure Poison (Skyrim)|Cure Poison
+|0.10
+|15
+|
+|Xx|xx xx 016836
+|
+|Angelfish
+|Regenerate Health (Skyrim)|Regenerate Health
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Marksman
+|Waterbreathing (Skyrim)|Waterbreathing
+|0.25
+|30
+|
+|Xx|xx xx 0008eb
+|
+|Angler Larvae
+|Lingering Damage Health
+|Regenerate Stamina
+|Waterbreathing (Skyrim)|Waterbreathing
+|Fortify Two-Handed
+|0.25
+|0
+|
+|Xx|xx xx 0008f0
+|
+|Aster Bloom Core (Skyrim Creation Club)|Aster Bloom Core
+|Resist Magic (Skyrim)|Resist Magic
+|Fortify Light Armor
+|Fortify Block
+|Paralysis (Skyrim)|Paralysis
+|0.10
+|40
+|
+|Xx|xx xx 016d66
+|
+|Bittergreen Petals (Skyrim Creation Club)|Bittergreen Petals
+|Lingering Damage Stamina
+|Invisibility (Skyrim)|Invisibility
+|Cure Poison (Skyrim)|Cure Poison
+|Damage Magicka (Skyrim)|Damage Magicka
+|0.10
+|25
+|
+|Xx|xxxxx xx ­d68
+|
+|Blind Watcher's Eye (Skyrim Creation Club)|Blind Watcher's Eye
+|Light (Skyrim)|Light
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Fortify Alteration
+|Spell Absorption (Skyrim)|Spell Absorption
+|0.20
+|9
+|
+|Xx|xx xx 000822
+|
+|Bliss Bug Thorax
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Resist Fire (Skyrim)|Resist Fire
+|Fortify Heavy Armor
+|Fortify Illusion
+|0.10
+|1
+|
+|Xx|xx xx 059155
+|
+|Blister Pod Cap (Skyrim Creation Club)|Blister Pod Cap
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Night Eye (Skyrim)|Night Eye
+|Invisibility (Skyrim)|Invisibility
+|0.10
+|25
+|
+|Xx|xx xx 000d6a
+|
+|Bloodgrass (Skyrim Creation Club)|Bloodgrass
+|Invisibility (Skyrim)|Invisibility
+|Resist Poison (Skyrim)|Resist Poison
+|Slow
+|Fortify Health (Skyrim)|Fortify Health
+|0.10
+|25
+|
+|Xx|xx xx 024c13
+|
+|Bog Beacon (Skyrim Creation Club)|Bog Beacon
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Heavy Armor
+|Fear (Skyrim)|Fear
+|Damage Stamina (Skyrim)|Damage Stamina
+|0.10
+|20
+|
+|Xx|xx xx 000d6c
+|
+|Bungler's Bane (Skyrim Creation Club)|Bungler's Bane
+|Slow
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|Damage Stamina Regen
+|Resist Magic (Skyrim)|Resist Magic
+|0.50
+|50
+|
+|Xx|xx xx 000802
+|
+|Chokeberry (Skyrim Creation Club)|Chokeberry
+|Damage Health (Skyrim)|Damage Health
+|Ravage Health (Skyrim)|Ravage Health
+|Lingering Damage Health
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|0.10
+|15
+|
+|Xx|xx xx 000838
+|
+|Chokeweed (Skyrim Creation Club)|Chokeweed
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|Restore Stamina (Skyrim)|Restore Stamina
+|Cure Disease (Skyrim)|Cure Disease
+|Damage Magicka (Skyrim)|Damage Magicka
+|0.10
+|7
+|
+|Xx|xx xx 000804
+|
+|Coda Flower (Skyrim Creation Club)|Coda Flower
+|Damage Health (Skyrim)|Damage Health
+|Lingering Damage Stamina
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Fortify Carry Weight
+|0.10
+|30
+|
+|Xx|xx xx 000805
+|
+|Comberry (Skyrim Creation Club)|Comberry
+|Damage Stamina (Skyrim)|Damage Stamina
+|Spell Absorption (Skyrim)|Spell Absorption
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|0.10
+|12
+|
+|Xx|xx xx 000806
+|
+|Congealed Putrescence (Skyrim Creation Club)|Congealed Putrescence
+|Ravage Health (Skyrim)|Ravage Health
+|Restore Magicka (Skyrim)|Restore Magicka
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Fortify Conjuration
+|0.10
+|9
+|
+|Xx|xx xx 000807
+|
+|Corkbulb Root (Skyrim Creation Club)|Corkbulb Root
+|Paralysis (Skyrim)|Paralysis
+|Restore Health (Skyrim)|Restore Health
+|Resist Shock (Skyrim)|Resist Shock
+|Fortify Marksman
+|0.10
+|30
+|
+|Xx|xx xx 000809
+|
+|Corrupted Human Heart
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Damage Magicka Regen
+|Frenzy (Skyrim)|Frenzy
+|1.00
+|0
+|
+|Xx|xxxxx xx ­85b
+|
+|Daedra Silk (Skyrim Creation Club)|Daedra Silk
+|Lingering Damage Stamina
+|Paralysis (Skyrim)|Paralysis
+|Night Eye (Skyrim)|Night Eye
+|Invisibility (Skyrim)|Invisibility
+|0.50
+|50
+|
+|Xx|xx xx 00080a
+|
+|Daedra Venin (Skyrim Creation Club)|Daedra Venin
+|Ravage Health (Skyrim)|Ravage Health
+|Paralysis (Skyrim)|Paralysis
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|Spell Absorption (Skyrim)|Spell Absorption
+|0.20
+|50
+|
+|Xx|xx xx 00080b
+|
+|Daedroth Teeth (Skyrim Creation Club)|Daedroth Teeth
+|Resist Frost (Skyrim)|Resist Frost
+|Light (Skyrim)|Light
+|Damage Magicka Regen
+|Regenerate Stamina
+|0.50
+|50
+|
+|Xx|xx xx 000826
+|
+|Dreugh Wax (Skyrim Creation Club)|Dreugh Wax
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Frenzy (Skyrim)|Frenzy
+|Fortify Enchanting
+|Fortify Smithing
+|1.00
+|25
+|
+|Xx|xx xx 001827
+|
+|Elytra Ichor (Skyrim Creation Club)|Elytra Ichor
+|Restore Magicka (Skyrim)|Restore Magicka
+|Invisibility (Skyrim)|Invisibility
+|Slow
+|Fear (Skyrim)|Fear
+|0.10
+|30
+|
+|Xx|xx xx 000828
+|
+|Fire Petal (Skyrim Creation Club)|Fire Petal
+|Damage Health (Skyrim)|Damage Health
+|Resist Fire (Skyrim)|Resist Fire
+|Spell Absorption (Skyrim)|Spell Absorption
+|Paralysis (Skyrim)|Paralysis
+|0.10
+|30
+|
+|Xx|xx xx 000829
+|
+|Flame Stalk (Skyrim Creation Club)|Flame Stalk
+|Restore Health (Skyrim)|Restore Health
+|Resist Frost (Skyrim)|Resist Frost
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Invisibility (Skyrim)|Invisibility
+|0.10
+|25
+|
+|xx xx 000824 (Rare Curios),xx xx 095e23 (Saints & Seducers)
+|
+|Fungus Stalk (Skyrim Creation Club)|Fungus Stalk
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Health (Skyrim)|Fortify Health
+|Fortify Stamina
+|Waterbreathing (Skyrim)|Waterbreathing
+|0.10
+|30
+|
+|Xx|xx xx 00082b
+|
+|Glassfish (Skyrim Creation Club)|Glassfish
+|Restore Magicka (Skyrim)|Restore Magicka
+|Invisibility (Skyrim)|Invisibility
+|Fortify Illusion
+|Fortify Persuasion
+|0.25
+|1
+|
+|Xx|xx xx 0008ee
+|
+|Gnarl Bark (Skyrim Creation Club)|Gnarl Bark
+|Damage Health (Skyrim)|Damage Health
+|Regenerate Health (Skyrim)|Regenerate Health
+|Fortify Heavy Armor
+|Resist Fire (Skyrim)|Resist Fire
+|0.10
+|15
+|
+|Xx|xx xx 00082c
+|
+|Gold Kanet (Skyrim Creation Club)|Gold Kanet
+|Paralysis (Skyrim)|Paralysis
+|Ravage Health (Skyrim)|Ravage Health
+|Weakness to Frost (Skyrim)|Weakness to Frost
+|Fortify Smithing
+|0.10
+|30
+|
+|Xx|xxxxx xx ­82d
+|
+|Goldfish
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Heavy Armor
+|Waterbreathing (Skyrim)|Waterbreathing
+|Resist Frost (Skyrim)|Resist Frost
+|0.25
+|10
+|
+|Xx|xx xx 0008ef
+|
+|Green Butterfly Wing
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fear (Skyrim)|Fear
+|Slow
+|Invisibility (Skyrim)|Invisibility
+|0.10
+|2
+|
+|Xx|xx xx 059151
+|
+|Hackle-Lo Leaf (Skyrim Creation Club)|Hackle-Lo Leaf
+|Restore Stamina (Skyrim)|Restore Stamina
+|Paralysis (Skyrim)|Paralysis
+|Waterbreathing (Skyrim)|Waterbreathing
+|Fortify Restoration
+|0.10
+|30
+|
+|Xx|xx xx 00082e
+|
+|Harrada (Skyrim Creation Club)|Harrada
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Paralysis (Skyrim)|Paralysis
+|Damage Magicka Regen
+|0.10
+|25
+|
+|Xx|xx xx 024c11
+|
+|Healing Salts
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Restoration
+|Slow
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|0.20
+|2
+|
+|Xx|xx xx 000f86
+|
+|Heart of Order (Skyrim Creation Club)|Heart of Order
+|Restore Health (Skyrim)|Restore Health
+|Fortify Health (Skyrim)|Fortify Health
+|Fortify One-Handed
+|Fortify Two-Handed
+|0.10
+|40
+|
+|Xx|xx xx 000851
+|
+|Hunger Tongue (Skyrim Creation Club)|Hunger Tongue
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Cure Disease (Skyrim)|Cure Disease
+|Cure Poison (Skyrim)|Cure Poison
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|0.10
+|10
+|
+|Xx|xx xx 00080c
+|
+|Hydnum Azure Giant Spore (Skyrim Creation Club)|Hydnum Azure Giant Spore
+|Resist Frost (Skyrim)|Resist Frost
+|Fortify Health (Skyrim)|Fortify Health
+|Regenerate Health (Skyrim)|Regenerate Health
+|Light (Skyrim)|Light
+|0.50
+|30
+|
+|Xx|xx xx 00080d
+|
+|Hypha Facia (Skyrim Creation Club)|Hypha Facia
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Frenzy (Skyrim)|Frenzy
+|Ravage Stamina (Skyrim)|Ravage Stamina
+|Resist Magic (Skyrim)|Resist Magic
+|0.10
+|23
+|
+|Xx|xx xx 00080e
+|
+|Imp Gall (Skyrim Creation Club)|Imp Gall
+|Damage Health (Skyrim)|Damage Health
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Fortify Barter
+|Cure Poison (Skyrim)|Cure Poison
+|0.20
+|15
+|
+|Xx|xx xx 00080f
+|
+|Ironwood Fruit
+|Restore Health (Skyrim)|Restore Health
+|Resist Fire (Skyrim)|Resist Fire
+|Damage Stamina (Skyrim)|Damage Stamina
+|Restore Magicka (Skyrim)|Restore Magicka
+|0.10
+|5
+|
+|Xx|xx xx 000f0f
+|
+|Juvenile Mudcrab
+|Regenerate Stamina
+|Fortify Carry Weight
+|Cure Disease (Skyrim)|Cure Disease
+|Fortify Two-Handed
+|0.25
+|10
+|
+|Xx|xx xx 0008f2
+|
+|Kagouti Hide (Skyrim Creation Club)|Kagouti Hide
+|Lingering Damage Stamina
+|Night Eye (Skyrim)|Night Eye
+|Fortify Carry Weight
+|Resist Shock (Skyrim)|Resist Shock
+|1.00
+|20
+|
+|Xx|xx xx 000810
+|
+|Kresh Fiber (Skyrim Creation Club)|Kresh Fiber
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Slow
+|Fortify Sneak
+|Fortify Pickpocket
+|0.10
+|30
+|
+|Xx|xx xx 000811
+|
+|Lichor (Skyrim Creation Club)|Lichor
+|Restore Magicka (Skyrim)|Restore Magicka
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Spell Absorption (Skyrim)|Spell Absorption
+|0.10
+|15
+|
+|Xx|xx xx 000837
+|
+|Luminous Russula (Skyrim Creation Club)|Luminous Russula
+|Lingering Damage Stamina
+|Lingering Damage Health
+|Waterbreathing (Skyrim)|Waterbreathing
+|Fear (Skyrim)|Fear
+|0.20
+|25
+|
+|Xx|xx xx 000813
+|
+|Lyretail Anthias
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Alteration
+|Fortify Conjuration
+|Fortify Carry Weight
+|0.25
+|30
+|
+|Xx|xx xx 0008f1
+|
+|Marshmerrow (Skyrim Creation Club)|Marshmerrow
+|Restore Health (Skyrim)|Restore Health
+|Fortify Carry Weight
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Damage Stamina (Skyrim)|Damage Stamina
+|0.10
+|18
+|
+|Xx|xx xx 000814
+|
+|Minotaur Horn (Skyrim Creation Club)|Minotaur Horn
+|Resist Poison (Skyrim)|Resist Poison
+|Damage Magicka Regen
+|Regenerate Health (Skyrim)|Regenerate Health
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|5.00
+|55
+|
+|Xx|xx xx 000815
+|
+|Mort Flesh (Skyrim Creation Club)|Mort Flesh
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Damage Magicka Regen
+|Frenzy (Skyrim)|Frenzy
+|0.50
+|2
+|
+|Xx|xxxxx xx ­80c
+|
+|Ogre's Teeth (Skyrim Creation Club)|Ogre's Teeth
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|Resist Poison (Skyrim)|Resist Poison
+|Lingering Damage Magicka
+|Regenerate Health (Skyrim)|Regenerate Health
+|3.00
+|50
+|
+|Xx|xx xx 000816
+|
+|Pearlfish
+|Restore Stamina (Skyrim)|Restore Stamina
+|Resist Frost (Skyrim)|Resist Frost
+|Fortify Smithing
+|Fortify One-Handed
+|0.25
+|15
+|
+|Xx|xx xx 0008ec
+|
+|Purple Butterfly Wing
+|Regenerate Health (Skyrim)|Regenerate Health
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Regenerate Stamina
+|Paralysis (Skyrim)|Paralysis
+|0.1
+|2
+|
+|Xx|xx xx 059153
+|
+|Pygmy Sunfish
+|Restore Stamina (Skyrim)|Restore Stamina
+|Lingering Damage Magicka
+|Damage Magicka Regen
+|Fortify Restoration
+|0.25
+|2
+|
+|Xx|xxxxx xx ­8ed
+|
+|Red Kelp Gas Bladder (Skyrim Creation Club)|Red Kelp Gas Bladder
+|Regenerate Stamina
+|Waterbreathing (Skyrim)|Waterbreathing
+|Cure Disease (Skyrim)|Cure Disease
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|0.10
+|20
+|
+|Xx|xx xx 000817
+|
+|Redwort Flower (Skyrim Creation Club)|Redwort Flower
+|Resist Frost (Skyrim)|Resist Frost
+|Cure Poison (Skyrim)|Cure Poison
+|Damage Health (Skyrim)|Damage Health
+|Invisibility (Skyrim)|Invisibility
+|0.10
+|25
+|
+|Xx|xx xx 000818
+|
+|Roobrush (Skyrim Creation Club)|Roobrush
+|Weakness to Magic (Skyrim)|Weakness to Magic
+|Fortify Sneak
+|Lingering Damage Health
+|Cure Poison (Skyrim)|Cure Poison
+|0.10
+|20
+|
+|Xx|xx xx 000819
+|
+|Rot Scale (Skyrim Creation Club)|Rot Scale
+|Slow
+|Lingering Damage Health
+|Fear (Skyrim)|Fear
+|Paralysis (Skyrim)|Paralysis
+|0.10
+|20
+|
+|Xx|xx xx 00306d
+|
+|Saltrice (Skyrim Creation Club)|Saltrice
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Damage Stamina Regen
+|Restore Health (Skyrim)|Restore Health
+|0.10
+|6
+|
+|Xx|xx xx 00081a
+|
+|Scalon Fin (Skyrim Creation Club)|Scalon Fin
+|Waterbreathing (Skyrim)|Waterbreathing
+|Damage Health (Skyrim)|Damage Health
+|Lingering Damage Magicka
+|Damage Magicka Regen
+|0.10
+|25
+|
+|Xx|xx xx 00081b
+|
+|Screaming Maw (Skyrim Creation Club)|Screaming Maw
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Fortify Alteration
+|Invisibility (Skyrim)|Invisibility
+|Regenerate Health (Skyrim)|Regenerate Health
+|0.10
+|20
+|
+|Xx|xx xx 00306e
+|
+|Scrib Jelly (Skyrim Creation Club)|Scrib Jelly
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Cure Poison (Skyrim)|Cure Poison
+|Cure Disease (Skyrim)|Cure Disease
+|Regenerate Stamina
+|0.10
+|20
+|
+|Xx|xx xx 00081c
+|
+|Scrib Jerky (Skyrim Creation Club)|Scrib Jerky
+|Restore Stamina (Skyrim)|Restore Stamina
+|Fortify Stamina
+|Paralysis (Skyrim)|Paralysis
+|Waterbreathing (Skyrim)|Waterbreathing
+|0.20
+|15
+|
+|Xx|xx xx 00081d
+|
+|Simon Rodayne's Heart
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Damage Magicka Regen
+|Frenzy (Skyrim)|Frenzy
+|1.00
+|0
+|
+|Xx|xxxxx xx ­85d
+|
+|Sload Soap (Skyrim Creation Club)|Sload Soap
+|Resist Fire (Skyrim)|Resist Fire
+|Fear (Skyrim)|Fear
+|Fortify Conjuration
+|Fortify Alteration
+|0.10
+|30
+|
+|Xx|xx xx 00081e
+|
+|Spadefish
+|Restore Health (Skyrim)|Restore Health
+|Fortify Lockpicking
+|Fortify Pickpocket
+|Cure Disease (Skyrim)|Cure Disease
+|0.25
+|15
+|
+|Xx|xxxxx xx ­8f3
+|
+|Spiddal Stick (Skyrim Creation Club)|Spiddal Stick
+|Damage Health (Skyrim)|Damage Health
+|Damage Magicka (Skyrim)|Damage Magicka
+|Weakness to Fire (Skyrim)|Weakness to Fire
+|Restore Stamina (Skyrim)|Restore Stamina
+|0.10
+|25
+|
+|Xx|xx xx 024c15
+|
+|Steel-Blue Entoloma (Skyrim Creation Club)|Steel-Blue Entoloma
+|Restore Magicka (Skyrim)|Restore Magicka
+|Fortify Destruction (Skyrim)|Fortify Destruction
+|Resist Frost (Skyrim)|Resist Frost
+|Fortify Carry Weight
+|0.10
+|2
+|
+|Xx|xxxxx xx ­832
+|
+|Stoneflower Petals (Skyrim Creation Club)|Stoneflower Petals
+|Weakness to Shock (Skyrim)|Weakness to Shock
+|Fortify One-Handed
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Fortify Enchanting
+|0.1
+|15
+|
+|Xx|xxxxx xx ­81f
+|
+|Thorn Hook (Skyrim Creation Club)|Thorn Hook
+|Lingering Damage Health
+|Paralysis (Skyrim)|Paralysis
+|Regenerate Magicka (Skyrim)|Regenerate Magicka
+|Regenerate Health (Skyrim)|Regenerate Health
+|0.10
+|20
+|
+|Xx|xx xx 00306f
+|
+|Void Essence (Skyrim Creation Club)|Void Essence
+|Restore Health (Skyrim)|Restore Health
+|Fortify Health (Skyrim)|Fortify Health
+|Fortify Stamina
+|Regenerate Health (Skyrim)|Regenerate Health
+|0.20
+|60
+|
+|Xx|xx xx 000820
+|
+|Watcher's Eye (Skyrim Creation Club)|Watcher's Eye
+|Night Eye (Skyrim)|Night Eye
+|Fortify Magicka (Skyrim)|Fortify Magicka
+|Fortify Illusion
+|Spell Absorption (Skyrim)|Spell Absorption
+|0.20
+|9
+|
+|Xx|xx xx 000821
+|
+|Wild Grass Pod
+|Resist Poison (Skyrim)|Resist Poison
+|Ravage Magicka (Skyrim)|Ravage Magicka
+|Fortify Alteration
+|Restore Magicka (Skyrim)|Restore Magicka
+|0.10
+|1
+|
+|Xx|xx xx 019d3a
+|
+|Wisp Stalk Caps (Skyrim Creation Club)|Wisp Stalk Caps
+|Damage Health (Skyrim)|Damage Health
+|Weakness to Poison (Skyrim)|Weakness to Poison
+|Frenzy (Skyrim)|Frenzy
+|Regenerate Stamina
+|0.10
+|20
+|
+|Xx|xx xx 000823
+|
+|Withering Moon (Skyrim Creation Club)|Withering Moon
+|Restore Magicka (Skyrim)|Restore Magicka
+|Spell Absorption (Skyrim)|Spell Absorption
+|Fortify Light Armor
+|Cure Disease (Skyrim)|Cure Disease
+|0.10
+|5
+|
+|Xx|xx xx 000824
+|
+|Worm's Head Cap (Skyrim Creation Club)|Worm's Head Cap
+|Fortify Lockpicking
+|Night Eye (Skyrim)|Night Eye
+|Fortify Carry Weight
+|Slow
+|0.20
+|30
+|
+|Xx|xx xx 000825

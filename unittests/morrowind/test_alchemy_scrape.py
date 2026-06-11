@@ -98,9 +98,27 @@ def test_cell_text_plain_text():
     tag = BeautifulSoup('<td>Alit Hide</td>', 'html.parser').find('td')
     assert cell_text(tag) == 'Alit Hide'
 
-def test_cell_text_with_link():
-    tag = BeautifulSoup('<th><small><a href="...">Alit Hide</a></small></th>', 'html.parser').find('th')
+def test_cell_text_with_link_no_disambiguation():
+    # href matches display → no pipe trick added
+    tag = BeautifulSoup('<th><small><a href="/wiki/Alit_Hide">Alit Hide</a></small></th>', 'html.parser').find('th')
     assert cell_text(tag) == 'Alit Hide'
+
+def test_cell_text_with_link_preserves_disambiguation():
+    # Page title differs from display → reconstruct wiki link format
+    tag = BeautifulSoup('<td><a href="/wiki/Resist_Poison_(Morrowind)">Resist Poison</a></td>', 'html.parser').find('td')
+    assert cell_text(tag) == 'Resist Poison (Morrowind)|Resist Poison'
+
+def test_cell_text_multiword_effect_space_joined():
+    # Two-word effect rendered as two separate links → space-joined
+    html = '<td><a href="/wiki/Drain_(Morrowind)">Drain</a> <a href="/wiki/Fatigue">Fatigue</a></td>'
+    tag = BeautifulSoup(html, 'html.parser').find('td')
+    assert cell_text(tag) == 'Drain (Morrowind)|Drain Fatigue'
+
+def test_cell_text_dlc_marker_filtered():
+    # DLC icon link (e.g. {{SI}}) must not appear in the output
+    html = '<td><a href="/wiki/Bear_Pelt_(Bloodmoon)">Bear Pelt</a><a href="/wiki/Bloodmoon">SI</a></td>'
+    tag = BeautifulSoup(html, 'html.parser').find('td')
+    assert cell_text(tag) == 'Bear Pelt (Bloodmoon)|Bear Pelt'
 
 def test_cell_text_empty_cell_returns_empty():
     tag = BeautifulSoup('<td></td>', 'html.parser').find('td')
@@ -153,6 +171,15 @@ def test_fields_from_row_valid_returns_list():
     cells = ['Alit Hide', '1.0', '5', 'Drain Intelligence', 'Resist Poison', 'Telekinesis', 'Detect Animal', 'ingred_alit_hide_01']
     result = fields_from_row(cells)
     assert result == cells
+
+def test_fields_from_row_empty_effect_becomes_dash():
+    # Empty effect cells must become '-' so dash_to_null() in the parser fires
+    cells = ['Bread', '0.2', '1', 'Restore Fatigue', '', '', '', 'ingred_bread_01']
+    result = fields_from_row(cells)
+    assert result[4] == '-'
+    assert result[5] == '-'
+    assert result[6] == '-'
+    assert result[3] == 'Restore Fatigue'  # non-empty effects unchanged
 
 def test_fields_from_row_wrong_count_returns_none():
     assert fields_from_row(['Name', 'Weight', 'Value']) is None

@@ -133,8 +133,18 @@ def test_fields_from_row_inserts_blank_location():
     result = fields_from_row(cells)
     assert result is not None
     assert len(result) == 9
-    assert result[7] == ''        # blank location
-    assert result[8] == '00106E1B'  # ID at position 8
+    assert result[7] == ''           # blank location
+    assert result[8] == '00106E1B'   # ID at position 8
+
+def test_cell_text_preserves_disambiguation():
+    html = '<td><a href="/wiki/Weakness_to_Frost_(Skyrim)">Weakness to Frost</a></td>'
+    tag = BeautifulSoup(html, 'html.parser').find('td')
+    assert cell_text(tag) == 'Weakness to Frost (Skyrim)|Weakness to Frost'
+
+def test_cell_text_no_disambiguation_when_match():
+    html = '<td><a href="/wiki/Fortify_Sneak">Fortify Sneak</a></td>'
+    tag = BeautifulSoup(html, 'html.parser').find('td')
+    assert cell_text(tag) == 'Fortify Sneak'
 
 def test_fields_from_row_wrong_count_returns_none():
     assert fields_from_row(['a', 'b', 'c']) is None

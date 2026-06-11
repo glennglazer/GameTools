@@ -29,6 +29,7 @@ import re
 import sys
 import time
 from pathlib import Path
+from urllib.parse import unquote
 
 import requests
 from bs4 import BeautifulSoup
@@ -37,6 +38,28 @@ GAME = 'morrowind'
 USER_AGENT = 'GameTools-Scraper/1.0 (https://github.com/glennglazer/GameTools)'
 API_URL = 'https://elderscrolls.fandom.com/api.php'
 EXPECTED_COLUMNS = 8  # name, weight, value, e1, e2, e3, e4, ID
+
+# DLC icon text that Fandom renders as visible text inside <a> or as plain text
+DLC_MARKERS = frozenset(['SI', 'KotN', 'MR', 'VH', 'FS', 'TC', 'HF', 'DG', 'DB', 'CC'])
+
+
+def _link_text(a_tag) -> str:
+    """Return wiki-link format text for a rendered <a> tag.
+
+    Reconstructs 'Page Title (Game)|Display' from the href when the page title
+    differs from the display text, which preserves disambiguation info.
+    Returns plain display text when they match, or '' for DLC marker links.
+    """
+    href = a_tag.get('href', '')
+    display = a_tag.get_text(strip=True)
+    if not display or display in DLC_MARKERS:
+        return ''
+    if '/wiki/' not in href:
+        return display
+    page_title = unquote(href.split('/wiki/')[-1]).replace('_', ' ').strip()
+    if page_title and page_title != display:
+        return f'{page_title}|{display}'
+    return display
 
 
 def fetch_parsed_html(page_title: str, session=None) -> BeautifulSoup:
@@ -55,8 +78,50 @@ def fetch_parsed_html(page_title: str, session=None) -> BeautifulSoup:
 
 
 def cell_text(tag) -> str:
-    """Extract clean text from a cell, joining br-separated values with comma."""
-    return ','.join(s.strip() for s in tag.strings if s.strip())
+    """Extract text from a table cell, preserving wiki link disambiguation.
+
+    Cells with <br> (Oblivion-style effects): comma-join plain text segments.
+    All other cells: space-join, reconstructing 'Page|Display' from hrefs.
+    DLC marker icons (SI, DG, etc.) are silently filtered.
+    """
+    if tag.find('br'):
+        parts, current = [], []
+        for node in tag.descendants:
+            name = getattr(node, 'name', None)
+            if name == 'br':
+                seg = ' '.join(p for p in current if p).strip()
+                if seg:
+                    parts.append(seg)
+                current = []
+            elif name == 'a':
+                d = node.get_text(strip=True)
+                if d and d not in DLC_MARKERS:
+                    current.append(d)
+            elif name is None:
+                if getattr(node.parent, 'name', None) == 'a':
+                    continue
+                t = str(node).strip()
+                if t and t not in DLC_MARKERS:
+                    current.append(t)
+        seg = ' '.join(p for p in current if p).strip()
+        if seg:
+            parts.append(seg)
+        return ','.join(parts)
+    else:
+        parts = []
+        for node in tag.descendants:
+            name = getattr(node, 'name', None)
+            if name == 'a':
+                lt = _link_text(node)
+                if lt:
+                    parts.append(lt)
+            elif name is None:
+                if getattr(node.parent, 'name', None) == 'a':
+                    continue
+                t = str(node).strip()
+                if t and t not in DLC_MARKERS:
+                    parts.append(t)
+        return ' '.join(parts).strip()
 
 
 def extract_rows(soup: BeautifulSoup, all_tables: bool = False) -> list:
@@ -78,10 +143,18 @@ def extract_rows(soup: BeautifulSoup, all_tables: bool = False) -> list:
 
 
 def fields_from_row(cells: list) -> list:
-    """Validate and return the 8 fields for a Morrowind ingredient row, or None."""
+    """Validate and return the 8 fields for a Morrowind ingredient row, or None.
+
+    Empty effect cells (no effect in that slot) become '-' so the downstream
+    parser's dash_to_null() converts them to None correctly.
+    """
     if len(cells) != EXPECTED_COLUMNS:
         return None
-    return list(cells)  # name, weight, value, e1, e2, e3, e4, ID
+    result = list(cells)
+    for i in range(3, 7):  # effect columns
+        if not result[i]:
+            result[i] = '-'
+    return result
 
 
 def format_entry(fields: list) -> str:

@@ -32,6 +32,7 @@ import re
 import sys
 import time
 from pathlib import Path
+from urllib.parse import unquote
 
 import requests
 from bs4 import BeautifulSoup
@@ -40,6 +41,22 @@ GAME = 'oblivion'
 USER_AGENT = 'GameTools-Scraper/1.0 (https://github.com/glennglazer/GameTools)'
 API_URL = 'https://elderscrolls.fandom.com/api.php'
 EXPECTED_COLUMNS = 6  # name, weight, value, source, effects, ID
+
+DLC_MARKERS = frozenset(['SI', 'KotN', 'MR', 'VH', 'FS', 'TC', 'HF', 'DG', 'DB', 'CC'])
+
+
+def _link_text(a_tag) -> str:
+    """Return wiki-link format text for a rendered <a> tag."""
+    href = a_tag.get('href', '')
+    display = a_tag.get_text(strip=True)
+    if not display or display in DLC_MARKERS:
+        return ''
+    if '/wiki/' not in href:
+        return display
+    page_title = unquote(href.split('/wiki/')[-1]).replace('_', ' ').strip()
+    if page_title and page_title != display:
+        return f'{page_title}|{display}'
+    return display
 
 
 def fetch_parsed_html(page_title: str, session=None) -> BeautifulSoup:
@@ -58,11 +75,50 @@ def fetch_parsed_html(page_title: str, session=None) -> BeautifulSoup:
 
 
 def cell_text(tag) -> str:
-    """Extract clean text from a cell.
+    """Extract text from a table cell, preserving wiki link disambiguation.
 
-    Uses comma as separator between <br>-delimited values (Oblivion effects).
+    Cells with <br> (effects column): comma-join plain text segments.
+    All other cells: space-join, reconstructing 'Page|Display' from hrefs.
+    DLC marker icons are silently filtered.
     """
-    return ','.join(s.strip() for s in tag.strings if s.strip())
+    if tag.find('br'):
+        parts, current = [], []
+        for node in tag.descendants:
+            name = getattr(node, 'name', None)
+            if name == 'br':
+                seg = ' '.join(p for p in current if p).strip()
+                if seg:
+                    parts.append(seg)
+                current = []
+            elif name == 'a':
+                d = node.get_text(strip=True)
+                if d and d not in DLC_MARKERS:
+                    current.append(d)
+            elif name is None:
+                if getattr(node.parent, 'name', None) == 'a':
+                    continue
+                t = str(node).strip()
+                if t and t not in DLC_MARKERS:
+                    current.append(t)
+        seg = ' '.join(p for p in current if p).strip()
+        if seg:
+            parts.append(seg)
+        return ','.join(parts)
+    else:
+        parts = []
+        for node in tag.descendants:
+            name = getattr(node, 'name', None)
+            if name == 'a':
+                lt = _link_text(node)
+                if lt:
+                    parts.append(lt)
+            elif name is None:
+                if getattr(node.parent, 'name', None) == 'a':
+                    continue
+                t = str(node).strip()
+                if t and t not in DLC_MARKERS:
+                    parts.append(t)
+        return ' '.join(parts).strip()
 
 
 def extract_rows(soup: BeautifulSoup, all_tables: bool = False) -> list:
