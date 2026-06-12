@@ -200,7 +200,7 @@ def test_write_raw_file_round_trip_with_parser(tmp_path):
     ]
     write_raw_file(entries, outfile)
     parse_mod = load_module(
-        'Skyrim/alchemy/ingredients_parse/skyrim_parse_wiki_to_json.py',
+        'Skyrim/alchemy/ingredients_json/skyrim_parse_wiki_to_json.py',
         'sk_alchemy_parse_check',
     )
     ing, eff = parse_mod.parse(outfile)

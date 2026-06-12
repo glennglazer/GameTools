@@ -1,4 +1,4 @@
-"""Tests for Morrowind/enchanting/enchant_parse/morrowind_parse_enchant_csv_to_json.py"""
+"""Tests for Morrowind/enchanting/enchant_json/morrowind_parse_enchant_csv_to_json.py"""
 import json
 import sys
 from pathlib import Path
@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Morrowind/enchanting/enchant_parse/morrowind_parse_enchant_csv_to_json.py",
+    "Morrowind/enchanting/enchant_json/morrowind_parse_enchant_csv_to_json.py",
     "mw_enchant_parse",
 )
 write_file = _mod.write_file

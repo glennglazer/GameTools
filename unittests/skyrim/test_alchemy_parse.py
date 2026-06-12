@@ -1,4 +1,4 @@
-"""Tests for Skyrim/alchemy/ingredients_parse/skyrim_parse_wiki_to_json.py"""
+"""Tests for Skyrim/alchemy/ingredients_json/skyrim_parse_wiki_to_json.py"""
 import json
 import sys
 from pathlib import Path
@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Skyrim/alchemy/ingredients_parse/skyrim_parse_wiki_to_json.py",
+    "Skyrim/alchemy/ingredients_json/skyrim_parse_wiki_to_json.py",
     "sk_alchemy_parse",
 )
 remove_pipe = _mod.remove_pipe

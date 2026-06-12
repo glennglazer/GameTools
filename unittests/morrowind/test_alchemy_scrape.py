@@ -232,7 +232,7 @@ def test_write_raw_file_two_entries_parseable_by_parser(tmp_path):
     write_raw_file(entries, outfile)
     # Verify the parser can read the file
     parse_mod = load_module(
-        'Morrowind/alchemy/ingredients_parse/morrowind_parse_wiki_to_json.py',
+        'Morrowind/alchemy/ingredients_json/morrowind_parse_wiki_to_json.py',
         'mw_alchemy_parse_check',
     )
     ing, eff = parse_mod.parse(outfile)

@@ -1,4 +1,4 @@
-"""Tests for Oblivion/alchemy/ingredients_parse/oblivion_parse_wiki_to_json.py"""
+"""Tests for Oblivion/alchemy/ingredients_json/oblivion_parse_wiki_to_json.py"""
 import json
 import sys
 from pathlib import Path
@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Oblivion/alchemy/ingredients_parse/oblivion_parse_wiki_to_json.py",
+    "Oblivion/alchemy/ingredients_json/oblivion_parse_wiki_to_json.py",
     "ob_alchemy_parse",
 )
 remove_pipe = _mod.remove_pipe

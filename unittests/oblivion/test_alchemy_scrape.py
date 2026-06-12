@@ -179,7 +179,7 @@ def test_write_raw_file_round_trip_with_parser(tmp_path):
     ]
     write_raw_file(entries, outfile)
     parse_mod = load_module(
-        'Oblivion/alchemy/ingredients_parse/oblivion_parse_wiki_to_json.py',
+        'Oblivion/alchemy/ingredients_json/oblivion_parse_wiki_to_json.py',
         'ob_alchemy_parse_check',
     )
     ing, eff = parse_mod.parse(outfile)

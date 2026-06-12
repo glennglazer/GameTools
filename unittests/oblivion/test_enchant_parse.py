@@ -1,5 +1,5 @@
 """Tests for:
-  - Oblivion/enchanting/enchant_parse/oblivion_parse_csv_to_json.py
+  - Oblivion/enchanting/enchant_json/oblivion_parse_csv_to_json.py
   - Oblivion/enchanting/enchant_parse/MGEF.py
 """
 import json
@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _csv_mod = load_module(
-    "Oblivion/enchanting/enchant_parse/oblivion_parse_csv_to_json.py",
+    "Oblivion/enchanting/enchant_json/oblivion_parse_csv_to_json.py",
     "ob_enchant_parse",
 )
 write_file = _csv_mod.write_file
