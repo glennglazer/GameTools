@@ -4,9 +4,9 @@
 File: oblivion_scrape_wiki.py
 Author: Glenn Glazer
 
-Fetch Oblivion alchemy ingredient tables from the Fandom wiki via the MediaWiki
-action=parse API and write pipe-delimited raw.txt files compatible with the
-existing oblivion_parse_wiki_to_json.py parser.
+Fetch the Oblivion alchemy ingredients table from the Fandom wiki via the
+MediaWiki action=parse API and write a pipe-delimited raw.txt file compatible
+with the existing oblivion_parse_wiki_to_json.py parser.
 
 Output format per entry (7 lines):
   |               ← separator
@@ -17,13 +17,10 @@ Output format per entry (7 lines):
   |Effect1,Effect2,Effect3,Effect4
   |FormID
 
-Note: The main Ingredients_(Oblivion) page includes all Shivering Isles items
-inline (marked with SI in the wiki). The per-URL oblivion_base file therefore
-already contains all items. The oblivion_all file is a concatenation of both
-per-URL files, which will contain duplicate SI items; use oblivion_base for
-the SQL loader if you want a clean deduped set.
+The main Ingredients_(Oblivion) wiki page includes Shivering Isles items inline
+(marked {{SI}}), so a single fetch captures all Oblivion alchemy ingredients.
 
-Source URLs are read from ../source_urls.txt (relative to this script).
+Source URL is read from ../source_urls.txt (relative to this script).
 """
 
 import argparse
@@ -140,19 +137,10 @@ def extract_rows(soup: BeautifulSoup, all_tables: bool = False) -> list:
 
 
 def fields_from_row(cells: list) -> list:
-    """Return 6 fields in standard output order (name, weight, value, source, effects, ID), or None.
-
-    Handles two wiki table formats:
-    - Main Oblivion page (6 cols): name, weight, value, sources, effects, Form ID
-    - Shivering Isles page (5 cols): name, sources, effects, value, weight  (no Form ID)
-      The SI page omits Form IDs, so that field is left empty.
-    """
-    if len(cells) == 6:
-        return list(cells)
-    elif len(cells) == 5:
-        # SI column order: name(0), sources(1), effects(2), value(3), weight(4)
-        return [cells[0], cells[4], cells[3], cells[1], cells[2], '']
-    return None
+    """Validate and return the 6 fields for an Oblivion ingredient row, or None."""
+    if len(cells) != EXPECTED_COLUMNS:
+        return None
+    return list(cells)  # name, weight, value, source, effects, ID
 
 
 def format_entry(fields: list) -> str:
@@ -170,13 +158,6 @@ def write_raw_file(entries: list, outfile: str) -> None:
 def url_to_title(url: str) -> str:
     """Extract wiki page title from a Fandom URL."""
     return url.rstrip('/').split('/wiki/')[-1]
-
-
-def title_to_stem(title: str) -> str:
-    """Convert a page title like 'Ingredients_(Oblivion)' to a file stem."""
-    m = re.search(r'\(([^)]+)\)', title)
-    expansion = m.group(1).lower().replace(' ', '_') if m else 'unknown'
-    return 'base' if expansion == GAME else expansion
 
 
 if __name__ == '__main__':
@@ -204,27 +185,18 @@ if __name__ == '__main__':
     session = requests.Session()
     session.headers['User-Agent'] = USER_AGENT
 
-    per_url_files = []
+    all_entries = []
     for i, url in enumerate(urls):
         title = url_to_title(url)
-        stem = title_to_stem(title)
-        outfile = out_dir / f'{GAME}_{stem}_ingredients_raw.txt'
-
         print(f"Fetching {url} ...")
         soup = fetch_parsed_html(title, session)
         rows = extract_rows(soup)
         entries = [format_entry(f) for r in rows if (f := fields_from_row(r)) is not None]
-        write_raw_file(entries, str(outfile))
-        print(f"  {len(entries)} entries → {outfile.name}")
-        per_url_files.append(outfile)
-
+        all_entries.extend(entries)
+        print(f"  {len(entries)} entries from {title}")
         if i < len(urls) - 1:
             time.sleep(1)
 
-    # Combine all per-URL files into the _all_ file
     all_outfile = out_dir / f'{GAME}_all_ingredients_raw.txt'
-    all_content = ''.join(p.read_text() for p in per_url_files)
-    all_outfile.write_text(all_content)
-    total = sum(1 for line in all_content.splitlines() if line == '|')
-    print(f"Combined {total} entries → {all_outfile.name}")
-    print(f"Note: the base file already includes SI items; use {GAME}_base_ingredients_raw.txt to avoid duplicates.")
+    write_raw_file(all_entries, str(all_outfile))
+    print(f"{len(all_entries)} entries → {all_outfile.name}")

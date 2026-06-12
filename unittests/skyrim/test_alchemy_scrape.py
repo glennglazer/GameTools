@@ -136,6 +136,13 @@ def test_fields_from_row_inserts_blank_location():
     assert result[7] == ''           # blank location
     assert result[8] == '00106E1B'   # ID at position 8
 
+def test_fields_from_row_float_value_normalised_to_int_string():
+    # DLC pages render some values as '2.0'; parser uses int() which would crash
+    cells = ['Eye of Sabre Cat', 'e1', 'e2', 'e3', 'e4', '0.1', '2.0', 'XX001234']
+    result = fields_from_row(cells)
+    assert result is not None
+    assert result[6] == '2'   # '2.0' normalised to '2'
+
 def test_cell_text_preserves_disambiguation():
     html = '<td><a href="/wiki/Weakness_to_Frost_(Skyrim)">Weakness to Frost</a></td>'
     tag = BeautifulSoup(html, 'html.parser').find('td')

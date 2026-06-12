@@ -162,7 +162,16 @@ def fields_from_row(cells: list) -> list:
         return None
     # cells: name, e1, e2, e3, e4, weight, value, ID
     # output: name, e1, e2, e3, e4, weight, value, '' (location), ID
-    return list(cells[:7]) + [''] + [cells[7]]
+    result = list(cells[:7]) + [''] + [cells[7]]
+    # Parser uses int() for value; DLC pages sometimes render whole numbers as '2.0'.
+    # Normalise to int string to prevent ValueError.
+    val = result[6]
+    if '.' in val:
+        try:
+            result[6] = str(int(float(val)))
+        except (ValueError, TypeError):
+            pass
+    return result
 
 
 def format_entry(fields: list) -> str:

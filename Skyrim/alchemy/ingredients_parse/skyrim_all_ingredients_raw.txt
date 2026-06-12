@@ -265,7 +265,7 @@
 |Damage Magicka (Skyrim)|Damage Magicka
 |Restore Health (Skyrim)|Restore Health
 |0.1
-|2.0
+|2
 |
 |0006BC07
 |
@@ -815,7 +815,7 @@
 |Fortify Lockpicking
 |Fortify Marksman
 |0.2
-|5.0
+|5
 |
 |0009151B
 |
@@ -865,7 +865,7 @@
 |Weakness to Magic (Skyrim)|Weakness to Magic
 |Fortify Stamina
 |0.1
-|1.0
+|1
 |
 |0004DA73
 |
