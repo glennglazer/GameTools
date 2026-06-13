@@ -1,8 +1,11 @@
 services:
   dev:
     build: .
+    user: "${UID}:${GID}"
     volumes:
       - .:/app
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/group:/etc/group:ro
     working_dir: /app
     stdin_open: true
     tty: true
