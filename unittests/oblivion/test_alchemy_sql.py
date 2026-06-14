@@ -1,4 +1,4 @@
-"""Subprocess tests for Oblivion alchemy SQL loader scripts."""
+"""Tests for Oblivion alchemy SQL loader scripts (create_or_update_*)."""
 import json
 import sqlite3
 import subprocess
@@ -7,15 +7,32 @@ from pathlib import Path
 
 import pytest
 
-REPO_ROOT = Path(__file__).parent.parent.parent.resolve()
-INGREDIENTS_SCRIPT = str(REPO_ROOT / "Oblivion/alchemy/ingredients_sql/create_oblivion_alchemy_ingredients.py")
-EFFECTS_SCRIPT = str(REPO_ROOT / "Oblivion/alchemy/ingredients_sql/create_oblivion_alchemy_effects.py")
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from conftest import load_module, REPO_ROOT
+
+INGREDIENTS_SCRIPT = str(REPO_ROOT / "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_ingredients.py")
+EFFECTS_SCRIPT = str(REPO_ROOT / "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_effects.py")
+
+_ing_mod = load_module(
+    "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_ingredients.py",
+    "ob_ing_sql",
+)
+_eff_mod = load_module(
+    "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_effects.py",
+    "ob_eff_sql",
+)
+
+load_diff_file = _ing_mod.load_diff_file
+apply_deletes = _ing_mod.apply_deletes
+apply_deletes_effects = _eff_mod.apply_deletes_effects
+
+TABLE_ING = 'oblivion_alchemy_ingredients'
+TABLE_EFF = 'oblivion_alchemy_effects'
 
 SAMPLE_INGREDIENTS = [
     {"name": "Alkanet Flower", "weight": 0.1, "value": 1, "ID": "0003365C"},
     {"name": "Boar Meat", "weight": 2.0, "value": 1, "ID": "0003AB19"},
 ]
-
 SAMPLE_EFFECTS = [
     {"name": "Alkanet Flower", "effect": "Restore Intelligence"},
     {"name": "Alkanet Flower", "effect": "Resist Poison"},
@@ -27,78 +44,158 @@ SAMPLE_EFFECTS = [
 def run_script(script, args):
     return subprocess.run(
         [sys.executable, script] + args,
-        capture_output=True, text=True
+        capture_output=True, text=True,
     )
 
 
+def write_diff_pair(directory: Path, stem: str, upsert_data, delete_data) -> tuple:
+    u = directory / f"{stem}.upsert.json"
+    d = directory / f"{stem}.delete.json"
+    u.write_text(json.dumps(upsert_data))
+    d.write_text(json.dumps(delete_data))
+    return str(u), str(d)
+
+
 # ---------------------------------------------------------------------------
-# create_oblivion_alchemy_ingredients.py
+# Importable unit tests
 # ---------------------------------------------------------------------------
 
-def test_ingredients_creates_table_and_inserts_rows(tmp_path, tmp_db):
-    json_file = str(tmp_path / "ingredients.json")
-    Path(json_file).write_text(json.dumps(SAMPLE_INGREDIENTS))
-    result = run_script(INGREDIENTS_SCRIPT, [json_file, tmp_db])
+def test_load_diff_file_missing_returns_false(tmp_path):
+    data, found = load_diff_file(str(tmp_path / "missing.json"))
+    assert not found
+    assert data == []
+
+def test_apply_deletes_removes_row(tmp_db):
+    conn = sqlite3.connect(tmp_db)
+    conn.execute("CREATE TABLE t (name TEXT)")
+    conn.execute("INSERT INTO t VALUES ('Alkanet Flower')")
+    conn.execute("INSERT INTO t VALUES ('Boar Meat')")
+    conn.commit()
+    apply_deletes(conn.cursor(), 't', [{"name": "Alkanet Flower"}], 'name')
+    conn.commit()
+    rows = [r[0] for r in conn.execute("SELECT name FROM t").fetchall()]
+    assert rows == ['Boar Meat']
+    conn.close()
+
+def test_apply_deletes_effects_null_safe(tmp_db):
+    conn = sqlite3.connect(tmp_db)
+    conn.execute("CREATE TABLE eff (name TEXT, effect TEXT)")
+    conn.execute("INSERT INTO eff VALUES ('Alkanet Flower', NULL)")
+    conn.execute("INSERT INTO eff VALUES ('Alkanet Flower', 'Resist Poison')")
+    conn.commit()
+    apply_deletes_effects(conn.cursor(), 'eff', [{"name": "Alkanet Flower", "effect": None}])
+    conn.commit()
+    rows = conn.execute("SELECT effect FROM eff").fetchall()
+    assert len(rows) == 1
+    assert rows[0][0] == "Resist Poison"
+    conn.close()
+
+
+# ---------------------------------------------------------------------------
+# Subprocess: ingredients
+# ---------------------------------------------------------------------------
+
+def test_ingredients_creates_table_on_first_run(tmp_path, tmp_db):
+    json_file = tmp_path / "ingredients.json"
+    json_file.write_text(json.dumps(SAMPLE_INGREDIENTS))
+    write_diff_pair(tmp_path, "ingredients", SAMPLE_INGREDIENTS, {})
+    result = run_script(INGREDIENTS_SCRIPT, [str(json_file), tmp_db])
+    assert result.returncode == 0, result.stderr
+    conn = sqlite3.connect(tmp_db)
+    rows = conn.execute(f"SELECT name FROM {TABLE_ING} ORDER BY name").fetchall()
+    conn.close()
+    assert [r[0] for r in rows] == ["Alkanet Flower", "Boar Meat"]
+
+def test_ingredients_no_diff_files_is_noop(tmp_path, tmp_db):
+    json_file = tmp_path / "ingredients.json"
+    json_file.write_text(json.dumps(SAMPLE_INGREDIENTS))
+    result = run_script(INGREDIENTS_SCRIPT, [str(json_file), tmp_db])
     assert result.returncode == 0
     conn = sqlite3.connect(tmp_db)
-    rows = conn.execute("SELECT name FROM oblivion_alchemy_ingredients ORDER BY name").fetchall()
+    assert conn.execute(
+        f"SELECT name FROM sqlite_master WHERE name='{TABLE_ING}'"
+    ).fetchone() is None
     conn.close()
-    assert len(rows) == 2
-    assert rows[0][0] == "Alkanet Flower"
 
-def test_ingredients_idempotent_on_rerun(tmp_path, tmp_db):
-    json_file = str(tmp_path / "ingredients.json")
-    Path(json_file).write_text(json.dumps(SAMPLE_INGREDIENTS))
-    run_script(INGREDIENTS_SCRIPT, [json_file, tmp_db])
-    run_script(INGREDIENTS_SCRIPT, [json_file, tmp_db])
+def test_ingredients_upsert_updates_changed_row(tmp_path, tmp_db):
+    json_file = tmp_path / "ingredients.json"
+    json_file.write_text(json.dumps(SAMPLE_INGREDIENTS))
+    write_diff_pair(tmp_path, "ingredients", SAMPLE_INGREDIENTS, {})
+    run_script(INGREDIENTS_SCRIPT, [str(json_file), tmp_db])
+    # Update Boar Meat's value
+    changed = [{"name": "Boar Meat", "weight": 2.0, "value": 99, "ID": "0003AB19"}]
+    write_diff_pair(tmp_path, "ingredients", changed, {})
+    result = run_script(INGREDIENTS_SCRIPT, [str(json_file), tmp_db])
+    assert result.returncode == 0, result.stderr
     conn = sqlite3.connect(tmp_db)
-    count = conn.execute("SELECT COUNT(*) FROM oblivion_alchemy_ingredients").fetchone()[0]
+    val = conn.execute(
+        f"SELECT value FROM {TABLE_ING} WHERE name='Boar Meat'"
+    ).fetchone()[0]
+    count = conn.execute(f"SELECT COUNT(*) FROM {TABLE_ING}").fetchone()[0]
     conn.close()
-    assert count == len(SAMPLE_INGREDIENTS)
+    assert val == 99
+    assert count == 2  # no duplicate created
 
-def test_ingredients_invalid_json_exits_nonzero(tmp_path, tmp_db):
-    bad_json = str(tmp_path / "bad.json")
-    Path(bad_json).write_text("not valid json {{")
-    result = run_script(INGREDIENTS_SCRIPT, [bad_json, tmp_db])
-    assert result.returncode != 0
+def test_ingredients_diff_files_removed_after_success(tmp_path, tmp_db):
+    json_file = tmp_path / "ingredients.json"
+    json_file.write_text(json.dumps(SAMPLE_INGREDIENTS))
+    u, d = write_diff_pair(tmp_path, "ingredients", SAMPLE_INGREDIENTS, {})
+    run_script(INGREDIENTS_SCRIPT, [str(json_file), tmp_db])
+    assert not Path(u).exists()
+    assert not Path(d).exists()
 
-def test_ingredients_missing_file_exits_nonzero(tmp_db):
-    result = run_script(INGREDIENTS_SCRIPT, ["/nonexistent/file.json", tmp_db])
+def test_ingredients_bad_upsert_json_exits_nonzero(tmp_path, tmp_db):
+    json_file = tmp_path / "ingredients.json"
+    json_file.write_text(json.dumps(SAMPLE_INGREDIENTS))
+    (tmp_path / "ingredients.upsert.json").write_text("not json")
+    (tmp_path / "ingredients.delete.json").write_text("{}")
+    result = run_script(INGREDIENTS_SCRIPT, [str(json_file), tmp_db])
     assert result.returncode != 0
 
 
 # ---------------------------------------------------------------------------
-# create_oblivion_alchemy_effects.py
+# Subprocess: effects
 # ---------------------------------------------------------------------------
 
-def test_effects_creates_table_and_inserts_rows(tmp_path, tmp_db):
-    json_file = str(tmp_path / "effects.json")
-    Path(json_file).write_text(json.dumps(SAMPLE_EFFECTS))
-    result = run_script(EFFECTS_SCRIPT, [json_file, tmp_db])
-    assert result.returncode == 0
+def test_effects_creates_table_on_first_run(tmp_path, tmp_db):
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    write_diff_pair(tmp_path, "effects", SAMPLE_EFFECTS, {})
+    result = run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
+    assert result.returncode == 0, result.stderr
     conn = sqlite3.connect(tmp_db)
-    rows = conn.execute("SELECT name, effect FROM oblivion_alchemy_effects").fetchall()
+    rows = conn.execute(f"SELECT name, effect FROM {TABLE_EFF}").fetchall()
     conn.close()
     assert len(rows) == 4
     assert ("Alkanet Flower", "Restore Intelligence") in rows
 
 def test_effects_null_effect_stored_as_null(tmp_path, tmp_db):
-    json_file = str(tmp_path / "effects.json")
-    Path(json_file).write_text(json.dumps(SAMPLE_EFFECTS))
-    run_script(EFFECTS_SCRIPT, [json_file, tmp_db])
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    write_diff_pair(tmp_path, "effects", SAMPLE_EFFECTS, {})
+    run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
     conn = sqlite3.connect(tmp_db)
     nulls = conn.execute(
-        "SELECT COUNT(*) FROM oblivion_alchemy_effects WHERE effect IS NULL"
+        f"SELECT COUNT(*) FROM {TABLE_EFF} WHERE effect IS NULL"
     ).fetchone()[0]
     conn.close()
     assert nulls == 2
 
-def test_effects_invalid_json_exits_nonzero(tmp_path, tmp_db):
-    bad_json = str(tmp_path / "bad.json")
-    Path(bad_json).write_text("{bad}")
-    result = run_script(EFFECTS_SCRIPT, [bad_json, tmp_db])
-    assert result.returncode != 0
+def test_effects_no_diff_files_is_noop(tmp_path, tmp_db):
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    result = run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
+    assert result.returncode == 0
+    conn = sqlite3.connect(tmp_db)
+    assert conn.execute(
+        f"SELECT name FROM sqlite_master WHERE name='{TABLE_EFF}'"
+    ).fetchone() is None
+    conn.close()
 
-def test_effects_missing_file_exits_nonzero(tmp_db):
-    result = run_script(EFFECTS_SCRIPT, ["/nonexistent/file.json", tmp_db])
+def test_effects_invalid_json_exits_nonzero(tmp_path, tmp_db):
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    (tmp_path / "effects.upsert.json").write_text("{bad}")
+    (tmp_path / "effects.delete.json").write_text("{}")
+    result = run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
     assert result.returncode != 0
