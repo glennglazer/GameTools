@@ -16,6 +16,7 @@ remove_pipe = _mod.remove_pipe
 remove_wiki_link = _mod.remove_wiki_link
 parse = _mod.parse
 write_file = _mod.write_file
+write_diff_files = _mod.write_diff_files
 
 # One well-formed Skyrim entry (10 lines: blank|name|e1|e2|e3|e4|weight|value|location|ID)
 VALID_ENTRY = """|
@@ -147,3 +148,41 @@ def test_write_file_overwrites_existing_file(tmp_path):
 def test_write_file_bad_path_raises():
     with pytest.raises(OSError):
         write_file([], "/nonexistent_dir_xyz/out.json")
+
+def test_write_diff_files_bad_path_raises():
+    with pytest.raises(OSError):
+        write_diff_files("/nonexistent_dir_xyz/out.json", [], [])
+
+
+# ---------------------------------------------------------------------------
+# parse — error conditions
+# ---------------------------------------------------------------------------
+
+# Malformed entry: weight field (line 6 in Skyrim format) is not a float
+MALFORMED_WEIGHT_ENTRY = """|
+|Bad Ingredient
+|Effect1
+|Effect2
+|Effect3
+|Effect4
+|NOT_A_FLOAT
+|5
+|Location
+|ingred_bad_01
+"""
+
+def test_parse_unreadable_file_raises(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    f.chmod(0o000)
+    try:
+        with pytest.raises(OSError):
+            parse(str(f))
+    finally:
+        f.chmod(0o644)
+
+def test_parse_malformed_weight_raises(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(MALFORMED_WEIGHT_ENTRY)
+    with pytest.raises(ValueError):
+        parse(str(f))

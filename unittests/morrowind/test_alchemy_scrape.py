@@ -89,6 +89,18 @@ def test_fetch_parsed_html_non_200_raises():
     with pytest.raises(requests.exceptions.HTTPError):
         fetch_parsed_html('Ingredients_(Morrowind)', session=session)
 
+def test_fetch_parsed_html_connection_error_raises():
+    session = MagicMock()
+    session.get.side_effect = requests.exceptions.ConnectionError("Connection refused")
+    with pytest.raises(requests.exceptions.ConnectionError):
+        fetch_parsed_html('Ingredients_(Morrowind)', session=session)
+
+def test_fetch_parsed_html_missing_parse_key_raises():
+    # API returns JSON but without the expected ['parse']['text']['*'] structure
+    session = make_mock_session({'error': {'code': 'missingtitle', 'info': 'page not found'}})
+    with pytest.raises(KeyError):
+        fetch_parsed_html('Nonexistent_Page', session=session)
+
 
 # ---------------------------------------------------------------------------
 # cell_text

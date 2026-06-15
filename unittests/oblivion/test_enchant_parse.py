@@ -3,6 +3,7 @@
   - Oblivion/enchanting/enchant_parse/MGEF.py
 """
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -16,8 +17,11 @@ _csv_mod = load_module(
     "ob_enchant_parse",
 )
 write_file = _csv_mod.write_file
+write_diff_files = _csv_mod.write_diff_files
 check_for_files = _csv_mod.check_for_files
 FILE_PREFIXES = _csv_mod.FILE_PREFIXES  # ['soul_gems']
+
+SCRIPT = str(REPO_ROOT / "Oblivion/enchanting/enchant_json/oblivion_parse_csv_to_json.py")
 
 _mgef_mod = load_module(
     "Oblivion/enchanting/enchant_parse/MGEF.py",
@@ -68,6 +72,23 @@ def test_write_file_overwrites_existing_file(tmp_path):
 def test_write_file_bad_path_raises():
     with pytest.raises(OSError):
         write_file([], "/nonexistent_dir_xyz/out.json")
+
+def test_write_diff_files_bad_path_raises():
+    with pytest.raises(OSError):
+        write_diff_files("/nonexistent_dir_xyz/out.json", [], [])
+
+
+# ---------------------------------------------------------------------------
+# CSV open failure (subprocess)
+# ---------------------------------------------------------------------------
+
+def test_csv_open_failure_exits_nonzero(tmp_path):
+    # in_dir exists but contains no CSV files → script tries open() → OSError → exits nonzero
+    result = subprocess.run(
+        [sys.executable, SCRIPT, str(tmp_path), str(tmp_path)],
+        capture_output=True, text=True,
+    )
+    assert result.returncode != 0
 
 
 # ---------------------------------------------------------------------------

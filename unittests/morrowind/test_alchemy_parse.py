@@ -17,6 +17,7 @@ remove_wiki_link = _mod.remove_wiki_link
 dash_to_null = _mod.dash_to_null
 parse = _mod.parse
 write_file = _mod.write_file
+write_diff_files = _mod.write_diff_files
 
 # One well-formed Morrowind wiki entry (9 lines: blank|name|weight|value|e1|e2|e3|e4|ID)
 VALID_ENTRY = """|
@@ -167,3 +168,39 @@ def test_write_file_overwrites_existing_file(tmp_path):
 def test_write_file_bad_path_raises(tmp_path):
     with pytest.raises(OSError):
         write_file([], "/nonexistent_dir_xyz/out.json")
+
+def test_write_diff_files_bad_path_raises():
+    with pytest.raises(OSError):
+        write_diff_files("/nonexistent_dir_xyz/out.json", [], [])
+
+
+# ---------------------------------------------------------------------------
+# parse — error conditions
+# ---------------------------------------------------------------------------
+
+MALFORMED_WEIGHT_ENTRY = """|
+|Bad Ingredient
+|NOT_A_FLOAT
+|5
+|Effect1
+|Effect2
+|Effect3
+|Effect4
+|ingred_bad_01
+"""
+
+def test_parse_unreadable_file_raises(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    f.chmod(0o000)
+    try:
+        with pytest.raises(OSError):
+            parse(str(f))
+    finally:
+        f.chmod(0o644)
+
+def test_parse_malformed_weight_raises(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(MALFORMED_WEIGHT_ENTRY)
+    with pytest.raises(ValueError):
+        parse(str(f))
