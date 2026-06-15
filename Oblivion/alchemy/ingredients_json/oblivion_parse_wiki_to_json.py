@@ -73,8 +73,15 @@ def parse(infile: str, verbose: bool = False) -> dict:
     if not op.exists(infile):
         return {}, {}
 
-    with open(infile, mode='r') as inf:
-        lines = inf.read().splitlines()
+    try:
+        with open(infile, mode='r') as inf:
+            lines = inf.read().splitlines()
+    except OSError as e:
+        print(f"Failed to read input file {infile}: {e}")
+        raise
+
+    entry_num = 0
+    try:
         while len(lines) >= NUMBER_OF_WIKI_LINES:
             name = remove_wiki_link(remove_pipe(lines[1])).rstrip()
             weight = float(remove_pipe(lines[2]))
@@ -98,13 +105,21 @@ def parse(infile: str, verbose: bool = False) -> dict:
                 print(f"ingredients so far: {ingredients}\n")
                 print(f"effects list: {effects_list}")
                 print(f"effects so far: {effects}\n")
+            entry_num += 1
             lines = lines[NUMBER_OF_WIKI_LINES:]
-        return ingredients, effects
+    except (ValueError, AttributeError, IndexError) as e:
+        print(f"Parse error in {infile} at entry {entry_num + 1}: {e}")
+        raise
+    return ingredients, effects
 
 
 def write_file(parsed: list, outfile: str) -> None:
-    with open(outfile, mode='w') as of:
-        json.dump(parsed, of)
+    try:
+        with open(outfile, mode='w') as of:
+            json.dump(parsed, of)
+    except OSError as e:
+        print(f"Failed to write {outfile}: {e}")
+        raise
 
 
 def load_json_safe(path: str) -> list:
@@ -134,10 +149,14 @@ def write_diff_files(outfile: str, upsert: list, delete: list) -> None:
     """Write <stem>.upsert.json and <stem>.delete.json alongside outfile."""
     stem = Path(outfile).stem
     out_dir = Path(outfile).parent
-    with open(out_dir / f'{stem}.upsert.json', 'w') as f:
-        json.dump(upsert if upsert else {}, f)
-    with open(out_dir / f'{stem}.delete.json', 'w') as f:
-        json.dump(delete if delete else {}, f)
+    try:
+        with open(out_dir / f'{stem}.upsert.json', 'w') as f:
+            json.dump(upsert if upsert else {}, f)
+        with open(out_dir / f'{stem}.delete.json', 'w') as f:
+            json.dump(delete if delete else {}, f)
+    except OSError as e:
+        print(f"Failed to write diff files for {Path(outfile).name}: {e}")
+        raise
 
 
 if __name__ == "__main__":
@@ -175,7 +194,11 @@ if __name__ == "__main__":
 
         old_path = Path(outfile)
         if old_path.exists():
-            old_path.rename(old_path.with_suffix('.old.json'))
+            try:
+                old_path.rename(old_path.with_suffix('.old.json'))
+            except OSError as e:
+                print(f"Failed to rename {old_path.name}: {e}")
+                raise
 
         write_file(new_data, outfile)
 

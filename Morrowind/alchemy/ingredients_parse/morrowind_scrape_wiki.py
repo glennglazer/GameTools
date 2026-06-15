@@ -66,14 +66,22 @@ def fetch_parsed_html(page_title: str, session=None) -> BeautifulSoup:
     """Fetch rendered HTML for a Fandom wiki page via the action=parse API."""
     sess = session or requests.Session()
     sess.headers.setdefault('User-Agent', USER_AGENT)
-    r = sess.get(API_URL, params={
-        'action': 'parse',
-        'page': page_title,
-        'prop': 'text',
-        'format': 'json',
-    }, timeout=20)
-    r.raise_for_status()
-    html = r.json()['parse']['text']['*']
+    try:
+        r = sess.get(API_URL, params={
+            'action': 'parse',
+            'page': page_title,
+            'prop': 'text',
+            'format': 'json',
+        }, timeout=20)
+        r.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        print(f"Network or HTTP error fetching wiki page '{page_title}': {e}")
+        raise
+    try:
+        html = r.json()['parse']['text']['*']
+    except (KeyError, ValueError) as e:
+        print(f"Unexpected API response structure for page '{page_title}': {e}")
+        raise
     return BeautifulSoup(html, 'html.parser')
 
 
@@ -165,8 +173,12 @@ def format_entry(fields: list) -> str:
 
 def write_raw_file(entries: list, outfile: str) -> None:
     """Write formatted entry strings to outfile."""
-    with open(outfile, 'w') as f:
-        f.write(''.join(entries))
+    try:
+        with open(outfile, 'w') as f:
+            f.write(''.join(entries))
+    except OSError as e:
+        print(f"Failed to write output file {outfile}: {e}")
+        raise
 
 
 def url_to_title(url: str) -> str:
@@ -216,6 +228,8 @@ if __name__ == '__main__':
         soup = fetch_parsed_html(title, session)
         rows = extract_rows(soup)
         entries = [format_entry(f) for r in rows if (f := fields_from_row(r)) is not None]
+        if not entries:
+            raise ValueError(f"No valid entries extracted from '{title}' — page structure may have changed")
         write_raw_file(entries, str(outfile))
         print(f"  {len(entries)} entries → {outfile.name}")
         per_url_files.append(outfile)
@@ -225,7 +239,11 @@ if __name__ == '__main__':
 
     # Combine all per-URL files into the _all_ file
     all_outfile = out_dir / f'{GAME}_all_ingredients_raw.txt'
-    all_content = ''.join(p.read_text() for p in per_url_files)
-    all_outfile.write_text(all_content)
+    try:
+        all_content = ''.join(p.read_text() for p in per_url_files)
+        all_outfile.write_text(all_content)
+    except OSError as e:
+        print(f"Failed to write combined file {all_outfile.name}: {e}")
+        raise
     total = sum(1 for line in all_content.splitlines() if line == '|')
     print(f"Combined {total} entries → {all_outfile.name}")

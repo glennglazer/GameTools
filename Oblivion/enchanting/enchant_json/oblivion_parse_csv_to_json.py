@@ -23,8 +23,12 @@ _DEFAULT_OUT_DIR = str(_SCRIPT_DIR)
 
 
 def write_file(parsed: list, outfile: str) -> None:
-    with open(outfile, mode='w') as of:
-        json.dump(parsed, of)
+    try:
+        with open(outfile, mode='w') as of:
+            json.dump(parsed, of)
+    except OSError as e:
+        print(f"Failed to write {outfile}: {e}")
+        raise
 
 
 def check_for_files(in_dir: str) -> bool:
@@ -61,10 +65,14 @@ def write_diff_files(outfile: str, upsert: list, delete: list) -> None:
     """Write <stem>.upsert.json and <stem>.delete.json alongside outfile."""
     stem = Path(outfile).stem
     out_dir = Path(outfile).parent
-    with open(out_dir / f'{stem}.upsert.json', 'w') as f:
-        json.dump(upsert if upsert else {}, f)
-    with open(out_dir / f'{stem}.delete.json', 'w') as f:
-        json.dump(delete if delete else {}, f)
+    try:
+        with open(out_dir / f'{stem}.upsert.json', 'w') as f:
+            json.dump(upsert if upsert else {}, f)
+        with open(out_dir / f'{stem}.delete.json', 'w') as f:
+            json.dump(delete if delete else {}, f)
+    except OSError as e:
+        print(f"Failed to write diff files for {Path(outfile).name}: {e}")
+        raise
 
 
 if __name__ == "__main__":
@@ -94,15 +102,19 @@ if __name__ == "__main__":
         item_write = f"{out_dir}/{item_type}.json"
         item_list = []
 
-        with open(item_read, newline='') as item_file:
-            reader = csv.DictReader(item_file, fieldnames=['Type', 'Mod Name', 'ObjectIndex', 'Editor ID', 'Weight', 'Value'])
-            try:
-                for row in reader:
-                    smaller_row = {'Editor ID': row['Editor ID'], 'Weight': row['Weight'], 'Value': row['Value']}
-                    item_list.append(smaller_row)
-            except csv.Error as e:
-                print(f"Error parsing {row} in {item_read}: {e}")
-                sys.exit(1)
+        try:
+            with open(item_read, newline='') as item_file:
+                reader = csv.DictReader(item_file, fieldnames=['Type', 'Mod Name', 'ObjectIndex', 'Editor ID', 'Weight', 'Value'])
+                try:
+                    for row in reader:
+                        smaller_row = {'Editor ID': row['Editor ID'], 'Weight': row['Weight'], 'Value': row['Value']}
+                        item_list.append(smaller_row)
+                except csv.Error as e:
+                    print(f"CSV parse error in {item_read}: {e}")
+                    raise
+        except OSError as e:
+            print(f"Failed to open {item_read}: {e}")
+            raise
 
         old_data = load_json_safe(item_write)
         if old_data == item_list:
@@ -111,7 +123,11 @@ if __name__ == "__main__":
 
         old_path = Path(item_write)
         if old_path.exists():
-            old_path.rename(old_path.with_suffix('.old.json'))
+            try:
+                old_path.rename(old_path.with_suffix('.old.json'))
+            except OSError as e:
+                print(f"Failed to rename {old_path.name}: {e}")
+                raise
 
         write_file(item_list, item_write)
 

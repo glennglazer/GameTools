@@ -8,4 +8,5 @@ RUN pip install --no-cache-dir --upgrade pip \
 RUN apt-get update && apt-get install -y \
     less \
     vim \
+    git \
     && rm -rf /var/lib/apt/lists/*
