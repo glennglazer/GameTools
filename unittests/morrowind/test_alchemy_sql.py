@@ -10,15 +10,15 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
-INGREDIENTS_SCRIPT = str(REPO_ROOT / "Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_ingredients.py")
-EFFECTS_SCRIPT = str(REPO_ROOT / "Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_effects.py")
+INGREDIENTS_SCRIPT = str(REPO_ROOT / "TES/Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_ingredients.py")
+EFFECTS_SCRIPT = str(REPO_ROOT / "TES/Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_effects.py")
 
 _ing_mod = load_module(
-    "Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_ingredients.py",
+    "TES/Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_ingredients.py",
     "mw_ing_sql",
 )
 _eff_mod = load_module(
-    "Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_effects.py",
+    "TES/Morrowind/alchemy/ingredients_sql/create_or_update_morrowind_alchemy_effects.py",
     "mw_eff_sql",
 )
 

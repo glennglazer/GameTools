@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Skyrim/alchemy/ingredients_parse/skyrim_scrape_wiki.py",
+    "TES/Skyrim/alchemy/ingredients_parse/skyrim_scrape_wiki.py",
     "sk_scrape",
 )
 fetch_parsed_html = _mod.fetch_parsed_html
@@ -212,7 +212,7 @@ def test_write_raw_file_round_trip_with_parser(tmp_path):
     ]
     write_raw_file(entries, outfile)
     parse_mod = load_module(
-        'Skyrim/alchemy/ingredients_json/skyrim_parse_wiki_to_json.py',
+        'TES/Skyrim/alchemy/ingredients_json/skyrim_parse_wiki_to_json.py',
         'sk_alchemy_parse_check',
     )
     ing, eff = parse_mod.parse(outfile)

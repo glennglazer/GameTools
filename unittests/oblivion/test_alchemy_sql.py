@@ -10,15 +10,15 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
-INGREDIENTS_SCRIPT = str(REPO_ROOT / "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_ingredients.py")
-EFFECTS_SCRIPT = str(REPO_ROOT / "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_effects.py")
+INGREDIENTS_SCRIPT = str(REPO_ROOT / "TES/Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_ingredients.py")
+EFFECTS_SCRIPT = str(REPO_ROOT / "TES/Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_effects.py")
 
 _ing_mod = load_module(
-    "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_ingredients.py",
+    "TES/Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_ingredients.py",
     "ob_ing_sql",
 )
 _eff_mod = load_module(
-    "Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_effects.py",
+    "TES/Oblivion/alchemy/ingredients_sql/create_or_update_oblivion_alchemy_effects.py",
     "ob_eff_sql",
 )
 

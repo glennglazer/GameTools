@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Morrowind/alchemy/ingredients_parse/morrowind_scrape_wiki.py",
+    "TES/Morrowind/alchemy/ingredients_parse/morrowind_scrape_wiki.py",
     "mw_scrape",
 )
 fetch_parsed_html = _mod.fetch_parsed_html
@@ -244,7 +244,7 @@ def test_write_raw_file_two_entries_parseable_by_parser(tmp_path):
     write_raw_file(entries, outfile)
     # Verify the parser can read the file
     parse_mod = load_module(
-        'Morrowind/alchemy/ingredients_json/morrowind_parse_wiki_to_json.py',
+        'TES/Morrowind/alchemy/ingredients_json/morrowind_parse_wiki_to_json.py',
         'mw_alchemy_parse_check',
     )
     ing, eff = parse_mod.parse(outfile)

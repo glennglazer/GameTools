@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Morrowind/enchanting/enchant_json/morrowind_parse_enchant_csv_to_json.py",
+    "TES/Morrowind/enchanting/enchant_json/morrowind_parse_enchant_csv_to_json.py",
     "mw_enchant_parse",
 )
 write_file = _mod.write_file
@@ -18,7 +18,7 @@ write_diff_files = _mod.write_diff_files
 check_for_files = _mod.check_for_files
 FILE_PREFIXES = _mod.FILE_PREFIXES  # ['armor', 'books', 'clothing', 'weapons']
 
-SCRIPT = str(REPO_ROOT / "Morrowind/enchanting/enchant_json/morrowind_parse_enchant_csv_to_json.py")
+SCRIPT = str(REPO_ROOT / "TES/Morrowind/enchanting/enchant_json/morrowind_parse_enchant_csv_to_json.py")
 
 
 # ---------------------------------------------------------------------------

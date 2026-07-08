@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Morrowind/alchemy/ingredients_json/morrowind_parse_wiki_to_json.py",
+    "TES/Morrowind/alchemy/ingredients_json/morrowind_parse_wiki_to_json.py",
     "mw_alchemy_parse",
 )
 remove_pipe = _mod.remove_pipe

@@ -10,15 +10,15 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
-INGREDIENTS_SCRIPT = str(REPO_ROOT / "Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_ingredients.py")
-EFFECTS_SCRIPT = str(REPO_ROOT / "Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_effects.py")
+INGREDIENTS_SCRIPT = str(REPO_ROOT / "TES/Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_ingredients.py")
+EFFECTS_SCRIPT = str(REPO_ROOT / "TES/Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_effects.py")
 
 _ing_mod = load_module(
-    "Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_ingredients.py",
+    "TES/Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_ingredients.py",
     "sk_ing_sql",
 )
 _eff_mod = load_module(
-    "Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_effects.py",
+    "TES/Skyrim/alchemy/ingredients_sql/create_or_update_skyrim_alchemy_effects.py",
     "sk_eff_sql",
 )
 

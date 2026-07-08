@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Morrowind/enchanting/enchant_sql/create_or_update_morrowind_enchant_tables.py",
+    "TES/Morrowind/enchanting/enchant_sql/create_or_update_morrowind_enchant_tables.py",
     "mw_enchant_sql",
 )
 check_for_files = _mod.check_for_files
@@ -19,7 +19,7 @@ load_diff_file = _mod.load_diff_file
 apply_deletes = _mod.apply_deletes
 FILE_PREFIXES = _mod.FILE_PREFIXES
 
-SCRIPT = str(REPO_ROOT / "Morrowind/enchanting/enchant_sql/create_or_update_morrowind_enchant_tables.py")
+SCRIPT = str(REPO_ROOT / "TES/Morrowind/enchanting/enchant_sql/create_or_update_morrowind_enchant_tables.py")
 
 SAMPLE_ITEM = [{"ID": "item_01", "Name": "Iron Cuirass", "Value": "100"}]
 SAMPLE_ITEM_2 = [{"ID": "item_02", "Name": "Silver Cuirass", "Value": "500"}]

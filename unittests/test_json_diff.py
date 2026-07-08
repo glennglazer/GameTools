@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from conftest import load_module, REPO_ROOT
 
 _mod = load_module(
-    "Morrowind/alchemy/ingredients_json/morrowind_parse_wiki_to_json.py",
+    "TES/Morrowind/alchemy/ingredients_json/morrowind_parse_wiki_to_json.py",
     "mw_json_diff",
 )
 compute_diff = _mod.compute_diff
@@ -146,13 +146,13 @@ def test_write_diff_files_stem_naming(tmp_path):
 # ---------------------------------------------------------------------------
 
 def test_default_infile_points_to_parse_dir():
-    expected = REPO_ROOT / 'Morrowind' / 'alchemy' / 'ingredients_parse' / 'morrowind_all_ingredients_raw.txt'
+    expected = REPO_ROOT / 'TES' / 'Morrowind' / 'alchemy' / 'ingredients_parse' / 'morrowind_all_ingredients_raw.txt'
     assert Path(_mod._DEFAULT_INFILE) == expected
 
 def test_default_ing_file_points_to_json_dir():
-    expected = REPO_ROOT / 'Morrowind' / 'alchemy' / 'ingredients_json' / 'morrowind_all_ingredients.json'
+    expected = REPO_ROOT / 'TES' / 'Morrowind' / 'alchemy' / 'ingredients_json' / 'morrowind_all_ingredients.json'
     assert Path(_mod._DEFAULT_ING_FILE) == expected
 
 def test_default_eff_file_points_to_json_dir():
-    expected = REPO_ROOT / 'Morrowind' / 'alchemy' / 'ingredients_json' / 'morrowind_all_effects.json'
+    expected = REPO_ROOT / 'TES' / 'Morrowind' / 'alchemy' / 'ingredients_json' / 'morrowind_all_effects.json'
     assert Path(_mod._DEFAULT_EFF_FILE) == expected

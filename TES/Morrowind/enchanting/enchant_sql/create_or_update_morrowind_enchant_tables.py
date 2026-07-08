@@ -33,7 +33,7 @@ KEY_COL = 'ID'
 GAME_LABEL = 'Morrowind enchanting'
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent
+_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / 'enchant_json'
 _DEFAULT_JSON_DIR = str(_JSON_DIR)
 _DEFAULT_DB = str(_REPO_ROOT / 'database' / 'gametools.sqlite3')

@@ -199,7 +199,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     script_dir = Path(__file__).parent.resolve()
-    repo_root = script_dir.parent.parent.parent
+    repo_root = script_dir.parent.parent.parent.parent
     default_out = repo_root / '.out'
     out_dir = Path(args.out_dir).resolve() if args.out_dir else default_out
     out_dir.mkdir(parents=True, exist_ok=True)

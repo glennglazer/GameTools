@@ -31,7 +31,7 @@ INDEX_NAME = 'm_e_name_effect'
 GAME_LABEL = 'Morrowind alchemy effects'
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent
+_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / 'ingredients_json'
 _DEFAULT_JSON_FILE = str(_JSON_DIR / 'morrowind_all_effects.json')
 _DEFAULT_DB = str(_REPO_ROOT / 'database' / 'gametools.sqlite3')

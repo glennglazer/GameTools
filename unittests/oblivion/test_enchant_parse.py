@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 _csv_mod = load_module(
-    "Oblivion/enchanting/enchant_json/oblivion_parse_csv_to_json.py",
+    "TES/Oblivion/enchanting/enchant_json/oblivion_parse_csv_to_json.py",
     "ob_enchant_parse",
 )
 write_file = _csv_mod.write_file
@@ -21,10 +21,10 @@ write_diff_files = _csv_mod.write_diff_files
 check_for_files = _csv_mod.check_for_files
 FILE_PREFIXES = _csv_mod.FILE_PREFIXES  # ['soul_gems']
 
-SCRIPT = str(REPO_ROOT / "Oblivion/enchanting/enchant_json/oblivion_parse_csv_to_json.py")
+SCRIPT = str(REPO_ROOT / "TES/Oblivion/enchanting/enchant_json/oblivion_parse_csv_to_json.py")
 
 _mgef_mod = load_module(
-    "Oblivion/enchanting/enchant_parse/MGEF.py",
+    "TES/Oblivion/enchanting/enchant_parse/MGEF.py",
     "ob_mgef",
 )
 MGEF = _mgef_mod.MGEF
