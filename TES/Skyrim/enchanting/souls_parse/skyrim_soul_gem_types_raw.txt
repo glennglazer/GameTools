@@ -1,0 +1,11 @@
+Azura's Star|0.0|1000|3000|Can hold any soul, excluding those of humanoids.
+The Black Star|0.0|1000|3000|Is said to only hold souls of humanoids, but in fact can hold any soul.
+Petty Soul Gem|0.1|10|250|Can hold creature souls below level 4.
+Lesser Soul Gem|0.2|25|500|Can hold creature souls below level 16.
+Common Soul Gem|0.3|50|1000|Can hold creature souls below level 28.
+Greater Soul Gem|0.4|100|2000|Can hold creature souls below level 38.
+Grand Soul Gem|0.5|200|3000|Can hold any soul, excluding those of humanoids.
+Black Soul Gem|1.0|500|3000|Can hold any soul, including those of humanoids.
+Soul Gem Fragment|0.1|5|0|Cannot hold souls.
+Warped Soul Gem|0.5|0|0|For the questArniel's Convection. Cannot hold souls.
+Wylandriah's Soul Gem|0.0|0|3000|For the questHunt and Gather. Can only be used for recharging.

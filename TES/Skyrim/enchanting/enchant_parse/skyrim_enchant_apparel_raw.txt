@@ -1,0 +1,38 @@
+Fortify Alchemy|True|False|True|False|False|True|True
+Fortify Alteration|True|True|False|False|False|True|True
+Fortify AlterationandMagicka Regen|False|True|False|False|False|False|False
+Fortify Archery|True|False|True|False|False|True|True
+Fortify Barter|False|False|False|False|False|True|False
+Fortify Block|False|False|True|False|True|True|True
+Fortify Carry Weight|False|False|True|True|False|True|True
+Fortify Conjuration|True|True|False|False|False|True|True
+Fortify ConjurationandMagicka Regen|False|True|False|False|False|False|False
+Fortify Destruction|True|True|False|False|False|True|True
+Fortify DestructionandMagicka Regen|False|True|False|False|False|False|False
+Fortify Healing Rate|False|True|False|False|False|True|True
+Fortify Health|False|True|False|False|True|True|True
+Fortify Heavy Armor|False|True|True|False|False|True|True
+Fortify Illusion|True|True|False|False|False|True|True
+Fortify IllusionandMagicka Regen|False|True|False|False|False|False|False
+Fortify Light Armor|False|True|True|False|False|True|True
+Fortify Lockpicking|True|False|True|False|False|True|True
+Fortify Magicka|True|False|True|False|False|True|True
+Fortify Magicka Regen|True|True|False|False|False|False|True
+Fortify One-Handed|False|False|True|True|False|True|True
+Fortify Pickpocket|False|False|True|True|False|True|True
+Fortify Restoration|True|True|False|False|False|True|True
+Fortify RestorationandMagicka Regen|False|True|False|False|False|False|False
+Fortify Smithing|False|True|True|False|False|True|True
+Fortify Sneak|False|False|True|True|False|True|True
+Fortify Stamina|False|True|False|True|False|True|True
+Fortify Stamina Regen|False|True|False|True|False|True|False
+Fortify Two-Handed|False|False|True|True|False|True|True
+Fortify Unarmed|False|False|True|False|False|False|True
+Muffle|False|False|False|True|False|False|False
+Resist Disease|False|True|False|False|True|True|True
+Resist Fire|False|False|False|True|True|True|True
+Resist Frost|False|False|False|True|True|True|True
+Resist Magic|False|False|False|False|True|True|True
+Resist Poison|False|True|False|False|True|True|True
+Resist Shock|False|False|False|True|True|True|True
+Water Breathing|True|False|False|False|False|True|True

@@ -6,9 +6,8 @@ Runs the full update pipeline for all implemented TES game/system combinations:
   - Morrowind alchemy, Oblivion alchemy, Skyrim alchemy (scrape → JSON → SQL)
   - Morrowind enchanting (CSV → JSON → SQL; no web scrape, CSVs are manually maintained)
   - Oblivion enchanting (CSV → SQL directly; static 2006 game data, no JSON intermediate)
-
-Skipped without error:
-  - Skyrim enchanting: not applicable (simplified system, no enchanting ingredient table)
+  - Skyrim enchanting (scrape → JSON → SQL for perks, soul gems, creature souls,
+                       enchantment effects, apparel enchantments)
 
 Halts immediately on any subprocess failure.
 """
@@ -117,6 +116,55 @@ def update_oblivion_enchanting() -> None:
     )
 
 
+def update_skyrim_enchanting() -> None:
+    """Scrape → JSON → SQL for all Skyrim enchanting tables."""
+    enc_dir = _SCRIPT_DIR / 'Skyrim' / 'enchanting'
+
+    run_step('Skyrim enchanting souls scrape',
+             [enc_dir / 'souls_parse' / 'skyrim_scrape_souls.py',
+              '--out-dir', enc_dir / 'souls_parse'])
+    run_step('Skyrim enchanting scrape',
+             [enc_dir / 'enchant_parse' / 'skyrim_scrape_enchanting.py',
+              '--out-dir', enc_dir / 'enchant_parse'])
+
+    for label, json_dir_name, script_name in [
+        ('Skyrim gem types JSON',
+         'gem_types_json', 'skyrim_parse_gem_types_to_json.py'),
+        ('Skyrim creature souls JSON',
+         'creature_souls_json', 'skyrim_parse_creature_souls_to_json.py'),
+        ('Skyrim enchant perks JSON',
+         'perks_json', 'skyrim_parse_enchant_perks_to_json.py'),
+        ('Skyrim enchant effects JSON',
+         'enchant_effects_json', 'skyrim_parse_enchant_effects_to_json.py'),
+        ('Skyrim enchant apparel JSON',
+         'enchant_apparel_json', 'skyrim_parse_enchant_apparel_to_json.py'),
+    ]:
+        run_step(label, [enc_dir / json_dir_name / script_name])
+
+    sql_pairs = [
+        ('Skyrim gem types SQL',
+         enc_dir / 'gem_types_json',
+         enc_dir / 'gem_types_sql' / 'create_or_update_skyrim_enchant_soulgems.py'),
+        ('Skyrim creature souls SQL',
+         enc_dir / 'creature_souls_json',
+         enc_dir / 'creature_souls_sql' / 'create_or_update_skyrim_enchant_souls.py'),
+        ('Skyrim enchant perks SQL',
+         enc_dir / 'perks_json',
+         enc_dir / 'perks_sql' / 'create_or_update_skyrim_enchant_perks.py'),
+        ('Skyrim enchant effects SQL',
+         enc_dir / 'enchant_effects_json',
+         enc_dir / 'enchant_effects_sql' / 'create_or_update_skyrim_enchant_effects.py'),
+        ('Skyrim enchant apparel SQL',
+         enc_dir / 'enchant_apparel_json',
+         enc_dir / 'enchant_apparel_sql' / 'create_or_update_skyrim_enchant_apparel.py'),
+    ]
+    for label, json_dir, sql_script in sql_pairs:
+        if not has_diff_files(json_dir):
+            log.info('[%s] no changes — database update skipped', label)
+            continue
+        run_step(label, [sql_script])
+
+
 def update_skyrim_alchemy_perks() -> None:
     """Scrape → JSON → SQL for Skyrim alchemy perks."""
     game_dir  = _SCRIPT_DIR / 'Skyrim'
@@ -159,6 +207,7 @@ if __name__ == '__main__':
     log.info('--- Oblivion enchanting ---')
     update_oblivion_enchanting()
 
-    log.info('--- Skyrim enchanting: skipped (not applicable) ---')
+    log.info('--- Skyrim enchanting ---')
+    update_skyrim_enchanting()
 
     log.info('=== TES data pipeline complete ===')

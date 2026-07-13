@@ -1,0 +1,31 @@
+Chicken|petty
+Cow|petty
+Deer|petty
+Dog|petty
+Draugr|petty
+Elk|petty
+Fox|petty
+Frostbite Spider|petty
+Goat|petty
+Horker|petty
+Mudcrab|petty
+Rabbit|petty
+Skeever|petty
+Skeleton|petty
+Slaughterfish|petty
+Wisp|petty
+Wolf|petty
+Argonian|black
+Khajiit|black
+Redguard|black
+Nord|black
+Breton|black
+Imperial|black
+Orsimer|black
+Bosmer|black
+Altmer|black
+Dunmer|black
+Dremora|black
+Vampire|black
+Forsworn Briarheart|black
+Soul Fissures|black

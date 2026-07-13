@@ -1,0 +1,21 @@
+Enchanter (1/5)|0|None|New enchantments are 20% stronger.
+Enchanter (2/5)|20|Enchanter (1/5)|New enchantments are 40% stronger.
+Enchanter (3/5)|40|Enchanter (2/5)|New enchantments are 60% stronger.
+Enchanter (4/5)|60|Enchanter (3/5)|New enchantments are 80% stronger.
+Enchanter (5/5)|80|Enchanter (4/5)|New enchantments are 100% stronger.
+Soul Squeezer|20|Enchanter (1/5)|Soul gemsprovide extra magicka for recharging
+Fire Enchanter|30|Enchanter (1/5)|Fire enchantments on weapons and armor are 25% stronger
+Soul Siphon|40|Soul Squeezer|Death blows to creatures, but not people, trap 5% of the victim's soul, recharging the weapon
+Frost Enchanter|40|Fire Enchanter|Frost enchantments on weapons and armor are 25% stronger
+Insightful Enchanter|50|Enchanter (1/5)|Skill enchantments on armor are 25% stronger
+Storm Enchanter|50|Frost Enchanter|Shock enchantments on weapons and armor are 25% stronger
+Corpus Enchanter|70|Insightful Enchanter|Health, magicka and stamina enchantments on armor are 25% stronger
+Extra Effect|100|Storm Enchanter, Corpus Enchanter|Can put two enchantments on the same item
+Augmented Flames (1/2)|30|Novice Destruction|Fire enchantments do 25% more damage.
+Augmented Flames (2/2)|60|Augmented Flames (1/2)|Fire enchantments do 50% more damage.
+Augmented Frost (1/2)|30|Novice Destruction|Frost enchantments do 25% more damage.
+Augmented Frost (2/2)|60|Augmented Frost (1/2)|Frost enchantments do 50% more damage.
+Augmented Shock (1/2)|30|Novice Destruction|Shock enchantments do 25% more damage.
+Augmented Shock (2/2)|60|Augmented Shock (1/2)|Shock enchantments do 50% more damage.
+Master of the Mind|90|Rage, Quiet Casting|Illusion enchantments work onundead,daedraandautomatons.
+Necromage|70|Regeneration|All enchantments are 25% stronger and 50% longer against undead

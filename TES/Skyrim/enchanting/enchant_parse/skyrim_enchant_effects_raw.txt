@@ -1,0 +1,18 @@
+Absorb Health|Destruction
+Absorb Magicka|Destruction
+Absorb Stamina|Destruction
+Banish|Conjuration
+Chaos Damage|Destruction
+Fear|Illusion
+Fiery Soul Trap|Conjuration
+Fire Damage|Destruction
+Frost Damage|Destruction
+Huntsman's Prowess|N/A
+Magicka Damage|Destruction
+Notched Pickaxe|N/A
+Paralyze|Alteration
+Shock Damage|Destruction
+Silent Moons Enchant|Destruction
+Soul Trap|Conjuration
+Stamina Damage|Destruction
+Turn Undead|Restoration
