@@ -117,12 +117,41 @@ def update_oblivion_enchanting() -> None:
     )
 
 
+def update_skyrim_alchemy_perks() -> None:
+    """Scrape → JSON → SQL for Skyrim alchemy perks."""
+    game_dir  = _SCRIPT_DIR / 'Skyrim'
+    parse_dir = game_dir / 'alchemy' / 'perks_parse'
+    json_dir  = game_dir / 'alchemy' / 'perks_json'
+    sql_dir   = game_dir / 'alchemy' / 'perks_sql'
+
+    run_step(
+        'Skyrim alchemy perks scrape',
+        [parse_dir / 'skyrim_scrape_alchemy_perks.py', '--out-dir', parse_dir],
+    )
+    run_step(
+        'Skyrim alchemy perks JSON',
+        [json_dir / 'skyrim_parse_perks_to_json.py'],
+    )
+
+    if not has_diff_files(json_dir):
+        log.info('[Skyrim alchemy perks] no changes — database update skipped')
+        return
+
+    run_step(
+        'Skyrim alchemy perks SQL',
+        [sql_dir / 'create_or_update_skyrim_alchemy_perks.py'],
+    )
+
+
 if __name__ == '__main__':
     log.info('=== TES data pipeline starting ===')
 
     for game in ['Morrowind', 'Oblivion', 'Skyrim']:
         log.info('--- %s alchemy ---', game)
         update_alchemy(game)
+
+    log.info('--- Skyrim alchemy perks ---')
+    update_skyrim_alchemy_perks()
 
     log.info('--- Morrowind enchanting ---')
     update_morrowind_enchanting()

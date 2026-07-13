@@ -1,0 +1,15 @@
+Alchemist (1/5)|0|None|Potions and poisons are 20% stronger.
+Alchemist (2/5)|20|Alchemist (1/5)|Potions and poisons are 40% stronger.
+Alchemist (3/5)|40|Alchemist (2/5)|Potions and poisons are 60% stronger.
+Alchemist (4/5)|60|Alchemist (3/5)|Potions and poisons are 80% stronger.
+Alchemist (5/5)|80|Alchemist (4/5)|Potions and poisons are 100% stronger.
+Physician|20|Alchemist (1/5)|Potions you mix that restore health or stamina are 25% more powerful.
+Poisoner|30|Physician|Poisons you mix are 25% more effective.
+Benefactor|30|Physician|Potions you mix with beneficial effects have an additional 25% greater magnitude.
+Experimenter (1/3)|50|Benefactor|Eating an ingredient reveals the first two effects.
+Experimenter (2/3)|70|Experimenter (1/3)|Eating an ingredient reveals the first three effects.
+Experimenter (3/3)|90|Experimenter (2/3)|Eating an ingredient reveals all four effects.
+Concentrated Poison|60|Poisoner|Poisons applied to weapons last for twice as many hits.
+Green Thumb|70|Concentrated Poison|Two ingredients are gathered from plants.
+Snakeblood|80|Concentrated Poison, Experimenter (1/3)|50% resistance to all poisons.
+Purity|100|Snakeblood|All negative effects are removed from created potions while all positive effects are removed from created poisons.
