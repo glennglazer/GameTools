@@ -5,10 +5,10 @@ TES data pipeline driver.
 Runs the full update pipeline for all implemented TES game/system combinations:
   - Morrowind alchemy, Oblivion alchemy, Skyrim alchemy (scrape → JSON → SQL)
   - Morrowind enchanting (CSV → JSON → SQL; no web scrape, CSVs are manually maintained)
+  - Oblivion enchanting (CSV → SQL directly; static 2006 game data, no JSON intermediate)
 
 Skipped without error:
-  - Oblivion enchanting: not yet automated
-  - Skyrim enchanting: not applicable (simplified system)
+  - Skyrim enchanting: not applicable (simplified system, no enchanting ingredient table)
 
 Halts immediately on any subprocess failure.
 """
@@ -106,6 +106,17 @@ def update_morrowind_enchanting() -> None:
     )
 
 
+def update_oblivion_enchanting() -> None:
+    """CSV → SQL for Oblivion enchanting (static data; no JSON intermediate step)."""
+    game_dir = _SCRIPT_DIR / 'Oblivion'
+    sql_dir  = game_dir / 'enchanting' / 'enchant_sql'
+
+    run_step(
+        'Oblivion enchanting SQL',
+        [sql_dir / 'create_or_update_oblivion_enchant_tables.py'],
+    )
+
+
 if __name__ == '__main__':
     log.info('=== TES data pipeline starting ===')
 
@@ -116,7 +127,9 @@ if __name__ == '__main__':
     log.info('--- Morrowind enchanting ---')
     update_morrowind_enchanting()
 
-    log.info('--- Oblivion enchanting: skipped (not yet automated) ---')
+    log.info('--- Oblivion enchanting ---')
+    update_oblivion_enchanting()
+
     log.info('--- Skyrim enchanting: skipped (not applicable) ---')
 
     log.info('=== TES data pipeline complete ===')
