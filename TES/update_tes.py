@@ -116,6 +116,58 @@ def update_oblivion_enchanting() -> None:
     )
 
 
+def update_skyrim_smithing() -> None:
+    """Scrape → JSON → SQL for all Skyrim smithing tables."""
+    smt_dir = _SCRIPT_DIR / 'Skyrim' / 'smithing'
+
+    run_step('Skyrim smithing scrape',
+             [smt_dir / 'smithing_parse' / 'skyrim_scrape_smithing.py',
+              '--out-dir', smt_dir / 'smithing_parse'])
+    run_step('Skyrim smithing armor scrape',
+             [smt_dir / 'armor_parse' / 'skyrim_scrape_smithing_armor.py',
+              '--out-dir', smt_dir / 'armor_parse'])
+    run_step('Skyrim smithing weapons scrape',
+             [smt_dir / 'weapons_parse' / 'skyrim_scrape_smithing_weapons.py',
+              '--out-dir', smt_dir / 'weapons_parse'])
+
+    for label, json_dir_name, script_name in [
+        ('Skyrim smithing perks JSON',
+         'perks_json', 'skyrim_parse_smithing_perks_to_json.py'),
+        ('Skyrim smithing armor JSON',
+         'armor_json', 'skyrim_parse_smithing_armor_to_json.py'),
+        ('Skyrim smithing weapons JSON',
+         'weapons_json', 'skyrim_parse_smithing_weapons_to_json.py'),
+        ('Skyrim smithing improvement JSON',
+         'improvement_json', 'skyrim_parse_smithing_improvement_to_json.py'),
+        ('Skyrim smithing materials JSON',
+         'materials_json', 'skyrim_parse_smithing_materials_to_json.py'),
+    ]:
+        run_step(label, [smt_dir / json_dir_name / script_name])
+
+    sql_pairs = [
+        ('Skyrim smithing perks SQL',
+         smt_dir / 'perks_json',
+         smt_dir / 'perks_sql' / 'create_or_update_skyrim_smithing_perks.py'),
+        ('Skyrim smithing armor SQL',
+         smt_dir / 'armor_json',
+         smt_dir / 'armor_sql' / 'create_or_update_skyrim_smithing_armor.py'),
+        ('Skyrim smithing weapons SQL',
+         smt_dir / 'weapons_json',
+         smt_dir / 'weapons_sql' / 'create_or_update_skyrim_smithing_weapons.py'),
+        ('Skyrim smithing improvement SQL',
+         smt_dir / 'improvement_json',
+         smt_dir / 'improvement_sql' / 'create_or_update_skyrim_smithing_improvement.py'),
+        ('Skyrim smithing materials SQL',
+         smt_dir / 'materials_json',
+         smt_dir / 'materials_sql' / 'create_or_update_skyrim_smithing_materials.py'),
+    ]
+    for label, json_dir, sql_script in sql_pairs:
+        if not has_diff_files(json_dir):
+            log.info('[%s] no changes — database update skipped', label)
+            continue
+        run_step(label, [sql_script])
+
+
 def update_skyrim_enchanting() -> None:
     """Scrape → JSON → SQL for all Skyrim enchanting tables."""
     enc_dir = _SCRIPT_DIR / 'Skyrim' / 'enchanting'
@@ -209,5 +261,8 @@ if __name__ == '__main__':
 
     log.info('--- Skyrim enchanting ---')
     update_skyrim_enchanting()
+
+    log.info('--- Skyrim smithing ---')
+    update_skyrim_smithing()
 
     log.info('=== TES data pipeline complete ===')

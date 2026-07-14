@@ -1,0 +1,40 @@
+Long Bow|Firewood
+Hunting Bow|Leather Strips
+Leather|Leather
+Hide|Leather
+Fur|Leather
+VampireDG|Leather
+Forsworn|Leather
+Iron|Iron Ingot
+Studded|Iron Ingot
+Steel|Steel Ingot
+Imperial|Steel Ingot
+Nord Hero|Steel Ingot
+Ancient Nord|Steel Ingot
+Wolf|Steel Ingot
+DawnguardDG|Steel Ingot
+Dawnguard HeavyDG|Steel Ingot
+Red Eagle|Steel Ingot
+Valdr's Lucky Dagger|Steel Ingot
+Vokun|Steel Ingot
+Ghost|Ectoplasm
+Scaled|Corundum Ingot
+Banded Iron|Corundum Ingot
+Steel Plate|Corundum Ingot
+Dwarven|Dwarven Metal Ingot
+Elven|Refined Moonstone
+Morokei|Refined Moonstone
+Orcish|Orichalcum Ingot
+Ebony|Ebony Ingot
+Daedric|Ebony Ingot
+Glass|Refined Malachite
+Nordic CarvedDR|Quicksilver Ingot
+StalhrimDR|StalhrimDR
+ChitinDR|Chitin PlateDR
+Chitin HeavyDR|Chitin PlateDR
+BonemoldDR|Bone Meal
+Dragonplate|Dragon Bone
+Dragonscale|Dragon Scales
+Falmer|Chaurus Chitin
+Nightingale|Void Salts
+Jewelry|*

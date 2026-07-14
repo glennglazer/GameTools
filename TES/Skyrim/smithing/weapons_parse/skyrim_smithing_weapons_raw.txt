@@ -1,0 +1,95 @@
+Crossbow|Steel Smithing|19|14.0|120|xx 000801|0|0|0|0|0|0|0|3|0|0|0|0|0|0|0|2
+Enhanced Crossbow|Steel Smithing|19|15.0|200|xx 00f19e|2|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+Steel Arrow †|Steel Smithing|10|0.0|2|0001397F|0|0|0|0|0|0|0|1|0|0|0|0|0|0|0|1
+Steel Bolt|Steel Smithing|10|0.0|1|xx 000bb3|0|0|0|0|0|0|0|1|0|0|0|0|0|0|0|1
+Steel Dagger|Steel Smithing|5|2.5|18|00013986|0|0|0|0|0|0|0|0|1|1|0|0|0|0|0|1
+Steel Sword|Steel Smithing|8|10.0|45|00013989|0|0|0|0|0|0|0|0|1|1|0|0|0|0|0|2
+Steel Greatsword|Steel Smithing|17|17.0|90|00013987|0|0|0|0|0|0|0|0|2|3|0|0|0|0|0|4
+Steel War Axe|Steel Smithing|9|12.0|55|00013983|0|0|0|0|0|0|0|0|1|2|0|0|0|0|0|2
+Steel Battleaxe|Steel Smithing|18|21.0|100|00013984|0|0|0|0|0|0|0|0|1|2|0|0|0|0|0|4
+Steel Mace|Steel Smithing|10|14.0|65|00013988|0|0|0|0|0|0|0|0|1|1|0|0|0|0|0|3
+Steel Warhammer|Steel Smithing|20|25.0|110|0001398A|0|0|0|0|0|0|0|0|1|3|0|0|0|0|0|4
+Elven Arrows †|Elven Smithing|16|0.0|2|000139BD|0|0|0|0|0|0|0|1|0|0|0|0|0|1|0|0
+Elven Dagger|Elven Smithing|8|4.0|95|0001399E|0|0|0|0|0|0|0|0|1|1|0|1|0|1|0|0
+Elven Sword|Elven Smithing|11|13.0|235|000139A1|0|0|0|0|0|0|0|0|1|1|0|1|0|1|0|0
+Elven Greatsword|Elven Smithing|20|20.0|470|0001399F|0|0|0|0|0|0|0|0|2|3|0|1|0|2|0|0
+Elven War Axe|Elven Smithing|12|15.0|280|0001399B|0|0|0|0|0|0|0|0|1|2|0|1|0|1|0|0
+Elven Battleaxe|Elven Smithing|21|24.0|520|0001399C|0|0|0|0|0|0|0|0|2|2|0|1|0|2|0|0
+Elven Mace|Elven Smithing|13|17.0|330|000139A0|0|0|0|0|0|0|0|0|1|1|0|1|0|2|0|0
+Elven Warhammer|Elven Smithing|23|28.0|565|000139A2|0|0|0|0|0|0|0|0|2|3|0|1|0|2|0|0
+Elven Bow|Elven Smithing|13|12.0|470|0001399D|0|0|0|0|0|0|0|0|0|0|0|1|0|2|0|0
+Glass Arrow †|Glass Smithing|18|0.0|6|000139BE|0|0|0|0|0|0|0|1|0|0|0|0|1|0|0|0
+Glass Dagger|Glass Smithing|9|4.5|165|000139A6|0|0|0|0|0|0|0|0|0|1|0|0|1|1|0|0
+Glass Sword|Glass Smithing|12|14.0|410|000139A9|0|0|0|0|0|0|0|0|0|1|0|0|1|1|0|0
+Glass Greatsword|Glass Smithing|21|22.0|820|000139A7|0|0|0|0|0|0|0|0|0|3|0|0|2|2|0|0
+Glass War Axe|Glass Smithing|13|16.0|490|000139A3|0|0|0|0|0|0|0|0|0|2|0|0|1|1|0|0
+Glass Battleaxe|Glass Smithing|22|25.0|900|000139A4|0|0|0|0|0|0|0|0|0|2|0|0|2|2|0|0
+Glass Mace|Glass Smithing|14|18.0|575|000139A8|0|0|0|0|0|0|0|0|0|1|0|0|2|1|0|0
+Glass Warhammer|Glass Smithing|24|29.0|985|000139AA|0|0|0|0|0|0|0|0|0|3|0|0|3|2|0|0
+Glass Bow|Glass Smithing|15|14.0|820|000139A5|0|0|0|0|0|0|0|0|0|0|0|0|2|1|0|0
+Dwarven Arrow †|Dwarven Smithing|14|0.0|4|000139BC|0|0|0|0|0|1|0|1|0|0|0|0|0|0|0|0
+Dwarven Battleaxe|Dwarven Smithing|20|23.0|300|00013994|0|0|0|0|0|2|0|0|1|2|0|0|0|0|0|2
+Dwarven Bolt|Dwarven Smithing|14|0.0|3|xx 00d099|0|0|0|0|0|1|0|1|0|0|0|0|0|0|0|0
+Dwarven Bow|Dwarven Smithing|12|10.0|270|00013995|0|0|0|0|0|2|0|0|1|0|0|0|0|0|0|0
+Dwarven Crossbow|Dwarven Smithing|22|20.0|350|xx 00b647|0|0|0|0|0|5|0|0|0|0|0|0|0|0|0|0
+Dwarven Dagger|Dwarven Smithing|7|3.5|55|00013996|0|0|0|0|0|1|0|0|1|1|0|0|0|0|0|1
+Dwarven Greatsword|Dwarven Smithing|19|19.0|270|00013997|0|0|0|0|0|2|0|0|2|3|0|0|0|0|0|2
+Dwarven Mace|Dwarven Smithing|12|16.0|190|00013998|0|0|0|0|0|2|0|0|1|1|0|0|0|0|0|1
+Dwarven Sword|Dwarven Smithing|10|12.0|135|00013999|0|0|0|0|0|1|0|0|1|1|0|0|0|0|0|1
+Dwarven War Axe|Dwarven Smithing|11|14.0|165|00013993|0|0|0|0|0|1|0|0|1|2|0|0|0|0|0|1
+Dwarven Warhammer|Dwarven Smithing|22|27.0|325|0001399a|0|0|0|0|0|2|0|0|1|3|0|0|0|0|0|2
+Enhanced Dwarven Crossbow|Dwarven Smithing|22|21.0|550|xx 00f19f|0|0|0|0|1|0|0|0|0|0|0|2|0|0|0|0
+Orcish Arrow †|Orcish Smithing|12|0.0|1|000139BB|0|0|0|0|0|0|0|1|0|0|1|0|0|0|0|0
+Orcish Dagger|Orcish Smithing|6|3.0|30|0001398E|0|0|0|0|0|0|0|0|1|1|1|0|0|0|0|0
+Orcish Sword|Orcish Smithing|9|11.0|75|00013991|0|0|0|0|0|0|0|0|1|1|2|0|0|0|0|0
+Orcish Greatsword|Orcish Smithing|18|18.0|75|0001398F|0|0|0|0|0|0|0|0|2|3|4|0|0|0|0|0
+Orcish War Axe|Orcish Smithing|10|13.0|90|0001398B|0|0|0|0|0|0|0|0|1|2|2|0|0|0|0|0
+Orcish Battleaxe|Orcish Smithing|19|25.0|165|0001398C|0|0|0|0|0|0|0|0|1|2|4|0|0|0|0|0
+Orcish Mace|Orcish Smithing|11|15.0|105|00013990|0|0|0|0|0|0|0|0|1|1|3|0|0|0|0|0
+Orcish Warhammer|Orcish Smithing|21|26.0|180|00013992|0|0|0|0|0|0|0|0|1|3|4|0|0|0|0|0
+Orcish Bow|Orcish Smithing|10|9.0|150|0001398D|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0
+Ebony Dagger|Ebony Smithing|10|5.0|290|000139AE|0|0|0|0|0|0|1|0|0|1|0|0|0|0|0|0
+Ebony Sword|Ebony Smithing|13|15.0|720|000139B1|0|0|0|0|0|0|2|0|0|1|0|0|0|0|0|0
+Ebony Greatsword|Ebony Smithing|22|22.0|1440|000139AF|0|0|0|0|0|0|5|0|0|3|0|0|0|0|0|0
+Ebony War Axe|Ebony Smithing|15|17.0|865|000139AB|0|0|0|0|0|0|2|0|0|2|0|0|0|0|0|0
+Ebony Battleaxe|Ebony Smithing|23|26.0|1585|000139AC|0|0|0|0|0|0|5|0|0|2|0|0|0|0|0|0
+Ebony Mace|Ebony Smithing|16|19.0|1000|000139B0|0|0|0|0|0|0|3|0|0|1|0|0|0|0|0|0
+Ebony Warhammer|Ebony Smithing|25|30.0|1725|000139B2|0|0|0|0|0|0|5|0|0|3|0|0|0|0|0|0
+Ebony Bow|Ebony Smithing|17|16.0|1440|000139AD|0|0|0|0|0|0|3|0|0|0|0|0|0|0|0|0
+Ebony Arrow †|Ebony Smithing|20|0.0|7|000139BF|0|0|0|0|0|0|1|1|0|0|0|0|0|0|0|0
+Daedric Dagger|Daedric Smithing|11|6.0|500|000139B6|0|0|1|0|0|0|1|0|0|1|0|0|0|0|0|0
+Daedric Sword|Daedric Smithing|14|16.0|1250|000139B9|0|0|1|0|0|0|2|0|0|1|0|0|0|0|0|0
+Daedric Battleaxe|Daedric Smithing|25|27.0|2750|000139B4|0|0|1|0|0|0|5|0|0|2|0|0|0|0|0|0
+Daedric Bow|Daedric Smithing|19|18.0|2500|000139B5|0|0|1|0|0|0|3|0|0|1|0|0|0|0|0|0
+Daedric Greatsword|Daedric Smithing|24|23.0|2500|000139B7|0|0|1|0|0|0|5|0|0|3|0|0|0|0|0|0
+Daedric Mace|Daedric Smithing|16|20.0|1750|000139B8|0|0|1|0|0|0|3|0|0|1|0|0|0|0|0|0
+Daedric War Axe|Daedric Smithing|15|18.0|1500|000139B3|0|0|1|0|0|0|2|0|0|2|0|0|0|0|0|0
+Daedric Warhammer|Daedric Smithing|27|31.0|4000|000139BA|0|0|1|0|0|0|5|0|0|3|0|0|0|0|0|0
+Daedric Arrow †|Daedric Smithing|24|0.0|8|000139C0|0|0|1|0|0|0|1|1|0|0|0|0|0|0|0|0
+Nordic Battleaxe|Advanced Armors|21|23.0|650|xx 01cdad|0|0|0|0|0|0|0|0|0|2|0|1|0|0|0|5
+Nordic Bow|Advanced Armors|13|11.0|580|xx 026232|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|3
+Nordic Dagger|Advanced Armors|8|3.5|115|xx 01cdae|0|0|0|0|0|0|0|0|0|1|0|1|0|0|0|1
+Nordic Greatsword|Advanced Armors|20|19.0|585|xx 01cdaf|0|0|0|0|0|0|0|0|0|3|0|1|0|0|0|5
+Nordic Mace|Advanced Armors|13|16.0|410|xx 01cdb0|0|0|0|0|0|0|0|0|0|1|0|1|0|0|0|1
+Nordic Sword|Advanced Armors|11|12.0|290|xx 01cdb1|0|0|0|0|0|0|0|0|0|1|0|1|0|0|0|2
+Nordic War Axe|Advanced Armors|12|14.0|350|xx 01cdb2|0|0|0|0|0|0|0|0|0|2|0|1|0|0|0|2
+Nordic Warhammer|Advanced Armors|23|27.0|700|xx 01cdb3|0|0|0|0|0|0|0|0|0|3|0|1|0|0|0|5
+Nordic Arrow †|Advanced Armors|14|0.0|4|xx 02623b|0|0|0|0|0|0|0|1|0|0|0|1|0|0|0|1
+Stalhrim Battleaxe|Ebony Smithing|24|25.0|2150|xx 01cdb4|0|0|0|0|0|0|0|0|0|2|0|0|0|0|5|0
+Stalhrim Bow|Ebony Smithing|17|15.0|1800|xx 026231|0|0|0|0|0|0|0|0|0|0|0|0|0|0|3|0
+Stalhrim Dagger|Ebony Smithing|10|4.5|395|xx 01cdb5|0|0|0|0|0|0|0|0|0|1|0|0|0|0|1|0
+Stalhrim Greatsword|Ebony Smithing|23|21.0|1970|xx 01cdb6|0|0|0|0|0|0|0|0|0|3|0|0|0|0|5|0
+Stalhrim Mace|Ebony Smithing|16|18.0|1375|xx 01cdb7|0|0|0|0|0|0|0|0|0|1|0|0|0|0|3|0
+Stalhrim Sword|Ebony Smithing|13|14.0|985|xx 01cdb8|0|0|0|0|0|0|0|0|0|1|0|0|0|0|2|0
+Stalhrim War Axe|Ebony Smithing|15|16.0|1180|xx 01cdb9|0|0|0|0|0|0|0|0|0|2|0|0|0|0|2|0
+Stalhrim Warhammer|Ebony Smithing|26|29.0|2850|xx 01cdba|0|0|0|0|0|0|0|0|0|3|0|0|0|0|5|0
+Stalhrim Arrow †|Ebony Smithing|20|0.0|7|xx 026239|0|0|0|0|0|0|0|1|0|0|0|0|0|0|1|0
+Dragonbone Battleaxe|Dragon Armor|26|30.0|3000|xx 014fc3|0|0|0|3|0|0|2|0|0|2|0|0|0|0|0|0
+Dragonbone Bow|Dragon Armor|20|20.0|2725|xx 0176f1|0|0|0|2|0|0|1|0|0|0|0|0|0|0|0|0
+Dragonbone Dagger|Dragon Armor|12|6.5|600|xx 014fcb|0|0|0|1|0|0|0|0|0|1|0|0|0|0|0|0
+Dragonbone Greatsword|Dragon Armor|25|27.0|2725|xx 014fcc|0|0|0|4|0|0|1|0|0|3|0|0|0|0|0|0
+Dragonbone Mace|Dragon Armor|17|22.0|2000|xx 014fcd|0|0|0|2|0|0|1|0|0|1|0|0|0|0|0|0
+Dragonbone Sword|Dragon Armor|15|19.0|1500|xx 014fce|0|0|0|1|0|0|1|0|0|1|0|0|0|0|0|0
+Dragonbone War Axe|Dragon Armor|16|21.0|1700|xx 014fcf|0|0|0|1|0|0|1|0|0|2|0|0|0|0|0|0
+Dragonbone Warhammer|Dragon Armor|28|33.0|4275|xx 014fd0|0|0|0|3|0|0|2|0|0|3|0|0|0|0|0|0
+Dragonbone Arrow|Dragon Armor|25|0.0|9|xx 0176f4|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0|0

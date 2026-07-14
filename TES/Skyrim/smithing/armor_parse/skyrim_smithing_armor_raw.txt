@@ -1,0 +1,92 @@
+Steel Armor|Steel Smithing|31|35.0|275|00013952|0|0|0|0|0|0|0|0|1|0|3|0|0|0|0|0|0|0|4|0
+Steel Cuffed Boots|Steel Smithing|12|8.0|55|00013951|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|3|0
+Steel Shin Boots|Steel Smithing|12|8.0|55|000F6F21|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|3|0
+Steel Helmet|Steel Smithing|17|5.0|125|00013954|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|2|0
+Steel Horned Helmet|Steel Smithing|17|5.0|125|000F6F24|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|2|0
+Steel Nordic Gauntlets|Steel Smithing|12|4.0|55|00013953|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|2|0
+Steel Imperial Gauntlets|Steel Smithing|12|4.0|55|000F6F23|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|2|0
+Steel Shield|Steel Smithing|24|12.0|150|00013955|0|0|0|0|0|0|0|0|1|0|1|0|0|0|0|0|0|0|3|0
+Elven Armor|Elven Smithing|29|4.0|225|000896A3|0|0|0|0|0|0|0|0|1|1|3|0|0|0|0|0|4|0|0|0
+Elven Boots|Elven Smithing|8|1.0|45|0001391A|0|0|0|0|0|0|0|0|1|1|2|0|0|0|0|0|2|0|0|0
+Elven Gauntlets|Elven Smithing|8|1.0|45|0001391C|0|0|0|0|0|0|0|0|1|1|2|0|0|0|0|0|1|0|0|0
+Elven Helmet|Elven Smithing|13|1.0|110|0001391D|0|0|0|0|0|0|0|0|1|1|1|0|0|0|0|0|2|0|0|0
+Elven Shield|Elven Smithing|21|4.0|115|0001391E|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|4|0|0|0
+Elven Gilded Armor|Elven Smithing|35|4.0|550|0001392A|0|0|0|0|0|0|0|0|1|0|3|0|0|0|1|0|4|0|0|0
+Elven Boots|Elven Smithing|8|1.0|45|0001391A|0|0|0|0|0|0|0|0|1|1|2|0|0|0|0|0|2|0|0|0
+Elven Gauntlets|Elven Smithing|8|1.0|45|0001391C|0|0|0|0|0|0|0|0|1|1|2|0|0|0|0|0|1|0|0|0
+Elven Helmet|Elven Smithing|13|1.0|110|0001391D|0|0|0|0|0|0|0|0|1|1|1|0|0|0|0|0|2|0|0|0
+Elven Shield|Elven Smithing|21|4.0|115|0001391E|0|0|0|0|0|0|0|0|1|0|2|0|0|0|0|0|4|0|0|0
+Scaled Armor|Advanced Armors|32|6.0|350|0001B3A3|0|0|2|0|0|0|0|0|0|2|3|0|0|0|0|0|0|0|3|0
+Scaled Boots|Advanced Armors|9|2.0|70|0001B39F|0|0|1|0|0|0|0|0|0|1|2|0|0|0|0|0|0|0|2|0
+Scaled Bracers|Advanced Armors|9|2.0|70|0001B3A0|0|0|1|0|0|0|0|0|0|1|2|0|0|0|0|0|0|0|1|0
+Scaled Helmet|Advanced Armors|14|2.0|175|0001B3A1|0|0|1|0|0|0|0|0|0|1|1|0|0|0|0|0|0|0|2|0
+Steel Plate Armor|Advanced Armors|40|38.0|625|0001395C|0|0|1|0|0|0|0|0|1|0|3|0|0|0|0|0|0|0|3|0
+Steel Plate Boots|Advanced Armors|14|9.0|125|0001395B|0|0|1|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|2|0
+Steel Plate Gauntlets|Advanced Armors|14|6.0|125|0001395D|0|0|1|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|2|0
+Steel Plate Helmet|Advanced Armors|19|6.0|300|0001395E|0|0|1|0|0|0|0|0|1|0|2|0|0|0|0|0|0|0|2|0
+Glass Armor|Glass Smithing|38|7.0|900|00013939|0|0|0|0|0|0|0|0|0|1|3|0|0|0|0|4|2|0|0|0
+Glass Boots|Glass Smithing|11|2.0|190|00013938|0|0|0|0|0|0|0|0|0|1|2|0|0|0|0|2|1|0|0|0
+Glass Gauntlets|Glass Smithing|11|2.0|190|0001393A|0|0|0|0|0|0|0|0|0|1|2|0|0|0|0|1|1|0|0|0
+Glass Helmet|Glass Smithing|16|2.0|450|0001393B|0|0|0|0|0|0|0|0|0|1|1|0|0|0|0|2|1|0|0|0
+Glass Shield|Glass Smithing|27|6.0|450|0001393C|0|0|0|0|0|0|0|0|0|0|2|0|0|0|0|4|1|0|0|0
+Dwarven Armor|Dwarven Smithing|34|45.0|400|0001394D|0|0|0|0|0|0|3|0|1|0|3|0|0|0|0|0|0|0|1|0
+Dwarven Boots|Dwarven Smithing|13|10.0|85|0001394C|0|0|0|0|0|0|2|0|1|0|2|0|0|0|0|0|0|0|1|0
+Dwarven Gauntlets|Dwarven Smithing|13|8.0|85|0001394E|0|0|0|0|0|0|1|0|1|0|2|0|0|0|0|0|0|0|1|0
+Dwarven Helmet|Dwarven Smithing|18|12.0|200|0001394F|0|0|0|0|0|0|2|0|1|0|2|0|0|0|0|0|0|0|1|0
+Dwarven Shield|Dwarven Smithing|26|12.0|225|00013950|0|0|0|0|0|0|2|0|1|0|1|0|0|0|0|0|0|0|1|0
+Orcish Armor|Orcish Smithing|40|35.0|1000|00013957|0|0|0|0|0|0|0|0|1|0|3|0|0|4|0|0|0|0|0|0
+Orcish Boots|Orcish Smithing|15|7.0|200|00013956|0|0|0|0|0|0|0|0|1|0|2|0|0|3|0|0|0|0|0|0
+Orcish Gauntlets|Orcish Smithing|15|7.0|200|00013958|0|0|0|0|0|0|0|0|1|0|2|0|0|2|0|0|0|0|0|0
+Orcish Helmet|Orcish Smithing|20|8.0|500|00013959|0|0|0|0|0|0|0|0|1|0|2|0|0|2|0|0|0|0|0|0
+Orcish Shield|Orcish Smithing|30|14.0|500|00013946|0|0|0|0|0|0|0|0|1|0|1|0|0|3|0|0|0|0|0|0
+Ebony Armor|Ebony Smithing|43|38.0|1500|00013961|0|0|0|0|0|0|0|5|0|0|3|0|0|0|0|0|0|0|0|0
+Ebony Boots|Ebony Smithing|16|7.0|275|00013960|0|0|0|0|0|0|0|3|0|0|2|0|0|0|0|0|0|0|0|0
+Ebony Gauntlets|Ebony Smithing|16|7.0|275|00013962|0|0|0|0|0|0|0|2|0|0|2|0|0|0|0|0|0|0|0|0
+Ebony Helmet|Ebony Smithing|21|10.0|750|00013963|0|0|0|0|0|0|0|3|0|0|2|0|0|0|0|0|0|0|0|0
+Ebony Shield|Ebony Smithing|32|14.0|750|00013964|0|0|0|0|0|0|0|4|0|0|1|0|0|0|0|0|0|0|0|0
+Daedric Armor|Daedric Smithing|49|50.0|3200|0001396B|0|0|0|1|0|0|0|5|0|0|3|0|0|0|0|0|0|0|0|0
+Daedric Boots|Daedric Smithing|18|10.0|625|0001396A|0|0|0|1|0|0|0|3|0|0|2|0|0|0|0|0|0|0|0|0
+Daedric Gauntlets|Daedric Smithing|18|6.0|625|0001396C|0|0|0|1|0|0|0|2|0|0|2|0|0|0|0|0|0|0|0|0
+Daedric Helmet|Daedric Smithing|23|15.0|1600|0001396D|0|0|0|1|0|0|0|3|0|0|2|0|0|0|0|0|0|0|0|0
+Daedric Shield|Daedric Smithing|36|15.0|1600|0001396E|0|0|0|1|0|0|0|4|0|0|1|0|0|0|0|0|0|0|0|0
+Dragonplate Armor|Dragon Armor|46|40.0|2125|00013966|0|0|0|0|2|3|0|0|0|0|3|0|0|0|0|0|0|0|0|0
+Dragonplate Boots|Dragon Armor|17|8.0|425|00013965|0|0|0|0|1|3|0|0|0|0|2|0|0|0|0|0|0|0|0|0
+Dragonplate Gauntlets|Dragon Armor|17|8.0|425|00013967|0|0|0|0|1|2|0|0|0|0|2|0|0|0|0|0|0|0|0|0
+Dragonplate Helmet|Dragon Armor|22|8.0|1050|00013969|0|0|0|0|1|2|0|0|0|0|2|0|0|0|0|0|0|0|0|0
+Dragonplate Shield|Dragon Armor|34|15.0|1050|00013968|0|0|0|0|1|3|0|0|0|0|1|0|0|0|0|0|0|0|0|0
+Dragonscale Armor|Dragon Armor|41|10.0|1500|0001393E|0|0|0|0|0|4|0|0|2|1|3|0|0|0|0|0|0|0|0|0
+Dragonscale Boots|Dragon Armor|12|3.0|300|0001393D|0|0|0|0|0|2|0|0|1|1|2|0|0|0|0|0|0|0|0|0
+Dragonscale Gauntlets|Dragon Armor|12|3.0|300|0001393F|0|0|0|0|0|2|0|0|1|1|2|0|0|0|0|0|0|0|0|0
+Dragonscale Helmet|Dragon Armor|17|4.0|750|00013940|0|0|0|0|0|2|0|0|1|1|1|0|0|0|0|0|0|0|0|0
+Dragonscale Shield|Dragon Armor|29|6.0|750|00013941|0|0|0|0|0|4|0|0|2|0|2|0|0|0|0|0|0|0|0|0
+Bonemold Armor|Steel Smithing|32|34.0|290|xx 01cd93|10|0|0|0|0|0|0|0|1|0|0|0|2|0|0|0|0|0|0|0
+Bonemold Guard Armor|Steel Smithing|32|34.0|290|xx 037564|10|0|0|0|0|0|0|0|1|0|0|0|2|0|0|0|0|0|0|0
+Bonemold Pauldron Armor|Steel Smithing|32|34.0|290|xx 037563|10|0|0|0|0|0|0|0|1|0|0|0|2|0|0|0|0|0|0|0
+Bonemold Boots|Steel Smithing|12|7.0|60|xx 01cd92|6|0|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Bonemold Gauntlets|Steel Smithing|12|3.5|60|xx 01cd94|4|0|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Bonemold Helmet|Steel Smithing|17|4.5|135|xx 01cd95|6|0|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Bonemold Shield|Steel Smithing|21|8.0|95|xx 026234|8|0|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Improved Bonemold Armor|Steel Smithing|35|43.0|290|xx 03ab26|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|0|1|0|1
+Improved Bonemold Boots|Steel Smithing|13|9.0|60|xx 03ab25|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|0|1|0|1
+Improved Bonemold Gauntlets|Steel Smithing|13|7.0|60|xx 03ab22|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|0|1|0|1
+Improved Bonemold Helmet|Steel Smithing|18|11.0|135|xx 03ab23|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|0|1|0|1
+Improved Bonemold Shield|Steel Smithing|26|11.0|95|xx 03ab24|0|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|0|1|0|1
+Chitin Armor|Elven Smithing|30|4.0|240|xx 01cd87|0|5|0|0|0|0|0|0|1|0|0|0|2|0|0|0|0|0|0|0
+Chitin Boots|Elven Smithing|8|1.0|50|xx 01cd86|0|3|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Chitin Bracers|Elven Smithing|8|2.0|50|xx 01cd88|0|2|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Chitin Helmet|Elven Smithing|13|1.0|125|xx 01cd89|0|3|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Chitin Shield|Elven Smithing|24|8.0|215|xx 026235|0|4|0|0|0|0|0|0|1|0|0|0|1|0|0|0|0|0|0|0
+Nordic Carved Armor|Advanced Armors|43|37.0|1600|xx 01cd97|0|0|0|0|0|0|0|1|0|0|3|0|0|0|1|0|0|0|6|0
+Nordic Carved Boots|Advanced Armors|15|6.0|220|xx 01cd96|0|0|0|0|0|0|0|1|0|0|2|0|0|0|1|0|0|0|4|0
+Nordic Carved Gauntlets|Advanced Armors|15|6.0|220|xx 01cd98|0|0|0|0|0|0|0|1|0|0|2|0|0|0|1|0|0|0|3|0
+Nordic Carved Helmet|Advanced Armors|20|7.0|550|xx 01cd99|0|0|0|0|0|0|0|1|0|0|2|0|0|0|1|0|0|0|4|0
+Nordic Shield|Advanced Armors|26|10.0|335|xx 026236|0|0|0|0|0|0|0|0|0|0|1|0|0|0|1|0|0|0|4|0
+Stalhrim Armor|Ebony Smithing|46|38.0|2200|xx 01cd9f|0|0|0|0|0|0|0|0|0|0|3|0|0|0|1|0|0|6|0|0
+Stalhrim Boots|Ebony Smithing|17|7.0|450|xx 01cd9e|0|0|0|0|0|0|0|0|0|0|2|0|0|0|1|0|0|4|0|0
+Stalhrim Gauntlets|Ebony Smithing|17|7.0|450|xx 01cda0|0|0|0|0|0|0|0|0|0|0|2|0|0|0|1|0|0|3|0|0
+Stalhrim Helm|Ebony Smithing|22|7.0|1135|xx 01cda1|0|0|0|0|0|0|0|0|0|0|2|0|0|0|1|0|0|4|0|0
+Stalhrim Light Armor|Ebony Smithing|39|7.0|925|xx 01cda2|0|0|0|0|0|0|0|0|0|0|3|0|0|0|0|0|0|5|1|0
+Stalhrim Light Boots|Ebony Smithing|11|2.0|215|xx 01cd7e|0|0|0|0|0|0|0|0|0|0|2|0|0|0|0|0|0|3|1|0
+Stalhrim Light Bracers|Ebony Smithing|11|2.0|215|xx 01cda5|0|0|0|0|0|0|0|0|0|0|2|0|0|0|0|0|0|2|1|0
+Stalhrim Light Helmet|Ebony Smithing|16|2.0|465|xx 01cda3|0|0|0|0|0|0|0|0|0|0|2|0|0|0|0|0|0|3|1|0
+Stalhrim Shield|Ebony Smithing|29|10.0|600|xx 026237|0|0|0|0|0|0|0|0|0|0|1|0|0|0|0|0|0|4|1|0

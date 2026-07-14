@@ -1,0 +1,10 @@
+Steel Smithing|0|None|Can create steel armor and weapons at forges, and improve them twice as much.
+Arcane Blacksmith|60|Steel Smithing|Magical weapons and armor can now be improved.
+Elven Smithing|30|Steel Smithing|Can create Elven armor and weapons at forges, and improve them twice as much.
+Advanced Armors|50|Elven Smithing|Can create scaled and steel plate armor at forges, and improve them twice as much.
+Glass Smithing|70|Advanced Armors|Can create glass armor and weapons at forges, and improve them twice as much.
+Dwarven Smithing|30|Steel Smithing|Can create Dwarven armor and weapons at forges, and improve them twice as much.
+Orcish Smithing|50|Dwarven Smithing|Can create Orcish armor and weapons at forges, and improve them twice as much.
+Ebony Smithing|80|Orcish Smithing|Can create ebony armor and weapons at forges, and improve them twice as much.
+Daedric Smithing|90|Ebony Smithing|Can create daedric armor and weapons at forges, and improve them twice as much.
+Dragon Armor|100|Glass or Daedric Smithing|Can create dragon armor and weapons * at forges, and improve them twice as much.
