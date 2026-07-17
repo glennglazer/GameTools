@@ -1,0 +1,14 @@
+[
+  {
+    "manor": "Lakeview Manor",
+    "exclusive_exterior": "Apiary"
+  },
+  {
+    "manor": "Windstad Manor",
+    "exclusive_exterior": "Fish Hatchery"
+  },
+  {
+    "manor": "Heljarchen Hall",
+    "exclusive_exterior": "Grain Mill"
+  }
+]

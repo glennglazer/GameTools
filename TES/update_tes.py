@@ -217,6 +217,52 @@ def update_skyrim_enchanting() -> None:
         run_step(label, [sql_script])
 
 
+def update_skyrim_homestead() -> None:
+    """Scrape → JSON → SQL for all Skyrim Hearthfire homestead tables.
+
+    Uses full-replace: SQL loaders delete all rows and re-insert on every run.
+    """
+    home_dir = _SCRIPT_DIR / 'Skyrim' / 'homestead'
+    db = _SCRIPT_DIR.parent / 'database' / 'gametools.sqlite3'
+
+    # ── scrape ───────────────────────────────────────────────────────────────
+    run_step('Skyrim homestead scrape',
+             [home_dir / 'homestead_parse' / 'skyrim_scrape_homestead.py',
+              home_dir / 'homestead_parse' / 'homestead_raw.json'])
+    run_step('Skyrim main hall scrape',
+             [home_dir / 'main_hall_parse' / 'skyrim_scrape_main_hall.py',
+              home_dir / 'main_hall_parse' / 'main_hall_raw.json'])
+    run_step('Skyrim cellar scrape',
+             [home_dir / 'cellar_parse' / 'skyrim_scrape_cellar.py',
+              home_dir / 'cellar_parse' / 'cellar_raw.json'])
+
+    # ── parse ────────────────────────────────────────────────────────────────
+    run_step('Skyrim homestead build JSON',
+             [home_dir / 'build_json' / 'skyrim_parse_homestead_build.py',
+              home_dir / 'homestead_parse' / 'homestead_raw.json',
+              home_dir / 'main_hall_parse' / 'main_hall_raw.json',
+              home_dir / 'cellar_parse' / 'cellar_raw.json',
+              home_dir / 'build_json' / 'build_records.json'])
+    run_step('Skyrim homestead exclusive exterior JSON',
+             [home_dir / 'exclusive_exterior_json' / 'skyrim_parse_homestead_exclusive_exterior.py',
+              home_dir / 'exclusive_exterior_json' / 'exclusive_exterior_records.json'])
+    run_step('Skyrim homestead steward cost JSON',
+             [home_dir / 'steward_cost_json' / 'skyrim_parse_homestead_steward_cost.py',
+              home_dir / 'homestead_parse' / 'homestead_raw.json',
+              home_dir / 'steward_cost_json' / 'steward_cost_records.json'])
+
+    # ── SQL (full-replace on every run) ──────────────────────────────────────
+    run_step('Skyrim homestead build SQL',
+             [home_dir / 'build_sql' / 'create_or_update_skyrim_homestead_build.py',
+              home_dir / 'build_json' / 'build_records.json', db])
+    run_step('Skyrim homestead exclusive exterior SQL',
+             [home_dir / 'exclusive_exterior_sql' / 'create_or_update_skyrim_homestead_exclusive_exterior.py',
+              home_dir / 'exclusive_exterior_json' / 'exclusive_exterior_records.json', db])
+    run_step('Skyrim homestead steward cost SQL',
+             [home_dir / 'steward_cost_sql' / 'create_or_update_skyrim_homestead_steward_cost.py',
+              home_dir / 'steward_cost_json' / 'steward_cost_records.json', db])
+
+
 def update_skyrim_alchemy_perks() -> None:
     """Scrape → JSON → SQL for Skyrim alchemy perks."""
     game_dir  = _SCRIPT_DIR / 'Skyrim'
@@ -264,5 +310,8 @@ if __name__ == '__main__':
 
     log.info('--- Skyrim smithing ---')
     update_skyrim_smithing()
+
+    log.info('--- Skyrim homestead ---')
+    update_skyrim_homestead()
 
     log.info('=== TES data pipeline complete ===')

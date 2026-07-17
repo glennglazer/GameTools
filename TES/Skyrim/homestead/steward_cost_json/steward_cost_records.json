@@ -1,0 +1,50 @@
+[
+  {
+    "room": "Small House",
+    "gold_cost": 1000
+  },
+  {
+    "room": "Entry Room Upgrade",
+    "gold_cost": 1000
+  },
+  {
+    "room": "Main Hall",
+    "gold_cost": 3500
+  },
+  {
+    "room": "Library",
+    "gold_cost": 1500
+  },
+  {
+    "room": "Trophy Room",
+    "gold_cost": 1500
+  },
+  {
+    "room": "Bedrooms",
+    "gold_cost": 2000
+  },
+  {
+    "room": "Greenhouse",
+    "gold_cost": 1500
+  },
+  {
+    "room": "Enchanter's Tower",
+    "gold_cost": 2500
+  },
+  {
+    "room": "Alchemy Laboratory",
+    "gold_cost": 2500
+  },
+  {
+    "room": "Armory",
+    "gold_cost": 2000
+  },
+  {
+    "room": "Storage Room",
+    "gold_cost": 1000
+  },
+  {
+    "room": "Kitchen",
+    "gold_cost": 1500
+  }
+]
