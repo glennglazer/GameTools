@@ -39,7 +39,7 @@ def run(script, args):
 
 
 def _base_build_row(**kwargs):
-    row = {"section": "Test Item", "location": "Small House", "stage": "Stage 1"}
+    row = {"section": "Test Item", "location": "Small House", "stage": "Stage 1", "batch_size": None}
     for col in MATERIAL_COLS:
         row[col] = 0
     row.update(kwargs)
@@ -54,6 +54,8 @@ BUILD_SAMPLE = [
     _base_build_row(section="Shrine of Akatosh", location="Cellar_Divine_Shrines",
                     stage=None, amulet_of_akatosh=1, iron_ingot=1,
                     flawless_amethyst=1, corundum_ingot=1),
+    _base_build_row(section="Nails", location="Crafted_Component",
+                    stage=None, batch_size=10, iron_ingot=1),
 ]
 
 EXCL_SAMPLE = [
@@ -140,6 +142,59 @@ def test_build_table_full_replace_on_rerun(build_json, tmp_db, tmp_path):
 def test_build_bad_db_exits_nonzero(build_json):
     result = run(BUILD_SCRIPT, [build_json, "/nonexistent_xyz/db.sqlite3"])
     assert result.returncode != 0
+
+
+def test_build_table_batch_size_null_for_build_rows(build_json, tmp_db):
+    run(BUILD_SCRIPT, [build_json, tmp_db])
+
+    conn = sqlite3.connect(tmp_db)
+    val = conn.execute(
+        f"SELECT batch_size FROM {BUILD_TABLE} WHERE section='House, Foundation'"
+    ).fetchone()[0]
+    conn.close()
+    assert val is None
+
+
+def test_build_table_batch_size_for_crafted_rows(build_json, tmp_db):
+    run(BUILD_SCRIPT, [build_json, tmp_db])
+
+    conn = sqlite3.connect(tmp_db)
+    row = conn.execute(
+        f"SELECT batch_size, iron_ingot FROM {BUILD_TABLE} "
+        f"WHERE section='Nails' AND location='Crafted_Component'"
+    ).fetchone()
+    conn.close()
+    assert row == (10, 1)
+
+
+def test_build_table_migration_adds_batch_size(tmp_db, tmp_path, build_json):
+    """Migration path: loader upgrades a table that was created without batch_size."""
+    # Create the table without batch_size by running a loader from an old-schema JSON
+    old_row = _base_build_row(section="Old Row", location="Small House", stage="Stage 1")
+    old_row.pop("batch_size")
+    old_json = str(tmp_path / "old.json")
+    Path(old_json).write_text(json.dumps([old_row]))
+    run(BUILD_SCRIPT, [old_json, tmp_db])
+
+    # Manually drop batch_size to simulate pre-migration table
+    conn = sqlite3.connect(tmp_db)
+    # SQLite doesn't support DROP COLUMN before 3.35; recreate the table without it
+    cols_without = ", ".join(["section TEXT", "location TEXT", "stage TEXT"] +
+                             [f"{c} INTEGER DEFAULT 0" for c in MATERIAL_COLS])
+    conn.execute(f"DROP TABLE {BUILD_TABLE}")
+    conn.execute(f"CREATE TABLE {BUILD_TABLE} ({cols_without})")
+    conn.execute(f"INSERT INTO {BUILD_TABLE} (section, location, stage) VALUES ('Old Row', 'Small House', 'Stage 1')")
+    conn.commit()
+    conn.close()
+
+    # Now run with the current build_json — loader should add batch_size via migration
+    result = run(BUILD_SCRIPT, [build_json, tmp_db])
+    assert result.returncode == 0, result.stderr
+
+    conn = sqlite3.connect(tmp_db)
+    cols = [r[1] for r in conn.execute(f"PRAGMA table_info({BUILD_TABLE})").fetchall()]
+    conn.close()
+    assert "batch_size" in cols
 
 
 # ── exclusive exterior table ──────────────────────────────────────────────────

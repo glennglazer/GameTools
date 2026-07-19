@@ -58,6 +58,7 @@ def test_item_table_basic_record():
     chest = next(r for r in rows if r["section"] == "Chest")
     assert chest["location"] == "Cellar_Containers"
     assert chest["stage"] is None
+    assert chest["batch_size"] is None
     assert chest["sawn_log"] == 1
     assert chest["nails"] == 1
     assert chest["iron_ingot"] == 0
@@ -255,7 +256,7 @@ RAW_DIR = REPO_ROOT / "TES/Skyrim/homestead"
 def test_build_records_count():
     with open(RAW_DIR / "build_json/build_records.json") as f:
         records = json.load(f)
-    assert len(records) == 160
+    assert len(records) == 164
 
 
 @pytest.mark.skipif(
@@ -294,3 +295,53 @@ def test_steward_cost_full_list():
     rooms = [r["room"] for r in records]
     assert "Kitchen" in rooms
     assert "Armory" in rooms
+
+
+@pytest.mark.skipif(
+    not (RAW_DIR / "build_json/build_records.json").exists(),
+    reason="build_records.json not yet generated",
+)
+def test_build_records_crafted_components_present():
+    with open(RAW_DIR / "build_json/build_records.json") as f:
+        records = json.load(f)
+    crafted = [r for r in records if r.get("location") == "Crafted_Component"]
+    names = {r["section"] for r in crafted}
+    assert names == {"Nails", "Hinge", "Iron Fittings", "Lock"}
+
+
+@pytest.mark.skipif(
+    not (RAW_DIR / "build_json/build_records.json").exists(),
+    reason="build_records.json not yet generated",
+)
+def test_build_records_crafted_batch_sizes():
+    with open(RAW_DIR / "build_json/build_records.json") as f:
+        records = json.load(f)
+    crafted = {r["section"]: r for r in records if r.get("location") == "Crafted_Component"}
+    assert crafted["Nails"]["batch_size"] == 10
+    assert crafted["Hinge"]["batch_size"] == 2
+    assert crafted["Iron Fittings"]["batch_size"] == 1
+    assert crafted["Lock"]["batch_size"] == 1
+
+
+@pytest.mark.skipif(
+    not (RAW_DIR / "build_json/build_records.json").exists(),
+    reason="build_records.json not yet generated",
+)
+def test_build_records_crafted_materials():
+    with open(RAW_DIR / "build_json/build_records.json") as f:
+        records = json.load(f)
+    crafted = {r["section"]: r for r in records if r.get("location") == "Crafted_Component"}
+    assert crafted["Nails"]["iron_ingot"] == 1
+    assert crafted["Lock"]["iron_ingot"] == 1
+    assert crafted["Lock"]["corundum_ingot"] == 1
+
+
+@pytest.mark.skipif(
+    not (RAW_DIR / "build_json/build_records.json").exists(),
+    reason="build_records.json not yet generated",
+)
+def test_build_records_non_crafted_batch_size_null():
+    with open(RAW_DIR / "build_json/build_records.json") as f:
+        records = json.load(f)
+    build_rows = [r for r in records if r.get("location") != "Crafted_Component"]
+    assert all(r.get("batch_size") is None for r in build_rows)

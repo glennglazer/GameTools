@@ -24,7 +24,7 @@ MATERIAL_COLS = [
     "silver_ingot", "ebony_ingot", "refined_malachite", "dragon_bone", "dragon_scales",
 ]
 
-ALL_COLS = ["section", "location", "stage"] + MATERIAL_COLS
+ALL_COLS = ["section", "location", "stage", "batch_size"] + MATERIAL_COLS
 
 
 def main():
@@ -54,6 +54,11 @@ def main():
     ).fetchone()
 
     if exists is not None:
+        # Migration: add batch_size column if an older version of the table lacks it.
+        existing_cols = [r[1] for r in cur.execute(f"PRAGMA table_info({TABLE_NAME})").fetchall()]
+        if "batch_size" not in existing_cols:
+            cur.execute(f"ALTER TABLE {TABLE_NAME} ADD COLUMN batch_size INTEGER")
+            conn.commit()
         cur.execute(f"DELETE FROM {TABLE_NAME}")
         conn.commit()
 

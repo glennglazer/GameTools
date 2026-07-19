@@ -113,7 +113,7 @@ SECTION_CONFIG = [
 
 
 def empty_row(section, location, stage=None):
-    row = {"section": section, "location": location, "stage": stage}
+    row = {"section": section, "location": location, "stage": stage, "batch_size": None}
     for col in MATERIAL_COLS:
         row[col] = 0
     return row
@@ -293,6 +293,19 @@ def main():
         all_records.extend(records)
         print(f"  {source_key}/{section_idx} ({location}): {len(records)} records",
               file=sys.stderr)
+
+    # Forge-craftable building components: add recipe rows so queries can compute
+    # base material costs (e.g. "how many iron ingots to build the whole house?").
+    # batch_size = number of units produced per recipe; None for normal build rows.
+    crafted = [
+        {**empty_row("Nails",         "Crafted_Component"), "batch_size": 10, "iron_ingot": 1},
+        {**empty_row("Hinge",         "Crafted_Component"), "batch_size":  2, "iron_ingot": 1},
+        {**empty_row("Iron Fittings", "Crafted_Component"), "batch_size":  1, "iron_ingot": 1},
+        {**empty_row("Lock",          "Crafted_Component"), "batch_size":  1,
+         "iron_ingot": 1, "corundum_ingot": 1},
+    ]
+    all_records.extend(crafted)
+    print(f"  crafted components: {len(crafted)} records", file=sys.stderr)
 
     with open(args.output_json, "w", encoding="utf-8") as f:
         json.dump(all_records, f, ensure_ascii=False, indent=2)
