@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Create or incrementally update the skyrim_enchant_effects table.
+Create or incrementally update the skyrim_enchant_weapons table.
 
-Table schema: skyrim_enchant_effects
+Table schema: skyrim_enchant_weapons
   name    TEXT (unique key)
   school  TEXT
 """
@@ -19,15 +19,15 @@ from pathlib import Path
 
 import pandas as pd
 
-TABLE_NAME = 'skyrim_enchant_effects'
+TABLE_NAME = 'skyrim_enchant_weapons'
 KEY_COL = 'name'
-INDEX_NAME = 's_ee_name'
-GAME_LABEL = 'Skyrim enchantment effects'
+INDEX_NAME = 's_ew_name'
+GAME_LABEL = 'Skyrim weapon enchantments'
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
 _REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / 'enchant_effects_json'
-_DEFAULT_JSON_FILE = str(_JSON_DIR / 'skyrim_enchant_effects.json')
+_DEFAULT_JSON_FILE = str(_JSON_DIR / 'skyrim_enchant_weapons.json')
 _DEFAULT_DB = str(_REPO_ROOT / 'database' / 'gametools.sqlite3')
 
 

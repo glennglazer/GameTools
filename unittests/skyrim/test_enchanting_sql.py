@@ -28,7 +28,7 @@ _apparel = load_module(
 )
 
 PERKS_TABLE = _perks.TABLE_NAME    # skyrim_enchant_perks
-EFFECTS_TABLE = _effects.TABLE_NAME  # skyrim_enchant_effects
+EFFECTS_TABLE = _effects.TABLE_NAME  # skyrim_enchant_weapons
 APPAREL_TABLE = _apparel.TABLE_NAME  # skyrim_enchant_apparel
 
 PERKS_SAMPLE = [
@@ -153,7 +153,7 @@ def test_perks_bad_db_exits_nonzero(tmp_path):
 # ===========================================================================
 
 def make_effects_json(tmp_path, data=None):
-    p = tmp_path / 'skyrim_enchant_effects.json'
+    p = tmp_path / 'skyrim_enchant_weapons.json'
     p.write_text(json.dumps(data or EFFECTS_SAMPLE))
     return str(p)
 
@@ -177,7 +177,7 @@ def test_effects_apply_deletes(tmp_db):
 
 def test_effects_first_run(tmp_path, tmp_db):
     json_file = make_effects_json(tmp_path)
-    write_diff(tmp_path, 'skyrim_enchant_effects', EFFECTS_SAMPLE, {})
+    write_diff(tmp_path, 'skyrim_enchant_weapons', EFFECTS_SAMPLE, {})
     result = run(EFFECTS_SCRIPT, [json_file, tmp_db])
     assert result.returncode == 0, result.stderr
     conn = sqlite3.connect(tmp_db)
@@ -195,10 +195,10 @@ def test_effects_no_diff_noop(tmp_path, tmp_db):
 
 def test_effects_diff_files_removed(tmp_path, tmp_db):
     json_file = make_effects_json(tmp_path)
-    write_diff(tmp_path, 'skyrim_enchant_effects', EFFECTS_SAMPLE, {})
+    write_diff(tmp_path, 'skyrim_enchant_weapons', EFFECTS_SAMPLE, {})
     run(EFFECTS_SCRIPT, [json_file, tmp_db])
-    assert not (tmp_path / 'skyrim_enchant_effects.upsert.json').exists()
-    assert not (tmp_path / 'skyrim_enchant_effects.delete.json').exists()
+    assert not (tmp_path / 'skyrim_enchant_weapons.upsert.json').exists()
+    assert not (tmp_path / 'skyrim_enchant_weapons.delete.json').exists()
 
 
 # ===========================================================================

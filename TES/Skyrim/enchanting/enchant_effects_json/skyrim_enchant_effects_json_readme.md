@@ -2,11 +2,11 @@
 
 **Script**: `skyrim_parse_enchant_effects_to_json.py`
 
-Reads `enchant_parse/skyrim_enchant_effects_raw.txt` and emits `skyrim_enchant_effects.json` plus diff files.
+Reads `enchant_parse/skyrim_enchant_effects_raw.txt` and emits `skyrim_enchant_weapons.json` plus diff files.
 
 ## Output
 
-`skyrim_enchant_effects.json` — list of dicts:
+`skyrim_enchant_weapons.json` — list of dicts:
 ```json
 [{"name": "Absorb Health", "school": "Destruction"},
  {"name": "Banish", "school": "Conjuration"}, ...]

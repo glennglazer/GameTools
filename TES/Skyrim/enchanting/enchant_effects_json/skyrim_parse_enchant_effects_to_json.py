@@ -19,7 +19,7 @@ from pathlib import Path
 _SCRIPT_DIR = Path(__file__).parent.resolve()
 _PARSE_DIR = _SCRIPT_DIR.parent / 'enchant_parse'
 _DEFAULT_INFILE = str(_PARSE_DIR / 'skyrim_enchant_effects_raw.txt')
-_DEFAULT_OUTFILE = str(_SCRIPT_DIR / 'skyrim_enchant_effects.json')
+_DEFAULT_OUTFILE = str(_SCRIPT_DIR / 'skyrim_enchant_weapons.json')
 
 EXPECTED_FIELDS = 2
 

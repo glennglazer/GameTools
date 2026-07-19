@@ -2,16 +2,16 @@
 
 **Script**: `create_or_update_skyrim_enchant_effects.py`
 
-Creates or incrementally updates the `skyrim_enchant_effects` table.
+Creates or incrementally updates the `skyrim_enchant_weapons` table.
 
-## Table: `skyrim_enchant_effects`
+## Table: `skyrim_enchant_weapons`
 
 | Column | Type | Notes |
 |--------|------|-------|
 | name | TEXT | unique key; weapon enchantment name |
 | school | TEXT | magic school (Destruction, Conjuration, etc.) |
 
-Index: `s_ee_name` on `name`.
+Index: `s_ew_name` on `name`.
 
 ## Usage
 
