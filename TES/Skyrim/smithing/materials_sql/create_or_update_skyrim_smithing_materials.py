@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Create or incrementally update the skyrim_smithing_materials table.
+Create or incrementally update the skyrim_tempering_materials table.
 
-Table schema: skyrim_smithing_materials
+Table schema: skyrim_tempering_materials
   smithing_category  TEXT  (composite key with crafting_material)
   crafting_material  TEXT
 """
@@ -19,9 +19,9 @@ from pathlib import Path
 
 import pandas as pd
 
-TABLE_NAME = 'skyrim_smithing_materials'
-INDEX_NAME = 's_sm_cat_mat'
-GAME_LABEL = 'Skyrim smithing materials'
+TABLE_NAME = 'skyrim_tempering_materials'
+INDEX_NAME = 's_tm_cat_mat'
+GAME_LABEL = 'Skyrim tempering materials'
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
 _REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
