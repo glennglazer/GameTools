@@ -1,0 +1,30 @@
+[
+  {
+    "smithing_category": "Amber",
+    "crafting_material": "Refined Amber"
+  },
+  {
+    "smithing_category": "Dark",
+    "crafting_material": "Quicksilver Ingot"
+  },
+  {
+    "smithing_category": "Golden",
+    "crafting_material": "Gold Ingot"
+  },
+  {
+    "smithing_category": "Madness",
+    "crafting_material": "Madness Ingot"
+  },
+  {
+    "smithing_category": "Silver",
+    "crafting_material": "Silver Ingot"
+  },
+  {
+    "smithing_category": "Chitin",
+    "crafting_material": "Chitin Plate"
+  },
+  {
+    "smithing_category": "Vigil",
+    "crafting_material": "Steel Ingot"
+  }
+]
