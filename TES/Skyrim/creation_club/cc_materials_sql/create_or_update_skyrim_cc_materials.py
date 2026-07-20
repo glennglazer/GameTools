@@ -18,10 +18,10 @@ INDEX_NAME = "s_tm_cat_mat"
 GAME_LABEL = "Skyrim CC tempering materials"
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
+_FAMILY_ROOT = _SCRIPT_DIR.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / "cc_materials_json"
 _DEFAULT_JSON = str(_JSON_DIR / "cc_tempering_materials.json")
-_DEFAULT_DB = str(_REPO_ROOT / "database" / "gametools.sqlite3")
+_DEFAULT_DB = str(_FAMILY_ROOT / "database" / "gametools.sqlite3")
 
 
 def main():

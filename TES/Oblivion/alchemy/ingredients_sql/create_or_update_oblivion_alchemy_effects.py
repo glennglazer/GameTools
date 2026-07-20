@@ -25,10 +25,10 @@ INDEX_NAME = 'o_e_name_effect'
 GAME_LABEL = 'Oblivion alchemy effects'
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
+_FAMILY_ROOT = _SCRIPT_DIR.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / 'ingredients_json'
 _DEFAULT_JSON_FILE = str(_JSON_DIR / 'oblivion_all_effects.json')
-_DEFAULT_DB = str(_REPO_ROOT / 'database' / 'gametools.sqlite3')
+_DEFAULT_DB = str(_FAMILY_ROOT / 'database' / 'gametools.sqlite3')
 
 
 def load_json_file(path: str) -> list:
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     for path in [upsert_path, delete_path]:
         if op.exists(path):
             try:
-                remove_diff_file(path, _REPO_ROOT)
+                remove_diff_file(path, _FAMILY_ROOT)
             except Exception as e:
                 print(f"Warning: could not remove {path}: {e}", file=sys.stderr)
 

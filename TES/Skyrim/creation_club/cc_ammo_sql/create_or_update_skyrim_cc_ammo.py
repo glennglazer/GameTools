@@ -13,10 +13,10 @@ INDEX_NAME = "idx_skyrim_smithing_ammo"
 GAME_LABEL = "Skyrim CC ammo"
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
+_FAMILY_ROOT = _SCRIPT_DIR.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / "cc_ammo_json"
 _DEFAULT_JSON = str(_JSON_DIR / "cc_ammo_records.json")
-_DEFAULT_DB = str(_REPO_ROOT / "database" / "gametools.sqlite3")
+_DEFAULT_DB = str(_FAMILY_ROOT / "database" / "gametools.sqlite3")
 
 
 def main():

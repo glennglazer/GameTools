@@ -251,7 +251,7 @@ def update_skyrim_homestead() -> None:
     Uses full-replace: SQL loaders delete all rows and re-insert on every run.
     """
     home_dir = _SCRIPT_DIR / 'Skyrim' / 'homestead'
-    db = _SCRIPT_DIR.parent / 'database' / 'gametools.sqlite3'
+    db = _SCRIPT_DIR / 'database' / 'gametools.sqlite3'
 
     # ── scrape ───────────────────────────────────────────────────────────────
     run_step('Skyrim homestead scrape',

@@ -13,10 +13,10 @@ INDEX_NAME = "idx_morrowind_alchemy_apparatus_id"
 GAME_LABEL = "Morrowind alchemy apparatus"
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
+_FAMILY_ROOT = _SCRIPT_DIR.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / "apparatus_json"
 _DEFAULT_JSON = str(_JSON_DIR / "morrowind_apparatus_records.json")
-_DEFAULT_DB = str(_REPO_ROOT / "database" / "gametools.sqlite3")
+_DEFAULT_DB = str(_FAMILY_ROOT / "database" / "gametools.sqlite3")
 
 
 def main():

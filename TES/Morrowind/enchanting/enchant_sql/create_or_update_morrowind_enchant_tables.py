@@ -33,10 +33,10 @@ KEY_COL = 'ID'
 GAME_LABEL = 'Morrowind enchanting'
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent
+_FAMILY_ROOT = _SCRIPT_DIR.parent.parent.parent
 _JSON_DIR = _SCRIPT_DIR.parent / 'enchant_json'
 _DEFAULT_JSON_DIR = str(_JSON_DIR)
-_DEFAULT_DB = str(_REPO_ROOT / 'database' / 'gametools.sqlite3')
+_DEFAULT_DB = str(_FAMILY_ROOT / 'database' / 'gametools.sqlite3')
 
 
 def check_for_files(json_dir: str) -> bool:
@@ -167,7 +167,7 @@ if __name__ == '__main__':
 
     for path in diff_files_to_remove:
         try:
-            remove_diff_file(path, _REPO_ROOT)
+            remove_diff_file(path, _FAMILY_ROOT)
         except Exception as e:
             print(f"Warning: could not remove {path}: {e}", file=sys.stderr)
 

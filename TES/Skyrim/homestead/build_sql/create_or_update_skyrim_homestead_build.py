@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
-_REPO_ROOT = _SCRIPT_DIR.parent.parent.parent.parent  # build_sql→homestead→Skyrim→TES→repo root
+_FAMILY_ROOT = _SCRIPT_DIR.parent.parent.parent  # build_sql→homestead→Skyrim→TES
 
 TABLE_NAME = "skyrim_homestead_build"
 
