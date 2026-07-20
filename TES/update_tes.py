@@ -4,10 +4,16 @@ TES data pipeline driver.
 
 Runs the full update pipeline for all implemented TES game/system combinations:
   - Morrowind alchemy, Oblivion alchemy, Skyrim alchemy (scrape → JSON → SQL)
+  - Morrowind alchemy apparatus (scrape → JSON → SQL)
+  - Oblivion alchemy apparatus (scrape → JSON → SQL)
   - Morrowind enchanting (CSV → JSON → SQL; no web scrape, CSVs are manually maintained)
   - Oblivion enchanting (CSV → SQL directly; static 2006 game data, no JSON intermediate)
   - Skyrim enchanting (scrape → JSON → SQL for perks, soul gems, creature souls,
                        enchantment effects, apparel enchantments)
+  - Skyrim smithing (scrape → JSON → SQL for perks, armor, weapons, improvement, materials)
+  - Skyrim homestead (scrape → JSON → SQL for build, exclusive exterior, steward cost)
+  - Skyrim Creation Club (JSON → SQL for armor, weapons, ammo, homestead, tempering;
+                          raw JSON is static/checked-in, no re-scrape on each run)
 
 Halts immediately on any subprocess failure.
 """
@@ -81,6 +87,28 @@ def update_alchemy(game: str) -> None:
     run_step(
         f'{game} alchemy effects SQL',
         [sql_dir / f'create_or_update_{g}_alchemy_effects.py'],
+    )
+
+
+def update_apparatus(game: str) -> None:
+    """Scrape → JSON → SQL for one game's alchemy apparatus."""
+    g = game.lower()
+    game_dir  = _SCRIPT_DIR / game
+    parse_dir = game_dir / 'alchemy' / 'apparatus_parse'
+    json_dir  = game_dir / 'alchemy' / 'apparatus_json'
+    sql_dir   = game_dir / 'alchemy' / 'apparatus_sql'
+
+    run_step(
+        f'{game} apparatus scrape',
+        [parse_dir / f'{g}_scrape_apparatus.py'],
+    )
+    run_step(
+        f'{game} apparatus JSON',
+        [json_dir / f'{g}_parse_apparatus.py'],
+    )
+    run_step(
+        f'{game} apparatus SQL',
+        [sql_dir / f'create_or_update_{g}_alchemy_apparatus.py'],
     )
 
 
@@ -263,6 +291,50 @@ def update_skyrim_homestead() -> None:
               home_dir / 'steward_cost_json' / 'steward_cost_records.json', db])
 
 
+def update_skyrim_cc() -> None:
+    """JSON → SQL for Skyrim Creation Club content.
+
+    Raw JSON files are static (checked-in); the scraper is not re-run here.
+    Parse and SQL steps are always run (idempotent delete-then-insert).
+    """
+    cc_dir = _SCRIPT_DIR / 'Skyrim' / 'creation_club'
+
+    steps = [
+        ('Skyrim CC armor JSON',
+         cc_dir / 'cc_armor_json' / 'skyrim_parse_cc_armor.py',
+         [cc_dir / 'cc_parse', cc_dir / 'cc_armor_json' / 'cc_armor_records.json']),
+        ('Skyrim CC armor SQL',
+         cc_dir / 'cc_armor_sql' / 'create_or_update_skyrim_cc_armor.py',
+         []),
+        ('Skyrim CC weapons JSON',
+         cc_dir / 'cc_weapons_json' / 'skyrim_parse_cc_weapons.py',
+         [cc_dir / 'cc_parse', cc_dir / 'cc_weapons_json' / 'cc_weapons_records.json']),
+        ('Skyrim CC weapons SQL',
+         cc_dir / 'cc_weapons_sql' / 'create_or_update_skyrim_cc_weapons.py',
+         []),
+        ('Skyrim CC ammo JSON',
+         cc_dir / 'cc_ammo_json' / 'skyrim_parse_cc_ammo.py',
+         [cc_dir / 'cc_parse', cc_dir / 'cc_ammo_json' / 'cc_ammo_records.json']),
+        ('Skyrim CC ammo SQL',
+         cc_dir / 'cc_ammo_sql' / 'create_or_update_skyrim_cc_ammo.py',
+         []),
+        ('Skyrim CC homestead JSON',
+         cc_dir / 'cc_homestead_json' / 'skyrim_parse_cc_homestead.py',
+         [cc_dir / 'cc_parse', cc_dir / 'cc_homestead_json' / 'cc_homestead_records.json']),
+        ('Skyrim CC homestead SQL',
+         cc_dir / 'cc_homestead_sql' / 'create_or_update_skyrim_cc_homestead.py',
+         []),
+        ('Skyrim CC tempering materials JSON',
+         cc_dir / 'cc_materials_json' / 'skyrim_cc_materials.py',
+         [cc_dir / 'cc_materials_json' / 'cc_tempering_materials.json']),
+        ('Skyrim CC tempering materials SQL',
+         cc_dir / 'cc_materials_sql' / 'create_or_update_skyrim_cc_materials.py',
+         []),
+    ]
+    for label, script, extra_args in steps:
+        run_step(label, [script] + extra_args)
+
+
 def update_skyrim_alchemy_perks() -> None:
     """Scrape → JSON → SQL for Skyrim alchemy perks."""
     game_dir  = _SCRIPT_DIR / 'Skyrim'
@@ -299,6 +371,10 @@ if __name__ == '__main__':
     log.info('--- Skyrim alchemy perks ---')
     update_skyrim_alchemy_perks()
 
+    for game in ['Morrowind', 'Oblivion']:
+        log.info('--- %s alchemy apparatus ---', game)
+        update_apparatus(game)
+
     log.info('--- Morrowind enchanting ---')
     update_morrowind_enchanting()
 
@@ -313,5 +389,8 @@ if __name__ == '__main__':
 
     log.info('--- Skyrim homestead ---')
     update_skyrim_homestead()
+
+    log.info('--- Skyrim Creation Club ---')
+    update_skyrim_cc()
 
     log.info('=== TES data pipeline complete ===')

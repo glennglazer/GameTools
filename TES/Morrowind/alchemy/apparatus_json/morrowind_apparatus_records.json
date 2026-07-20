@@ -1,0 +1,156 @@
+[
+  {
+    "id": "apparatus_a_mortar_01",
+    "name": "Apprentice's Mortar and Pestle",
+    "weight": 5.0,
+    "value": 100,
+    "quality": 0.5
+  },
+  {
+    "id": "apparatus_a_alembic_01",
+    "name": "Apprentice's Alembic",
+    "weight": 10.0,
+    "value": 50,
+    "quality": 0.5
+  },
+  {
+    "id": "apparatus_a_calcinator_01",
+    "name": "Apprentice's Calcinator",
+    "weight": 25.0,
+    "value": 10,
+    "quality": 0.5
+  },
+  {
+    "id": "apparatus_a_retort_01",
+    "name": "Apprentice's Retort",
+    "weight": 8.0,
+    "value": 20,
+    "quality": 0.5
+  },
+  {
+    "id": "apparatus_j_mortar_01",
+    "name": "Journeyman's Mortar and Pestle",
+    "weight": 4.0,
+    "value": 400,
+    "quality": 1.0
+  },
+  {
+    "id": "apparatus_j_alembic_01",
+    "name": "Journeyman's Alembic",
+    "weight": 7.0,
+    "value": 200,
+    "quality": 1.0
+  },
+  {
+    "id": "apparatus_j_calcinator_01",
+    "name": "Journeyman's Calcinator",
+    "weight": 18.0,
+    "value": 40,
+    "quality": 1.0
+  },
+  {
+    "id": "apparatus_j_retort_01",
+    "name": "Journeyman's Retort",
+    "weight": 6.0,
+    "value": 80,
+    "quality": 1.0
+  },
+  {
+    "id": "apparatus_m_mortar_01",
+    "name": "Master's Mortar and Pestle",
+    "weight": 3.0,
+    "value": 2400,
+    "quality": 1.2
+  },
+  {
+    "id": "apparatus_m_alembic_01",
+    "name": "Master's Alembic",
+    "weight": 5.0,
+    "value": 1200,
+    "quality": 1.2
+  },
+  {
+    "id": "apparatus_m_calcinator_01",
+    "name": "Master's Calcinator",
+    "weight": 13.0,
+    "value": 240,
+    "quality": 1.2
+  },
+  {
+    "id": "apparatus_m_retort_01",
+    "name": "Master's Retort",
+    "weight": 4.0,
+    "value": 480,
+    "quality": 1.2
+  },
+  {
+    "id": "apparatus_g_mortar_01",
+    "name": "Grandmaster's Mortar and Pestle",
+    "weight": 2.0,
+    "value": 4000,
+    "quality": 1.5
+  },
+  {
+    "id": "apparatus_g_alembic_01",
+    "name": "Grandmaster's Alembic",
+    "weight": 3.0,
+    "value": 4000,
+    "quality": 1.5
+  },
+  {
+    "id": "apparatus_g_calcinator_01",
+    "name": "Grandmaster's Calcinator",
+    "weight": 8.0,
+    "value": 4000,
+    "quality": 1.5
+  },
+  {
+    "id": "apparatus_g_retort_01",
+    "name": "Grandmaster's Retort",
+    "weight": 3.0,
+    "value": 1600,
+    "quality": 1.5
+  },
+  {
+    "id": "apparatus_sm_mortar_01",
+    "name": "SecretMaster's Mortar and Pestl",
+    "weight": 1.0,
+    "value": 6000,
+    "quality": 2.0
+  },
+  {
+    "id": "apparatus_sm_alembic_01",
+    "name": "SecretMaster's Alembic",
+    "weight": 3.0,
+    "value": 1600,
+    "quality": 2.0
+  },
+  {
+    "id": "apparatus_sm_calcinator_01",
+    "name": "SecretMaster's Calcinator",
+    "weight": 6.0,
+    "value": 3200,
+    "quality": 2.0
+  },
+  {
+    "id": "apparatus_sm_retort_01",
+    "name": "SecretMaster's Retort",
+    "weight": 2.0,
+    "value": 1000,
+    "quality": 2.0
+  },
+  {
+    "id": "apparatus_a_spipe_01",
+    "name": "Good Skooma Pipe",
+    "weight": 2.0,
+    "value": 50,
+    "quality": 0.15
+  },
+  {
+    "id": "apparatus_a_spipe_tsiya",
+    "name": "Tsiya's Skooma Pipe",
+    "weight": 2.0,
+    "value": 30,
+    "quality": 0.15
+  }
+]

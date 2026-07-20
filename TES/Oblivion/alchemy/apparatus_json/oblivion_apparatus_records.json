@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Alembic",
+    "grade": "Novice",
+    "id": "00010604",
+    "weight": 7.0,
+    "cost": 50,
+    "strength": 0.1
+  },
+  {
+    "name": "Alembic",
+    "grade": "Apprentice",
+    "id": "0006E310",
+    "weight": 7.25,
+    "cost": 100,
+    "strength": 0.25
+  },
+  {
+    "name": "Alembic",
+    "grade": "Journeyman",
+    "id": "0006EE52",
+    "weight": 7.5,
+    "cost": 250,
+    "strength": 0.5
+  },
+  {
+    "name": "Alembic",
+    "grade": "Expert",
+    "id": "0006EE5C",
+    "weight": 7.75,
+    "cost": 500,
+    "strength": 0.75
+  },
+  {
+    "name": "Alembic",
+    "grade": "Master",
+    "id": "0006EE64",
+    "weight": 8.0,
+    "cost": 1000,
+    "strength": 1.0
+  },
+  {
+    "name": "Calcinator",
+    "grade": "Novice",
+    "id": "0001057D",
+    "weight": 5.0,
+    "cost": 50,
+    "strength": 0.1
+  },
+  {
+    "name": "Calcinator",
+    "grade": "Apprentice",
+    "id": "0006E311",
+    "weight": 5.25,
+    "cost": 100,
+    "strength": 0.25
+  },
+  {
+    "name": "Calcinator",
+    "grade": "Journeyman",
+    "id": "0006EE55",
+    "weight": 5.5,
+    "cost": 250,
+    "strength": 0.5
+  },
+  {
+    "name": "Calcinator",
+    "grade": "Expert",
+    "id": "0006EE5E",
+    "weight": 5.75,
+    "cost": 500,
+    "strength": 0.75
+  },
+  {
+    "name": "Calcinator",
+    "grade": "Master",
+    "id": "0006EE66",
+    "weight": 6.0,
+    "cost": 1000,
+    "strength": 1.0
+  },
+  {
+    "name": "Mortar & Pestle",
+    "grade": "Novice",
+    "id": "000C7968",
+    "weight": 1.0,
+    "cost": 25,
+    "strength": 0.1
+  },
+  {
+    "name": "Mortar & Pestle",
+    "grade": "Novice",
+    "id": "000105E3",
+    "weight": 1.0,
+    "cost": 25,
+    "strength": 0.1
+  },
+  {
+    "name": "Mortar & Pestle",
+    "grade": "Apprentice",
+    "id": "0006E312",
+    "weight": 1.25,
+    "cost": 75,
+    "strength": 0.25
+  },
+  {
+    "name": "Mortar & Pestle",
+    "grade": "Journeyman",
+    "id": "0006EE57",
+    "weight": 1.5,
+    "cost": 250,
+    "strength": 0.5
+  },
+  {
+    "name": "Mortar & Pestle",
+    "grade": "Expert",
+    "id": "0006EE60",
+    "weight": 1.75,
+    "cost": 500,
+    "strength": 0.75
+  },
+  {
+    "name": "Mortar & Pestle",
+    "grade": "Master",
+    "id": "0006EE68",
+    "weight": 2.0,
+    "cost": 1000,
+    "strength": 1.0
+  },
+  {
+    "name": "Retort",
+    "grade": "Novice",
+    "id": "00000C4F",
+    "weight": 3.0,
+    "cost": 50,
+    "strength": 0.1
+  },
+  {
+    "name": "Retort",
+    "grade": "Apprentice",
+    "id": "0006E313",
+    "weight": 3.25,
+    "cost": 100,
+    "strength": 0.25
+  },
+  {
+    "name": "Retort",
+    "grade": "Journeyman",
+    "id": "0006EE59",
+    "weight": 3.5,
+    "cost": 250,
+    "strength": 0.5
+  },
+  {
+    "name": "Retort",
+    "grade": "Expert",
+    "id": "0006EE62",
+    "weight": 3.75,
+    "cost": 500,
+    "strength": 0.75
+  },
+  {
+    "name": "Retort",
+    "grade": "Master",
+    "id": "0006EE6A",
+    "weight": 4.0,
+    "cost": 1000,
+    "strength": 1.0
+  }
+]
