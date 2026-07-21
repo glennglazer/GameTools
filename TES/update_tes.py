@@ -71,6 +71,13 @@ def update_alchemy(game: str) -> None:
         f'{game} alchemy scrape',
         [parse_dir / f'{g}_scrape_wiki.py', '--out-dir', parse_dir],
     )
+    # Skyrim effects page (UESP) provides base_magnitude for each alchemy effect.
+    if game == 'Skyrim':
+        run_step(
+            'Skyrim alchemy effects scrape',
+            [parse_dir / 'skyrim_scrape_alchemy_effects.py',
+             str(parse_dir / 'skyrim_effects_raw.json')],
+        )
     run_step(
         f'{game} alchemy JSON',
         [json_dir / f'{g}_parse_wiki_to_json.py'],
@@ -310,10 +317,22 @@ def update_skyrim_homestead() -> None:
 def update_skyrim_cc() -> None:
     """JSON → SQL for Skyrim Creation Club content.
 
-    Raw JSON files are static (checked-in); the scraper is not re-run here.
-    Parse and SQL steps are always run (idempotent delete-then-insert).
+    Most CC raw JSON files are static (checked-in); their scrapers are not
+    re-run here.  The CC alchemy effects scraper is the exception: it fetches
+    fresh data from UESP individual effect pages each run.
+
+    Parse and SQL steps are always run (idempotent delete-then-insert or UPDATE).
     """
     cc_dir = _SCRIPT_DIR / 'Skyrim' / 'creation_club'
+
+    # CC-only alchemy effects — scrape then transform then UPDATE skyrim_alchemy_effects.
+    run_step('Skyrim CC effects scrape',
+             [cc_dir / 'cc_parse' / 'skyrim_scrape_cc_effects.py',
+              str(cc_dir / 'cc_parse' / 'cc_effects_raw.json')])
+    run_step('Skyrim CC effects JSON',
+             [cc_dir / 'cc_effects_json' / 'skyrim_parse_cc_effects_to_json.py'])
+    run_step('Skyrim CC effects SQL',
+             [cc_dir / 'cc_effects_sql' / 'create_or_update_skyrim_cc_effects.py'])
 
     steps = [
         ('Skyrim CC armor JSON',

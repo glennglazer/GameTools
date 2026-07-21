@@ -30,12 +30,17 @@ _materials_sql = load_module(
     "TES/Skyrim/creation_club/cc_materials_sql/create_or_update_skyrim_cc_materials.py",
     "cc_materials_sql",
 )
+_cc_eff_sql = load_module(
+    "TES/Skyrim/creation_club/cc_effects_sql/create_or_update_skyrim_cc_effects.py",
+    "cc_eff_sql",
+)
 
 ARMOR_SCRIPT    = str(REPO_ROOT / "TES/Skyrim/creation_club/cc_armor_sql/create_or_update_skyrim_cc_armor.py")
 WEAPONS_SCRIPT  = str(REPO_ROOT / "TES/Skyrim/creation_club/cc_weapons_sql/create_or_update_skyrim_cc_weapons.py")
 AMMO_SCRIPT     = str(REPO_ROOT / "TES/Skyrim/creation_club/cc_ammo_sql/create_or_update_skyrim_cc_ammo.py")
 HOMESTEAD_SCRIPT= str(REPO_ROOT / "TES/Skyrim/creation_club/cc_homestead_sql/create_or_update_skyrim_cc_homestead.py")
 MATERIALS_SCRIPT= str(REPO_ROOT / "TES/Skyrim/creation_club/cc_materials_sql/create_or_update_skyrim_cc_materials.py")
+EFFECTS_SCRIPT  = str(REPO_ROOT / "TES/Skyrim/creation_club/cc_effects_sql/create_or_update_skyrim_cc_effects.py")
 
 ARMOR_MAT_COLS = _armor_sql.__dict__.get(
     "ARMOR_MAT_COLS", [
@@ -460,3 +465,176 @@ def test_materials_sql_idempotent(materials_json, tmp_db):
     ).fetchone()[0]
     conn.close()
     assert count == 2
+
+
+# ── CC effects SQL loader ─────────────────────────────────────────────────────
+
+def _build_effects_table(db_path, rows=None):
+    """Create skyrim_alchemy_effects with base_magnitude and optionally seed rows."""
+    conn = sqlite3.connect(db_path)
+    conn.execute(
+        "CREATE TABLE skyrim_alchemy_effects "
+        "(name TEXT, effect TEXT, base_magnitude INTEGER)"
+    )
+    conn.execute(
+        "CREATE UNIQUE INDEX idx_skyrim_alchemy_effects "
+        "ON skyrim_alchemy_effects(name, effect)"
+    )
+    if rows:
+        conn.executemany(
+            "INSERT INTO skyrim_alchemy_effects (name, effect, base_magnitude) VALUES (?,?,?)",
+            rows,
+        )
+    conn.commit()
+    conn.close()
+
+
+EFFECTS_SAMPLE = [
+    {"effect": "Fortify Persuasion", "base_magnitude": 1},
+]
+
+
+@pytest.fixture
+def effects_json(tmp_path):
+    p = tmp_path / "effects.json"
+    p.write_text(json.dumps(EFFECTS_SAMPLE))
+    return str(p)
+
+
+def test_cc_eff_sql_apply_updates_row_count():
+    conn = sqlite3.connect(":memory:")
+    conn.execute(
+        "CREATE TABLE skyrim_alchemy_effects "
+        "(name TEXT, effect TEXT, base_magnitude INTEGER)"
+    )
+    conn.execute(
+        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?)",
+        ("Glassfish", "Fortify Persuasion", None),
+    )
+    conn.commit()
+
+    n = _cc_eff_sql.apply_updates(conn, [{"effect": "Fortify Persuasion", "base_magnitude": 1}])
+    assert n == 1
+
+    val = conn.execute(
+        "SELECT base_magnitude FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+    ).fetchone()[0]
+    assert val == 1
+    conn.close()
+
+
+def test_cc_eff_sql_apply_updates_sets_magnitude():
+    conn = sqlite3.connect(":memory:")
+    conn.execute(
+        "CREATE TABLE skyrim_alchemy_effects "
+        "(name TEXT, effect TEXT, base_magnitude INTEGER)"
+    )
+    conn.executemany(
+        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?)",
+        [
+            ("Glassfish", "Fortify Persuasion", None),
+            ("Glassfish", "Restore Stamina", None),
+        ],
+    )
+    conn.commit()
+
+    _cc_eff_sql.apply_updates(conn, [{"effect": "Fortify Persuasion", "base_magnitude": 1}])
+
+    row = conn.execute(
+        "SELECT base_magnitude FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+    ).fetchone()
+    assert row[0] == 1
+    # unrelated row unchanged
+    other = conn.execute(
+        "SELECT base_magnitude FROM skyrim_alchemy_effects WHERE effect='Restore Stamina'"
+    ).fetchone()
+    assert other[0] is None
+    conn.close()
+
+
+def test_cc_eff_sql_apply_updates_case_insensitive():
+    conn = sqlite3.connect(":memory:")
+    conn.execute(
+        "CREATE TABLE skyrim_alchemy_effects "
+        "(name TEXT, effect TEXT, base_magnitude INTEGER)"
+    )
+    # DB stores mixed case
+    conn.execute(
+        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?)",
+        ("Glassfish", "Fortify Persuasion", None),
+    )
+    conn.commit()
+
+    # Update record uses different capitalisation
+    _cc_eff_sql.apply_updates(conn, [{"effect": "fortify persuasion", "base_magnitude": 1}])
+
+    val = conn.execute(
+        "SELECT base_magnitude FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+    ).fetchone()[0]
+    assert val == 1
+    conn.close()
+
+
+def test_cc_eff_sql_apply_updates_no_match_returns_zero():
+    conn = sqlite3.connect(":memory:")
+    conn.execute(
+        "CREATE TABLE skyrim_alchemy_effects "
+        "(name TEXT, effect TEXT, base_magnitude INTEGER)"
+    )
+    conn.commit()
+
+    n = _cc_eff_sql.apply_updates(conn, [{"effect": "Nonexistent Effect", "base_magnitude": 5}])
+    assert n == 0
+    conn.close()
+
+
+def test_cc_eff_sql_apply_updates_idempotent():
+    conn = sqlite3.connect(":memory:")
+    conn.execute(
+        "CREATE TABLE skyrim_alchemy_effects "
+        "(name TEXT, effect TEXT, base_magnitude INTEGER)"
+    )
+    conn.execute(
+        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?)",
+        ("Glassfish", "Fortify Persuasion", None),
+    )
+    conn.commit()
+
+    records = [{"effect": "Fortify Persuasion", "base_magnitude": 1}]
+    _cc_eff_sql.apply_updates(conn, records)
+    _cc_eff_sql.apply_updates(conn, records)
+
+    val = conn.execute(
+        "SELECT base_magnitude FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+    ).fetchone()[0]
+    assert val == 1
+    conn.close()
+
+
+def test_cc_eff_sql_script_exits_zero(effects_json, tmp_db):
+    _build_effects_table(
+        tmp_db,
+        rows=[("Glassfish", "Fortify Persuasion", None)],
+    )
+    result = run(EFFECTS_SCRIPT, [effects_json, tmp_db])
+    assert result.returncode == 0, result.stderr
+
+
+def test_cc_eff_sql_script_updates_db(effects_json, tmp_db):
+    _build_effects_table(
+        tmp_db,
+        rows=[("Glassfish", "Fortify Persuasion", None)],
+    )
+    run(EFFECTS_SCRIPT, [effects_json, tmp_db])
+
+    conn = sqlite3.connect(tmp_db)
+    val = conn.execute(
+        "SELECT base_magnitude FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+    ).fetchone()[0]
+    conn.close()
+    assert val == 1
+
+
+def test_cc_eff_sql_script_missing_json_exits_nonzero(tmp_db):
+    result = run(EFFECTS_SCRIPT, ["/nonexistent/effects.json", tmp_db])
+    assert result.returncode != 0

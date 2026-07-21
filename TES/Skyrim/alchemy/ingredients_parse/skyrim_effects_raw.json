@@ -1,0 +1,297 @@
+{
+  "Cure Disease": {
+    "base_cost": 0.5,
+    "base_mag": 5,
+    "base_dur": 0
+  },
+  "Cure Poison": {
+    "base_cost": 0.2,
+    "base_mag": 2,
+    "base_dur": 0
+  },
+  "Damage Health": {
+    "base_cost": 3.0,
+    "base_mag": 2,
+    "base_dur": 1
+  },
+  "Damage Magicka": {
+    "base_cost": 2.2,
+    "base_mag": 3,
+    "base_dur": 0
+  },
+  "Damage Magicka Regen": {
+    "base_cost": 0.5,
+    "base_mag": 100,
+    "base_dur": 5
+  },
+  "Damage Stamina": {
+    "base_cost": 1.8,
+    "base_mag": 3,
+    "base_dur": 0
+  },
+  "Damage Stamina Regen": {
+    "base_cost": 0.3,
+    "base_mag": 100,
+    "base_dur": 5
+  },
+  "Fear": {
+    "base_cost": 5.0,
+    "base_mag": 1,
+    "base_dur": 30
+  },
+  "Fortify Alteration": {
+    "base_cost": 0.2,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Barter": {
+    "base_cost": 2.0,
+    "base_mag": 1,
+    "base_dur": 30
+  },
+  "Fortify Block": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Carry Weight": {
+    "base_cost": 0.15,
+    "base_mag": 4,
+    "base_dur": 300
+  },
+  "Fortify Conjuration": {
+    "base_cost": 0.25,
+    "base_mag": 5,
+    "base_dur": 60
+  },
+  "Fortify Destruction": {
+    "base_cost": 0.5,
+    "base_mag": 5,
+    "base_dur": 60
+  },
+  "Fortify Enchanting": {
+    "base_cost": 0.6,
+    "base_mag": 1,
+    "base_dur": 30
+  },
+  "Fortify Health": {
+    "base_cost": 0.35,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Heavy Armor": {
+    "base_cost": 0.5,
+    "base_mag": 2,
+    "base_dur": 60
+  },
+  "Fortify Illusion": {
+    "base_cost": 0.4,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Light Armor": {
+    "base_cost": 0.5,
+    "base_mag": 2,
+    "base_dur": 60
+  },
+  "Fortify Lockpicking": {
+    "base_cost": 0.5,
+    "base_mag": 2,
+    "base_dur": 30
+  },
+  "Fortify Magicka": {
+    "base_cost": 0.3,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Marksman": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify One-handed": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Pickpocket": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Restoration": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Smithing": {
+    "base_cost": 0.75,
+    "base_mag": 4,
+    "base_dur": 30
+  },
+  "Fortify Sneak": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Stamina": {
+    "base_cost": 0.3,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Fortify Two-handed": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Frenzy": {
+    "base_cost": 15.0,
+    "base_mag": 1,
+    "base_dur": 10
+  },
+  "Invisibility": {
+    "base_cost": 100.0,
+    "base_mag": 0,
+    "base_dur": 4
+  },
+  "Light": {
+    "base_cost": 0.5,
+    "base_mag": 0,
+    "base_dur": 60
+  },
+  "Lingering Damage Health": {
+    "base_cost": 12.0,
+    "base_mag": 1,
+    "base_dur": 10
+  },
+  "Lingering Damage Magicka": {
+    "base_cost": 10.0,
+    "base_mag": 1,
+    "base_dur": 10
+  },
+  "Lingering Damage Stamina": {
+    "base_cost": 1.8,
+    "base_mag": 1,
+    "base_dur": 10
+  },
+  "Night Eye": {
+    "base_cost": 0.75,
+    "base_mag": 0,
+    "base_dur": 60
+  },
+  "Paralysis": {
+    "base_cost": 500.0,
+    "base_mag": 0,
+    "base_dur": 1
+  },
+  "Ravage Health": {
+    "base_cost": 0.4,
+    "base_mag": 2,
+    "base_dur": 10
+  },
+  "Ravage Magicka": {
+    "base_cost": 1.0,
+    "base_mag": 2,
+    "base_dur": 10
+  },
+  "Ravage Stamina": {
+    "base_cost": 1.6,
+    "base_mag": 2,
+    "base_dur": 10
+  },
+  "Regenerate Health": {
+    "base_cost": 0.1,
+    "base_mag": 5,
+    "base_dur": 300
+  },
+  "Regenerate Magicka": {
+    "base_cost": 0.1,
+    "base_mag": 5,
+    "base_dur": 300
+  },
+  "Regenerate Stamina": {
+    "base_cost": 0.1,
+    "base_mag": 5,
+    "base_dur": 300
+  },
+  "Resist Fire": {
+    "base_cost": 0.5,
+    "base_mag": 3,
+    "base_dur": 60
+  },
+  "Resist Frost": {
+    "base_cost": 0.5,
+    "base_mag": 3,
+    "base_dur": 60
+  },
+  "Resist Magic": {
+    "base_cost": 1.0,
+    "base_mag": 1,
+    "base_dur": 60
+  },
+  "Resist Poison": {
+    "base_cost": 0.5,
+    "base_mag": 4,
+    "base_dur": 60
+  },
+  "Resist Shock": {
+    "base_cost": 0.5,
+    "base_mag": 3,
+    "base_dur": 60
+  },
+  "Restore Health": {
+    "base_cost": 0.5,
+    "base_mag": 5,
+    "base_dur": 0
+  },
+  "Restore Magicka": {
+    "base_cost": 0.6,
+    "base_mag": 5,
+    "base_dur": 0
+  },
+  "Restore Stamina": {
+    "base_cost": 0.6,
+    "base_mag": 5,
+    "base_dur": 0
+  },
+  "Slow": {
+    "base_cost": 1.0,
+    "base_mag": 50,
+    "base_dur": 5
+  },
+  "Spell Absorption": {
+    "base_cost": 0.1,
+    "base_mag": 50,
+    "base_dur": 60
+  },
+  "Waterbreathing": {
+    "base_cost": 30.0,
+    "base_mag": 0,
+    "base_dur": 5
+  },
+  "Weakness to Fire": {
+    "base_cost": 0.6,
+    "base_mag": 3,
+    "base_dur": 30
+  },
+  "Weakness to Frost": {
+    "base_cost": 0.5,
+    "base_mag": 3,
+    "base_dur": 30
+  },
+  "Weakness to Magic": {
+    "base_cost": 1.0,
+    "base_mag": 2,
+    "base_dur": 30
+  },
+  "Weakness to Poison": {
+    "base_cost": 1.0,
+    "base_mag": 2,
+    "base_dur": 30
+  },
+  "Weakness to Shock": {
+    "base_cost": 0.7,
+    "base_mag": 3,
+    "base_dur": 30
+  }
+}

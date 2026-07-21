@@ -1,4 +1,4 @@
-"""Tests for Skyrim/alchemy/ingredients_parse/skyrim_scrape_wiki.py"""
+"""Tests for Skyrim alchemy scraper scripts."""
 import sys
 from pathlib import Path
 from unittest.mock import MagicMock
@@ -13,6 +13,11 @@ from conftest import load_module, REPO_ROOT
 _mod = load_module(
     "TES/Skyrim/alchemy/ingredients_parse/skyrim_scrape_wiki.py",
     "sk_scrape",
+)
+
+_eff_mod = load_module(
+    "TES/Skyrim/alchemy/ingredients_parse/skyrim_scrape_alchemy_effects.py",
+    "sk_eff_scrape",
 )
 fetch_parsed_html = _mod.fetch_parsed_html
 cell_text = _mod.cell_text
@@ -223,3 +228,94 @@ def test_write_raw_file_round_trip_with_parser(tmp_path):
 def test_write_raw_file_bad_path_raises():
     with pytest.raises(OSError):
         write_raw_file([], '/nonexistent_dir_xyz/out.txt')
+
+
+# ===========================================================================
+# skyrim_scrape_alchemy_effects — fetch_effect_list
+# ===========================================================================
+
+fetch_effect_list = _eff_mod.fetch_effect_list
+
+EFFECT_LIST_HTML = """
+<table class="wikitable sortable">
+  <tr>
+    <th>Effect (ID)</th><th>Ingredients</th><th>Description</th>
+    <th>Base_Cost</th><th>Base_Mag</th><th>Base_Dur</th><th>Value</th>
+  </tr>
+  <tr>
+    <th><a href="/wiki/Skyrim:Cure_Disease">Cure Disease</a><br/>(0AE722)</th>
+    <td>Charred Skeever Hide</td>
+    <td>Cures all diseases.</td>
+    <td>0.5</td><td>5</td><td>0</td><td>21</td>
+  </tr>
+  <tr>
+    <th><a href="/wiki/Skyrim:Damage_Health">Damage Health</a><br/>(003EB42)</th>
+    <td>Crimson Nirnroot</td>
+    <td>Damages health.</td>
+    <td>3</td><td>2</td><td>1</td><td>3</td>
+  </tr>
+  <tr>
+    <th><a href="/wiki/Skyrim:Paralysis">Paralysis</a><br/>(073F25)</th>
+    <td>Briar Heart</td>
+    <td>Paralyses the target.</td>
+    <td>500</td><td>0</td><td>1</td><td>500</td>
+  </tr>
+</table>
+"""
+
+EFFECT_LIST_RESPONSE = {'parse': {'text': {'*': EFFECT_LIST_HTML}}}
+
+
+def make_mock_effect_session(json_data=None, raise_error=False):
+    mock = MagicMock()
+    resp = MagicMock()
+    if raise_error:
+        resp.raise_for_status.side_effect = requests.exceptions.HTTPError("404")
+    else:
+        resp.raise_for_status.return_value = None
+        resp.json.return_value = json_data
+    mock.get.return_value = resp
+    return mock
+
+
+def test_fetch_effect_list_returns_dict_with_known_effects():
+    session = make_mock_effect_session(EFFECT_LIST_RESPONSE)
+    result = fetch_effect_list(session=session)
+    assert 'Cure Disease' in result
+    assert 'Damage Health' in result
+    assert 'Paralysis' in result
+
+def test_fetch_effect_list_base_mag_values():
+    session = make_mock_effect_session(EFFECT_LIST_RESPONSE)
+    result = fetch_effect_list(session=session)
+    assert result['Cure Disease']['base_mag'] == 5
+    assert result['Damage Health']['base_mag'] == 2
+    assert result['Paralysis']['base_mag'] == 0
+
+def test_fetch_effect_list_base_cost_is_float():
+    session = make_mock_effect_session(EFFECT_LIST_RESPONSE)
+    result = fetch_effect_list(session=session)
+    assert result['Cure Disease']['base_cost'] == 0.5
+    assert result['Paralysis']['base_cost'] == 500.0
+
+def test_fetch_effect_list_base_dur_values():
+    session = make_mock_effect_session(EFFECT_LIST_RESPONSE)
+    result = fetch_effect_list(session=session)
+    assert result['Cure Disease']['base_dur'] == 0
+    assert result['Damage Health']['base_dur'] == 1
+
+def test_fetch_effect_list_http_error_raises():
+    session = make_mock_effect_session(raise_error=True)
+    with pytest.raises(requests.exceptions.HTTPError):
+        fetch_effect_list(session=session)
+
+def test_fetch_effect_list_no_table_raises():
+    no_table_response = {'parse': {'text': {'*': '<div>No table here</div>'}}}
+    session = make_mock_effect_session(no_table_response)
+    with pytest.raises(ValueError, match='No wikitable'):
+        fetch_effect_list(session=session)
+
+def test_fetch_effect_list_missing_parse_key_raises():
+    session = make_mock_effect_session({'error': {'code': 'missingtitle'}})
+    with pytest.raises(KeyError):
+        fetch_effect_list(session=session)

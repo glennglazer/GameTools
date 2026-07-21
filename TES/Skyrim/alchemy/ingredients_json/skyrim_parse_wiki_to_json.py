@@ -52,6 +52,21 @@ _PARSE_DIR = _SCRIPT_DIR.parent / 'ingredients_parse'
 _DEFAULT_INFILE = str(_PARSE_DIR / 'skyrim_all_ingredients_raw.txt')
 _DEFAULT_ING_FILE = str(_SCRIPT_DIR / 'skyrim_all_ingredients.json')
 _DEFAULT_EFF_FILE = str(_SCRIPT_DIR / 'skyrim_all_effects.json')
+_DEFAULT_EFFECTS_RAW = str(_PARSE_DIR / 'skyrim_effects_raw.json')
+
+
+def load_effects_raw(path: str) -> dict:
+    """Return a lowercase-keyed dict of effect_name → base_magnitude from the UESP effects raw file.
+
+    Returns {} if the file is missing or unparseable, so that the parser
+    degrades gracefully when the effects scraper has not been run.
+    """
+    try:
+        with open(path) as f:
+            raw = json.load(f)
+        return {k.lower(): v['base_mag'] for k, v in raw.items()}
+    except (OSError, json.JSONDecodeError, KeyError, TypeError):
+        return {}
 
 
 def remove_pipe(value: str) -> str:
@@ -68,9 +83,18 @@ def remove_wiki_link(value: str) -> str:
         return value
 
 
-def parse(infile: str, verbose: bool = False) -> dict:
+def parse(infile: str, verbose: bool = False, effects_lookup: dict | None = None) -> dict:
+    """Parse a raw wiki text file into ingredient and effect lists.
+
+    effects_lookup: lowercase-keyed dict of effect_name → base_magnitude produced
+    by load_effects_raw().  When provided, each effect record gains a
+    'base_magnitude' key (None if the effect name is not found in the lookup).
+    When omitted or empty, 'base_magnitude' is still included as None so the
+    output schema is always the same.
+    """
     ingredients = []
     effects = []
+    lookup = effects_lookup or {}
 
     if not op.exists(infile):
         return {}, {}
@@ -102,7 +126,8 @@ def parse(infile: str, verbose: bool = False) -> dict:
             for effect in effects_list:
                 if effect is not None:
                     effect = effect.rstrip()
-                effects.append({'name': name, 'effect': effect})
+                base_mag = lookup.get(effect.lower()) if (effect and lookup) else None
+                effects.append({'name': name, 'effect': effect, 'base_magnitude': base_mag})
 
             if verbose:
                 print(f"ingredients entry: {ingredients_entry}\n")
@@ -171,6 +196,8 @@ if __name__ == "__main__":
                         help=f"path to write ingredient JSON (default: {_DEFAULT_ING_FILE})")
     parser.add_argument("effects_file", nargs='?', default=_DEFAULT_EFF_FILE,
                         help=f"path to write effects JSON (default: {_DEFAULT_EFF_FILE})")
+    parser.add_argument("effects_raw_file", nargs='?', default=_DEFAULT_EFFECTS_RAW,
+                        help=f"path to UESP effects raw JSON (default: {_DEFAULT_EFFECTS_RAW})")
     parser.add_argument("-v", "--verbose", help="debug output", action="store_true")
     args = parser.parse_args()
 
@@ -178,7 +205,12 @@ if __name__ == "__main__":
         print(f"Input file not found: {args.infile}")
         sys.exit(1)
 
-    parsed_ingredients, parsed_effects = parse(args.infile, args.verbose)
+    effects_lookup = load_effects_raw(args.effects_raw_file)
+    if not effects_lookup:
+        print(f"Warning: effects raw file not found or empty: {args.effects_raw_file} — base_magnitude will be null",
+              file=sys.stderr)
+
+    parsed_ingredients, parsed_effects = parse(args.infile, args.verbose, effects_lookup)
     if args.verbose:
         pprint(parsed_ingredients)
         pprint(parsed_effects)

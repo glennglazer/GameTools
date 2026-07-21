@@ -50,9 +50,12 @@ def apply_deletes_effects(cur, table_name: str, delete_data: list) -> str:
 
 
 def apply_upserts_effects(conn, table_name: str, upsert_data: list) -> None:
-    pd.DataFrame(upsert_data).to_sql(
-        table_name, conn, if_exists='append', method='multi', index=False
-    )
+    df = pd.DataFrame(upsert_data)
+    # base_magnitude is INTEGER but pandas upcasts nullable int columns to float64.
+    # Cast to the pandas nullable Int64 so SQLite receives integers (not 4.0).
+    if 'base_magnitude' in df.columns:
+        df['base_magnitude'] = df['base_magnitude'].astype(pd.Int64Dtype())
+    df.to_sql(table_name, conn, if_exists='append', method='multi', index=False)
 
 
 def remove_diff_file(path: str, repo_root: str) -> None:
@@ -100,6 +103,21 @@ if __name__ == '__main__':
     try:
         current_sql = f"SELECT name FROM sqlite_master WHERE name='{TABLE_NAME}'"
         table_exists = cur.execute(current_sql).fetchone()
+
+        # If the table exists but pre-dates the base_magnitude column, drop it so
+        # it gets recreated with the full schema.  The upsert file will carry all
+        # rows (they all changed), so the first-run path below repopulates it.
+        if table_exists is not None:
+            existing_cols = [
+                row[1] for row in cur.execute(f"PRAGMA table_info({TABLE_NAME})").fetchall()
+            ]
+            if 'base_magnitude' not in existing_cols:
+                current_sql = f"DROP TABLE {TABLE_NAME}"
+                cur.execute(current_sql)
+                current_sql = f"DROP INDEX IF EXISTS {INDEX_NAME}"
+                cur.execute(current_sql)
+                conn.commit()
+                table_exists = None
 
         if table_exists is None:
             if not upsert_data:

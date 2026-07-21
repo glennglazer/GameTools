@@ -36,10 +36,10 @@ SAMPLE_INGREDIENTS = [
     {"name": "Bear Claws", "weight": 0.1, "value": 3, "ID": "0003AD57"},
 ]
 SAMPLE_EFFECTS = [
-    {"name": "Abecean Longfin", "effect": "Weakness to Frost"},
-    {"name": "Abecean Longfin", "effect": "Fortify Sneak"},
-    {"name": "Abecean Longfin", "effect": "Weakness to Poison"},
-    {"name": "Abecean Longfin", "effect": "Fortify Restoration"},
+    {"name": "Abecean Longfin", "effect": "Weakness to Frost",   "base_magnitude": 3},
+    {"name": "Abecean Longfin", "effect": "Fortify Sneak",       "base_magnitude": 4},
+    {"name": "Abecean Longfin", "effect": "Weakness to Poison",  "base_magnitude": 2},
+    {"name": "Abecean Longfin", "effect": "Fortify Restoration", "base_magnitude": 4},
 ]
 
 
@@ -95,11 +95,11 @@ def test_apply_upserts_ingredients_replaces_existing(tmp_db):
 
 def test_apply_deletes_effects_removes_named_effect(tmp_db):
     conn = sqlite3.connect(tmp_db)
-    conn.execute("CREATE TABLE eff (name TEXT, effect TEXT)")
-    conn.execute("INSERT INTO eff VALUES ('Abecean Longfin', 'Weakness to Frost')")
-    conn.execute("INSERT INTO eff VALUES ('Abecean Longfin', 'Fortify Sneak')")
+    conn.execute("CREATE TABLE eff (name TEXT, effect TEXT, base_magnitude INTEGER)")
+    conn.execute("INSERT INTO eff VALUES ('Abecean Longfin', 'Weakness to Frost', 3)")
+    conn.execute("INSERT INTO eff VALUES ('Abecean Longfin', 'Fortify Sneak', 4)")
     conn.commit()
-    apply_deletes_effects(conn.cursor(), 'eff', [{"name": "Abecean Longfin", "effect": "Weakness to Frost"}])
+    apply_deletes_effects(conn.cursor(), 'eff', [{"name": "Abecean Longfin", "effect": "Weakness to Frost", "base_magnitude": 3}])
     conn.commit()
     rows = conn.execute("SELECT effect FROM eff").fetchall()
     assert len(rows) == 1
@@ -108,12 +108,12 @@ def test_apply_deletes_effects_removes_named_effect(tmp_db):
 
 def test_apply_upserts_effects_inserts_new_rows(tmp_db):
     conn = sqlite3.connect(tmp_db)
-    conn.execute("CREATE TABLE eff (name TEXT, effect TEXT)")
+    conn.execute("CREATE TABLE eff (name TEXT, effect TEXT, base_magnitude INTEGER)")
     conn.commit()
-    apply_upserts_effects(conn, 'eff', [{"name": "Bear Claws", "effect": "Restore Stamina"}])
-    rows = conn.execute("SELECT name, effect FROM eff").fetchall()
+    apply_upserts_effects(conn, 'eff', [{"name": "Bear Claws", "effect": "Restore Stamina", "base_magnitude": 5}])
+    rows = conn.execute("SELECT name, effect, base_magnitude FROM eff").fetchall()
     conn.close()
-    assert rows == [("Bear Claws", "Restore Stamina")]
+    assert rows == [("Bear Claws", "Restore Stamina", 5)]
 
 
 # ---------------------------------------------------------------------------
@@ -188,6 +188,37 @@ def test_effects_creates_table_on_first_run(tmp_path, tmp_db):
     conn.close()
     assert len(rows) == 4
     assert ("Abecean Longfin", "Weakness to Frost") in rows
+
+def test_effects_base_magnitude_stored(tmp_path, tmp_db):
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    write_diff_pair(tmp_path, "effects", SAMPLE_EFFECTS, {})
+    run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
+    conn = sqlite3.connect(tmp_db)
+    row = conn.execute(
+        f"SELECT base_magnitude FROM {TABLE_EFF} WHERE name='Abecean Longfin' AND effect='Weakness to Frost'"
+    ).fetchone()
+    conn.close()
+    assert row is not None
+    assert row[0] == 3
+
+def test_effects_schema_migration_drops_old_table(tmp_path, tmp_db):
+    # Simulate a pre-base_magnitude table (old schema, no base_magnitude column).
+    conn = sqlite3.connect(tmp_db)
+    conn.execute(f"CREATE TABLE {TABLE_EFF} (name TEXT, effect TEXT)")
+    conn.execute(f"INSERT INTO {TABLE_EFF} VALUES ('Abecean Longfin', 'Weakness to Frost')")
+    conn.execute(f"CREATE UNIQUE INDEX s_e_name_effect ON {TABLE_EFF} (name, effect)")
+    conn.commit()
+    conn.close()
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    write_diff_pair(tmp_path, "effects", SAMPLE_EFFECTS, {})
+    result = run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
+    assert result.returncode == 0, result.stderr
+    conn = sqlite3.connect(tmp_db)
+    cols = [r[1] for r in conn.execute(f"PRAGMA table_info({TABLE_EFF})").fetchall()]
+    assert 'base_magnitude' in cols
+    conn.close()
 
 def test_effects_no_diff_files_is_noop(tmp_path, tmp_db):
     json_file = tmp_path / "effects.json"

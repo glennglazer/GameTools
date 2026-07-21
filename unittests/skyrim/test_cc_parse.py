@@ -2,8 +2,10 @@
 import json
 import sys
 from pathlib import Path
+from unittest.mock import MagicMock
 
 import pytest
+import requests
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -24,6 +26,14 @@ _ammo = load_module(
 _homestead = load_module(
     "TES/Skyrim/creation_club/cc_homestead_json/skyrim_parse_cc_homestead.py",
     "cc_homestead_parse",
+)
+_cc_eff_scrape = load_module(
+    "TES/Skyrim/creation_club/cc_parse/skyrim_scrape_cc_effects.py",
+    "cc_eff_scrape",
+)
+_cc_eff_parse = load_module(
+    "TES/Skyrim/creation_club/cc_effects_json/skyrim_parse_cc_effects_to_json.py",
+    "cc_eff_parse",
 )
 
 CC_PARSE_DIR = REPO_ROOT / "TES/Skyrim/creation_club/cc_parse"
@@ -561,3 +571,163 @@ def test_homestead_integration_aquarium_location():
         data = json.load(f)
     recs = _homestead.parse_aquarium_section(data["sections"]["9"]["html"])
     assert all(r["location"] == "Main_Hall_Aquarium" for r in recs)
+
+
+# ── CC effects scraper ────────────────────────────────────────────────────────
+
+# Minimal infobox HTML matching the structure of a UESP effect page.
+# The Alchemy section header row has colspan=2 and an anchor whose href
+# contains "Alchemy_Effects"; subsequent rows carry the stats.
+EFFECT_INFOBOX_HTML = """
+<div>
+<table class="wikitable infobox">
+  <tr><th colspan="2"><a href="/wiki/Skyrim:Alchemy_Effects">Alchemy</a></th></tr>
+  <tr><th>Base Cost</th><td>0.5</td></tr>
+  <tr><th>Base Mag</th><td>1</td></tr>
+  <tr><th>Base Dur</th><td>30</td></tr>
+  <tr><th colspan="2">Other Section</th></tr>
+  <tr><th>Something</th><td>ignored</td></tr>
+</table>
+</div>
+"""
+
+EFFECT_INFOBOX_NO_ALCHEMY_HTML = """
+<div>
+<table class="wikitable infobox">
+  <tr><th colspan="2">Spell Info</th></tr>
+  <tr><th>School</th><td>Restoration</td></tr>
+  <tr><th>Base Cost</th><td>99</td></tr>
+</table>
+</div>
+"""
+
+EFFECT_INFOBOX_MISSING_BASE_MAG_HTML = """
+<div>
+<table class="wikitable infobox">
+  <tr><th colspan="2"><a href="/wiki/Skyrim:Alchemy_Effects">Alchemy</a></th></tr>
+  <tr><th>Base Cost</th><td>0.5</td></tr>
+  <tr><th>Base Dur</th><td>30</td></tr>
+</table>
+</div>
+"""
+
+_CC_EFFECT_RESPONSE = {'parse': {'text': {'*': EFFECT_INFOBOX_HTML}}}
+
+
+def _make_mock_cc_eff_session(html_response=None):
+    """Return a mock requests.Session whose get() yields the given API response."""
+    resp = MagicMock()
+    resp.raise_for_status.return_value = None
+    resp.json.return_value = html_response or _CC_EFFECT_RESPONSE
+
+    session = MagicMock(spec=requests.Session)
+    session.headers = {}
+    session.get.return_value = resp
+    return session
+
+
+def test_cc_eff_scrape_returns_dict():
+    sess = _make_mock_cc_eff_session()
+    result = _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+    assert isinstance(result, dict)
+
+
+def test_cc_eff_scrape_base_mag():
+    sess = _make_mock_cc_eff_session()
+    result = _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+    assert result['base_mag'] == 1
+
+
+def test_cc_eff_scrape_base_cost():
+    sess = _make_mock_cc_eff_session()
+    result = _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+    assert result['base_cost'] == 0.5
+
+
+def test_cc_eff_scrape_base_dur():
+    sess = _make_mock_cc_eff_session()
+    result = _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+    assert result['base_dur'] == 30
+
+
+def test_cc_eff_scrape_no_alchemy_section_returns_none():
+    resp = {'parse': {'text': {'*': EFFECT_INFOBOX_NO_ALCHEMY_HTML}}}
+    sess = _make_mock_cc_eff_session(resp)
+    result = _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+    assert result is None
+
+
+def test_cc_eff_scrape_missing_base_mag_returns_none():
+    resp = {'parse': {'text': {'*': EFFECT_INFOBOX_MISSING_BASE_MAG_HTML}}}
+    sess = _make_mock_cc_eff_session(resp)
+    result = _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+    assert result is None
+
+
+def test_cc_eff_scrape_no_infobox_table_returns_none():
+    html = '<div><p>No table here.</p></div>'
+    resp = {'parse': {'text': {'*': html}}}
+    sess = _make_mock_cc_eff_session(resp)
+    result = _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+    assert result is None
+
+
+def test_cc_eff_scrape_http_error_raises():
+    sess = MagicMock(spec=requests.Session)
+    sess.headers = {}
+    r = MagicMock()
+    r.raise_for_status.side_effect = requests.exceptions.HTTPError("404")
+    sess.get.return_value = r
+    with pytest.raises(requests.exceptions.HTTPError):
+        _cc_eff_scrape.fetch_alchemy_stats('Skyrim:Fortify_Persuasion', sess)
+
+
+def test_cc_eff_page_title_to_effect_name():
+    assert _cc_eff_scrape._page_title_to_effect_name('Skyrim:Fortify_Persuasion') == 'Fortify Persuasion'
+
+
+# ── CC effects JSON parser ────────────────────────────────────────────────────
+
+def test_cc_eff_parse_returns_list():
+    raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}}
+    recs = _cc_eff_parse.parse(raw)
+    assert isinstance(recs, list)
+
+
+def test_cc_eff_parse_single_record():
+    raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}}
+    recs = _cc_eff_parse.parse(raw)
+    assert len(recs) == 1
+    assert recs[0] == {"effect": "Fortify Persuasion", "base_magnitude": 1}
+
+
+def test_cc_eff_parse_base_magnitude_is_int():
+    raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}}
+    recs = _cc_eff_parse.parse(raw)
+    assert isinstance(recs[0]["base_magnitude"], int)
+
+
+def test_cc_eff_parse_multiple_effects():
+    raw = {
+        "Effect A": {"base_cost": 1.0, "base_mag": 5, "base_dur": 60},
+        "Effect B": {"base_cost": 2.0, "base_mag": 10, "base_dur": 0},
+    }
+    recs = _cc_eff_parse.parse(raw)
+    assert len(recs) == 2
+    names = {r["effect"] for r in recs}
+    assert "Effect A" in names
+    assert "Effect B" in names
+
+
+def test_cc_eff_parse_skips_missing_base_mag():
+    raw = {
+        "Good Effect": {"base_cost": 1.0, "base_mag": 3, "base_dur": 10},
+        "Bad Effect":  {"base_cost": 1.0, "base_dur": 10},  # no base_mag
+    }
+    recs = _cc_eff_parse.parse(raw)
+    assert len(recs) == 1
+    assert recs[0]["effect"] == "Good Effect"
+
+
+def test_cc_eff_parse_empty_raw_returns_empty():
+    assert _cc_eff_parse.parse({}) == []
