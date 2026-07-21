@@ -1,1 +1,422 @@
-[{"creature": "Chicken", "soul_size": "petty"}, {"creature": "Cow", "soul_size": "petty"}, {"creature": "Deer", "soul_size": "petty"}, {"creature": "Dog", "soul_size": "petty"}, {"creature": "Draugr", "soul_size": "petty"}, {"creature": "Elk", "soul_size": "petty"}, {"creature": "Fox", "soul_size": "petty"}, {"creature": "Frostbite Spider", "soul_size": "petty"}, {"creature": "Goat", "soul_size": "petty"}, {"creature": "Horker", "soul_size": "petty"}, {"creature": "Mudcrab", "soul_size": "petty"}, {"creature": "Rabbit", "soul_size": "petty"}, {"creature": "Skeever", "soul_size": "petty"}, {"creature": "Skeleton", "soul_size": "petty"}, {"creature": "Slaughterfish", "soul_size": "petty"}, {"creature": "Wisp", "soul_size": "petty"}, {"creature": "Wolf", "soul_size": "petty"}, {"creature": "Argonian", "soul_size": "black"}, {"creature": "Khajiit", "soul_size": "black"}, {"creature": "Redguard", "soul_size": "black"}, {"creature": "Nord", "soul_size": "black"}, {"creature": "Breton", "soul_size": "black"}, {"creature": "Imperial", "soul_size": "black"}, {"creature": "Orsimer", "soul_size": "black"}, {"creature": "Bosmer", "soul_size": "black"}, {"creature": "Altmer", "soul_size": "black"}, {"creature": "Dunmer", "soul_size": "black"}, {"creature": "Dremora", "soul_size": "black"}, {"creature": "Vampire", "soul_size": "black"}, {"creature": "Forsworn Briarheart", "soul_size": "black"}, {"creature": "Soul Fissures", "soul_size": "black"}]
+[
+  {
+    "name": "Alpha Wolf",
+    "soul_size": 250
+  },
+  {
+    "name": "Ash Hopper",
+    "soul_size": 500
+  },
+  {
+    "name": "Ash Spawn",
+    "soul_size": 1000
+  },
+  {
+    "name": "Ash Spawn Skirmisher",
+    "soul_size": 2000
+  },
+  {
+    "name": "Ash Spawn Immolator",
+    "soul_size": 3000
+  },
+  {
+    "name": "Bear",
+    "soul_size": 500
+  },
+  {
+    "name": "Betty Netch",
+    "soul_size": 3000
+  },
+  {
+    "name": "Bristleback",
+    "soul_size": 500
+  },
+  {
+    "name": "Burnt Spriggan",
+    "soul_size": 2000
+  },
+  {
+    "name": "Bull Netch",
+    "soul_size": 2000
+  },
+  {
+    "name": "Cave Bear",
+    "soul_size": 1000
+  },
+  {
+    "name": "Chaurus Hunter",
+    "soul_size": 2000
+  },
+  {
+    "name": "Chaurus Reaper",
+    "soul_size": 1000
+  },
+  {
+    "name": "Chaurus",
+    "soul_size": 500
+  },
+  {
+    "name": "Chicken",
+    "soul_size": 250
+  },
+  {
+    "name": "Corrupted Shade",
+    "soul_size": 250
+  },
+  {
+    "name": "Cow",
+    "soul_size": 250
+  },
+  {
+    "name": "Curalmil",
+    "soul_size": 1000
+  },
+  {
+    "name": "Deer",
+    "soul_size": 250
+  },
+  {
+    "name": "Death Hound",
+    "soul_size": 500
+  },
+  {
+    "name": "Dog",
+    "soul_size": 250
+  },
+  {
+    "name": "Dragon Priest",
+    "soul_size": 3000
+  },
+  {
+    "name": "Draugr Death Overlord",
+    "soul_size": 2000
+  },
+  {
+    "name": "Draugr Death Overlord",
+    "soul_size": 3000
+  },
+  {
+    "name": "Draugr Deathlord",
+    "soul_size": 1000
+  },
+  {
+    "name": "Draugr Deathlord",
+    "soul_size": 2000
+  },
+  {
+    "name": "Draugr Deathlord",
+    "soul_size": 3000
+  },
+  {
+    "name": "Draugr Overlord",
+    "soul_size": 500
+  },
+  {
+    "name": "Draugr Restless",
+    "soul_size": 500
+  },
+  {
+    "name": "Draugr Scourge Lord",
+    "soul_size": 1000
+  },
+  {
+    "name": "Draugr Scourge",
+    "soul_size": 1000
+  },
+  {
+    "name": "Draugr Thrall",
+    "soul_size": 250
+  },
+  {
+    "name": "Draugr Wight",
+    "soul_size": 500
+  },
+  {
+    "name": "Draugr",
+    "soul_size": 250
+  },
+  {
+    "name": "Elk",
+    "soul_size": 250
+  },
+  {
+    "name": "Falmer Nightprowler",
+    "soul_size": 1000
+  },
+  {
+    "name": "Falmer Nightprowler",
+    "soul_size": 2000
+  },
+  {
+    "name": "Falmer Shadowmaster",
+    "soul_size": 1000
+  },
+  {
+    "name": "Falmer Shadowmaster",
+    "soul_size": 3000
+  },
+  {
+    "name": "Falmer Skulker",
+    "soul_size": 500
+  },
+  {
+    "name": "Falmer Warmonger",
+    "soul_size": 2000
+  },
+  {
+    "name": "Falmer Warmonger",
+    "soul_size": 3000
+  },
+  {
+    "name": "Falmer",
+    "soul_size": 500
+  },
+  {
+    "name": "Flame Atronach",
+    "soul_size": 500
+  },
+  {
+    "name": "Fox",
+    "soul_size": 250
+  },
+  {
+    "name": "Frost Atronach",
+    "soul_size": 1000
+  },
+  {
+    "name": "Frost Giant",
+    "soul_size": 3000
+  },
+  {
+    "name": "Frost Troll",
+    "soul_size": 1000
+  },
+  {
+    "name": "Frostbite Spider",
+    "soul_size": 250
+  },
+  {
+    "name": "Frostbite Spider",
+    "soul_size": 500
+  },
+  {
+    "name": "Gargoyle",
+    "soul_size": 500
+  },
+  {
+    "name": "Giant Frostbite Spider",
+    "soul_size": 500
+  },
+  {
+    "name": "Giant",
+    "soul_size": 2000
+  },
+  {
+    "name": "Goat",
+    "soul_size": 250
+  },
+  {
+    "name": "Hagraven",
+    "soul_size": 1000
+  },
+  {
+    "name": "Horker",
+    "soul_size": 250
+  },
+  {
+    "name": "Horse",
+    "soul_size": 500
+  },
+  {
+    "name": "Hulking Draugr",
+    "soul_size": 1000
+  },
+  {
+    "name": "Ice Wolf",
+    "soul_size": 500
+  },
+  {
+    "name": "Ice Wraith",
+    "soul_size": 500
+  },
+  {
+    "name": "King Olaf One-Eye",
+    "soul_size": 1000
+  },
+  {
+    "name": "King Olaf One-Eye",
+    "soul_size": 2000
+  },
+  {
+    "name": "King Olaf One-Eye",
+    "soul_size": 3000
+  },
+  {
+    "name": "Mammoth",
+    "soul_size": 3000
+  },
+  {
+    "name": "Mikrul Gauldurson",
+    "soul_size": 1000
+  },
+  {
+    "name": "Mounted Riekling",
+    "soul_size": 1000
+  },
+  {
+    "name": "Mudcrab",
+    "soul_size": 250
+  },
+  {
+    "name": "Netch Calf",
+    "soul_size": 1000
+  },
+  {
+    "name": "Potema's Remains",
+    "soul_size": 1000
+  },
+  {
+    "name": "Potema's Remains",
+    "soul_size": 3000
+  },
+  {
+    "name": "Pit Wolf",
+    "soul_size": 500
+  },
+  {
+    "name": "Rabbit",
+    "soul_size": 250
+  },
+  {
+    "name": "Restless Draugr",
+    "soul_size": 500
+  },
+  {
+    "name": "Riekling",
+    "soul_size": 500
+  },
+  {
+    "name": "Riekling Charger",
+    "soul_size": 3000
+  },
+  {
+    "name": "Riekling Chief",
+    "soul_size": 1000
+  },
+  {
+    "name": "Riekling Courser",
+    "soul_size": 2000
+  },
+  {
+    "name": "Riekling Hunter",
+    "soul_size": 1000
+  },
+  {
+    "name": "Riekling Rider",
+    "soul_size": 1000
+  },
+  {
+    "name": "Riekling Scout",
+    "soul_size": 500
+  },
+  {
+    "name": "Riekling Warrior",
+    "soul_size": 1000
+  },
+  {
+    "name": "Sabre Cat",
+    "soul_size": 500
+  },
+  {
+    "name": "Shade",
+    "soul_size": 500
+  },
+  {
+    "name": "Sigdis Gauldurson",
+    "soul_size": 1000
+  },
+  {
+    "name": "Skeever",
+    "soul_size": 250
+  },
+  {
+    "name": "Skeleton",
+    "soul_size": 250
+  },
+  {
+    "name": "Slaughterfish",
+    "soul_size": 250
+  },
+  {
+    "name": "Snow Bear",
+    "soul_size": 1000
+  },
+  {
+    "name": "Snow Fox",
+    "soul_size": 250
+  },
+  {
+    "name": "Snowy Sabre Cat",
+    "soul_size": 500
+  },
+  {
+    "name": "Spriggan Earth Mother",
+    "soul_size": 2000
+  },
+  {
+    "name": "Spriggan Matron",
+    "soul_size": 1000
+  },
+  {
+    "name": "Spriggan",
+    "soul_size": 500
+  },
+  {
+    "name": "Storm Atronach",
+    "soul_size": 2000
+  },
+  {
+    "name": "The Pale Lady",
+    "soul_size": 2000
+  },
+  {
+    "name": "Troll",
+    "soul_size": 500
+  },
+  {
+    "name": "Udefrykte",
+    "soul_size": 1000
+  },
+  {
+    "name": "Venomfang Skeever",
+    "soul_size": 500
+  },
+  {
+    "name": "Werebear",
+    "soul_size": 1000
+  },
+  {
+    "name": "Werewolf",
+    "soul_size": 500
+  },
+  {
+    "name": "Wispmother",
+    "soul_size": 2000
+  },
+  {
+    "name": "Wisp",
+    "soul_size": 250
+  },
+  {
+    "name": "Wolf",
+    "soul_size": 250
+  },
+  {
+    "name": "Wounded Frostbite Spider",
+    "soul_size": 500
+  },
+  {
+    "name": "NPC",
+    "soul_size": 3000
+  }
+]

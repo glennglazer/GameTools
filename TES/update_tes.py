@@ -112,6 +112,19 @@ def update_apparatus(game: str) -> None:
     )
 
 
+def update_souls(game: str) -> None:
+    """Scrape → JSON → SQL for one game's creature souls (full-replace, no diff gate)."""
+    g = game.lower()
+    game_dir  = _SCRIPT_DIR / game
+    parse_dir = game_dir / 'enchanting' / 'souls_parse'
+    json_dir  = game_dir / 'enchanting' / 'souls_json'
+    sql_dir   = game_dir / 'enchanting' / 'souls_sql'
+
+    run_step(f'{game} souls scrape', [parse_dir / f'{g}_scrape_souls.py'])
+    run_step(f'{game} souls JSON',   [json_dir  / f'{g}_parse_souls.py'])
+    run_step(f'{game} souls SQL',    [sql_dir   / f'create_or_update_{g}_enchant_souls.py'])
+
+
 def update_morrowind_enchanting() -> None:
     """CSV → JSON → SQL for Morrowind enchanting (no web scrape step)."""
     game_dir = _SCRIPT_DIR / 'Morrowind'
@@ -203,6 +216,8 @@ def update_skyrim_enchanting() -> None:
     run_step('Skyrim enchanting souls scrape',
              [enc_dir / 'souls_parse' / 'skyrim_scrape_souls.py',
               '--out-dir', enc_dir / 'souls_parse'])
+    run_step('Skyrim creature souls scrape',
+             [enc_dir / 'souls_parse' / 'skyrim_scrape_creature_souls.py'])
     run_step('Skyrim enchanting scrape',
              [enc_dir / 'enchant_parse' / 'skyrim_scrape_enchanting.py',
               '--out-dir', enc_dir / 'enchant_parse'])
@@ -221,13 +236,14 @@ def update_skyrim_enchanting() -> None:
     ]:
         run_step(label, [enc_dir / json_dir_name / script_name])
 
+    # Creature souls uses full-replace (no diff files); always run.
+    run_step('Skyrim creature souls SQL',
+             [enc_dir / 'creature_souls_sql' / 'create_or_update_skyrim_enchant_souls.py'])
+
     sql_pairs = [
         ('Skyrim gem types SQL',
          enc_dir / 'gem_types_json',
          enc_dir / 'gem_types_sql' / 'create_or_update_skyrim_enchant_soulgems.py'),
-        ('Skyrim creature souls SQL',
-         enc_dir / 'creature_souls_json',
-         enc_dir / 'creature_souls_sql' / 'create_or_update_skyrim_enchant_souls.py'),
         ('Skyrim enchant perks SQL',
          enc_dir / 'perks_json',
          enc_dir / 'perks_sql' / 'create_or_update_skyrim_enchant_perks.py'),
@@ -380,6 +396,10 @@ if __name__ == '__main__':
 
     log.info('--- Oblivion enchanting ---')
     update_oblivion_enchanting()
+
+    for game in ['Morrowind', 'Oblivion']:
+        log.info('--- %s souls ---', game)
+        update_souls(game)
 
     log.info('--- Skyrim enchanting ---')
     update_skyrim_enchanting()

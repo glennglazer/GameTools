@@ -1,0 +1,594 @@
+[
+  {
+    "name": "Diseased Mudcrab",
+    "soul_size": 5
+  },
+  {
+    "name": "Mudcrab",
+    "soul_size": 5
+  },
+  {
+    "name": "Old Blue Fin",
+    "soul_size": 5
+  },
+  {
+    "name": "Diseased Kwama Worker",
+    "soul_size": 8
+  },
+  {
+    "name": "Kwama Worker",
+    "soul_size": 8
+  },
+  {
+    "name": "Blighted Game Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Blighted Nix-Hound",
+    "soul_size": 10
+  },
+  {
+    "name": "Blighted Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Bull Netch",
+    "soul_size": 10
+  },
+  {
+    "name": "Cave Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Creeper",
+    "soul_size": 10
+  },
+  {
+    "name": "Scamp",
+    "soul_size": 10
+  },
+  {
+    "name": "Crippled Skeleton",
+    "soul_size": 10
+  },
+  {
+    "name": "Diseased Scrib",
+    "soul_size": 10
+  },
+  {
+    "name": "Game Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Nix-Hound",
+    "soul_size": 10
+  },
+  {
+    "name": "Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Rollie the Guar",
+    "soul_size": 10
+  },
+  {
+    "name": "Scrib",
+    "soul_size": 10
+  },
+  {
+    "name": "Slaughterfish",
+    "soul_size": 10
+  },
+  {
+    "name": "Small Slaughterfish",
+    "soul_size": 10
+  },
+  {
+    "name": "Telvanni Sewer Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Vaba-Amus",
+    "soul_size": 10
+  },
+  {
+    "name": "Kwama Forager",
+    "soul_size": 15
+  },
+  {
+    "name": "Alit",
+    "soul_size": 20
+  },
+  {
+    "name": "Blighted Cliff Racer",
+    "soul_size": 20
+  },
+  {
+    "name": "Blighted Kagouti",
+    "soul_size": 20
+  },
+  {
+    "name": "Blighted Scrib",
+    "soul_size": 20
+  },
+  {
+    "name": "Cliff Racer",
+    "soul_size": 20
+  },
+  {
+    "name": "Corky",
+    "soul_size": 20
+  },
+  {
+    "name": "Diseased Cliff Racer",
+    "soul_size": 20
+  },
+  {
+    "name": "Diseased Kagouti",
+    "soul_size": 20
+  },
+  {
+    "name": "Guar",
+    "soul_size": 20
+  },
+  {
+    "name": "Kagouti",
+    "soul_size": 20
+  },
+  {
+    "name": "Kwama Warrior",
+    "soul_size": 20
+  },
+  {
+    "name": "Pack Guar",
+    "soul_size": 20
+  },
+  {
+    "name": "Tarvyn's Guar",
+    "soul_size": 20
+  },
+  {
+    "name": "Wild Guar",
+    "soul_size": 20
+  },
+  {
+    "name": "Blighted Alit",
+    "soul_size": 25
+  },
+  {
+    "name": "Diseased Alit",
+    "soul_size": 25
+  },
+  {
+    "name": "Blighted Kwama Warrior",
+    "soul_size": 30
+  },
+  {
+    "name": "Blighted Shalk",
+    "soul_size": 30
+  },
+  {
+    "name": "Diseased Shalk",
+    "soul_size": 30
+  },
+  {
+    "name": "Shalk",
+    "soul_size": 30
+  },
+  {
+    "name": "Skeleton",
+    "soul_size": 30
+  },
+  {
+    "name": "Skeleton Archer",
+    "soul_size": 30
+  },
+  {
+    "name": "Skeleton Warrior",
+    "soul_size": 30
+  },
+  {
+    "name": "Diseased Rat",
+    "soul_size": 40
+  },
+  {
+    "name": "Bull Netch",
+    "soul_size": 50
+  },
+  {
+    "name": "Kwama Queen",
+    "soul_size": 50
+  },
+  {
+    "name": "Hunger(unique)",
+    "soul_size": 50
+  },
+  {
+    "name": "Spider Centurion",
+    "soul_size": 50
+  },
+  {
+    "name": "The White Guar",
+    "soul_size": 50
+  },
+  {
+    "name": "Giant Bull Netch",
+    "soul_size": 60
+  },
+  {
+    "name": "Lesser Bonewalker",
+    "soul_size": 65
+  },
+  {
+    "name": "Ogrim Titan",
+    "soul_size": 70
+  },
+  {
+    "name": "Betty Netch",
+    "soul_size": 75
+  },
+  {
+    "name": "Bonewalker",
+    "soul_size": 75
+  },
+  {
+    "name": "Dreugh",
+    "soul_size": 75
+  },
+  {
+    "name": "Dreugh Warlord",
+    "soul_size": 75
+  },
+  {
+    "name": "Greater Bonewalker",
+    "soul_size": 75
+  },
+  {
+    "name": "Ancestor Ghost",
+    "soul_size": 100
+  },
+  {
+    "name": "Ash Slave",
+    "soul_size": 100
+  },
+  {
+    "name": "Ash Zombie",
+    "soul_size": 100
+  },
+  {
+    "name": "Bonelord",
+    "soul_size": 100
+  },
+  {
+    "name": "Clannfear",
+    "soul_size": 100
+  },
+  {
+    "name": "Corprus Stalker",
+    "soul_size": 100
+  },
+  {
+    "name": "Dremora",
+    "soul_size": 100
+  },
+  {
+    "name": "Ghost of Galos Heleran",
+    "soul_size": 100
+  },
+  {
+    "name": "Lustidrike",
+    "soul_size": 100
+  },
+  {
+    "name": "Scamp",
+    "soul_size": 100
+  },
+  {
+    "name": "Wraith of Sul-Senipul",
+    "soul_size": 100
+  },
+  {
+    "name": "Flame Atronach",
+    "soul_size": 105
+  },
+  {
+    "name": "Frost Atronach",
+    "soul_size": 138
+  },
+  {
+    "name": "Storm Atronach",
+    "soul_size": 150
+  },
+  {
+    "name": "Lame Corprus",
+    "soul_size": 160
+  },
+  {
+    "name": "Nomeg Gwai",
+    "soul_size": 160
+  },
+  {
+    "name": "Ogrim",
+    "soul_size": 165
+  },
+  {
+    "name": "Daedroth",
+    "soul_size": 195
+  },
+  {
+    "name": "Hrelvesuu",
+    "soul_size": 195
+  },
+  {
+    "name": "Beldoh the Undying",
+    "soul_size": 200
+  },
+  {
+    "name": "Dremora Lord",
+    "soul_size": 200
+  },
+  {
+    "name": "Dwarven Spectre",
+    "soul_size": 200
+  },
+  {
+    "name": "Krazzt",
+    "soul_size": 200
+  },
+  {
+    "name": "Lord Dregas Volar",
+    "soul_size": 200
+  },
+  {
+    "name": "Mating Kagouti",
+    "soul_size": 200
+  },
+  {
+    "name": "Skeleton Champion",
+    "soul_size": 200
+  },
+  {
+    "name": "Yagrum Bagarn",
+    "soul_size": 200
+  },
+  {
+    "name": "Ash Ghoul",
+    "soul_size": 250
+  },
+  {
+    "name": "Hunger",
+    "soul_size": 250
+  },
+  {
+    "name": "Ancestor Guardian",
+    "soul_size": 280
+  },
+  {
+    "name": "Dagoth Ganel",
+    "soul_size": 280
+  },
+  {
+    "name": "Dagoth Gares",
+    "soul_size": 280
+  },
+  {
+    "name": "Dagoth Mulyn",
+    "soul_size": 280
+  },
+  {
+    "name": "Dagoth Velos",
+    "soul_size": 280
+  },
+  {
+    "name": "Gateway Haunt",
+    "soul_size": 280
+  },
+  {
+    "name": "Kanit Ashurnisammis",
+    "soul_size": 280
+  },
+  {
+    "name": "Mansilamat Vabdas",
+    "soul_size": 280
+  },
+  {
+    "name": "Dagoth Aladus",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Baler",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Daynil",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Delnus",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Drals",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Draven",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Elam",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Fals",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Fervas",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Fovon",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Galmis",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Girer",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Ienas",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Mendras",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Mulis",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Muthes",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Nilor",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Ralas",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Soler",
+    "soul_size": 300
+  },
+  {
+    "name": "Skeleton War-Wizard",
+    "soul_size": 300
+  },
+  {
+    "name": "Winged Twilight",
+    "soul_size": 300
+  },
+  {
+    "name": "Grurn",
+    "soul_size": 300
+  },
+  {
+    "name": "Dagoth Fandril",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Felmis",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Garel",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Goral",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Hlevul",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Irvyn",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Malan",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Molos",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Rather",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Reler",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Tanis",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Ulen",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Uvil",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Vaner",
+    "soul_size": 330
+  },
+  {
+    "name": "Dagoth Uthol",
+    "soul_size": 340
+  },
+  {
+    "name": "Menta Na",
+    "soul_size": 350
+  },
+  {
+    "name": "Molag Grunda",
+    "soul_size": 350
+  },
+  {
+    "name": "Dagoth Araynys",
+    "soul_size": 360
+  },
+  {
+    "name": "Dagoth Endus",
+    "soul_size": 360
+  },
+  {
+    "name": "Dagoth Gilvoth",
+    "soul_size": 360
+  },
+  {
+    "name": "Dagoth Odros",
+    "soul_size": 360
+  },
+  {
+    "name": "Dagoth Tureynul",
+    "soul_size": 360
+  },
+  {
+    "name": "Dagoth Vemyn",
+    "soul_size": 360
+  },
+  {
+    "name": "Ascended Sleeper",
+    "soul_size": 400
+  },
+  {
+    "name": "Dahrk Mezalf",
+    "soul_size": 400
+  },
+  {
+    "name": "Golden Saint",
+    "soul_size": 400
+  },
+  {
+    "name": "Staada",
+    "soul_size": 400
+  },
+  {
+    "name": "Vivec",
+    "soul_size": 1000
+  }
+]

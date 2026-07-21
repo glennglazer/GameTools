@@ -1,4 +1,4 @@
-"""Tests for gem_types and creature_souls JSON parsers."""
+"""Tests for gem_types JSON parser."""
 import json
 import subprocess
 import sys
@@ -10,28 +10,16 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from conftest import load_module, REPO_ROOT
 
 GEM_SCRIPT = str(REPO_ROOT / 'TES/Skyrim/enchanting/gem_types_json/skyrim_parse_gem_types_to_json.py')
-SOULS_SCRIPT = str(REPO_ROOT / 'TES/Skyrim/enchanting/creature_souls_json/skyrim_parse_creature_souls_to_json.py')
 
 _gem = load_module(
     'TES/Skyrim/enchanting/gem_types_json/skyrim_parse_gem_types_to_json.py',
     'sk_gem_parse',
-)
-_souls = load_module(
-    'TES/Skyrim/enchanting/creature_souls_json/skyrim_parse_creature_souls_to_json.py',
-    'sk_souls_parse',
 )
 
 GEM_SAMPLE_RAW = (
     "Petty Soul Gem|0.1|10|250|Can hold creature souls below level 4.\n"
     "Lesser Soul Gem|0.2|25|500|Can hold creature souls below level 16.\n"
     "Black Soul Gem|1|500|3000|Can hold any soul, including humanoids.\n"
-)
-
-SOULS_SAMPLE_RAW = (
-    "Chicken|petty\n"
-    "Mudcrab|petty\n"
-    "Wolf|lesser\n"
-    "Nord|black\n"
 )
 
 GEM_SAMPLE = [
@@ -43,13 +31,6 @@ GEM_SAMPLE = [
      'trappable_souls': 'Can hold any soul, including humanoids.'},
 ]
 
-SOULS_SAMPLE = [
-    {'creature': 'Chicken', 'soul_size': 'petty'},
-    {'creature': 'Mudcrab', 'soul_size': 'petty'},
-    {'creature': 'Wolf', 'soul_size': 'lesser'},
-    {'creature': 'Nord', 'soul_size': 'black'},
-]
-
 
 def make_gem_raw(tmp_path, content=GEM_SAMPLE_RAW):
     p = tmp_path / 'skyrim_soul_gem_types_raw.txt'
@@ -57,18 +38,8 @@ def make_gem_raw(tmp_path, content=GEM_SAMPLE_RAW):
     return str(p)
 
 
-def make_souls_raw(tmp_path, content=SOULS_SAMPLE_RAW):
-    p = tmp_path / 'skyrim_creature_souls_raw.txt'
-    p.write_text(content)
-    return str(p)
-
-
 def run_gem(args):
     return subprocess.run([sys.executable, GEM_SCRIPT] + args, capture_output=True, text=True)
-
-
-def run_souls(args):
-    return subprocess.run([sys.executable, SOULS_SCRIPT] + args, capture_output=True, text=True)
 
 
 # ===========================================================================
@@ -160,68 +131,4 @@ def test_gem_subprocess_bad_input_exits_nonzero(tmp_path):
     bad = tmp_path / 'bad.txt'
     bad.write_text('bad|line\n')
     result = run_gem([str(bad), str(tmp_path / 'out.json')])
-    assert result.returncode != 0
-
-
-# ===========================================================================
-# creature_souls parser
-# ===========================================================================
-
-def test_souls_parse_correct_count(tmp_path):
-    assert len(_souls.parse(make_souls_raw(tmp_path))) == 4
-
-def test_souls_parse_fields(tmp_path):
-    rows = _souls.parse(make_souls_raw(tmp_path))
-    assert rows[0] == {'creature': 'Chicken', 'soul_size': 'petty'}
-    assert rows[3] == {'creature': 'Nord', 'soul_size': 'black'}
-
-def test_souls_parse_wrong_fields_raises(tmp_path):
-    bad = tmp_path / 'bad.txt'
-    bad.write_text('OnlyOne\n')
-    with pytest.raises(ValueError, match='pipe-separated'):
-        _souls.parse(str(bad))
-
-def test_souls_parse_invalid_size_raises(tmp_path):
-    bad = tmp_path / 'bad.txt'
-    bad.write_text('Chicken|gigantic\n')
-    with pytest.raises(ValueError, match='unknown soul_size'):
-        _souls.parse(str(bad))
-
-def test_souls_parse_missing_file_raises(tmp_path):
-    with pytest.raises(OSError):
-        _souls.parse(str(tmp_path / 'missing.txt'))
-
-def test_souls_load_json_safe_missing_returns_empty(tmp_path):
-    assert _souls.load_json_safe(str(tmp_path / 'missing.json')) == []
-
-def test_souls_compute_diff_composite_key():
-    extra = {'creature': 'Dragon', 'soul_size': 'grand'}
-    upsert, delete = _souls.compute_diff(SOULS_SAMPLE, SOULS_SAMPLE + [extra], _souls._key)
-    assert len(upsert) == 1 and upsert[0]['creature'] == 'Dragon'
-    assert delete == []
-
-def test_souls_compute_diff_deleted_row():
-    upsert, delete = _souls.compute_diff(SOULS_SAMPLE, SOULS_SAMPLE[:3], _souls._key)
-    assert len(delete) == 1 and delete[0]['creature'] == 'Nord'
-
-def test_souls_subprocess_creates_json(tmp_path):
-    infile = make_souls_raw(tmp_path)
-    outfile = str(tmp_path / 'out.json')
-    result = run_souls([infile, outfile])
-    assert result.returncode == 0, result.stderr
-    data = json.loads(Path(outfile).read_text())
-    assert len(data) == 4
-
-def test_souls_subprocess_no_change_exits_zero(tmp_path):
-    infile = make_souls_raw(tmp_path)
-    outfile = str(tmp_path / 'out.json')
-    run_souls([infile, outfile])
-    result = run_souls([infile, outfile])
-    assert result.returncode == 0
-    assert 'No changes' in result.stderr
-
-def test_souls_subprocess_bad_size_exits_nonzero(tmp_path):
-    bad = tmp_path / 'bad.txt'
-    bad.write_text('Dragon|colossal\n')
-    result = run_souls([str(bad), str(tmp_path / 'out.json')])
     assert result.returncode != 0

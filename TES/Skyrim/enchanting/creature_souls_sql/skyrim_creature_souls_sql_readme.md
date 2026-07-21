@@ -1,20 +1,24 @@
-# Skyrim Creature Souls SQL Loader
+# Purpose and Action
 
-**Script**: `create_or_update_skyrim_enchant_souls.py`
+Loads `skyrim_enchant_souls` from JSON into SQLite. Drops and recreates the table on every run to ensure `soul_size` is stored as INTEGER (the legacy pipeline used TEXT).
 
-Creates or incrementally updates the `skyrim_enchant_souls` table. Uses a composite unique key on `(creature, soul_size)`.
+## Script
 
-## Table: `skyrim_enchant_souls`
+### `create_or_update_skyrim_enchant_souls.py`
+
+Reads `skyrim_enchant_souls.json` from the sibling `creature_souls_json/` directory and loads 105 records into `skyrim_enchant_souls`.
+
+**Target table:** `skyrim_enchant_souls`
 
 | Column | Type | Notes |
-|--------|------|-------|
-| creature | TEXT | creature or race name |
-| soul_size | TEXT | petty/lesser/common/greater/grand/black |
+|---|---|---|
+| `name` | TEXT | Creature or NPC name |
+| `soul_size` | INTEGER | Charge capacity: 250/500/1000/2000/3000 |
 
-Index: `s_es_creature_size` on `(creature, soul_size)`.
+Unique index on `(name, soul_size)`. Creatures with multiple soul levels appear as multiple rows (e.g. Draugr Deathlord at 1000, 2000, and 3000). The generic "NPC" entry covers all humanoid NPCs (soul_size=3000).
 
 ## Usage
 
 ```bash
-python3 creature_souls_sql/create_or_update_skyrim_enchant_souls.py [json_file [db_path]]
+python3 TES/Skyrim/enchanting/creature_souls_sql/create_or_update_skyrim_enchant_souls.py
 ```

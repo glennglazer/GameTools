@@ -1,148 +1,124 @@
-#!/usr/bin/python3
+"""Parse Skyrim creature souls from UESP raw HTML into JSON records.
+
+Source: Skyrim:Souls page (fetched by souls_parse/skyrim_scrape_creature_souls.py).
+Produces integer soul sizes from the page's mapping table.
+Handles rowspan rows (creatures with multiple soul levels).
+Skips leveled souls and 'No soul' entries. Adds a generic NPC entry (Black/3000).
 """
-Parse the pipe-delimited creature souls raw text file into JSON,
-and write diff files for the SQL loader.
-
-Input format (one line per entry):
-  creature|soul_size
-
-Output JSON format:
-  [{"creature": "Chicken", "soul_size": "petty"}, ...]
-
-Key is a composite (creature, soul_size) tuple.
-"""
-
 import argparse
 import json
-import os.path as op
+import re
 import sys
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 _SCRIPT_DIR = Path(__file__).parent.resolve()
-_PARSE_DIR = _SCRIPT_DIR.parent / 'souls_parse'
-_DEFAULT_INFILE = str(_PARSE_DIR / 'skyrim_creature_souls_raw.txt')
-_DEFAULT_OUTFILE = str(_SCRIPT_DIR / 'skyrim_enchant_souls.json')
+_DEFAULT_IN = str(_SCRIPT_DIR.parent / "souls_parse" / "skyrim_creature_souls_uesp_raw.json")
+_DEFAULT_OUT = str(_SCRIPT_DIR / "skyrim_enchant_souls.json")
 
-EXPECTED_FIELDS = 2
-VALID_SOUL_SIZES = frozenset(['petty', 'lesser', 'common', 'greater', 'grand', 'black'])
+_SKIP_PREFIXES = ("Leveled", "No soul")
 
 
-def parse(infile: str) -> list:
-    """Read pipe-delimited raw file and return list of creature soul dicts."""
-    try:
-        with open(infile) as f:
-            lines = [l.rstrip('\n') for l in f if l.strip()]
-    except OSError as e:
-        print(f'Failed to read {infile}: {e}', file=sys.stderr)
-        raise
-
-    souls = []
-    for lineno, line in enumerate(lines, 1):
-        parts = line.split('|')
-        if len(parts) != EXPECTED_FIELDS:
-            raise ValueError(
-                f'Line {lineno}: expected {EXPECTED_FIELDS} pipe-separated fields, '
-                f'got {len(parts)}: {line!r}'
-            )
-        creature, soul_size = parts[0].strip(), parts[1].strip()
-        if soul_size not in VALID_SOUL_SIZES:
-            raise ValueError(
-                f'Line {lineno}: unknown soul_size {soul_size!r} '
-                f'(expected one of {sorted(VALID_SOUL_SIZES)})'
-            )
-        souls.append({'creature': creature, 'soul_size': soul_size})
-    return souls
+def _is_fixed(level: str) -> bool:
+    return not any(level.startswith(p) for p in _SKIP_PREFIXES)
 
 
-def load_json_safe(path: str) -> list:
-    """Return parsed JSON from path, or [] if file missing or unreadable."""
-    try:
-        with open(path) as f:
-            data = json.load(f)
-        return data if isinstance(data, list) else []
-    except (OSError, json.JSONDecodeError):
-        return []
+def parse_mapping(soup: BeautifulSoup) -> dict:
+    """Return {soul_level_name: int} from the Charge Capacity mapping table."""
+    for table in soup.find_all("table", class_="wikitable"):
+        headers = [th.get_text(strip=True) for th in table.find("tr").find_all("th")]
+        if "Charge Capacity" not in headers:
+            continue
+        mapping = {}
+        cap_idx = headers.index("Charge Capacity")
+        level_idx = headers.index("Soul Level") if "Soul Level" in headers else 0
+        for row in table.find_all("tr")[1:]:
+            cells = row.find_all(["th", "td"])
+            if len(cells) <= cap_idx:
+                continue
+            level = cells[level_idx].get_text(strip=True)
+            try:
+                capacity = int(cells[cap_idx].get_text(strip=True))
+            except ValueError:
+                continue
+            mapping[level] = capacity
+        if mapping:
+            return mapping
+    raise ValueError("No Charge Capacity mapping table found in Skyrim:Souls HTML")
 
 
-def compute_diff(old_list: list, new_list: list, key_fn) -> tuple:
-    """Return (upsert_list, delete_list) comparing old vs new by key_fn."""
-    old_map = {key_fn(r): r for r in old_list}
-    new_map = {key_fn(r): r for r in new_list}
-    upsert = [r for k, r in new_map.items() if old_map.get(k) != r]
-    delete = [r for k, r in old_map.items() if k not in new_map]
-    return upsert, delete
+def parse_souls(soup: BeautifulSoup, mapping: dict) -> list:
+    """Return [{name, soul_size}] from the creature table, handling rowspan.
+
+    Creatures with multiple soul levels (e.g., Draugr Deathlord: Common/Greater/Grand)
+    produce one record per fixed soul level.  Parenthetical qualifiers like
+    '(Shaman)' and '(Other)' are stripped before mapping.
+    """
+    creature_table = None
+    for table in soup.find_all("table", class_="wikitable"):
+        headers = [th.get_text(strip=True) for th in table.find("tr").find_all("th")]
+        if "Creature" in headers and "Soul Level" in headers:
+            creature_table = table
+            break
+    if creature_table is None:
+        raise ValueError("No creature/soul-level table found in Skyrim:Souls HTML")
+
+    records = []
+    seen = set()
+    current_name = None
+
+    for row in creature_table.find_all("tr")[1:]:
+        cells = row.find_all("td")
+        if not cells:
+            continue
+
+        if len(cells) >= 2:
+            # New creature row: first cell is name (may have rowspan), second is level.
+            name_cell = cells[0]
+            for sup in name_cell.find_all("sup"):
+                sup.decompose()
+            current_name = name_cell.get_text(strip=True)
+            level_text = cells[1].get_text(strip=True)
+        else:
+            # Continuation row for a rowspan creature: single cell is the level.
+            level_text = cells[0].get_text(strip=True)
+
+        if not current_name or not _is_fixed(level_text):
+            continue
+
+        level_clean = re.sub(r"\s*\(.*?\)", "", level_text).strip()
+        if level_clean not in mapping:
+            continue
+
+        soul_size = mapping[level_clean]
+        key = (current_name, soul_size)
+        if key not in seen:
+            records.append({"name": current_name, "soul_size": soul_size})
+            seen.add(key)
+
+    # NPCs have Black souls; Black soul gems share Grand capacity.
+    black_size = mapping.get("Grand", 3000)
+    records.append({"name": "NPC", "soul_size": black_size})
+    return records
 
 
-def write_file(data: list, outfile: str) -> None:
-    """Write data as JSON to outfile."""
-    try:
-        with open(outfile, 'w') as f:
-            json.dump(data, f)
-    except OSError as e:
-        print(f'Failed to write {outfile}: {e}', file=sys.stderr)
-        raise
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description="Parse Skyrim creature souls to JSON.")
+    ap.add_argument("infile", nargs="?", default=_DEFAULT_IN)
+    ap.add_argument("outfile", nargs="?", default=_DEFAULT_OUT)
+    args = ap.parse_args()
 
+    with open(args.infile, encoding="utf-8") as f:
+        data = json.load(f)
 
-def write_diff_files(outfile: str, upsert: list, delete: list) -> None:
-    """Write <stem>.upsert.json and <stem>.delete.json alongside outfile."""
-    stem = Path(outfile).stem
-    out_dir = Path(outfile).parent
-    try:
-        with open(out_dir / f'{stem}.upsert.json', 'w') as f:
-            json.dump(upsert if upsert else {}, f)
-        with open(out_dir / f'{stem}.delete.json', 'w') as f:
-            json.dump(delete if delete else {}, f)
-    except OSError as e:
-        print(f'Failed to write diff files: {e}', file=sys.stderr)
-        raise
-
-
-def _key(r):
-    return (r['creature'], r['soul_size'])
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description='Parse Skyrim creature souls raw text into JSON.'
-    )
-    parser.add_argument('infile', nargs='?', default=_DEFAULT_INFILE)
-    parser.add_argument('outfile', nargs='?', default=_DEFAULT_OUTFILE)
-    args = parser.parse_args()
-
-    if not op.exists(args.infile):
-        print(f'Input file not found: {args.infile}', file=sys.stderr)
+    soup = BeautifulSoup(data["html"], "html.parser")
+    mapping = parse_mapping(soup)
+    records = parse_souls(soup, mapping)
+    if not records:
+        print("ERROR: no souls parsed — check raw file", file=sys.stderr)
         sys.exit(1)
 
-    try:
-        new_data = parse(args.infile)
-    except (OSError, ValueError) as e:
-        print(f'Parse error: {e}', file=sys.stderr)
-        sys.exit(1)
-
-    if not new_data:
-        print('No creature souls parsed — check raw file.', file=sys.stderr)
-        sys.exit(1)
-
-    old_data = load_json_safe(args.outfile)
-
-    if old_data == new_data:
-        print(f'No changes: {Path(args.outfile).name}', file=sys.stderr)
-        sys.exit(0)
-
-    old_path = Path(args.outfile)
-    if old_path.exists():
-        try:
-            old_path.rename(old_path.with_suffix('.old.json'))
-        except OSError as e:
-            print(f'Failed to rename {old_path.name}: {e}', file=sys.stderr)
-            sys.exit(1)
-
-    try:
-        write_file(new_data, args.outfile)
-        upsert, delete = compute_diff(old_data, new_data, _key)
-        write_diff_files(args.outfile, upsert, delete)
-    except OSError:
-        sys.exit(1)
-
-    print(f'Updated {Path(args.outfile).name}: {len(upsert)} upsert, {len(delete)} delete',
-          file=sys.stderr)
+    with open(args.outfile, "w", encoding="utf-8") as f:
+        json.dump(records, f, indent=2)
+    print(f"{len(records)} records → {args.outfile}", file=sys.stderr)

@@ -1,0 +1,206 @@
+[
+  {
+    "name": "Ancient Ghost",
+    "soul_size": 800
+  },
+  {
+    "name": "Black Bear",
+    "soul_size": 800
+  },
+  {
+    "name": "Boar",
+    "soul_size": 300
+  },
+  {
+    "name": "Brown Bear",
+    "soul_size": 1200
+  },
+  {
+    "name": "Clannfear",
+    "soul_size": 800
+  },
+  {
+    "name": "Clannfear Runt",
+    "soul_size": 300
+  },
+  {
+    "name": "Daedroth",
+    "soul_size": 1200
+  },
+  {
+    "name": "Deer",
+    "soul_size": 150
+  },
+  {
+    "name": "Dog",
+    "soul_size": 150
+  },
+  {
+    "name": "Dread Zombie",
+    "soul_size": 1200
+  },
+  {
+    "name": "Dremora",
+    "soul_size": 1600
+  },
+  {
+    "name": "Faded Wraith",
+    "soul_size": 800
+  },
+  {
+    "name": "Flame Atronach",
+    "soul_size": 800
+  },
+  {
+    "name": "Frost Atronach",
+    "soul_size": 1200
+  },
+  {
+    "name": "Gloom Wraith",
+    "soul_size": 1600
+  },
+  {
+    "name": "Goblin",
+    "soul_size": 150
+  },
+  {
+    "name": "Goblin Berserker",
+    "soul_size": 800
+  },
+  {
+    "name": "Goblin Skirmisher",
+    "soul_size": 300
+  },
+  {
+    "name": "Headless Zombie",
+    "soul_size": 800
+  },
+  {
+    "name": "Horse",
+    "soul_size": 300
+  },
+  {
+    "name": "Land Dreugh",
+    "soul_size": 1200
+  },
+  {
+    "name": "Lich",
+    "soul_size": 1600
+  },
+  {
+    "name": "Minotaur",
+    "soul_size": 800
+  },
+  {
+    "name": "Minotaur Lord",
+    "soul_size": 1600
+  },
+  {
+    "name": "Mountain Lion",
+    "soul_size": 800
+  },
+  {
+    "name": "Mud Crab",
+    "soul_size": 150
+  },
+  {
+    "name": "NPC(any race)",
+    "soul_size": 1600
+  },
+  {
+    "name": "Rat",
+    "soul_size": 150
+  },
+  {
+    "name": "Scamp",
+    "soul_size": 300
+  },
+  {
+    "name": "Sheep",
+    "soul_size": 150
+  },
+  {
+    "name": "Skeleton",
+    "soul_size": 150
+  },
+  {
+    "name": "Skeleton Champion",
+    "soul_size": 1200
+  },
+  {
+    "name": "Skeleton Guardian",
+    "soul_size": 300
+  },
+  {
+    "name": "Skeleton Hero",
+    "soul_size": 800
+  },
+  {
+    "name": "Slaughterfish",
+    "soul_size": 150
+  },
+  {
+    "name": "Spider Daedra",
+    "soul_size": 1200
+  },
+  {
+    "name": "Spriggan",
+    "soul_size": 800
+  },
+  {
+    "name": "Storm Atronach",
+    "soul_size": 1200
+  },
+  {
+    "name": "Stunted Scamp",
+    "soul_size": 150
+  },
+  {
+    "name": "Timber Wolf",
+    "soul_size": 300
+  },
+  {
+    "name": "Troll",
+    "soul_size": 300
+  },
+  {
+    "name": "Vampire",
+    "soul_size": 1600
+  },
+  {
+    "name": "Will-o-the-Wisp",
+    "soul_size": 800
+  },
+  {
+    "name": "Wolf",
+    "soul_size": 150
+  },
+  {
+    "name": "Wraith",
+    "soul_size": 1200
+  },
+  {
+    "name": "Xivilai",
+    "soul_size": 1600
+  },
+  {
+    "name": "Zombie",
+    "soul_size": 300
+  },
+  {
+    "name": "Everscamp",
+    "soul_size": 300
+  },
+  {
+    "name": "Ogre (Pale Pass, Redguard Val.)",
+    "soul_size": 800
+  },
+  {
+    "name": "Uderfrykte Matron",
+    "soul_size": 1600
+  },
+  {
+    "name": "Unicorn",
+    "soul_size": 1200
+  }
+]
