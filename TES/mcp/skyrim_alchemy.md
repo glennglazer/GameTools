@@ -19,6 +19,9 @@ effects the chosen ingredients **share**:
   Effects present on only one ingredient are discarded.
 - There is no upper limit on how many distinct effects a single potion can have — a well-chosen
   three-ingredient combo can produce potions with 4 or more effects simultaneously.
+- Potion crafting **always succeeds** as long as at least two of the selected ingredients share at
+  least one effect. There is no failure chance based on skill level — unlike Morrowind and Oblivion,
+  where a low Alchemy skill can cause attempts to fail entirely.
 
 Each ingredient has exactly **four effects** in Skyrim. The first effect of every ingredient is
 always revealed (no discovery needed). Additional effects are discovered by:
@@ -93,12 +96,80 @@ Higher-value potions give more XP. The most efficient leveling strategies exploi
 combinations (e.g., Fortify Enchanting, Fortify Smithing, Paralysis).
 
 Skill level directly multiplies potion magnitude and duration: an Alchemy 100 character produces
-significantly stronger potions than an Alchemy 15 character crafting the same ingredients. The
-exact formula involves both the skill multiplier and any active perk bonuses applied multiplicatively.
+significantly stronger potions than an Alchemy 15 character crafting the same ingredients. See the
+Potion Strength Formula section below for the exact calculation.
 
 The **Fortify Restoration loop** (buffing Fortify Restoration potions then re-equipping Restoration
 gear to boost the next batch) is a known mechanic interaction but is out of scope for the standard
 crafting queries.
+
+---
+
+## Potion Strength Formula
+
+The magnitude of every effect in a crafted potion is:
+
+```
+Result = fAlchemyIngredientInitMult × BaseMag × SkillMult
+       × Alchemist × Benefactor × Physician × Poisoner
+       × Enchantments × SeekerOfShadows
+```
+
+If `Result < 0`, use `BaseMag` instead (guards against pathological edge cases).
+
+### Constants and inputs
+
+| Symbol | Value / source |
+|--------|----------------|
+| `fAlchemyIngredientInitMult` | 4 (engine constant) |
+| `fAlchemySkillFactor` | 1.5 (engine constant) |
+| `BaseMag` | Effect's base magnitude — `skyrim_alchemy_effects.base_magnitude` |
+| `SkillMult` | `1 + (fAlchemySkillFactor − 1) × Skill / 100` = `1 + 0.5 × Skill / 100` |
+
+`SkillMult` ranges from **1.0** (Skill 0) to **1.5** (Skill 100).
+
+### Perk multipliers
+
+Each multiplier is **1.0** when the perk is absent or its condition is not met.
+
+| Multiplier | Perk | Condition |
+|------------|------|-----------|
+| `Alchemist` | Alchemist (1–5/5) | Always applies; 1.0 → 1.2 → 1.4 → 1.6 → 1.8 → **2.0** at rank 5 |
+| `Benefactor` | Benefactor | ×1.25 if effect is **beneficial** |
+| `Physician` | Physician | ×1.25 if effect is Restore Health, Restore Magicka, or Restore Stamina |
+| `Poisoner` | Poisoner | ×1.25 if effect is **harmful** |
+
+Physician and Benefactor can stack for Restore effects (both apply if the character has both perks).
+
+### Enchantment multiplier
+
+`Enchantments` = `1.0 + (sum of all Fortify Alchemy % bonuses on equipped gear)`.
+
+For example, four items each enchanted with 25% Fortify Alchemy give `Enchantments = 2.0`.
+Fortify Alchemy enchantments are the primary way to push potions beyond what Skill 100 + full perks
+alone produces.
+
+### Seeker of Shadows
+
+A power from the Dragonborn DLC (Black Book: Filament and Filigree). Grants a permanent +10% bonus
+to all Stealth skills, including Alchemy. Binary: either the character has it (`×1.1`) or they
+don't (`×1.0`).
+
+### Example
+
+Skill 100, Alchemist 5/5, Physician perk, no enchantments, no Seeker of Shadows,
+crafting a Restore Health potion (BaseMag = 5):
+
+```
+SkillMult    = 1 + 0.5 × 100/100 = 1.5
+Alchemist    = 2.0  (rank 5)
+Physician    = 1.25 (Restore Health qualifies)
+Benefactor   = 1.0  (not taken in this example)
+Enchantments = 1.0  (no Fortify Alchemy gear)
+SeekerOfShadows = 1.0
+
+Result = 4 × 5 × 1.5 × 2.0 × 1.0 × 1.25 × 1.0 × 1.0 × 1.0 = 75
+```
 
 ---
 
