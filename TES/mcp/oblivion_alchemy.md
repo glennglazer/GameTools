@@ -9,7 +9,7 @@ formulas. Use it alongside the `oblivion_alchemy_*` tool functions, which query 
 ## Crafting Mechanics
 
 Potions and poisons are crafted using a **Mortar and Pestle** (the only required apparatus) plus
-up to three additional ingredients. Additional apparatus in your inventory further modify the
+up to four ingredients. Additional apparatus in your inventory further modify the
 results.
 
 - A **potion** is produced when at least one shared effect among the chosen ingredients is
