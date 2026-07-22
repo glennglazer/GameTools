@@ -20,8 +20,8 @@ effects the chosen ingredients **share**:
 - There is no upper limit on how many distinct effects a single potion can have — a well-chosen
   three-ingredient combo can produce potions with 4 or more effects simultaneously.
 - Potion crafting **always succeeds** as long as at least two of the selected ingredients share at
-  least one effect. There is no failure chance based on skill level — unlike Morrowind and Oblivion,
-  where a low Alchemy skill can cause attempts to fail entirely.
+  least one effect. There is no failure chance based on skill level — unlike Morrowind, where a low
+  Alchemy skill can cause attempts to fail entirely. (Oblivion also always succeeds.)
 
 Each ingredient has exactly **four effects** in Skyrim. The first effect of every ingredient is
 always revealed (no discovery needed). Additional effects are discovered by:
