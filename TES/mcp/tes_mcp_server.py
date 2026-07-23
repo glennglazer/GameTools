@@ -20,6 +20,14 @@ _engine = create_engine(
 mcp = FastMCP("TES GameTools")
 
 
+# ─── general rules ──────────────────────────────────────────────────────────
+
+@mcp.resource("gametools://tes/rules")
+def tes_general_rules() -> str:
+    """Cross-game query conventions: explicit absence rule, NULL data, mechanic vs data gaps."""
+    return (_SCRIPT_DIR / 'tes_general.md').read_text()
+
+
 def _query(sql: str, params: dict | None = None) -> list[dict]:
     """Execute a read-only SQL query and return rows as plain dicts."""
     with _engine.connect() as conn:
