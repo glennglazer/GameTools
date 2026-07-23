@@ -104,14 +104,14 @@ if __name__ == '__main__':
         current_sql = f"SELECT name FROM sqlite_master WHERE name='{TABLE_NAME}'"
         table_exists = cur.execute(current_sql).fetchone()
 
-        # If the table exists but pre-dates the base_magnitude column, drop it so
+        # If the table exists but pre-dates base_magnitude or base_cost, drop it so
         # it gets recreated with the full schema.  The upsert file will carry all
         # rows (they all changed), so the first-run path below repopulates it.
         if table_exists is not None:
             existing_cols = [
                 row[1] for row in cur.execute(f"PRAGMA table_info({TABLE_NAME})").fetchall()
             ]
-            if 'base_magnitude' not in existing_cols:
+            if 'base_magnitude' not in existing_cols or 'base_cost' not in existing_cols:
                 current_sql = f"DROP TABLE {TABLE_NAME}"
                 cur.execute(current_sql)
                 current_sql = f"DROP INDEX IF EXISTS {INDEX_NAME}"

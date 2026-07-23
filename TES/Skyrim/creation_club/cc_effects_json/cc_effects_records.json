@@ -1,6 +1,7 @@
 [
   {
     "effect": "Fortify Persuasion",
-    "base_magnitude": 1
+    "base_magnitude": 1,
+    "base_cost": 0.5
   }
 ]

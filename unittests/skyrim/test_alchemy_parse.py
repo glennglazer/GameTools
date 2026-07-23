@@ -171,8 +171,16 @@ def test_load_effects_raw_returns_lowercase_keyed_base_mag(tmp_path):
     p = tmp_path / "effects_raw.json"
     p.write_text(_json.dumps(SAMPLE_EFFECTS_RAW))
     result = load_effects_raw(str(p))
-    assert result["weakness to frost"] == 3
-    assert result["fortify sneak"] == 4
+    assert result["weakness to frost"]["base_mag"] == 3
+    assert result["fortify sneak"]["base_mag"] == 4
+
+def test_load_effects_raw_returns_base_cost(tmp_path):
+    import json as _json
+    p = tmp_path / "effects_raw.json"
+    p.write_text(_json.dumps(SAMPLE_EFFECTS_RAW))
+    result = load_effects_raw(str(p))
+    assert result["weakness to frost"]["base_cost"] == 0.5
+    assert result["weakness to poison"]["base_cost"] == 1.0
 
 def test_load_effects_raw_missing_file_returns_empty(tmp_path):
     result = load_effects_raw(str(tmp_path / "nonexistent.json"))
@@ -215,6 +223,24 @@ def test_parse_effects_base_magnitude_populated_with_lookup(tmp_path):
     assert mags['Weakness to Poison'] == 2
     assert mags['Fortify Restoration'] == 4
 
+def test_parse_effects_base_cost_populated_with_lookup(tmp_path):
+    import json as _json
+    raw = tmp_path / "effects_raw.json"
+    raw.write_text(_json.dumps(SAMPLE_EFFECTS_RAW))
+    lookup = load_effects_raw(str(raw))
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    _, eff = parse(str(f), effects_lookup=lookup)
+    costs = {row['effect']: row['base_cost'] for row in eff}
+    assert costs['Weakness to Frost'] == 0.5
+    assert costs['Weakness to Poison'] == 1.0
+
+def test_parse_effects_base_cost_none_without_lookup(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    _, eff = parse(str(f))
+    assert all(row['base_cost'] is None for row in eff)
+
 def test_parse_effects_unknown_effect_base_magnitude_none(tmp_path):
     import json as _json
     # lookup with only one of the four effects in VALID_ENTRY
@@ -229,14 +255,8 @@ def test_parse_effects_unknown_effect_base_magnitude_none(tmp_path):
     assert mags['Fortify Sneak'] is None
 
 def test_parse_effects_lookup_case_insensitive(tmp_path):
-    import json as _json
-    # UESP uses "Fortify Sneak" — same case here, but test the lower() path
-    raw = tmp_path / "effects_raw.json"
-    raw.write_text(_json.dumps({"fortify sneak": {"base_cost": 0.5, "base_mag": 4, "base_dur": 60}}))
-    # load_effects_raw lowercases keys, so this won't match "Fortify Sneak" from raw
-    # because load_effects_raw expects the wiki format, not pre-lowered.
-    # But if we pass a pre-built lookup with lowercase keys, parse() still matches.
-    lookup = {"fortify sneak": 4}
+    # parse() does effect.lower() before lookup — verify a pre-built lowercase lookup works.
+    lookup = {"fortify sneak": {"base_mag": 4, "base_cost": 0.5}}
     f = tmp_path / "raw.txt"
     f.write_text(VALID_ENTRY)
     _, eff = parse(str(f), effects_lookup=lookup)

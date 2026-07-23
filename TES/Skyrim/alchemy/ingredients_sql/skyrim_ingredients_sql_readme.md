@@ -45,13 +45,14 @@ then exits with code 1.
 |--------|------|-------|
 | name   | TEXT | ingredient name (foreign key to ingredients.name) |
 | effect | TEXT | effect name |
-| base_magnitude | INTEGER | base magnitude from UESP Skyrim:Alchemy_Effects; NULL if the effects scraper has not been run |
+| base_magnitude | INTEGER | base magnitude from UESP Skyrim:Alchemy_Effects; NULL if effects scraper not run |
+| base_cost | REAL | base cost from UESP Skyrim:Alchemy_Effects; used in the potion value formula; NULL if effects scraper not run |
 
 Unique index on `(name, effect)`.
 
-**Schema migration**: if the table exists without a `base_magnitude` column (pre-pipeline-upgrade
+**Schema migration**: if the table exists without `base_magnitude` or `base_cost` (pre-pipeline-upgrade
 state), the loader drops and recreates it automatically. The upsert diff file will contain all
-rows with the new column populated, so the table is fully repopulated on that run.
+rows with both new columns populated, so the table is fully repopulated on that run.
 
 ## Default paths
 

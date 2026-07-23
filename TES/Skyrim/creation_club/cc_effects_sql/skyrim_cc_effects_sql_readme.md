@@ -21,6 +21,7 @@ pipeline leaves their `base_magnitude` as `NULL`.  This loader performs a target
 | `name` | TEXT | Ingredient name |
 | `effect` | TEXT | Effect name |
 | `base_magnitude` | INTEGER | Base magnitude (NULL → filled in by this loader) |
+| `base_cost` | REAL | Base cost used in the potion value formula (NULL → filled in by this loader) |
 
 ### Input
 
@@ -28,13 +29,13 @@ pipeline leaves their `base_magnitude` as `NULL`.  This loader performs a target
 
 ```json
 [
-  {"effect": "Fortify Persuasion", "base_magnitude": 1}
+  {"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5}
 ]
 ```
 
 ### Behaviour
 
-- Runs `UPDATE skyrim_alchemy_effects SET base_magnitude = ? WHERE LOWER(effect) = LOWER(?)`
+- Runs `UPDATE skyrim_alchemy_effects SET base_magnitude = ?, base_cost = ? WHERE LOWER(effect) = LOWER(?)`
   for each record — case-insensitive to guard against any wiki capitalisation differences.
 - Does **not** INSERT rows; ingredient-effect rows already exist (inserted by the main pipeline).
 - Idempotent: running multiple times produces the same result.

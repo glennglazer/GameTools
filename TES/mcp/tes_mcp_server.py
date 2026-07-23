@@ -73,14 +73,13 @@ def skyrim_alchemy_search(query: str) -> list[dict]:
 
 
 @mcp.tool()
-def skyrim_alchemy_find_by_effect(effect: str) -> list[str]:
-    """Return all Skyrim ingredient names that carry a given effect (partial match, case-insensitive)."""
-    rows = _query(
-        "SELECT DISTINCT name FROM skyrim_alchemy_effects "
+def skyrim_alchemy_find_by_effect(effect: str) -> list[dict]:
+    """Return all Skyrim ingredients that carry a given effect (partial match, case-insensitive), with the effect's base_magnitude and base_cost. Both are properties of the effect and are the same for every ingredient that carries it. base_cost is needed to compute potion value."""
+    return _query(
+        "SELECT DISTINCT name, base_magnitude, base_cost FROM skyrim_alchemy_effects "
         "WHERE LOWER(effect) LIKE LOWER(:pattern) ORDER BY name",
         {"pattern": f"%{effect}%"},
     )
-    return [r["name"] for r in rows]
 
 
 @mcp.tool()

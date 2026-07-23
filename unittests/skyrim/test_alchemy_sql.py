@@ -36,10 +36,10 @@ SAMPLE_INGREDIENTS = [
     {"name": "Bear Claws", "weight": 0.1, "value": 3, "ID": "0003AD57"},
 ]
 SAMPLE_EFFECTS = [
-    {"name": "Abecean Longfin", "effect": "Weakness to Frost",   "base_magnitude": 3},
-    {"name": "Abecean Longfin", "effect": "Fortify Sneak",       "base_magnitude": 4},
-    {"name": "Abecean Longfin", "effect": "Weakness to Poison",  "base_magnitude": 2},
-    {"name": "Abecean Longfin", "effect": "Fortify Restoration", "base_magnitude": 4},
+    {"name": "Abecean Longfin", "effect": "Weakness to Frost",   "base_magnitude": 3, "base_cost": 1.0},
+    {"name": "Abecean Longfin", "effect": "Fortify Sneak",       "base_magnitude": 4, "base_cost": 0.5},
+    {"name": "Abecean Longfin", "effect": "Weakness to Poison",  "base_magnitude": 2, "base_cost": 1.0},
+    {"name": "Abecean Longfin", "effect": "Fortify Restoration", "base_magnitude": 4, "base_cost": 0.5},
 ]
 
 
@@ -108,9 +108,9 @@ def test_apply_deletes_effects_removes_named_effect(tmp_db):
 
 def test_apply_upserts_effects_inserts_new_rows(tmp_db):
     conn = sqlite3.connect(tmp_db)
-    conn.execute("CREATE TABLE eff (name TEXT, effect TEXT, base_magnitude INTEGER)")
+    conn.execute("CREATE TABLE eff (name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL)")
     conn.commit()
-    apply_upserts_effects(conn, 'eff', [{"name": "Bear Claws", "effect": "Restore Stamina", "base_magnitude": 5}])
+    apply_upserts_effects(conn, 'eff', [{"name": "Bear Claws", "effect": "Restore Stamina", "base_magnitude": 5, "base_cost": 0.5}])
     rows = conn.execute("SELECT name, effect, base_magnitude FROM eff").fetchall()
     conn.close()
     assert rows == [("Bear Claws", "Restore Stamina", 5)]
@@ -218,6 +218,25 @@ def test_effects_schema_migration_drops_old_table(tmp_path, tmp_db):
     conn = sqlite3.connect(tmp_db)
     cols = [r[1] for r in conn.execute(f"PRAGMA table_info({TABLE_EFF})").fetchall()]
     assert 'base_magnitude' in cols
+    assert 'base_cost' in cols
+    conn.close()
+
+def test_effects_schema_migration_drops_table_missing_base_cost(tmp_path, tmp_db):
+    # Simulate a table that has base_magnitude but not base_cost (intermediate schema).
+    conn = sqlite3.connect(tmp_db)
+    conn.execute(f"CREATE TABLE {TABLE_EFF} (name TEXT, effect TEXT, base_magnitude INTEGER)")
+    conn.execute(f"INSERT INTO {TABLE_EFF} VALUES ('Abecean Longfin', 'Weakness to Frost', 3)")
+    conn.execute(f"CREATE UNIQUE INDEX s_e_name_effect ON {TABLE_EFF} (name, effect)")
+    conn.commit()
+    conn.close()
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    write_diff_pair(tmp_path, "effects", SAMPLE_EFFECTS, {})
+    result = run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
+    assert result.returncode == 0, result.stderr
+    conn = sqlite3.connect(tmp_db)
+    cols = [r[1] for r in conn.execute(f"PRAGMA table_info({TABLE_EFF})").fetchall()]
+    assert 'base_cost' in cols
     conn.close()
 
 def test_effects_no_diff_files_is_noop(tmp_path, tmp_db):

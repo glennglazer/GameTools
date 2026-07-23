@@ -173,6 +173,64 @@ Result = 4 × 5 × 1.5 × 2.0 × 1.0 × 1.25 × 1.0 × 1.0 × 1.0 = 75
 
 ---
 
+## Potion Value Formula
+
+The gold value of a crafted potion is computed per-effect and then summed:
+
+```
+magnitudeFactor = magnitude  if magnitude > 0  else 1
+durationFactor  = duration / 10  if duration > 0  else 1
+
+effectValue = floor(BaseCost × (magnitudeFactor × durationFactor) ^ 1.1)
+```
+
+The **total potion value** is the sum of `effectValue` across every effect present in the potion.
+
+`BaseCost` is a property of the effect, not the ingredient. It is stored in
+`skyrim_alchemy_effects.base_cost` and can be retrieved with `skyrim_alchemy_find_by_effect()`.
+
+### Flags that force factors to 1
+
+Effects with a **NoMagnitude** flag always have `magnitude = 0` in this formula, forcing
+`magnitudeFactor = 1`. Effects with a **NoDuration** flag always have `duration = 0`, forcing
+`durationFactor = 1`. These flags are a game-engine property of the effect itself — they cannot
+be changed by perks, skill level, or enchantments.
+
+**Binary effects** — Cure Disease and Cure Poison both carry NoMagnitude and effectively no
+duration. Their formula collapses to:
+
+```
+effectValue = floor(BaseCost × 1^1.1) = floor(BaseCost) = floor(0.5) = 0
+```
+
+A pure Cure Disease or Cure Poison potion has a value of **0 gold**. This also means it awards
+**0 Alchemy XP**, since XP scales with gold value.
+
+### Example — Restore Health potion
+
+Skill 100, Alchemist 5/5, Physician perk (no enchantments). Restore Health has `BaseCost = 0.5`,
+`base_magnitude = 5`. Magnitude (from the Strength Formula) = 75, duration = 0:
+
+```
+magnitudeFactor = 75
+durationFactor  = 1   (NoDuration — Restore Health is instantaneous)
+effectValue     = floor(0.5 × (75 × 1)^1.1)
+                = floor(0.5 × 75^1.1)
+                = floor(0.5 × 122.6…)
+                = floor(61.3…) = 61
+```
+
+A single-effect Restore Health potion at max perks and skill is worth **61 gold**.
+
+### Alchemy XP note
+
+XP gained per craft scales with the potion's total gold value. High-`BaseCost` effects
+(e.g. Paralysis at 500, Fortify Enchanting at 0.6×their magnitude) produce far more XP
+than low-`BaseCost` effects (Cure Disease at 0.5 = 0 XP). Stacking multiple high-value
+effects in one three-ingredient potion maximises XP per craft.
+
+---
+
 ## Effect Interaction Notes
 
 **Cross-skill synergies** — these effect pairings are commonly used to boost other crafting skills:
@@ -194,7 +252,8 @@ application lasts 1 hit normally, or 2 hits with Concentrated Poison. Poisons ca
 | Question | Tool to use |
 |----------|-------------|
 | What effects does ingredient X have? | `skyrim_alchemy_ingredient(name)` |
-| Which ingredients have effect X? | `skyrim_alchemy_find_by_effect(effect)` |
+| Which ingredients have effect X? (returns base_magnitude and base_cost per effect) | `skyrim_alchemy_find_by_effect(effect)` |
+| What is the base cost of effect X (for value calculations)? | `skyrim_alchemy_find_by_effect(effect)` — `base_cost` field |
 | Given my ingredients, what can I combine? | `skyrim_alchemy_combos(ingredients)` |
 | What are all possible effects? | `skyrim_alchemy_list_effects()` |
 | What does perk X do / what skill level does it need? | `skyrim_alchemy_perks()` |

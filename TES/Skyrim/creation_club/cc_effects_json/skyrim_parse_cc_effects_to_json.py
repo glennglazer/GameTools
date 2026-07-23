@@ -8,10 +8,7 @@ Input (cc_effects_raw.json):
   {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}, ...}
 
 Output (cc_effects_records.json):
-  [{"effect": "Fortify Persuasion", "base_magnitude": 1}, ...]
-
-Only base_magnitude is kept because the SQL loader performs a targeted UPDATE
-on skyrim_alchemy_effects rather than a full insert.
+  [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5}, ...]
 """
 
 import argparse
@@ -26,13 +23,17 @@ _DEFAULT_OUT = str(_SCRIPT_DIR / 'cc_effects_records.json')
 
 
 def parse(raw: dict) -> list[dict]:
-    """Convert the raw dict to a list of {effect, base_magnitude} records."""
+    """Convert the raw dict to a list of {effect, base_magnitude, base_cost} records."""
     records = []
     for effect_name, stats in raw.items():
         if 'base_mag' not in stats:
             print(f"Warning: 'base_mag' missing for '{effect_name}' — skipping", file=sys.stderr)
             continue
-        records.append({'effect': effect_name, 'base_magnitude': int(stats['base_mag'])})
+        records.append({
+            'effect': effect_name,
+            'base_magnitude': int(stats['base_mag']),
+            'base_cost': float(stats['base_cost']) if 'base_cost' in stats else None,
+        })
     return records
 
 
