@@ -15,6 +15,7 @@ _mod = load_module(
 remove_pipe = _mod.remove_pipe
 remove_wiki_link = _mod.remove_wiki_link
 parse = _mod.parse
+load_effects_raw = _mod.load_effects_raw
 write_file = _mod.write_file
 write_diff_files = _mod.write_diff_files
 
@@ -96,6 +97,32 @@ def test_parse_single_entry_effects_all_four(tmp_path):
     assert "Light" in effect_names
     assert "Damage Fatigue" in effect_names
     assert len(eff) == 4
+
+def test_parse_base_cost_populated_from_lookup(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    # Restore Intelligence expands from Restore Attribute (38.0);
+    # Damage Fatigue is a direct entry (4.4).
+    lookup = {
+        "restore intelligence": 38.0,
+        "resist poison": 0.5,
+        "light": 0.051,
+        "damage fatigue": 4.4,
+    }
+    _, eff = parse(str(f), effects_lookup=lookup)
+    by_effect = {e["effect"]: e["base_cost"] for e in eff}
+    assert by_effect["Restore Intelligence"] == 38.0
+    assert by_effect["Resist Poison"] == 0.5
+    assert by_effect["Light"] == 0.051
+    assert by_effect["Damage Fatigue"] == 4.4
+
+def test_parse_base_cost_none_when_no_lookup(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    _, eff = parse(str(f))
+    for e in eff:
+        if e["effect"] is not None:
+            assert e["base_cost"] is None
 
 def test_parse_fewer_effects_padded_with_none(tmp_path):
     f = tmp_path / "raw.txt"
@@ -181,3 +208,56 @@ def test_parse_malformed_weight_raises(tmp_path):
     f.write_text(MALFORMED_WEIGHT_ENTRY)
     with pytest.raises(ValueError):
         parse(str(f))
+
+
+# ---------------------------------------------------------------------------
+# load_effects_raw
+# ---------------------------------------------------------------------------
+
+SAMPLE_EFFECTS_RAW = {
+    "Restore Attribute": {"base_cost": 38.0},
+    "Damage Attribute": {"base_cost": 100.0},
+    "Drain Attribute": {"base_cost": 0.7},
+    "Fortify Attribute": {"base_cost": 0.6},
+    "Absorb Attribute": {"base_cost": 0.95},
+    "Restore Health": {"base_cost": 10.0},
+    "Restore Fatigue": {"base_cost": 2.0},
+    "Shock Damage": {"base_cost": 7.8},
+    "Shock Shield": {"base_cost": 0.95},
+    "Light": {"base_cost": 0.051},
+}
+
+
+def test_load_effects_raw_missing_file_returns_empty():
+    result = load_effects_raw("/nonexistent/path/effects_raw.json")
+    assert result == {}
+
+def test_load_effects_raw_direct_entry(tmp_path):
+    f = tmp_path / "effects_raw.json"
+    f.write_text(json.dumps(SAMPLE_EFFECTS_RAW))
+    lookup = load_effects_raw(str(f))
+    assert lookup["restore health"] == 10.0
+    assert lookup["restore fatigue"] == 2.0
+    assert lookup["light"] == 0.051
+
+def test_load_effects_raw_expands_restore_attribute(tmp_path):
+    f = tmp_path / "effects_raw.json"
+    f.write_text(json.dumps(SAMPLE_EFFECTS_RAW))
+    lookup = load_effects_raw(str(f))
+    for attr in ["strength", "intelligence", "willpower", "agility",
+                 "speed", "endurance", "personality", "luck"]:
+        assert lookup[f"restore {attr}"] == 38.0
+
+def test_load_effects_raw_expands_damage_attribute(tmp_path):
+    f = tmp_path / "effects_raw.json"
+    f.write_text(json.dumps(SAMPLE_EFFECTS_RAW))
+    lookup = load_effects_raw(str(f))
+    assert lookup["damage agility"] == 100.0
+    assert lookup["damage strength"] == 100.0
+
+def test_load_effects_raw_shock_aliases(tmp_path):
+    f = tmp_path / "effects_raw.json"
+    f.write_text(json.dumps(SAMPLE_EFFECTS_RAW))
+    lookup = load_effects_raw(str(f))
+    assert lookup["lightning damage"] == 7.8
+    assert lookup["lightning shield"] == 0.95

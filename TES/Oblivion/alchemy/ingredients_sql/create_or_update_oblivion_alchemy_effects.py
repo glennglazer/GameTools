@@ -101,6 +101,17 @@ if __name__ == '__main__':
         current_sql = f"SELECT name FROM sqlite_master WHERE name='{TABLE_NAME}'"
         table_exists = cur.execute(current_sql).fetchone()
 
+        # Schema migration: if the table exists but lacks base_cost, drop and recreate it.
+        if table_exists is not None:
+            cols = [r[1] for r in cur.execute(f"PRAGMA table_info({TABLE_NAME})").fetchall()]
+            if 'base_cost' not in cols:
+                current_sql = f"DROP TABLE {TABLE_NAME}"
+                cur.execute(current_sql)
+                current_sql = f"DROP INDEX IF EXISTS {INDEX_NAME}"
+                cur.execute(current_sql)
+                conn.commit()
+                table_exists = None
+
         if table_exists is None:
             if not upsert_data:
                 print(f"No upsert data and table {TABLE_NAME} does not exist. Nothing to do.")

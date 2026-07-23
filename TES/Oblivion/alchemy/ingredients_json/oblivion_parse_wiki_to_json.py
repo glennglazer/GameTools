@@ -30,8 +30,12 @@ Output JSON format for ingredients file:
 Output JSON format for effects file:
 
 {"name" : "Alkanet Flower",
- "effect": "Restore Intelligence"
+ "effect": "Restore Intelligence",
+ "base_cost": 38.0
 }
+
+base_cost is NULL when the effect is not found in the effects lookup (e.g. special
+DLC effects such as Felldew Effect, Jyggalag's Favor).
 
 """
 
@@ -50,6 +54,20 @@ _PARSE_DIR = _SCRIPT_DIR.parent / 'ingredients_parse'
 _DEFAULT_INFILE = str(_PARSE_DIR / 'oblivion_all_ingredients_raw.txt')
 _DEFAULT_ING_FILE = str(_SCRIPT_DIR / 'oblivion_all_ingredients.json')
 _DEFAULT_EFF_FILE = str(_SCRIPT_DIR / 'oblivion_all_effects.json')
+_DEFAULT_EFFECTS_RAW = str(_PARSE_DIR / 'oblivion_effects_raw.json')
+
+# Attributes and skills used to expand generic UESP effect names ("Restore Attribute")
+# into the specific names used on Oblivion alchemy ingredients ("Restore Intelligence").
+_ATTRIBUTES = [
+    "Strength", "Intelligence", "Willpower", "Agility",
+    "Speed", "Endurance", "Personality", "Luck",
+]
+_SKILLS = [
+    "Blade", "Blunt", "Hand to Hand", "Heavy Armor", "Athletics", "Block",
+    "Armorer", "Marksman", "Sneak", "Security", "Acrobatics", "Light Armor",
+    "Mercantile", "Speechcraft", "Illusion", "Alchemy", "Mysticism",
+    "Conjuration", "Destruction", "Alteration", "Restoration", "Enchant",
+]
 
 
 def remove_pipe(value: str) -> str:
@@ -66,9 +84,48 @@ def remove_wiki_link(value: str) -> str:
         return value
 
 
-def parse(infile: str, verbose: bool = False) -> dict:
+def load_effects_raw(path: str = _DEFAULT_EFFECTS_RAW) -> dict:
+    """Load oblivion_effects_raw.json and return a case-folded lookup: name → base_cost.
+
+    The raw JSON uses generic UESP names ("Restore Attribute", "Damage Attribute",
+    "Shock Damage").  This function expands each generic "X Attribute" or "X Skill"
+    entry into all specific variants ("Restore Intelligence", etc.) and adds
+    "Lightning Damage" / "Lightning Shield" as aliases for the Shock variants.
+    """
+    try:
+        with open(path) as f:
+            raw = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+    lookup = {}
+    for name, data in raw.items():
+        cost = data.get('base_cost')
+        lookup[name.lower()] = cost
+        # Expand generic "X Attribute" → specific per-attribute variants
+        for prefix in ("Restore", "Fortify", "Drain", "Absorb", "Damage"):
+            if name == f"{prefix} Attribute":
+                for attr in _ATTRIBUTES:
+                    lookup[f"{prefix} {attr}".lower()] = cost
+        # Expand "X Skill" → specific per-skill variants
+        for prefix in ("Fortify", "Drain", "Absorb"):
+            if name == f"{prefix} Skill":
+                for skill in _SKILLS:
+                    lookup[f"{prefix} {skill}".lower()] = cost
+        # Alias: Lightning = Shock
+        if name == "Shock Damage":
+            lookup["lightning damage"] = cost
+        if name == "Shock Shield":
+            lookup["lightning shield"] = cost
+
+    return lookup
+
+
+def parse(infile: str, effects_lookup: dict | None = None, verbose: bool = False) -> dict:
     ingredients = []
     effects = []
+
+    lookup = effects_lookup if effects_lookup is not None else {}
 
     if not op.exists(infile):
         return {}, {}
@@ -98,7 +155,8 @@ def parse(infile: str, verbose: bool = False) -> dict:
                 effects_list.append(None)
 
             for effect in effects_list:
-                effects.append({'name': name, 'effect': effect})
+                base_cost = lookup.get(effect.lower()) if effect is not None else None
+                effects.append({'name': name, 'effect': effect, 'base_cost': base_cost})
 
             if verbose:
                 print(f"ingredients entry: {ingredients_entry}\n")
@@ -167,6 +225,8 @@ if __name__ == "__main__":
                         help=f"path to write ingredient JSON (default: {_DEFAULT_ING_FILE})")
     parser.add_argument("effects_file", nargs='?', default=_DEFAULT_EFF_FILE,
                         help=f"path to write effects JSON (default: {_DEFAULT_EFF_FILE})")
+    parser.add_argument("--effects-raw", default=_DEFAULT_EFFECTS_RAW,
+                        help=f"path to effects raw JSON (default: {_DEFAULT_EFFECTS_RAW})")
     parser.add_argument("-v", "--verbose", help="debug output", action="store_true")
     args = parser.parse_args()
 
@@ -174,7 +234,8 @@ if __name__ == "__main__":
         print(f"Input file not found: {args.infile}")
         sys.exit(1)
 
-    parsed_ingredients, parsed_effects = parse(args.infile, args.verbose)
+    effects_lookup = load_effects_raw(args.effects_raw)
+    parsed_ingredients, parsed_effects = parse(args.infile, effects_lookup, args.verbose)
     if args.verbose:
         pprint(parsed_ingredients)
         pprint(parsed_effects)

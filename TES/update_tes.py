@@ -78,6 +78,13 @@ def update_alchemy(game: str) -> None:
             [parse_dir / 'skyrim_scrape_alchemy_effects.py',
              str(parse_dir / 'skyrim_effects_raw.json')],
         )
+    # Oblivion Spell_Effects page (UESP) provides base_cost for each alchemy effect.
+    if game == 'Oblivion':
+        run_step(
+            'Oblivion alchemy effects scrape',
+            [parse_dir / 'oblivion_scrape_effects.py',
+             str(parse_dir / 'oblivion_effects_raw.json')],
+        )
     run_step(
         f'{game} alchemy JSON',
         [json_dir / f'{g}_parse_wiki_to_json.py'],

@@ -34,10 +34,10 @@ SAMPLE_INGREDIENTS = [
     {"name": "Boar Meat", "weight": 2.0, "value": 1, "ID": "0003AB19"},
 ]
 SAMPLE_EFFECTS = [
-    {"name": "Alkanet Flower", "effect": "Restore Intelligence"},
-    {"name": "Alkanet Flower", "effect": "Resist Poison"},
-    {"name": "Alkanet Flower", "effect": None},
-    {"name": "Alkanet Flower", "effect": None},
+    {"name": "Alkanet Flower", "effect": "Restore Intelligence", "base_cost": 38.0},
+    {"name": "Alkanet Flower", "effect": "Resist Poison", "base_cost": 0.5},
+    {"name": "Alkanet Flower", "effect": None, "base_cost": None},
+    {"name": "Alkanet Flower", "effect": None, "base_cost": None},
 ]
 
 
@@ -165,9 +165,45 @@ def test_effects_creates_table_on_first_run(tmp_path, tmp_db):
     assert result.returncode == 0, result.stderr
     conn = sqlite3.connect(tmp_db)
     rows = conn.execute(f"SELECT name, effect FROM {TABLE_EFF}").fetchall()
+    cols = [r[1] for r in conn.execute(f"PRAGMA table_info({TABLE_EFF})").fetchall()]
     conn.close()
     assert len(rows) == 4
     assert ("Alkanet Flower", "Restore Intelligence") in rows
+    assert "base_cost" in cols
+
+def test_effects_base_cost_stored(tmp_path, tmp_db):
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    write_diff_pair(tmp_path, "effects", SAMPLE_EFFECTS, {})
+    run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
+    conn = sqlite3.connect(tmp_db)
+    row = conn.execute(
+        f"SELECT base_cost FROM {TABLE_EFF} WHERE effect = 'Restore Intelligence'"
+    ).fetchone()
+    conn.close()
+    assert row is not None
+    assert row[0] == 38.0
+
+def test_effects_schema_migration(tmp_path, tmp_db):
+    """Table without base_cost column should be dropped and recreated."""
+    conn = sqlite3.connect(tmp_db)
+    conn.execute(f"CREATE TABLE {TABLE_EFF} (name TEXT, effect TEXT)")
+    conn.execute(f"INSERT INTO {TABLE_EFF} VALUES ('OldIngredient', 'Old Effect')")
+    conn.execute(f"CREATE INDEX o_e_name_effect ON {TABLE_EFF} (name, effect)")
+    conn.commit()
+    conn.close()
+    json_file = tmp_path / "effects.json"
+    json_file.write_text(json.dumps(SAMPLE_EFFECTS))
+    write_diff_pair(tmp_path, "effects", SAMPLE_EFFECTS, {})
+    result = run_script(EFFECTS_SCRIPT, [str(json_file), tmp_db])
+    assert result.returncode == 0, result.stderr
+    conn = sqlite3.connect(tmp_db)
+    cols = [r[1] for r in conn.execute(f"PRAGMA table_info({TABLE_EFF})").fetchall()]
+    rows = conn.execute(f"SELECT name FROM {TABLE_EFF}").fetchall()
+    conn.close()
+    assert "base_cost" in cols
+    # Old row is gone; new rows are present
+    assert all(r[0] == "Alkanet Flower" for r in rows)
 
 def test_effects_null_effect_stored_as_null(tmp_path, tmp_db):
     json_file = tmp_path / "effects.json"
