@@ -1,0 +1,1207 @@
+[
+  {
+    "effect": "Fortify Alchemy",
+    "item": "Bracers of Alchemy",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Alchemy",
+    "item": "Gauntlets of Alchemy",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Alchemy",
+    "item": "Helmets of Alchemy",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Alchemy",
+    "item": "Necklaces of Alchemy",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Alchemy",
+    "item": "Muiri's Ring",
+    "note": null
+  },
+  {
+    "effect": "Fortify Alchemy",
+    "item": "Ring of Pure Mixtures",
+    "note": "This item cannot be disenchanted while the related quest is active, but can at other times."
+  },
+  {
+    "effect": "Fortify Alchemy",
+    "item": "Dwarven Helmet of Eminent Alteration",
+    "note": "This is due to a bug."
+  },
+  {
+    "effect": "Fortify Alteration",
+    "item": "Armor of Alteration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Alteration",
+    "item": "Bracers of Alteration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Alteration",
+    "item": "Helmets of Alteration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Archery",
+    "item": "Bracers of Archery",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Archery",
+    "item": "Gauntlets of Archery",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Archery",
+    "item": "Circlets of Archery",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Archery",
+    "item": "Helmets of Archery",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Archery",
+    "item": "Rings of Archery",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Barter",
+    "item": "Necklaces of Haggling",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Block",
+    "item": "Shield of Blocking",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Conjuration",
+    "item": "Armor of Conjuring",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Conjuration",
+    "item": "Bracers of Conjuring",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Conjuration",
+    "item": "Helmet of Conjuring",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Conjuration",
+    "item": "Circlets of Conjuration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Conjuration",
+    "item": "Imperial Helmets of Conjuration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Armor of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Bracers of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Circlets of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Helmets of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Necklaces of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Rings of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Hooded Thalmor Robes",
+    "note": null
+  },
+  {
+    "effect": "Fortify Destruction",
+    "item": "Thalmor Robes",
+    "note": null
+  },
+  {
+    "effect": "Fortify Heavy Armor",
+    "item": "Armor of the Knight",
+    "note": "Most varieties; all levels of enchantment"
+  },
+  {
+    "effect": "Fortify Heavy Armor",
+    "item": "Necklaces of the Knight",
+    "note": "Most varieties; all levels of enchantment"
+  },
+  {
+    "effect": "Fortify Illusion",
+    "item": "Armor of Illusion",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Illusion",
+    "item": "Helmets of Illusion",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Light Armor",
+    "item": "Armor of the Squire",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Light Armor",
+    "item": "Necklaces of the Squire",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Lockpicking",
+    "item": "Bracers of Lockpicking",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Lockpicking",
+    "item": "Gauntlets of Lockpicking",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Lockpicking",
+    "item": "Necklaces of Lockpicking",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify One-handed",
+    "item": "Bracers of Wielding",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify One-handed",
+    "item": "Gauntlets of Wielding",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify One-handed",
+    "item": "Necklaces of Wielding",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify One-handed",
+    "item": "Rings of Wielding",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Pickpocket",
+    "item": "Bracers of Deft Hands",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Pickpocket",
+    "item": "Gauntlets of Deft Hands",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Pickpocket",
+    "item": "Rings of Deft Hands",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Restoration",
+    "item": "Armor of Restoration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Restoration",
+    "item": "Circlets of Restoration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Restoration",
+    "item": "Helmets of Restoration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Restoration",
+    "item": "Rings of Restoration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Smithing",
+    "item": "Bracers of Smithing",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Smithing",
+    "item": "Gauntlets of Smithing",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Smithing",
+    "item": "Necklaces of Smithing",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Smithing",
+    "item": "Rings of Smithing",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Smithing",
+    "item": "Silver-Blood Family Ring",
+    "note": null
+  },
+  {
+    "effect": "Fortify Smithing",
+    "item": "The Forgemaster's Fingers",
+    "note": null
+  },
+  {
+    "effect": "Fortify Sneak",
+    "item": "Boots of Sneaking",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Sneak",
+    "item": "Necklaces of Sneaking",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Sneak",
+    "item": "Rings of Sneaking",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Two-handed",
+    "item": "Bracers of Sure Grip",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Two-handed",
+    "item": "Gauntlets of Sure Grip",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Two-handed",
+    "item": "Necklaces of Sure Grip",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Two-handed",
+    "item": "Rings of Sure Grip",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Two-handed",
+    "item": "Ironhand Gauntlets",
+    "note": null
+  },
+  {
+    "effect": "Fortify Two-handed",
+    "item": "Ring of Minor Striking",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Armor of Mending",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Necklaces of Mending",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Rings of Mending",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Armor of Revival",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Necklaces of Revival",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Rings of Revival",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Armor of Regeneration",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Necklaces of Regeneration",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Rings of Regeneration",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Armor of Remedy",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Necklaces of Remedy",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Health",
+    "item": "Rings of Remedy",
+    "note": null
+  },
+  {
+    "effect": "Fortify Health",
+    "item": "Armor of Health",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Health",
+    "item": "Enchanted Ring",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Circlets of Magicka",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Helmets of Magicka",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Rings of Magicka",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Adept Hood",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Amulet of Julianos",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Apprentice Hood",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Black Mage Hood",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Executioner's Hood",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Mage's Circlet",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Novice Hood",
+    "note": null
+  },
+  {
+    "effect": "Fortify Magicka",
+    "item": "Savos Aren's Amulet",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Helmets of Recovery",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Rings of Recovery",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Robes of Recovery",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Armor of Replenishing",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Helmets of Replenishing",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Rings of Replenishing",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Robes of Replenishing",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Helmets of Resurgence",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Rings of Resurgence",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Robes of Resurgence",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Adept Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Apprentice Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Black Mage Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Blue Mage Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Expert Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Hooded Black Mage Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Hooded Necromancer Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Master Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Mythic Dawn Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Necromancer Robes",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Magicka",
+    "item": "Novice Robes",
+    "note": null
+  },
+  {
+    "effect": "Fortify Stamina",
+    "item": "Armor of Stamina",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Stamina",
+    "item": "Boots of Stamina",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Stamina",
+    "item": "Necklaces of Stamina",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Stamina",
+    "item": "Rings of Stamina",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Armor of Invigoration",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Necklaces of Invigoration",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Rings of Invigoration",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Armor of Recuperation",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Necklaces of Recuperation",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Rings of Recuperation",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Armor of Rejuvenation",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Necklaces of Rejuvenation",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Rings of Rejuvenation",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Armor of Renewal",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Necklaces of Renewal",
+    "note": null
+  },
+  {
+    "effect": "Regenerate Stamina",
+    "item": "Rings of Renewal",
+    "note": null
+  },
+  {
+    "effect": "Fortify Carry Weight",
+    "item": "Charmed Necklace",
+    "note": null
+  },
+  {
+    "effect": "Fortify Carry Weight",
+    "item": "Boots of Brawn",
+    "note": null
+  },
+  {
+    "effect": "Fortify Carry Weight",
+    "item": "Boots of Hauling",
+    "note": null
+  },
+  {
+    "effect": "Fortify Carry Weight",
+    "item": "Boots of Lifting",
+    "note": null
+  },
+  {
+    "effect": "Fortify Carry Weight",
+    "item": "Boots of the Mammoth",
+    "note": null
+  },
+  {
+    "effect": "Fortify Carry Weight",
+    "item": "Boots of the Ox",
+    "note": null
+  },
+  {
+    "effect": "Fortify Carry Weight",
+    "item": "Boots of Strength",
+    "note": null
+  },
+  {
+    "effect": "Alteration &Magicka Regen",
+    "item": "Robes of Alteration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Conjuration &Magicka Regen",
+    "item": "Robes of Conjuration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Conjuration &Magicka Regen",
+    "item": "Vampire Armor of Conjuration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Destruction &Magicka Regen",
+    "item": "Robes of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Destruction &Magicka Regen",
+    "item": "Vampire Armor of Destruction",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Illusion &Magicka Regen",
+    "item": "Robes of Illusion",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Dark Moon",
+    "item": "Elite Necromancer Hood",
+    "note": "Creation Club content"
+  },
+  {
+    "effect": "Dark Moon",
+    "item": "Ascendant Necromancer Hood",
+    "note": "Creation Club content"
+  },
+  {
+    "effect": "Empower Necromancy",
+    "item": "Elite Necromancer Robes",
+    "note": "Creation Club content"
+  },
+  {
+    "effect": "Empower Necromancy",
+    "item": "Ascendant Necromancer Robes",
+    "note": "Creation Club content"
+  },
+  {
+    "effect": "Restoration &Magicka Regen",
+    "item": "Robes of Restoration",
+    "note": "All levels of enchantment"
+  },
+  {
+    "effect": "Fortify Unarmed Damage",
+    "item": "Gloves of the Pugilist",
+    "note": null
+  },
+  {
+    "effect": "Resist Disease",
+    "item": "Necklace of Disease Immunity",
+    "note": null
+  },
+  {
+    "effect": "Resist Disease",
+    "item": "Necklace of Disease Resistance",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Boots of Dwindling Flames",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Necklaces of Dwindling Flames",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Shields of Dwindling Flames",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Boots of Fire Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Necklaces of Fire Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Shields of Fire Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Boots of Fire Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Necklaces of Fire Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Shields of Fire Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Boots of Flame Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Necklaces of Flame Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Shields of Flame Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Boots of the Firewalker",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Necklaces of the Firewalker",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Shields of the Firewalker",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Boots of Resist Fire",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Necklaces of Resist Fire",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Shields of Resist Fire",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Boots of Waning Fire",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Necklaces of Waning Fire",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Shields of Waning Fire",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Ancient Helmet of the Unburned",
+    "note": null
+  },
+  {
+    "effect": "Resist Fire",
+    "item": "Steel Shield of Fire Resist",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Armor of Dwindling Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Boots of Dwindling Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Necklaces of Dwindling Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Shields of Dwindling Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Armor of Frost Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Boots of Frost Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Necklaces of Frost Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Shields of Frost Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Armor of Frost Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Boots of Frost Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Necklaces of Frost Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Shields of Frost Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Armor of Resist Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Boots of Resist Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Necklaces of Resist Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Shields of Resist Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Armor of Waning Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Boots of Waning Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Necklaces of Waning Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Shields of Waning Frost",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Armor of Warmth",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Boots of Warmth",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Necklaces of Warmth",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Shields of Warmth",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Helm of Yngol",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Herebane's Fortress",
+    "note": null
+  },
+  {
+    "effect": "Resist Frost",
+    "item": "Necklace of Frost Resist",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Necklaces of Dwindling Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Rings of Dwindling Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Shields of Dwindling Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Necklaces of Resist Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Rings of Resist Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Shields of Resist Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Necklaces of Waning Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Rings of Waning Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Shields of Waning Magic",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Necklaces of Magic Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Rings of Magic Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Shields of Magic Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Necklaces of Magic Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Rings of Magic Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Shields of Magic Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Necklaces of Nullification",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Rings of Nullification",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Shields of Nullification",
+    "note": null
+  },
+  {
+    "effect": "Resist Magic",
+    "item": "Shield of Solitude",
+    "note": "A second version of the effect is available from one item."
+  },
+  {
+    "effect": "Resist Poison",
+    "item": "Necklace of Poison Immunity",
+    "note": null
+  },
+  {
+    "effect": "Resist Poison",
+    "item": "Necklace of Poison Resistance",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Boots of Dwindling Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Necklaces of Dwindling Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Shields of Dwindling Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Boots of Grounding",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Necklaces of Grounding",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Shields of Grounding",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Boots of Resist Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Necklaces of Resist Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Shields of Resist Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Boots of Shock Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Necklaces of Shock Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Shields of Shock Abatement",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Boots of Shock Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Necklaces of Shock Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Shields of Shock Suppression",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Boots of Waning Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Necklaces of Waning Shock",
+    "note": null
+  },
+  {
+    "effect": "Resist Shock",
+    "item": "Shields of Waning Shock",
+    "note": null
+  },
+  {
+    "effect": "Muffle",
+    "item": "Boots of Muffling",
+    "note": null
+  },
+  {
+    "effect": "Waterbreathing",
+    "item": "Circlets of Waterbreathing",
+    "note": null
+  },
+  {
+    "effect": "Waterbreathing",
+    "item": "Helmets of Waterbreathing",
+    "note": null
+  },
+  {
+    "effect": "Waterbreathing",
+    "item": "Necklaces of Waterbreathing",
+    "note": null
+  }
+]

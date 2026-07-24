@@ -235,6 +235,10 @@ def update_skyrim_enchanting() -> None:
     run_step('Skyrim enchanting scrape',
              [enc_dir / 'enchant_parse' / 'skyrim_scrape_enchanting.py',
               '--out-dir', enc_dir / 'enchant_parse'])
+    run_step('Skyrim disenchant scrape',
+             [enc_dir / 'disenchant_parse' / 'skyrim_scrape_disenchant.py',
+              '--apparel-out', enc_dir / 'disenchant_parse' / 'disenchant_apparel_raw.json',
+              '--weapons-out', enc_dir / 'disenchant_parse' / 'disenchant_weapons_raw.json'])
 
     for label, json_dir_name, script_name in [
         ('Skyrim gem types JSON',
@@ -247,6 +251,10 @@ def update_skyrim_enchanting() -> None:
          'enchant_effects_json', 'skyrim_parse_enchant_effects_to_json.py'),
         ('Skyrim enchant apparel JSON',
          'enchant_apparel_json', 'skyrim_parse_enchant_apparel_to_json.py'),
+        ('Skyrim disenchant apparel JSON',
+         'disenchant_apparel_json', 'skyrim_parse_disenchant_apparel_to_json.py'),
+        ('Skyrim disenchant weapons JSON',
+         'disenchant_weapons_json', 'skyrim_parse_disenchant_weapons_to_json.py'),
     ]:
         run_step(label, [enc_dir / json_dir_name / script_name])
 
@@ -267,6 +275,12 @@ def update_skyrim_enchanting() -> None:
         ('Skyrim enchant apparel SQL',
          enc_dir / 'enchant_apparel_json',
          enc_dir / 'enchant_apparel_sql' / 'create_or_update_skyrim_enchant_apparel.py'),
+        ('Skyrim disenchant apparel SQL',
+         enc_dir / 'disenchant_apparel_json',
+         enc_dir / 'disenchant_apparel_sql' / 'create_or_update_skyrim_enchant_disenchant_apparel.py'),
+        ('Skyrim disenchant weapons SQL',
+         enc_dir / 'disenchant_weapons_json',
+         enc_dir / 'disenchant_weapons_sql' / 'create_or_update_skyrim_enchant_disenchant_weapons.py'),
     ]
     for label, json_dir, sql_script in sql_pairs:
         if not has_diff_files(json_dir):
