@@ -182,6 +182,14 @@ def test_load_effects_raw_returns_base_cost(tmp_path):
     assert result["weakness to frost"]["base_cost"] == 0.5
     assert result["weakness to poison"]["base_cost"] == 1.0
 
+def test_load_effects_raw_returns_base_duration(tmp_path):
+    import json as _json
+    p = tmp_path / "effects_raw.json"
+    p.write_text(_json.dumps(SAMPLE_EFFECTS_RAW))
+    result = load_effects_raw(str(p))
+    assert result["weakness to frost"]["base_dur"] == 30
+    assert result["fortify sneak"]["base_dur"] == 60
+
 def test_load_effects_raw_missing_file_returns_empty(tmp_path):
     result = load_effects_raw(str(tmp_path / "nonexistent.json"))
     assert result == {}
@@ -240,6 +248,33 @@ def test_parse_effects_base_cost_none_without_lookup(tmp_path):
     f.write_text(VALID_ENTRY)
     _, eff = parse(str(f))
     assert all(row['base_cost'] is None for row in eff)
+
+def test_parse_effects_always_have_base_duration_key(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    _, eff = parse(str(f))
+    for row in eff:
+        assert 'base_duration' in row
+
+def test_parse_effects_base_duration_none_without_lookup(tmp_path):
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    _, eff = parse(str(f))
+    assert all(row['base_duration'] is None for row in eff)
+
+def test_parse_effects_base_duration_populated_with_lookup(tmp_path):
+    import json as _json
+    raw = tmp_path / "effects_raw.json"
+    raw.write_text(_json.dumps(SAMPLE_EFFECTS_RAW))
+    lookup = load_effects_raw(str(raw))
+    f = tmp_path / "raw.txt"
+    f.write_text(VALID_ENTRY)
+    _, eff = parse(str(f), effects_lookup=lookup)
+    durs = {row['effect']: row['base_duration'] for row in eff}
+    assert durs['Weakness to Frost'] == 30
+    assert durs['Fortify Sneak'] == 60
+    assert durs['Weakness to Poison'] == 30
+    assert durs['Fortify Restoration'] == 60
 
 def test_parse_effects_unknown_effect_base_magnitude_none(tmp_path):
     import json as _json

@@ -470,11 +470,11 @@ def test_materials_sql_idempotent(materials_json, tmp_db):
 # ── CC effects SQL loader ─────────────────────────────────────────────────────
 
 def _build_effects_table(db_path, rows=None):
-    """Create skyrim_alchemy_effects with base_magnitude and base_cost; optionally seed rows."""
+    """Create skyrim_alchemy_effects with base_magnitude, base_cost, and base_duration; optionally seed rows."""
     conn = sqlite3.connect(db_path)
     conn.execute(
         "CREATE TABLE skyrim_alchemy_effects "
-        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL)"
+        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL, base_duration INTEGER)"
     )
     conn.execute(
         "CREATE UNIQUE INDEX idx_skyrim_alchemy_effects "
@@ -490,7 +490,7 @@ def _build_effects_table(db_path, rows=None):
 
 
 EFFECTS_SAMPLE = [
-    {"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5},
+    {"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5, "base_duration": 30},
 ]
 
 
@@ -505,21 +505,21 @@ def test_cc_eff_sql_apply_updates_row_count():
     conn = sqlite3.connect(":memory:")
     conn.execute(
         "CREATE TABLE skyrim_alchemy_effects "
-        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL)"
+        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL, base_duration INTEGER)"
     )
     conn.execute(
-        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?,?)",
+        "INSERT INTO skyrim_alchemy_effects (name, effect, base_magnitude, base_cost) VALUES (?,?,?,?)",
         ("Glassfish", "Fortify Persuasion", None, None),
     )
     conn.commit()
 
-    n = _cc_eff_sql.apply_updates(conn, [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5}])
+    n = _cc_eff_sql.apply_updates(conn, [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5, "base_duration": 30}])
     assert n == 1
 
     row = conn.execute(
-        "SELECT base_magnitude, base_cost FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+        "SELECT base_magnitude, base_cost, base_duration FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
     ).fetchone()
-    assert row == (1, 0.5)
+    assert row == (1, 0.5, 30)
     conn.close()
 
 
@@ -527,10 +527,10 @@ def test_cc_eff_sql_apply_updates_sets_magnitude():
     conn = sqlite3.connect(":memory:")
     conn.execute(
         "CREATE TABLE skyrim_alchemy_effects "
-        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL)"
+        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL, base_duration INTEGER)"
     )
     conn.executemany(
-        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?,?)",
+        "INSERT INTO skyrim_alchemy_effects (name, effect, base_magnitude, base_cost) VALUES (?,?,?,?)",
         [
             ("Glassfish", "Fortify Persuasion", None, None),
             ("Glassfish", "Restore Stamina", None, None),
@@ -538,7 +538,7 @@ def test_cc_eff_sql_apply_updates_sets_magnitude():
     )
     conn.commit()
 
-    _cc_eff_sql.apply_updates(conn, [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5}])
+    _cc_eff_sql.apply_updates(conn, [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5, "base_duration": 30}])
 
     row = conn.execute(
         "SELECT base_magnitude, base_cost FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
@@ -556,16 +556,16 @@ def test_cc_eff_sql_apply_updates_case_insensitive():
     conn = sqlite3.connect(":memory:")
     conn.execute(
         "CREATE TABLE skyrim_alchemy_effects "
-        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL)"
+        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL, base_duration INTEGER)"
     )
     conn.execute(
-        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?,?)",
+        "INSERT INTO skyrim_alchemy_effects (name, effect, base_magnitude, base_cost) VALUES (?,?,?,?)",
         ("Glassfish", "Fortify Persuasion", None, None),
     )
     conn.commit()
 
     # Update record uses different capitalisation
-    _cc_eff_sql.apply_updates(conn, [{"effect": "fortify persuasion", "base_magnitude": 1, "base_cost": 0.5}])
+    _cc_eff_sql.apply_updates(conn, [{"effect": "fortify persuasion", "base_magnitude": 1, "base_cost": 0.5, "base_duration": 30}])
 
     val = conn.execute(
         "SELECT base_magnitude FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
@@ -578,11 +578,11 @@ def test_cc_eff_sql_apply_updates_no_match_returns_zero():
     conn = sqlite3.connect(":memory:")
     conn.execute(
         "CREATE TABLE skyrim_alchemy_effects "
-        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL)"
+        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL, base_duration INTEGER)"
     )
     conn.commit()
 
-    n = _cc_eff_sql.apply_updates(conn, [{"effect": "Nonexistent Effect", "base_magnitude": 5, "base_cost": 1.0}])
+    n = _cc_eff_sql.apply_updates(conn, [{"effect": "Nonexistent Effect", "base_magnitude": 5, "base_cost": 1.0, "base_duration": 60}])
     assert n == 0
     conn.close()
 
@@ -591,22 +591,22 @@ def test_cc_eff_sql_apply_updates_idempotent():
     conn = sqlite3.connect(":memory:")
     conn.execute(
         "CREATE TABLE skyrim_alchemy_effects "
-        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL)"
+        "(name TEXT, effect TEXT, base_magnitude INTEGER, base_cost REAL, base_duration INTEGER)"
     )
     conn.execute(
-        "INSERT INTO skyrim_alchemy_effects VALUES (?,?,?,?)",
+        "INSERT INTO skyrim_alchemy_effects (name, effect, base_magnitude, base_cost) VALUES (?,?,?,?)",
         ("Glassfish", "Fortify Persuasion", None, None),
     )
     conn.commit()
 
-    records = [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5}]
+    records = [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5, "base_duration": 30}]
     _cc_eff_sql.apply_updates(conn, records)
     _cc_eff_sql.apply_updates(conn, records)
 
     row = conn.execute(
-        "SELECT base_magnitude, base_cost FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+        "SELECT base_magnitude, base_cost, base_duration FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
     ).fetchone()
-    assert row == (1, 0.5)
+    assert row == (1, 0.5, 30)
     conn.close()
 
 
@@ -628,10 +628,10 @@ def test_cc_eff_sql_script_updates_db(effects_json, tmp_db):
 
     conn = sqlite3.connect(tmp_db)
     row = conn.execute(
-        "SELECT base_magnitude, base_cost FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
+        "SELECT base_magnitude, base_cost, base_duration FROM skyrim_alchemy_effects WHERE effect='Fortify Persuasion'"
     ).fetchone()
     conn.close()
-    assert row == (1, 0.5)
+    assert row == (1, 0.5, 30)
 
 
 def test_cc_eff_sql_script_missing_json_exits_nonzero(tmp_db):

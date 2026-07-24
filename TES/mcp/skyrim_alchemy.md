@@ -252,8 +252,8 @@ application lasts 1 hit normally, or 2 hits with Concentrated Poison. Poisons ca
 | Question | Tool to use |
 |----------|-------------|
 | What effects does ingredient X have? | `skyrim_alchemy_ingredient(name)` |
-| Which ingredients have effect X? (returns base_magnitude and base_cost per effect) | `skyrim_alchemy_find_by_effect(effect)` |
-| What is the base cost of effect X (for value calculations)? | `skyrim_alchemy_find_by_effect(effect)` — `base_cost` field |
+| Which ingredients have effect X? (returns base_magnitude, base_cost, and base_duration per effect) | `skyrim_alchemy_find_by_effect(effect)` |
+| What is the base cost or base duration of effect X (for value calculations)? | `skyrim_alchemy_find_by_effect(effect)` — `base_cost` and `base_duration` fields |
 | Given my ingredients, what can I combine? | `skyrim_alchemy_combos(ingredients)` |
 | What are all possible effects? | `skyrim_alchemy_list_effects()` |
 | What does perk X do / what skill level does it need? | `skyrim_alchemy_perks()` |

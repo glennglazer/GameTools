@@ -8,7 +8,7 @@ Input (cc_effects_raw.json):
   {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}, ...}
 
 Output (cc_effects_records.json):
-  [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5}, ...]
+  [{"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5, "base_duration": 30}, ...]
 """
 
 import argparse
@@ -33,6 +33,7 @@ def parse(raw: dict) -> list[dict]:
             'effect': effect_name,
             'base_magnitude': int(stats['base_mag']),
             'base_cost': float(stats['base_cost']) if 'base_cost' in stats else None,
+            'base_duration': int(stats['base_dur']) if 'base_dur' in stats else None,
         })
     return records
 

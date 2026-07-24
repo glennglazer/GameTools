@@ -56,7 +56,7 @@ _DEFAULT_EFFECTS_RAW = str(_PARSE_DIR / 'skyrim_effects_raw.json')
 
 
 def load_effects_raw(path: str) -> dict:
-    """Return a lowercase-keyed dict of effect_name → {'base_mag': int, 'base_cost': float}.
+    """Return a lowercase-keyed dict of effect_name → {'base_mag': int, 'base_cost': float, 'base_dur': int}.
 
     Returns {} if the file is missing or unparseable, so that the parser
     degrades gracefully when the effects scraper has not been run.
@@ -64,7 +64,8 @@ def load_effects_raw(path: str) -> dict:
     try:
         with open(path) as f:
             raw = json.load(f)
-        return {k.lower(): {'base_mag': v['base_mag'], 'base_cost': v['base_cost']}
+        return {k.lower(): {'base_mag': v['base_mag'], 'base_cost': v['base_cost'],
+                            'base_dur': v.get('base_dur')}
                 for k, v in raw.items()}
     except (OSError, json.JSONDecodeError, KeyError, TypeError):
         return {}
@@ -87,10 +88,10 @@ def remove_wiki_link(value: str) -> str:
 def parse(infile: str, verbose: bool = False, effects_lookup: dict | None = None) -> dict:
     """Parse a raw wiki text file into ingredient and effect lists.
 
-    effects_lookup: lowercase-keyed dict of effect_name → {'base_mag': int, 'base_cost': float}
+    effects_lookup: lowercase-keyed dict of effect_name → {'base_mag': int, 'base_cost': float, 'base_dur': int}
     produced by load_effects_raw().  When provided, each effect record gains
-    'base_magnitude' and 'base_cost' keys (None if the effect is not in the lookup).
-    When omitted or empty, both keys are still included as None.
+    'base_magnitude', 'base_cost', and 'base_duration' keys (None if the effect is not in the lookup).
+    When omitted or empty, all three keys are still included as None.
     """
     ingredients = []
     effects = []
@@ -129,8 +130,10 @@ def parse(infile: str, verbose: bool = False, effects_lookup: dict | None = None
                 entry = lookup.get(effect.lower()) if (effect and lookup) else None
                 base_mag = entry['base_mag'] if entry else None
                 base_cost = entry['base_cost'] if entry else None
+                base_dur = entry.get('base_dur') if entry else None
                 effects.append({'name': name, 'effect': effect,
-                                'base_magnitude': base_mag, 'base_cost': base_cost})
+                                'base_magnitude': base_mag, 'base_cost': base_cost,
+                                'base_duration': base_dur})
 
             if verbose:
                 print(f"ingredients entry: {ingredients_entry}\n")

@@ -31,14 +31,14 @@ _DEFAULT_DB   = str(_FAMILY_ROOT / 'database' / 'gametools.sqlite3')
 
 
 def apply_updates(conn: sqlite3.Connection, records: list[dict]) -> int:
-    """UPDATE base_magnitude and base_cost for each CC effect.  Returns number of rows touched."""
+    """UPDATE base_magnitude, base_cost, and base_duration for each CC effect.  Returns number of rows touched."""
     cur = conn.cursor()
     total = 0
     for rec in records:
         cur.execute(
-            f"UPDATE {TABLE_NAME} SET base_magnitude = ?, base_cost = ? "
+            f"UPDATE {TABLE_NAME} SET base_magnitude = ?, base_cost = ?, base_duration = ? "
             f"WHERE LOWER(effect) = LOWER(?)",
-            (rec['base_magnitude'], rec.get('base_cost'), rec['effect']),
+            (rec['base_magnitude'], rec.get('base_cost'), rec.get('base_duration'), rec['effect']),
         )
         total += cur.rowcount
     conn.commit()
@@ -87,5 +87,5 @@ if __name__ == '__main__':
         traceback.print_exc(file=sys.stderr)
         sys.exit(1)
 
-    print(f"Updated base_magnitude for {rows_updated} rows in {TABLE_NAME}.")
+    print(f"Updated base_magnitude/base_duration for {rows_updated} rows in {TABLE_NAME}.")
     print(f"Database update complete for {GAME_LABEL}.")

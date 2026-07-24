@@ -698,7 +698,7 @@ def test_cc_eff_parse_single_record():
     raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}}
     recs = _cc_eff_parse.parse(raw)
     assert len(recs) == 1
-    assert recs[0] == {"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5}
+    assert recs[0] == {"effect": "Fortify Persuasion", "base_magnitude": 1, "base_cost": 0.5, "base_duration": 30}
 
 
 def test_cc_eff_parse_base_magnitude_is_int():
@@ -718,6 +718,23 @@ def test_cc_eff_parse_base_cost_is_float():
     raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}}
     recs = _cc_eff_parse.parse(raw)
     assert isinstance(recs[0]["base_cost"], float)
+
+
+def test_cc_eff_parse_includes_base_duration():
+    raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}}
+    recs = _cc_eff_parse.parse(raw)
+    assert "base_duration" in recs[0]
+    assert recs[0]["base_duration"] == 30
+
+def test_cc_eff_parse_base_duration_is_int():
+    raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1, "base_dur": 30}}
+    recs = _cc_eff_parse.parse(raw)
+    assert isinstance(recs[0]["base_duration"], int)
+
+def test_cc_eff_parse_base_duration_none_when_missing():
+    raw = {"Fortify Persuasion": {"base_cost": 0.5, "base_mag": 1}}
+    recs = _cc_eff_parse.parse(raw)
+    assert recs[0]["base_duration"] is None
 
 
 def test_cc_eff_parse_multiple_effects():

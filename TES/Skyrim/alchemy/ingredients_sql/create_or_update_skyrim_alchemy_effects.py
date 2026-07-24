@@ -111,7 +111,7 @@ if __name__ == '__main__':
             existing_cols = [
                 row[1] for row in cur.execute(f"PRAGMA table_info({TABLE_NAME})").fetchall()
             ]
-            if 'base_magnitude' not in existing_cols or 'base_cost' not in existing_cols:
+            if 'base_magnitude' not in existing_cols or 'base_cost' not in existing_cols or 'base_duration' not in existing_cols:
                 current_sql = f"DROP TABLE {TABLE_NAME}"
                 cur.execute(current_sql)
                 current_sql = f"DROP INDEX IF EXISTS {INDEX_NAME}"
