@@ -39,15 +39,17 @@ PERKS_SAMPLE = [
 ]
 
 EFFECTS_SAMPLE = [
-    {'name': 'Absorb Health', 'school': 'Destruction'},
-    {'name': 'Banish', 'school': 'Conjuration'},
+    {'name': 'Absorb Health', 'school': 'Destruction', 'base_cost': 31},
+    {'name': 'Banish', 'school': 'Conjuration', 'base_cost': 113},
 ]
 
 APPAREL_SAMPLE = [
     {'enchantment': 'Fortify Alchemy', 'head': True, 'chest': False,
-     'hands': True, 'feet': False, 'shield': False, 'amulet': True, 'ring': True},
+     'hands': True, 'feet': False, 'shield': False, 'amulet': True, 'ring': True,
+     'base_cost': 167},
     {'enchantment': 'Muffle', 'head': False, 'chest': False,
-     'hands': False, 'feet': True, 'shield': False, 'amulet': False, 'ring': False},
+     'hands': False, 'feet': True, 'shield': False, 'amulet': False, 'ring': False,
+     'base_cost': 105},
 ]
 
 
@@ -159,15 +161,15 @@ def make_effects_json(tmp_path, data=None):
 
 
 def create_effects_table(conn):
-    conn.execute(f"CREATE TABLE {EFFECTS_TABLE} (name TEXT, school TEXT)")
+    conn.execute(f"CREATE TABLE {EFFECTS_TABLE} (name TEXT, school TEXT, base_cost INTEGER)")
     conn.commit()
 
 
 def test_effects_apply_deletes(tmp_db):
     conn = sqlite3.connect(tmp_db)
     create_effects_table(conn)
-    conn.execute(f"INSERT INTO {EFFECTS_TABLE} VALUES ('Absorb Health', 'Destruction')")
-    conn.execute(f"INSERT INTO {EFFECTS_TABLE} VALUES ('Banish', 'Conjuration')")
+    conn.execute(f"INSERT INTO {EFFECTS_TABLE} VALUES ('Absorb Health', 'Destruction', 31)")
+    conn.execute(f"INSERT INTO {EFFECTS_TABLE} VALUES ('Banish', 'Conjuration', 113)")
     conn.commit()
     _effects.apply_deletes(conn.cursor(), EFFECTS_TABLE, [EFFECTS_SAMPLE[0]], 'name')
     conn.commit()
@@ -215,7 +217,7 @@ def create_apparel_table(conn):
     conn.execute(
         f"CREATE TABLE {APPAREL_TABLE} "
         "(enchantment TEXT, head INTEGER, chest INTEGER, hands INTEGER, "
-        "feet INTEGER, shield INTEGER, amulet INTEGER, ring INTEGER)"
+        "feet INTEGER, shield INTEGER, amulet INTEGER, ring INTEGER, base_cost INTEGER)"
     )
     conn.commit()
 
@@ -223,8 +225,8 @@ def create_apparel_table(conn):
 def test_apparel_apply_deletes(tmp_db):
     conn = sqlite3.connect(tmp_db)
     create_apparel_table(conn)
-    conn.execute(f"INSERT INTO {APPAREL_TABLE} VALUES ('Fortify Alchemy', 1, 0, 1, 0, 0, 1, 1)")
-    conn.execute(f"INSERT INTO {APPAREL_TABLE} VALUES ('Muffle', 0, 0, 0, 1, 0, 0, 0)")
+    conn.execute(f"INSERT INTO {APPAREL_TABLE} VALUES ('Fortify Alchemy', 1, 0, 1, 0, 0, 1, 1, 167)")
+    conn.execute(f"INSERT INTO {APPAREL_TABLE} VALUES ('Muffle', 0, 0, 0, 1, 0, 0, 0, 105)")
     conn.commit()
     _apparel.apply_deletes(conn.cursor(), APPAREL_TABLE, [APPAREL_SAMPLE[0]], 'enchantment')
     conn.commit()
@@ -294,3 +296,58 @@ def test_apparel_bad_db_exits_nonzero(tmp_path):
     write_diff(tmp_path, 'skyrim_enchant_apparel', APPAREL_SAMPLE, {})
     result = run(APPAREL_SCRIPT, [json_file, '/nonexistent_dir_xyz/db.sqlite3'])
     assert result.returncode != 0
+
+
+# ===========================================================================
+# schema migration tests
+# ===========================================================================
+
+def test_effects_schema_migration(tmp_path, tmp_db):
+    """Existing table without base_cost column gets the column added on next run."""
+    conn = sqlite3.connect(tmp_db)
+    conn.execute(f"CREATE TABLE {EFFECTS_TABLE} (name TEXT, school TEXT)")
+    conn.execute(f"CREATE UNIQUE INDEX {_effects.INDEX_NAME} ON {EFFECTS_TABLE} (name)")
+    conn.execute(f"INSERT INTO {EFFECTS_TABLE} VALUES ('Absorb Health', 'Destruction')")
+    conn.commit()
+    conn.close()
+
+    json_file = make_effects_json(tmp_path, EFFECTS_SAMPLE)
+    write_diff(tmp_path, 'skyrim_enchant_weapons', EFFECTS_SAMPLE, {})
+    result = run(EFFECTS_SCRIPT, [json_file, tmp_db])
+    assert result.returncode == 0, result.stderr
+
+    conn = sqlite3.connect(tmp_db)
+    col_names = [row[1] for row in conn.execute(f'PRAGMA table_info({EFFECTS_TABLE})').fetchall()]
+    assert 'base_cost' in col_names
+    row = conn.execute(
+        f"SELECT name, school, base_cost FROM {EFFECTS_TABLE} WHERE name='Absorb Health'"
+    ).fetchone()
+    conn.close()
+    assert row[2] == 31
+
+def test_apparel_schema_migration(tmp_path, tmp_db):
+    """Existing apparel table without base_cost column gets the column added on next run."""
+    conn = sqlite3.connect(tmp_db)
+    conn.execute(
+        f"CREATE TABLE {APPAREL_TABLE} "
+        "(enchantment TEXT, head INTEGER, chest INTEGER, hands INTEGER, "
+        "feet INTEGER, shield INTEGER, amulet INTEGER, ring INTEGER)"
+    )
+    conn.execute(f"CREATE UNIQUE INDEX {_apparel.INDEX_NAME} ON {APPAREL_TABLE} (enchantment)")
+    conn.execute(f"INSERT INTO {APPAREL_TABLE} VALUES ('Fortify Alchemy', 1, 0, 1, 0, 0, 1, 1)")
+    conn.commit()
+    conn.close()
+
+    json_file = make_apparel_json(tmp_path, APPAREL_SAMPLE)
+    write_diff(tmp_path, 'skyrim_enchant_apparel', APPAREL_SAMPLE, {})
+    result = run(APPAREL_SCRIPT, [json_file, tmp_db])
+    assert result.returncode == 0, result.stderr
+
+    conn = sqlite3.connect(tmp_db)
+    col_names = [row[1] for row in conn.execute(f'PRAGMA table_info({APPAREL_TABLE})').fetchall()]
+    assert 'base_cost' in col_names
+    row = conn.execute(
+        f"SELECT enchantment, base_cost FROM {APPAREL_TABLE} WHERE enchantment='Fortify Alchemy'"
+    ).fetchone()
+    conn.close()
+    assert row[1] == 167

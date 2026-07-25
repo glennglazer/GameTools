@@ -2,6 +2,7 @@
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 import pytest
@@ -49,15 +50,17 @@ PERKS_SAMPLE = [
 ]
 
 EFFECTS_SAMPLE = [
-    {'name': 'Absorb Health', 'school': 'Destruction'},
-    {'name': 'Banish', 'school': 'Conjuration'},
+    {'name': 'Absorb Health', 'school': 'Destruction', 'base_cost': None},
+    {'name': 'Banish', 'school': 'Conjuration', 'base_cost': None},
 ]
 
 APPAREL_SAMPLE = [
     {'enchantment': 'Fortify Alchemy', 'head': True, 'chest': False,
-     'hands': True, 'feet': False, 'shield': False, 'amulet': True, 'ring': True},
+     'hands': True, 'feet': False, 'shield': False, 'amulet': True, 'ring': True,
+     'base_cost': None},
     {'enchantment': 'Muffle', 'head': False, 'chest': False,
-     'hands': False, 'feet': True, 'shield': False, 'amulet': False, 'ring': False},
+     'hands': False, 'feet': True, 'shield': False, 'amulet': False, 'ring': False,
+     'base_cost': None},
 ]
 
 
@@ -137,7 +140,7 @@ def test_effects_parse_count(tmp_path):
 def test_effects_parse_fields(tmp_path):
     infile = make_raw(tmp_path, 'eff.txt', EFFECTS_RAW)
     rows = _effects.parse(infile)
-    assert rows[0] == {'name': 'Absorb Health', 'school': 'Destruction'}
+    assert rows[0] == {'name': 'Absorb Health', 'school': 'Destruction', 'base_cost': None}
 
 def test_effects_parse_wrong_fields_raises(tmp_path):
     bad = make_raw(tmp_path, 'bad.txt', 'OnlyOne\n')
@@ -167,6 +170,34 @@ def test_effects_subprocess_no_change(tmp_path):
     run(EFFECTS_SCRIPT, [infile, outfile])
     result = run(EFFECTS_SCRIPT, [infile, outfile])
     assert 'No changes' in result.stderr
+
+def test_effects_parse_base_costs_loaded(tmp_path):
+    infile = make_raw(tmp_path, 'eff.txt', EFFECTS_RAW)
+    costs = {'Absorb Health': 31, 'Banish': 113}
+    rows = _effects.parse(infile, base_costs=costs)
+    assert rows[0]['base_cost'] == 31
+    assert rows[1]['base_cost'] == 113
+
+def test_effects_parse_base_costs_missing_key(tmp_path):
+    infile = make_raw(tmp_path, 'eff.txt', EFFECTS_RAW)
+    rows = _effects.parse(infile, base_costs={'Absorb Health': 31})
+    assert rows[0]['base_cost'] == 31
+    assert rows[1]['base_cost'] is None
+
+def test_effects_subprocess_base_costs_arg(tmp_path):
+    infile = make_raw(tmp_path, 'eff.txt', EFFECTS_RAW)
+    costs_file = tmp_path / 'costs.json'
+    costs_file.write_text(json.dumps({'Absorb Health': 31, 'Banish': 113}))
+    outfile = str(tmp_path / 'eff.json')
+    result = run(EFFECTS_SCRIPT, [infile, outfile, '--base-costs', str(costs_file)])
+    assert result.returncode == 0, result.stderr
+    data = json.loads(Path(outfile).read_text())
+    assert data[0]['base_cost'] == 31
+    assert data[1]['base_cost'] == 113
+
+def test_effects_load_base_costs_missing_file(tmp_path):
+    costs = _effects.load_base_costs(str(tmp_path / 'missing.json'))
+    assert costs == {}
 
 
 # ===========================================================================
@@ -233,3 +264,30 @@ def test_apparel_write_diff_files_sentinel(tmp_path):
     _apparel.write_diff_files(outfile, [], [])
     upsert = json.loads((tmp_path / 'app.upsert.json').read_text())
     assert upsert == {}
+
+def test_apparel_parse_base_cost_null_by_default(tmp_path):
+    infile = make_raw(tmp_path, 'app.txt', APPAREL_RAW)
+    rows = _apparel.parse(infile)
+    assert rows[0]['base_cost'] is None
+
+def test_apparel_parse_base_costs_loaded(tmp_path):
+    infile = make_raw(tmp_path, 'app.txt', APPAREL_RAW)
+    costs = {'Fortify Alchemy': 167, 'Muffle': 105}
+    rows = _apparel.parse(infile, base_costs=costs)
+    assert rows[0]['base_cost'] == 167
+    assert rows[1]['base_cost'] == 105
+
+def test_apparel_subprocess_base_costs_arg(tmp_path):
+    infile = make_raw(tmp_path, 'app.txt', APPAREL_RAW)
+    costs_file = tmp_path / 'costs.json'
+    costs_file.write_text(json.dumps({'Fortify Alchemy': 167, 'Muffle': 105}))
+    outfile = str(tmp_path / 'app.json')
+    result = run(APPAREL_SCRIPT, [infile, outfile, '--base-costs', str(costs_file)])
+    assert result.returncode == 0, result.stderr
+    data = json.loads(Path(outfile).read_text())
+    assert data[0]['base_cost'] == 167
+    assert data[1]['base_cost'] == 105
+
+def test_apparel_load_base_costs_missing_file(tmp_path):
+    costs = _apparel.load_base_costs(str(tmp_path / 'missing.json'))
+    assert costs == {}

@@ -10,7 +10,11 @@ Input format (one line per enchantment):
 
 Output JSON format:
   [{"enchantment": "Fortify Alchemy", "head": true, "chest": false,
-    "hands": true, "feet": false, "shield": false, "amulet": true, "ring": true}, ...]
+    "hands": true, "feet": false, "shield": false, "amulet": true, "ring": true,
+    "base_cost": 167}, ...]
+
+base_cost is loaded from a separate JSON dict file (produced by skyrim_scrape_enchant_base_costs.py).
+If the file is absent or an enchantment is not listed, base_cost is null.
 """
 
 import argparse
@@ -23,13 +27,26 @@ _SCRIPT_DIR = Path(__file__).parent.resolve()
 _PARSE_DIR = _SCRIPT_DIR.parent / 'enchant_parse'
 _DEFAULT_INFILE = str(_PARSE_DIR / 'skyrim_enchant_apparel_raw.txt')
 _DEFAULT_OUTFILE = str(_SCRIPT_DIR / 'skyrim_enchant_apparel.json')
+_DEFAULT_COSTS_FILE = str(_PARSE_DIR / 'apparel_base_costs_raw.json')
 
 EXPECTED_FIELDS = 8
 SLOT_COLS = ['head', 'chest', 'hands', 'feet', 'shield', 'amulet', 'ring']
 
 
-def parse(infile: str) -> list:
+def load_base_costs(path: str) -> dict:
+    """Return {name: base_cost} dict from path, or {} if file is missing."""
+    try:
+        with open(path) as f:
+            data = json.load(f)
+        return data if isinstance(data, dict) else {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def parse(infile: str, base_costs: dict | None = None) -> list:
     """Read pipe-delimited raw file and return list of apparel enchantment dicts."""
+    if base_costs is None:
+        base_costs = {}
     try:
         with open(infile) as f:
             lines = [l.rstrip('\n') for l in f if l.strip()]
@@ -56,6 +73,7 @@ def parse(infile: str) -> list:
                     f'Line {lineno}: column {col!r} must be True or False, got {v!r}'
                 )
             rec[col] = v == 'True'
+        rec['base_cost'] = base_costs.get(enchantment)
         rows.append(rec)
     return rows
 
@@ -109,14 +127,18 @@ if __name__ == '__main__':
     )
     parser.add_argument('infile', nargs='?', default=_DEFAULT_INFILE)
     parser.add_argument('outfile', nargs='?', default=_DEFAULT_OUTFILE)
+    parser.add_argument('--base-costs', default=_DEFAULT_COSTS_FILE,
+                        help='Path to apparel_base_costs_raw.json (default: enchant_parse/)')
     args = parser.parse_args()
 
     if not op.exists(args.infile):
         print(f'Input file not found: {args.infile}', file=sys.stderr)
         sys.exit(1)
 
+    base_costs = load_base_costs(args.base_costs)
+
     try:
-        new_data = parse(args.infile)
+        new_data = parse(args.infile, base_costs)
     except (OSError, ValueError) as e:
         print(f'Parse error: {e}', file=sys.stderr)
         sys.exit(1)

@@ -239,6 +239,10 @@ def update_skyrim_enchanting() -> None:
              [enc_dir / 'disenchant_parse' / 'skyrim_scrape_disenchant.py',
               '--apparel-out', enc_dir / 'disenchant_parse' / 'disenchant_apparel_raw.json',
               '--weapons-out', enc_dir / 'disenchant_parse' / 'disenchant_weapons_raw.json'])
+    run_step('Skyrim enchant base costs scrape',
+             [enc_dir / 'enchant_parse' / 'skyrim_scrape_enchant_base_costs.py',
+              '--apparel-out', enc_dir / 'enchant_parse' / 'apparel_base_costs_raw.json',
+              '--weapons-out', enc_dir / 'enchant_parse' / 'weapons_base_costs_raw.json'])
 
     for label, json_dir_name, script_name in [
         ('Skyrim gem types JSON',

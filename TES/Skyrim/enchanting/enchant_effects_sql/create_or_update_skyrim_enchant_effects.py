@@ -3,8 +3,9 @@
 Create or incrementally update the skyrim_enchant_weapons table.
 
 Table schema: skyrim_enchant_weapons
-  name    TEXT (unique key)
-  school  TEXT
+  name       TEXT (unique key)
+  school     TEXT
+  base_cost  INTEGER (nullable; null for unique items not in UESP effects table)
 """
 
 import argparse
@@ -59,6 +60,7 @@ def apply_upserts(conn, table_name: str, upsert_data: list, key_col: str = 'name
     pd.DataFrame(upsert_data).to_sql(
         table_name, conn, if_exists='append', method='multi', index=False
     )
+    conn.commit()
 
 
 def remove_diff_file(path: str, repo_root: str) -> None:
@@ -119,6 +121,14 @@ if __name__ == '__main__':
             if args.verbose:
                 print(f'Created {TABLE_NAME} with {len(upsert_data)} rows.')
         else:
+            current_sql = f'PRAGMA table_info({TABLE_NAME})'
+            col_names = [row[1] for row in cur.execute(current_sql).fetchall()]
+            if 'base_cost' not in col_names:
+                current_sql = f'ALTER TABLE {TABLE_NAME} ADD COLUMN base_cost INTEGER'
+                cur.execute(current_sql)
+                conn.commit()
+                if args.verbose:
+                    print(f'Migrated {TABLE_NAME}: added base_cost column.')
             if delete_data:
                 current_sql = f'DELETE FROM {TABLE_NAME} WHERE {KEY_COL} = ?'
                 apply_deletes(cur, TABLE_NAME, delete_data, KEY_COL)
