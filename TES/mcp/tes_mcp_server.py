@@ -306,6 +306,110 @@ def morrowind_alchemy_apparatus(apparatus_type: str | None = None) -> list[dict]
 
 # ─── Skyrim enchanting ──────────────────────────────────────────────────────
 
+@mcp.resource("gametools://skyrim/enchanting/rules")
+def skyrim_enchanting_rules() -> str:
+    """Skyrim enchanting mechanics: formulae (patched/unpatched), charges, soul gems, perks."""
+    return (_SCRIPT_DIR / 'skyrim_enchanting.md').read_text()
+
+
+@mcp.tool()
+def skyrim_enchant_perks() -> list[dict]:
+    """Return all Skyrim enchanting perks with skill level, prerequisite, and description."""
+    return _query(
+        "SELECT name, skill_level, prerequisite, description "
+        "FROM skyrim_enchant_perks ORDER BY skill_level, name"
+    )
+
+
+@mcp.tool()
+def skyrim_enchant_weapon_effects(name: str | None = None) -> list[dict]:
+    """Return Skyrim weapon enchantment effects with school and base_cost.
+    Optional partial name filter. base_cost is used in the charges-per-use formula."""
+    if name:
+        return _query(
+            "SELECT name, school, base_cost FROM skyrim_enchant_weapons "
+            "WHERE LOWER(name) LIKE LOWER('%' || :name || '%') ORDER BY name",
+            {"name": name},
+        )
+    return _query(
+        "SELECT name, school, base_cost FROM skyrim_enchant_weapons ORDER BY name"
+    )
+
+
+@mcp.tool()
+def skyrim_enchant_apparel_effects(
+    slot: str | None = None,
+    name: str | None = None,
+) -> list[dict]:
+    """Return Skyrim apparel enchantments with equip-slot flags and base_cost.
+    Optional slot filter: head, chest, hands, feet, shield, amulet, or ring.
+    Optional partial name filter. base_cost is used in the enchanting-for-profit calculation."""
+    valid_slots = ('head', 'chest', 'hands', 'feet', 'shield', 'amulet', 'ring')
+    where_clauses = []
+    params: dict = {}
+
+    if slot:
+        slot = slot.lower()
+        if slot not in valid_slots:
+            return [{"error": f"Invalid slot '{slot}'. Choose from: {', '.join(valid_slots)}"}]
+        where_clauses.append(f"{slot} = 1")
+
+    if name:
+        where_clauses.append("LOWER(enchantment) LIKE LOWER('%' || :name || '%')")
+        params["name"] = name
+
+    where = ("WHERE " + " AND ".join(where_clauses)) if where_clauses else ""
+    return _query(
+        f"SELECT enchantment, head, chest, hands, feet, shield, amulet, ring, base_cost "
+        f"FROM skyrim_enchant_apparel {where} ORDER BY enchantment",
+        params,
+    )
+
+
+@mcp.tool()
+def skyrim_enchant_soul_gems() -> list[dict]:
+    """Return Skyrim soul gem types with capacity, value, weight, and trappable soul description."""
+    return _query(
+        "SELECT name, weight, value, capacity, trappable_souls "
+        "FROM skyrim_enchant_soulgems ORDER BY capacity, name"
+    )
+
+
+@mcp.tool()
+def skyrim_enchant_souls(name: str | None = None) -> list[dict]:
+    """Return Skyrim creature soul sizes (soul_size in charge points). Optional partial name filter.
+    Souls of 3000 are black souls (humanoids) and require a black soul gem."""
+    if name:
+        return _query(
+            "SELECT name, soul_size FROM skyrim_enchant_souls "
+            "WHERE LOWER(name) LIKE LOWER('%' || :name || '%') ORDER BY soul_size, name",
+            {"name": name},
+        )
+    return _query(
+        "SELECT name, soul_size FROM skyrim_enchant_souls ORDER BY soul_size, name"
+    )
+
+
+@mcp.tool()
+def skyrim_enchant_disenchant(effect: str) -> list[dict]:
+    """Return items to disenchant to learn a given enchantment effect (partial name match).
+    Searches both apparel and weapon disenchant tables. Returns effect, item, note, and type
+    ('apparel' or 'weapon')."""
+    params = {"effect": effect}
+    apparel = _query(
+        "SELECT effect, item, note, 'apparel' AS type "
+        "FROM skyrim_enchant_disenchant_apparel "
+        "WHERE LOWER(effect) LIKE LOWER('%' || :effect || '%') ORDER BY effect, item",
+        params,
+    )
+    weapons = _query(
+        "SELECT effect, item, note, 'weapon' AS type "
+        "FROM skyrim_enchant_disenchant_weapons "
+        "WHERE LOWER(effect) LIKE LOWER('%' || :effect || '%') ORDER BY effect, item",
+        params,
+    )
+    return apparel + weapons
+
 
 # ─── Skyrim smithing ────────────────────────────────────────────────────────
 
