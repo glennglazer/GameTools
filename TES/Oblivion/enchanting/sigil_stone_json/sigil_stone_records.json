@@ -1,0 +1,752 @@
+[
+  {
+    "form_id": "00041FB1",
+    "weapon_effect": "Absorb Agility",
+    "armor_effect": "Fortify Agility"
+  },
+  {
+    "form_id": "00041FB2",
+    "weapon_effect": "Absorb Agility",
+    "armor_effect": "Fortify Agility"
+  },
+  {
+    "form_id": "00041FB3",
+    "weapon_effect": "Absorb Agility",
+    "armor_effect": "Fortify Agility"
+  },
+  {
+    "form_id": "00041FB4",
+    "weapon_effect": "Absorb Agility",
+    "armor_effect": "Fortify Agility"
+  },
+  {
+    "form_id": "00041FB5",
+    "weapon_effect": "Absorb Agility",
+    "armor_effect": "Fortify Agility"
+  },
+  {
+    "form_id": "00041FB7",
+    "weapon_effect": "Absorb Endurance",
+    "armor_effect": "Resist Disease"
+  },
+  {
+    "form_id": "00041FB8",
+    "weapon_effect": "Absorb Endurance",
+    "armor_effect": "Resist Disease"
+  },
+  {
+    "form_id": "00041FB9",
+    "weapon_effect": "Absorb Endurance",
+    "armor_effect": "Resist Disease"
+  },
+  {
+    "form_id": "00041FBA",
+    "weapon_effect": "Absorb Endurance",
+    "armor_effect": "Resist Disease"
+  },
+  {
+    "form_id": "00041FBB",
+    "weapon_effect": "Absorb Endurance",
+    "armor_effect": "Resist Disease"
+  },
+  {
+    "form_id": "00041FC3",
+    "weapon_effect": "Absorb Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FC4",
+    "weapon_effect": "Absorb Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FC5",
+    "weapon_effect": "Absorb Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FC6",
+    "weapon_effect": "Absorb Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FC7",
+    "weapon_effect": "Absorb Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FC9",
+    "weapon_effect": "Absorb Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00041FCA",
+    "weapon_effect": "Absorb Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00041FCB",
+    "weapon_effect": "Absorb Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00041FCC",
+    "weapon_effect": "Absorb Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00041FCD",
+    "weapon_effect": "Absorb Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00041FAB",
+    "weapon_effect": "Absorb Intelligence",
+    "armor_effect": "Fortify Intelligence"
+  },
+  {
+    "form_id": "00041FAC",
+    "weapon_effect": "Absorb Intelligence",
+    "armor_effect": "Fortify Intelligence"
+  },
+  {
+    "form_id": "00041FAD",
+    "weapon_effect": "Absorb Intelligence",
+    "armor_effect": "Fortify Intelligence"
+  },
+  {
+    "form_id": "00041FAE",
+    "weapon_effect": "Absorb Intelligence",
+    "armor_effect": "Fortify Intelligence"
+  },
+  {
+    "form_id": "00041FAF",
+    "weapon_effect": "Absorb Intelligence",
+    "armor_effect": "Fortify Intelligence"
+  },
+  {
+    "form_id": "00041FCF",
+    "weapon_effect": "Absorb Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00041FD0",
+    "weapon_effect": "Absorb Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00041FD1",
+    "weapon_effect": "Absorb Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00041FD2",
+    "weapon_effect": "Absorb Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00041FD3",
+    "weapon_effect": "Absorb Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00041FBD",
+    "weapon_effect": "Absorb Speed",
+    "armor_effect": "Fortify Speed"
+  },
+  {
+    "form_id": "00041FBE",
+    "weapon_effect": "Absorb Speed",
+    "armor_effect": "Fortify Speed"
+  },
+  {
+    "form_id": "00041FBF",
+    "weapon_effect": "Absorb Speed",
+    "armor_effect": "Fortify Speed"
+  },
+  {
+    "form_id": "00041FC0",
+    "weapon_effect": "Absorb Speed",
+    "armor_effect": "Fortify Speed"
+  },
+  {
+    "form_id": "00041FC1",
+    "weapon_effect": "Absorb Speed",
+    "armor_effect": "Fortify Speed"
+  },
+  {
+    "form_id": "00041FA5",
+    "weapon_effect": "Absorb Strength",
+    "armor_effect": "Fortify Strength"
+  },
+  {
+    "form_id": "00041FA7",
+    "weapon_effect": "Absorb Strength",
+    "armor_effect": "Fortify Strength"
+  },
+  {
+    "form_id": "00041FA4",
+    "weapon_effect": "Absorb Strength",
+    "armor_effect": "Fortify Strength"
+  },
+  {
+    "form_id": "00041FA6",
+    "weapon_effect": "Absorb Strength",
+    "armor_effect": "Fortify Strength"
+  },
+  {
+    "form_id": "00041FA9",
+    "weapon_effect": "Absorb Strength",
+    "armor_effect": "Fortify Strength"
+  },
+  {
+    "form_id": "00041FD5",
+    "weapon_effect": "Burden",
+    "armor_effect": "Feather"
+  },
+  {
+    "form_id": "00041FD6",
+    "weapon_effect": "Burden",
+    "armor_effect": "Feather"
+  },
+  {
+    "form_id": "00041FD7",
+    "weapon_effect": "Burden",
+    "armor_effect": "Feather"
+  },
+  {
+    "form_id": "00041FD8",
+    "weapon_effect": "Burden",
+    "armor_effect": "Feather"
+  },
+  {
+    "form_id": "00041FD9",
+    "weapon_effect": "Burden",
+    "armor_effect": "Feather"
+  },
+  {
+    "form_id": "00041FF9",
+    "weapon_effect": "Damage Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FFA",
+    "weapon_effect": "Damage Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FFB",
+    "weapon_effect": "Damage Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FFC",
+    "weapon_effect": "Damage Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FFD",
+    "weapon_effect": "Damage Fatigue",
+    "armor_effect": "Fortify Fatigue"
+  },
+  {
+    "form_id": "00041FFF",
+    "weapon_effect": "Damage Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00042000",
+    "weapon_effect": "Damage Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00042001",
+    "weapon_effect": "Damage Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00042002",
+    "weapon_effect": "Damage Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00042003",
+    "weapon_effect": "Damage Health",
+    "armor_effect": "Fortify Health"
+  },
+  {
+    "form_id": "00042005",
+    "weapon_effect": "Damage Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00042006",
+    "weapon_effect": "Damage Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00042007",
+    "weapon_effect": "Damage Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00042008",
+    "weapon_effect": "Damage Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "00042009",
+    "weapon_effect": "Damage Magicka",
+    "armor_effect": "Fortify Magicka"
+  },
+  {
+    "form_id": "0004200B",
+    "weapon_effect": "Demoralize",
+    "armor_effect": "Fortify Willpower"
+  },
+  {
+    "form_id": "0004200C",
+    "weapon_effect": "Demoralize",
+    "armor_effect": "Fortify Willpower"
+  },
+  {
+    "form_id": "0004200D",
+    "weapon_effect": "Demoralize",
+    "armor_effect": "Fortify Willpower"
+  },
+  {
+    "form_id": "0004200E",
+    "weapon_effect": "Demoralize",
+    "armor_effect": "Fortify Willpower"
+  },
+  {
+    "form_id": "0004200F",
+    "weapon_effect": "Demoralize",
+    "armor_effect": "Fortify Willpower"
+  },
+  {
+    "form_id": "00042011",
+    "weapon_effect": "Disintegrate Armor",
+    "armor_effect": "Shield"
+  },
+  {
+    "form_id": "00042012",
+    "weapon_effect": "Disintegrate Armor",
+    "armor_effect": "Shield"
+  },
+  {
+    "form_id": "00042013",
+    "weapon_effect": "Disintegrate Armor",
+    "armor_effect": "Shield"
+  },
+  {
+    "form_id": "00042014",
+    "weapon_effect": "Disintegrate Armor",
+    "armor_effect": "Shield"
+  },
+  {
+    "form_id": "00042015",
+    "weapon_effect": "Disintegrate Armor",
+    "armor_effect": "Shield"
+  },
+  {
+    "form_id": "00042017",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blade"
+  },
+  {
+    "form_id": "00042018",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blade"
+  },
+  {
+    "form_id": "00042019",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blade"
+  },
+  {
+    "form_id": "0004201A",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blade"
+  },
+  {
+    "form_id": "0004201B",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blade"
+  },
+  {
+    "form_id": "0004201D",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blunt"
+  },
+  {
+    "form_id": "0004201E",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blunt"
+  },
+  {
+    "form_id": "0004201F",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blunt"
+  },
+  {
+    "form_id": "00042020",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blunt"
+  },
+  {
+    "form_id": "00042021",
+    "weapon_effect": "Disintegrate Weapon",
+    "armor_effect": "Fortify Blunt"
+  },
+  {
+    "form_id": "00042023",
+    "weapon_effect": "Dispel",
+    "armor_effect": "Spell Absorption"
+  },
+  {
+    "form_id": "00042024",
+    "weapon_effect": "Dispel",
+    "armor_effect": "Spell Absorption"
+  },
+  {
+    "form_id": "00042025",
+    "weapon_effect": "Dispel",
+    "armor_effect": "Spell Absorption"
+  },
+  {
+    "form_id": "00042026",
+    "weapon_effect": "Dispel",
+    "armor_effect": "Spell Absorption"
+  },
+  {
+    "form_id": "00042027",
+    "weapon_effect": "Dispel",
+    "armor_effect": "Spell Absorption"
+  },
+  {
+    "form_id": "00042053",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Fire Shield"
+  },
+  {
+    "form_id": "00042054",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Fire Shield"
+  },
+  {
+    "form_id": "00042055",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Fire Shield"
+  },
+  {
+    "form_id": "00042056",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Fire Shield"
+  },
+  {
+    "form_id": "00042057",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Fire Shield"
+  },
+  {
+    "form_id": "0004206B",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Light"
+  },
+  {
+    "form_id": "0004206C",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Light"
+  },
+  {
+    "form_id": "0004206D",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Light"
+  },
+  {
+    "form_id": "0004206E",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Light"
+  },
+  {
+    "form_id": "0004206F",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Light"
+  },
+  {
+    "form_id": "0004204D",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Resist Fire"
+  },
+  {
+    "form_id": "0004204E",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Resist Fire"
+  },
+  {
+    "form_id": "0004204F",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Resist Fire"
+  },
+  {
+    "form_id": "00042050",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Resist Fire"
+  },
+  {
+    "form_id": "00042051",
+    "weapon_effect": "Fire Damage",
+    "armor_effect": "Resist Fire"
+  },
+  {
+    "form_id": "0004205F",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Frost Shield"
+  },
+  {
+    "form_id": "00042061",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Frost Shield"
+  },
+  {
+    "form_id": "00042060",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Frost Shield"
+  },
+  {
+    "form_id": "00042062",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Frost Shield"
+  },
+  {
+    "form_id": "00042063",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Frost Shield"
+  },
+  {
+    "form_id": "00042059",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Resist Frost"
+  },
+  {
+    "form_id": "0004205A",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Resist Frost"
+  },
+  {
+    "form_id": "0004205B",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Resist Frost"
+  },
+  {
+    "form_id": "0004205C",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Resist Frost"
+  },
+  {
+    "form_id": "0004205D",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Resist Frost"
+  },
+  {
+    "form_id": "00042065",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Water Walking"
+  },
+  {
+    "form_id": "00042066",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Water Walking"
+  },
+  {
+    "form_id": "00042067",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Water Walking"
+  },
+  {
+    "form_id": "00042068",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Water Walking"
+  },
+  {
+    "form_id": "00042069",
+    "weapon_effect": "Frost Damage",
+    "armor_effect": "Water Walking"
+  },
+  {
+    "form_id": "00042083",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Night-Eye"
+  },
+  {
+    "form_id": "00042084",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Night-Eye"
+  },
+  {
+    "form_id": "00042085",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Night-Eye"
+  },
+  {
+    "form_id": "00042086",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Night-Eye"
+  },
+  {
+    "form_id": "00042087",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Night-Eye"
+  },
+  {
+    "form_id": "00042077",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Resist Shock"
+  },
+  {
+    "form_id": "00042078",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Resist Shock"
+  },
+  {
+    "form_id": "00042079",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Resist Shock"
+  },
+  {
+    "form_id": "0004207A",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Resist Shock"
+  },
+  {
+    "form_id": "0004207B",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Resist Shock"
+  },
+  {
+    "form_id": "0004207D",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Shock Shield"
+  },
+  {
+    "form_id": "0004207E",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Shock Shield"
+  },
+  {
+    "form_id": "0004207F",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Shock Shield"
+  },
+  {
+    "form_id": "00042080",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Shock Shield"
+  },
+  {
+    "form_id": "00042081",
+    "weapon_effect": "Shock Damage",
+    "armor_effect": "Shock Shield"
+  },
+  {
+    "form_id": "00042090",
+    "weapon_effect": "Silence",
+    "armor_effect": "Chameleon"
+  },
+  {
+    "form_id": "00042091",
+    "weapon_effect": "Silence",
+    "armor_effect": "Chameleon"
+  },
+  {
+    "form_id": "00042092",
+    "weapon_effect": "Silence",
+    "armor_effect": "Chameleon"
+  },
+  {
+    "form_id": "00042093",
+    "weapon_effect": "Silence",
+    "armor_effect": "Chameleon"
+  },
+  {
+    "form_id": "00042094",
+    "weapon_effect": "Silence",
+    "armor_effect": "Chameleon"
+  },
+  {
+    "form_id": "00042089",
+    "weapon_effect": "Silence",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "0004208B",
+    "weapon_effect": "Silence",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "0004208C",
+    "weapon_effect": "Silence",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "0004208D",
+    "weapon_effect": "Silence",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "0004208E",
+    "weapon_effect": "Silence",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "00042096",
+    "weapon_effect": "Soul Trap",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "00042097",
+    "weapon_effect": "Soul Trap",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "00042098",
+    "weapon_effect": "Soul Trap",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "00042099",
+    "weapon_effect": "Soul Trap",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "0004209A",
+    "weapon_effect": "Soul Trap",
+    "armor_effect": "Resist Magic"
+  },
+  {
+    "form_id": "0004209C",
+    "weapon_effect": "Turn Undead",
+    "armor_effect": "Detect Life"
+  },
+  {
+    "form_id": "0004209D",
+    "weapon_effect": "Turn Undead",
+    "armor_effect": "Detect Life"
+  },
+  {
+    "form_id": "0004209E",
+    "weapon_effect": "Turn Undead",
+    "armor_effect": "Detect Life"
+  },
+  {
+    "form_id": "0004209F",
+    "weapon_effect": "Turn Undead",
+    "armor_effect": "Detect Life"
+  },
+  {
+    "form_id": "0004209B",
+    "weapon_effect": "Turn Undead",
+    "armor_effect": "Detect Life"
+  }
+]

@@ -171,6 +171,21 @@ def update_oblivion_enchanting() -> None:
     )
 
 
+def update_oblivion_sigil_stones() -> None:
+    """Scrape → JSON → SQL for Oblivion sigil stone tables."""
+    enc_dir = _SCRIPT_DIR / 'Oblivion' / 'enchanting'
+    parse_dir = enc_dir / 'sigil_stone_parse'
+    json_dir  = enc_dir / 'sigil_stone_json'
+    sql_dir   = enc_dir / 'sigil_stone_sql'
+
+    run_step('Oblivion sigil stone scrape',
+             [parse_dir / 'oblivion_scrape_sigil_stone.py'])
+    run_step('Oblivion sigil stone JSON',
+             [json_dir / 'oblivion_parse_sigil_stone.py'])
+    run_step('Oblivion sigil stone SQL',
+             [sql_dir / 'create_or_update_oblivion_sigil_stone.py'])
+
+
 def update_skyrim_smithing() -> None:
     """Scrape → JSON → SQL for all Skyrim smithing tables."""
     smt_dir = _SCRIPT_DIR / 'Skyrim' / 'smithing'
@@ -440,6 +455,9 @@ if __name__ == '__main__':
 
     log.info('--- Oblivion enchanting ---')
     update_oblivion_enchanting()
+
+    log.info('--- Oblivion sigil stones ---')
+    update_oblivion_sigil_stones()
 
     for game in ['Morrowind', 'Oblivion']:
         log.info('--- %s souls ---', game)
