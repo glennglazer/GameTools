@@ -10,12 +10,12 @@ Reads `oblivion_enchant_effects_raw.json` and produces `oblivion_enchant_effects
 
 **Output record format:**
 ```json
-{"effect_id": "BRDN", "base_cost": 0.21, "barter_factor": 0.0, "school": "Alteration", "description": "Reduce the target's maximum encumbrance."}
+{"name": "Burden", "effect_id": "BRDN", "base_cost": 0.21, "barter_factor": 0.0, "school": "Alteration", "description": "Reduce the target's maximum encumbrance."}
 ```
 
 ### Parsing notes
 
-- **Effect Name** (first column in the wiki, rendered as `<th scope="row">`) is not included — Effect ID is the identifier.
+- **Effect Name** (first column in the wiki, rendered as `<th scope="row">`) is captured as the `name` field.
 - **base_cost** and **barter_factor** are stored as REAL; some values are fractional (e.g., `base_cost=0.051` for Light, `barter_factor=12.5` for Light).
 - **Descriptions** are extracted with `separator=" "` to properly space words that are wrapped in inline links, then trimmed of extra whitespace and spaces before punctuation.
 

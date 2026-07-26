@@ -312,13 +312,12 @@ def oblivion_enchanting_rules() -> str:
 @mcp.tool()
 def oblivion_enchant_effects(
     school: str | None = None,
-    keyword: str | None = None,
+    name: str | None = None,
 ) -> list[dict]:
-    """Return Oblivion enchantment effects with effect_id, base_cost, barter_factor, school,
-    and description. Optional filters: school
-    (Alteration/Conjuration/Destruction/Illusion/Mysticism/Restoration) and/or keyword searched
-    against description text. Note: the table stores 4-letter CS effect codes (e.g. PARA, BRDN),
-    not human-readable names — keyword searches description content.
+    """Return Oblivion enchantment effects with name, effect_id, base_cost, barter_factor,
+    school, and description. Optional filters: school
+    (Alteration/Conjuration/Destruction/Illusion/Mysticism/Restoration) and/or partial effect
+    name (e.g. 'Paralyze', 'Fortify Strength', 'Night'). Searches the human-readable name column.
     base_cost feeds the weapon charge formula and apparel CEEF; barter_factor feeds the gold cost."""
     valid_schools = ('Alteration', 'Conjuration', 'Destruction', 'Illusion', 'Mysticism', 'Restoration')
     where: list[str] = []
@@ -331,14 +330,14 @@ def oblivion_enchant_effects(
         where.append("school = :school")
         params["school"] = matched
 
-    if keyword:
-        where.append("LOWER(description) LIKE LOWER('%' || :kw || '%')")
-        params["kw"] = keyword
+    if name:
+        where.append("LOWER(name) LIKE LOWER('%' || :name || '%')")
+        params["name"] = name
 
     w = ("WHERE " + " AND ".join(where)) if where else ""
     return _query(
-        f"SELECT effect_id, base_cost, barter_factor, school, description "
-        f"FROM oblivion_enchant_effects {w} ORDER BY school, effect_id",
+        f"SELECT name, effect_id, base_cost, barter_factor, school, description "
+        f"FROM oblivion_enchant_effects {w} ORDER BY school, name",
         params,
     )
 

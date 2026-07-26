@@ -1,5 +1,6 @@
 [
   {
+    "name": "Burden",
     "effect_id": "BRDN",
     "base_cost": 0.21,
     "barter_factor": 0.0,
@@ -7,6 +8,7 @@
     "description": "Reduce the target's maximum encumbrance."
   },
   {
+    "name": "Feather",
     "effect_id": "FTHR",
     "base_cost": 0.01,
     "barter_factor": 25.0,
@@ -14,6 +16,7 @@
     "description": "Increase the target's maximum encumbrance."
   },
   {
+    "name": "Fire Shield",
     "effect_id": "FISH",
     "base_cost": 0.95,
     "barter_factor": 100.0,
@@ -21,6 +24,7 @@
     "description": "Creates a fire shield (armor points + fire resistance) around the target's body."
   },
   {
+    "name": "Frost Shield",
     "effect_id": "FRSH",
     "base_cost": 0.95,
     "barter_factor": 100.0,
@@ -28,6 +32,7 @@
     "description": "Creates a frost shield (armor points + frost resistance) around the target's body."
   },
   {
+    "name": "Open",
     "effect_id": "OPEN",
     "base_cost": 4.3,
     "barter_factor": 0.0,
@@ -35,6 +40,7 @@
     "description": "Opens a locked container or door. See Open for point-to-difficulty conversion. (Note that Open spells are always targeted, with several exceptions.)"
   },
   {
+    "name": "Shield",
     "effect_id": "SHLD",
     "base_cost": 0.45,
     "barter_factor": 100.0,
@@ -42,6 +48,7 @@
     "description": "Creates a magical shield that contributes to target's armor rating."
   },
   {
+    "name": "Shock Shield",
     "effect_id": "LISH",
     "base_cost": 0.95,
     "barter_factor": 100.0,
@@ -49,6 +56,7 @@
     "description": "Creates a shock shield (armor points + shock resistance) around the target's body."
   },
   {
+    "name": "Water Breathing",
     "effect_id": "WABR",
     "base_cost": 14.5,
     "barter_factor": 400.0,
@@ -56,6 +64,7 @@
     "description": "Lets the target breathe underwater."
   },
   {
+    "name": "Water Walking",
     "effect_id": "WAWA",
     "base_cost": 13.0,
     "barter_factor": 400.0,
@@ -63,6 +72,7 @@
     "description": "Lets the target walk on water."
   },
   {
+    "name": "Bound Boots",
     "effect_id": "BABO",
     "base_cost": 12.0,
     "barter_factor": 0.0,
@@ -70,6 +80,7 @@
     "description": "Conjures a pair of Daedric Boots. (Light Armor)"
   },
   {
+    "name": "Bound Cuirass",
     "effect_id": "BACU",
     "base_cost": 12.0,
     "barter_factor": 0.0,
@@ -77,6 +88,7 @@
     "description": "Conjures a Daedric Cuirass. (Heavy Armor)"
   },
   {
+    "name": "Bound Gauntlets",
     "effect_id": "BAGA",
     "base_cost": 8.0,
     "barter_factor": 0.0,
@@ -84,6 +96,7 @@
     "description": "Conjures a pair of Daedric Gauntlets. (Light Armor)"
   },
   {
+    "name": "Bound Greaves",
     "effect_id": "BAGR",
     "base_cost": 12.0,
     "barter_factor": 0.0,
@@ -91,6 +104,7 @@
     "description": "Conjures a pair of Daedric Greaves. (Heavy Armor)"
   },
   {
+    "name": "Bound Helmet",
     "effect_id": "BAHE",
     "base_cost": 12.0,
     "barter_factor": 0.0,
@@ -98,6 +112,7 @@
     "description": "Conjures a Daedric Helmet. (Light Armor)"
   },
   {
+    "name": "Bound Shield",
     "effect_id": "BASH",
     "base_cost": 18.0,
     "barter_factor": 0.0,
@@ -105,6 +120,7 @@
     "description": "Conjures a Daedric Shield. (Light Armor)"
   },
   {
+    "name": "Bound Axe",
     "effect_id": "BWAX",
     "base_cost": 39.0,
     "barter_factor": 0.0,
@@ -112,6 +128,7 @@
     "description": "Conjures a Daedric Axe. (Blunt One Hand, Speed: 1.1, Reach: 0.8, Damage: 18)"
   },
   {
+    "name": "Bound Bow",
     "effect_id": "BWBO",
     "base_cost": 95.0,
     "barter_factor": 0.0,
@@ -119,6 +136,7 @@
     "description": "Conjures a Daedric Bow. (Marksmanship, Speed: 1.0, Damage: 15)"
   },
   {
+    "name": "Bound Dagger",
     "effect_id": "BWDA",
     "base_cost": 14.0,
     "barter_factor": 0.0,
@@ -126,6 +144,7 @@
     "description": "Conjures a Daedric Dagger. (Blade One Hand, Speed: 1.4, Reach: 0.6, Damage: 13)"
   },
   {
+    "name": "Bound Mace",
     "effect_id": "BWMA",
     "base_cost": 91.0,
     "barter_factor": 0.0,
@@ -133,6 +152,7 @@
     "description": "Conjures a Daedric Mace. (Blunt One Hand, Speed: 0.9, Reach: 1.0, Damage: 22)"
   },
   {
+    "name": "Bound Sword",
     "effect_id": "BWSW",
     "base_cost": 235.0,
     "barter_factor": 0.0,
@@ -140,6 +160,7 @@
     "description": "Conjures a Daedric Claymore. (Blade Two Hand, Speed: 0.8, Reach: 1.3, Damage: 29)"
   },
   {
+    "name": "Summon Rufio's Ghost",
     "effect_id": "Z001",
     "base_cost": 13.0,
     "barter_factor": 0.0,
@@ -147,6 +168,7 @@
     "description": "Summons Rufio's Ghost. (Used in a Dark Brotherhood quest.)"
   },
   {
+    "name": "Summon Ancestor Guardian",
     "effect_id": "Z002",
     "base_cost": 33.3,
     "barter_factor": 0.0,
@@ -154,6 +176,7 @@
     "description": "Summons Ancestor Guardian. ( Dunmer racial ability)"
   },
   {
+    "name": "Summon Spiderling",
     "effect_id": "Z003",
     "base_cost": 45.0,
     "barter_factor": 0.0,
@@ -161,6 +184,7 @@
     "description": "Summons Spiderling. (Used by Spider Daedra)"
   },
   {
+    "name": "Summon Bear",
     "effect_id": "Z005",
     "base_cost": 47.3,
     "barter_factor": 0.0,
@@ -168,6 +192,7 @@
     "description": "Summons Bear. (Used by Spriggans, available to the player with the Spell Tomes official plug-in.)"
   },
   {
+    "name": "Summon Clannfear",
     "effect_id": "ZCLA",
     "base_cost": 75.56,
     "barter_factor": 0.0,
@@ -175,6 +200,7 @@
     "description": "Summons Clannfear."
   },
   {
+    "name": "Summon Daedroth",
     "effect_id": "ZDAE",
     "base_cost": 123.33,
     "barter_factor": 0.0,
@@ -182,6 +208,7 @@
     "description": "Summons Daedroth."
   },
   {
+    "name": "Summon Dremora",
     "effect_id": "ZDRE",
     "base_cost": 72.5,
     "barter_factor": 0.0,
@@ -189,6 +216,7 @@
     "description": "Summons Dremora."
   },
   {
+    "name": "Summon Dremora Lord",
     "effect_id": "ZDRL",
     "base_cost": 157.14,
     "barter_factor": 0.0,
@@ -196,6 +224,7 @@
     "description": "Summons Dremora Lord."
   },
   {
+    "name": "Summon Flame Atronach",
     "effect_id": "ZFIA",
     "base_cost": 45.0,
     "barter_factor": 0.0,
@@ -203,6 +232,7 @@
     "description": "Summons Flame Atronach."
   },
   {
+    "name": "Summon Frost Atronach",
     "effect_id": "ZFRA",
     "base_cost": 102.86,
     "barter_factor": 0.0,
@@ -210,6 +240,7 @@
     "description": "Summons Frost Atronach."
   },
   {
+    "name": "Summon Ghost",
     "effect_id": "ZGHO",
     "base_cost": 22.0,
     "barter_factor": 0.0,
@@ -217,6 +248,7 @@
     "description": "Summons Ghost."
   },
   {
+    "name": "Summon Headless Zombie",
     "effect_id": "ZHDZ",
     "base_cost": 56.0,
     "barter_factor": 0.0,
@@ -224,6 +256,7 @@
     "description": "Summons Headless Zombie."
   },
   {
+    "name": "Summon Lich",
     "effect_id": "ZLIC",
     "base_cost": 350.0,
     "barter_factor": 0.0,
@@ -231,6 +264,7 @@
     "description": "Summons Lich."
   },
   {
+    "name": "Summon Scamp",
     "effect_id": "ZSCA",
     "base_cost": 30.0,
     "barter_factor": 0.0,
@@ -238,6 +272,7 @@
     "description": "Summons Scamp."
   },
   {
+    "name": "Summon Skeleton",
     "effect_id": "ZSKE",
     "base_cost": 11.25,
     "barter_factor": 0.0,
@@ -245,6 +280,7 @@
     "description": "Summons Skeleton."
   },
   {
+    "name": "Summon Skeleton Guardian",
     "effect_id": "ZSKA",
     "base_cost": 32.5,
     "barter_factor": 0.0,
@@ -252,6 +288,7 @@
     "description": "Summons Skeleton Guardian."
   },
   {
+    "name": "Summon Skeleton Hero",
     "effect_id": "ZSKH",
     "base_cost": 66.0,
     "barter_factor": 0.0,
@@ -259,6 +296,7 @@
     "description": "Summons Skeleton Hero."
   },
   {
+    "name": "Summon Skeleton Champion",
     "effect_id": "ZSKC",
     "base_cost": 152.0,
     "barter_factor": 0.0,
@@ -266,6 +304,7 @@
     "description": "Summons Skeleton Champion."
   },
   {
+    "name": "Summon Spider Daedra",
     "effect_id": "ZSPD",
     "base_cost": 195.0,
     "barter_factor": 0.0,
@@ -273,6 +312,7 @@
     "description": "Summons Spider Daedra."
   },
   {
+    "name": "Summon Storm Atronach",
     "effect_id": "ZSTA",
     "base_cost": 125.0,
     "barter_factor": 0.0,
@@ -280,6 +320,7 @@
     "description": "Summons Storm Atronach."
   },
   {
+    "name": "Summon Faded Wraith",
     "effect_id": "ZWRA",
     "base_cost": 87.5,
     "barter_factor": 0.0,
@@ -287,6 +328,7 @@
     "description": "Summons Faded Wraith."
   },
   {
+    "name": "Summon Gloom Wraith",
     "effect_id": "ZWRL",
     "base_cost": 260.0,
     "barter_factor": 0.0,
@@ -294,6 +336,7 @@
     "description": "Summons Gloom Wraith."
   },
   {
+    "name": "Summon Xivilai",
     "effect_id": "ZXIV",
     "base_cost": 200.0,
     "barter_factor": 0.0,
@@ -301,6 +344,7 @@
     "description": "Summons Xivilai."
   },
   {
+    "name": "Summon Zombie",
     "effect_id": "ZZOM",
     "base_cost": 16.67,
     "barter_factor": 0.0,
@@ -308,6 +352,7 @@
     "description": "Summons Zombie."
   },
   {
+    "name": "Turn Undead",
     "effect_id": "TURN",
     "base_cost": 0.083,
     "barter_factor": 0.0,
@@ -315,6 +360,7 @@
     "description": "Decrease undead creature's Confidence (willingness to fight)."
   },
   {
+    "name": "Damage Attribute",
     "effect_id": "DGAT",
     "base_cost": 100.0,
     "barter_factor": 0.0,
@@ -322,6 +368,7 @@
     "description": "Damages target's named attribute."
   },
   {
+    "name": "Damage Fatigue",
     "effect_id": "DGFA",
     "base_cost": 4.4,
     "barter_factor": 0.0,
@@ -329,6 +376,7 @@
     "description": "Damages target's Fatigue."
   },
   {
+    "name": "Damage Health",
     "effect_id": "DGHE",
     "base_cost": 12.0,
     "barter_factor": 0.0,
@@ -336,6 +384,7 @@
     "description": "Damages target's Health."
   },
   {
+    "name": "Damage Magicka",
     "effect_id": "DGSP",
     "base_cost": 2.45,
     "barter_factor": 0.0,
@@ -343,6 +392,7 @@
     "description": "Damages target's Magicka."
   },
   {
+    "name": "Disintegrate Armor",
     "effect_id": "DIAR",
     "base_cost": 6.2,
     "barter_factor": 0.0,
@@ -350,6 +400,7 @@
     "description": "Damage the Health of equipped armor."
   },
   {
+    "name": "Disintegrate Weapon",
     "effect_id": "DIWE",
     "base_cost": 6.2,
     "barter_factor": 0.0,
@@ -357,6 +408,7 @@
     "description": "Damage the Health of an equipped weapon."
   },
   {
+    "name": "Drain Attribute",
     "effect_id": "DRAT",
     "base_cost": 0.7,
     "barter_factor": 0.0,
@@ -364,6 +416,7 @@
     "description": "Temporarily lowers target's named attribute."
   },
   {
+    "name": "Drain Fatigue",
     "effect_id": "DRFA",
     "base_cost": 0.18,
     "barter_factor": 0.0,
@@ -371,6 +424,7 @@
     "description": "Temporarily lowers target's Fatigue."
   },
   {
+    "name": "Drain Health",
     "effect_id": "DRHE",
     "base_cost": 0.9,
     "barter_factor": 0.0,
@@ -378,6 +432,7 @@
     "description": "Temporarily lowers target's Health."
   },
   {
+    "name": "Drain Magicka",
     "effect_id": "DRSP",
     "base_cost": 0.18,
     "barter_factor": 0.0,
@@ -385,6 +440,7 @@
     "description": "Temporarily lowers target's Magicka."
   },
   {
+    "name": "Drain Skill",
     "effect_id": "DRSK",
     "base_cost": 0.65,
     "barter_factor": 0.0,
@@ -392,6 +448,7 @@
     "description": "Temporarily lowers target's named skill."
   },
   {
+    "name": "Fire Damage",
     "effect_id": "FIDG",
     "base_cost": 7.5,
     "barter_factor": 0.0,
@@ -399,6 +456,7 @@
     "description": "Produce a manifestation of elemental fire."
   },
   {
+    "name": "Frost Damage",
     "effect_id": "FRDG",
     "base_cost": 7.4,
     "barter_factor": 0.0,
@@ -406,6 +464,7 @@
     "description": "Produce a manifestation of elemental frost."
   },
   {
+    "name": "Shock Damage",
     "effect_id": "SHDG",
     "base_cost": 7.8,
     "barter_factor": 0.0,
@@ -413,6 +472,7 @@
     "description": "Produce a manifestation of elemental shock."
   },
   {
+    "name": "Weakness to Disease",
     "effect_id": "WKDI",
     "base_cost": 0.12,
     "barter_factor": 0.0,
@@ -420,6 +480,7 @@
     "description": "Decrease target's resistance to common disease."
   },
   {
+    "name": "Weakness to Fire",
     "effect_id": "WKFI",
     "base_cost": 0.1,
     "barter_factor": 0.0,
@@ -427,6 +488,7 @@
     "description": "Decrease target's resistance to elemental fire."
   },
   {
+    "name": "Weakness to Frost",
     "effect_id": "WKFR",
     "base_cost": 0.1,
     "barter_factor": 0.0,
@@ -434,6 +496,7 @@
     "description": "Decrease target's resistance to elemental frost."
   },
   {
+    "name": "Weakness to Magic",
     "effect_id": "WKMA",
     "base_cost": 0.25,
     "barter_factor": 0.0,
@@ -441,6 +504,7 @@
     "description": "Decrease target's resistance to magic."
   },
   {
+    "name": "Weakness to Normal Weapons",
     "effect_id": "WKNW",
     "base_cost": 0.25,
     "barter_factor": 0.0,
@@ -448,6 +512,7 @@
     "description": "Decrease target's resistance to normal weapons."
   },
   {
+    "name": "Weakness to Poison",
     "effect_id": "WKPO",
     "base_cost": 0.1,
     "barter_factor": 0.0,
@@ -455,6 +520,7 @@
     "description": "Decrease target's resistance to poison."
   },
   {
+    "name": "Weakness to Shock",
     "effect_id": "WKSH",
     "base_cost": 0.1,
     "barter_factor": 0.0,
@@ -462,6 +528,7 @@
     "description": "Decrease target's resistance to elemental shock."
   },
   {
+    "name": "Calm",
     "effect_id": "CALM",
     "base_cost": 0.47,
     "barter_factor": 0.0,
@@ -469,6 +536,7 @@
     "description": "Decrease target's Aggression (inclination to attack)."
   },
   {
+    "name": "Chameleon",
     "effect_id": "CHML",
     "base_cost": 0.63,
     "barter_factor": 65.0,
@@ -476,6 +544,7 @@
     "description": "Blend into the surroundings. Similar to Invisibility, but not perfect, unless you use 100% Chameleon. However, the effect stays if you attack or do another action."
   },
   {
+    "name": "Charm",
     "effect_id": "CHRM",
     "base_cost": 0.2,
     "barter_factor": 0.0,
@@ -483,6 +552,7 @@
     "description": "Increase target's disposition."
   },
   {
+    "name": "Command Creature",
     "effect_id": "COCR",
     "base_cost": 0.6,
     "barter_factor": 0.0,
@@ -490,6 +560,7 @@
     "description": "Make targeted creature fight for you."
   },
   {
+    "name": "Command Humanoid",
     "effect_id": "COHU",
     "base_cost": 0.75,
     "barter_factor": 0.0,
@@ -497,6 +568,7 @@
     "description": "Make targeted humanoid fight for you."
   },
   {
+    "name": "Demoralize",
     "effect_id": "DEMO",
     "base_cost": 0.49,
     "barter_factor": 0.0,
@@ -504,6 +576,7 @@
     "description": "Decrease target's Confidence (willingness to fight)."
   },
   {
+    "name": "Frenzy",
     "effect_id": "FRNZ",
     "base_cost": 0.04,
     "barter_factor": 0.0,
@@ -511,6 +584,7 @@
     "description": "Increase target's Aggression (inclination to attack)."
   },
   {
+    "name": "Invisibility",
     "effect_id": "INVI",
     "base_cost": 40.0,
     "barter_factor": 0.0,
@@ -518,6 +592,7 @@
     "description": "Makes the target invisible but not inaudible. The effect dissipates if the target does anything but move e.g attack or pickpocket."
   },
   {
+    "name": "Light",
     "effect_id": "LGHT",
     "base_cost": 0.051,
     "barter_factor": 12.5,
@@ -525,6 +600,7 @@
     "description": "Illuminates the target."
   },
   {
+    "name": "Night-Eye",
     "effect_id": "NEYE",
     "base_cost": 22.0,
     "barter_factor": 20.0,
@@ -532,6 +608,7 @@
     "description": "Ability to see in the dark."
   },
   {
+    "name": "Paralyze",
     "effect_id": "PARA",
     "base_cost": 475.0,
     "barter_factor": 0.0,
@@ -539,6 +616,7 @@
     "description": "Render target unable to move."
   },
   {
+    "name": "Rally",
     "effect_id": "RALY",
     "base_cost": 0.03,
     "barter_factor": 0.0,
@@ -546,6 +624,7 @@
     "description": "Increase target's Confidence (willingness to attack)."
   },
   {
+    "name": "Silence",
     "effect_id": "SLNC",
     "base_cost": 60.0,
     "barter_factor": 0.0,
@@ -553,6 +632,7 @@
     "description": "Render target incapable of casting spells."
   },
   {
+    "name": "Detect Life",
     "effect_id": "DTCT",
     "base_cost": 0.08,
     "barter_factor": 15.0,
@@ -560,6 +640,7 @@
     "description": "Allows to see living things through solid objects."
   },
   {
+    "name": "Dispel",
     "effect_id": "DSPL",
     "base_cost": 3.6,
     "barter_factor": 0.0,
@@ -567,6 +648,7 @@
     "description": "Remove Magicka-based spell effects from the target."
   },
   {
+    "name": "Reflect Damage",
     "effect_id": "REDG",
     "base_cost": 2.5,
     "barter_factor": 400.0,
@@ -574,6 +656,7 @@
     "description": "Reflect any weapon damage back at the attacker."
   },
   {
+    "name": "Reflect Spell",
     "effect_id": "RFLC",
     "base_cost": 3.5,
     "barter_factor": 400.0,
@@ -581,6 +664,7 @@
     "description": "Reflect any spell effect back at the caster."
   },
   {
+    "name": "Soul Trap",
     "effect_id": "STRP",
     "base_cost": 30.0,
     "barter_factor": 0.0,
@@ -588,6 +672,7 @@
     "description": "Traps target's soul in the smallest possible soul gem."
   },
   {
+    "name": "Spell Absorption",
     "effect_id": "SABS",
     "base_cost": 3.0,
     "barter_factor": 400.0,
@@ -595,6 +680,7 @@
     "description": "Turns incoming spell's power into equal Magicka increase."
   },
   {
+    "name": "Telekinesis",
     "effect_id": "TELE",
     "base_cost": 0.49,
     "barter_factor": 0.0,
@@ -602,6 +688,7 @@
     "description": "Allows you to pick up an item from a distance."
   },
   {
+    "name": "Absorb Attribute",
     "effect_id": "ABAT",
     "base_cost": 0.95,
     "barter_factor": 0.0,
@@ -609,6 +696,7 @@
     "description": "Transfer a portion of target's named attribute to you."
   },
   {
+    "name": "Absorb Fatigue",
     "effect_id": "ABFA",
     "base_cost": 6.0,
     "barter_factor": 0.0,
@@ -616,6 +704,7 @@
     "description": "Transfer a portion of target's Fatigue to you."
   },
   {
+    "name": "Absorb Health",
     "effect_id": "ABHE",
     "base_cost": 16.0,
     "barter_factor": 0.0,
@@ -623,6 +712,7 @@
     "description": "Transfer a portion of target's Health to you."
   },
   {
+    "name": "Absorb Magicka",
     "effect_id": "ABSP",
     "base_cost": 7.5,
     "barter_factor": 0.0,
@@ -630,6 +720,7 @@
     "description": "Transfer a portion of target's Magicka to you."
   },
   {
+    "name": "Absorb Skill",
     "effect_id": "ABSK",
     "base_cost": 2.1,
     "barter_factor": 0.0,
@@ -637,6 +728,7 @@
     "description": "Transfer a portion of target's named skill to you."
   },
   {
+    "name": "Cure Disease",
     "effect_id": "CUDI",
     "base_cost": 1400.0,
     "barter_factor": 0.0,
@@ -644,6 +736,7 @@
     "description": "Cures common disease."
   },
   {
+    "name": "Cure Paralysis",
     "effect_id": "CUPA",
     "base_cost": 500.0,
     "barter_factor": 0.0,
@@ -651,6 +744,7 @@
     "description": "Cures paralyzation."
   },
   {
+    "name": "Cure Poison",
     "effect_id": "CUPO",
     "base_cost": 600.0,
     "barter_factor": 0.0,
@@ -658,6 +752,7 @@
     "description": "Cures poisoning."
   },
   {
+    "name": "Fortify Attribute",
     "effect_id": "FOAT",
     "base_cost": 0.6,
     "barter_factor": 100.0,
@@ -665,6 +760,7 @@
     "description": "Increase the value of target's named attribute."
   },
   {
+    "name": "Fortify Fatigue",
     "effect_id": "FOFA",
     "base_cost": 0.04,
     "barter_factor": 25.0,
@@ -672,6 +768,7 @@
     "description": "Increase the value of target's Fatigue."
   },
   {
+    "name": "Fortify Health",
     "effect_id": "FOHE",
     "base_cost": 0.14,
     "barter_factor": 150.0,
@@ -679,6 +776,7 @@
     "description": "Increase the value of target's Health."
   },
   {
+    "name": "Fortify Magicka",
     "effect_id": "FOSP",
     "base_cost": 0.15,
     "barter_factor": 100.0,
@@ -686,6 +784,7 @@
     "description": "Increase the value of target's Magicka."
   },
   {
+    "name": "Fortify Skill",
     "effect_id": "FOSK",
     "base_cost": 0.6,
     "barter_factor": 100.0,
@@ -693,6 +792,7 @@
     "description": "Increase the value of target's named skill."
   },
   {
+    "name": "Resist Disease",
     "effect_id": "RSDI",
     "base_cost": 0.5,
     "barter_factor": 15.0,
@@ -700,6 +800,7 @@
     "description": "Increase target's resistance to common disease."
   },
   {
+    "name": "Resist Fire",
     "effect_id": "RSFI",
     "base_cost": 0.5,
     "barter_factor": 50.0,
@@ -707,6 +808,7 @@
     "description": "Increase target's resistance to damage from elemental fire."
   },
   {
+    "name": "Resist Frost",
     "effect_id": "RSFR",
     "base_cost": 0.5,
     "barter_factor": 50.0,
@@ -714,6 +816,7 @@
     "description": "Increase target's resistance to damage from elemental frost."
   },
   {
+    "name": "Resist Magic",
     "effect_id": "RSMA",
     "base_cost": 2.0,
     "barter_factor": 150.0,
@@ -721,6 +824,7 @@
     "description": "Increase target's resistance to magic."
   },
   {
+    "name": "Resist Normal Weapons",
     "effect_id": "RSNW",
     "base_cost": 1.5,
     "barter_factor": 300.0,
@@ -728,6 +832,7 @@
     "description": "Increase target's resistance to damage from normal weapons."
   },
   {
+    "name": "Resist Paralysis",
     "effect_id": "RSPA",
     "base_cost": 0.75,
     "barter_factor": 30.0,
@@ -735,6 +840,7 @@
     "description": "Increase target's resistance to paralysis."
   },
   {
+    "name": "Resist Poison",
     "effect_id": "RSPO",
     "base_cost": 0.5,
     "barter_factor": 15.0,
@@ -742,6 +848,7 @@
     "description": "Increase target's resistance to damage from poison."
   },
   {
+    "name": "Resist Shock",
     "effect_id": "RSSH",
     "base_cost": 0.5,
     "barter_factor": 50.0,
@@ -749,6 +856,7 @@
     "description": "Increase target's resistance to damage from elemental shock."
   },
   {
+    "name": "Restore Attribute",
     "effect_id": "REAT",
     "base_cost": 38.0,
     "barter_factor": 0.0,
@@ -756,6 +864,7 @@
     "description": "Restore target's named attribute."
   },
   {
+    "name": "Restore Fatigue",
     "effect_id": "REFA",
     "base_cost": 2.0,
     "barter_factor": 0.0,
@@ -763,6 +872,7 @@
     "description": "Restore target's Fatigue."
   },
   {
+    "name": "Restore Health",
     "effect_id": "REHE",
     "base_cost": 10.0,
     "barter_factor": 0.0,
@@ -770,6 +880,7 @@
     "description": "Restore target's Health."
   },
   {
+    "name": "Restore Magicka",
     "effect_id": "RESP",
     "base_cost": 2.5,
     "barter_factor": 0.0,

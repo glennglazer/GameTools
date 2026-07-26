@@ -137,7 +137,26 @@ def test_description_inline_link_words_joined():
 
 def test_record_keys():
     records = parse_section(ALTERATION_HTML, "Alteration")
-    assert set(records[0].keys()) == {"effect_id", "base_cost", "barter_factor", "school", "description"}
+    assert set(records[0].keys()) == {"name", "effect_id", "base_cost", "barter_factor", "school", "description"}
+
+
+def test_name_extracted():
+    records = parse_section(ALTERATION_HTML, "Alteration")
+    assert records[0]["name"] == "Burden"
+    assert records[1]["name"] == "Feather"
+
+
+def test_name_multiword():
+    """Effects with multi-word names (via links in th) are joined with a space."""
+    records = parse_section(ILLUSION_HTML, "Illusion")
+    chrm = next(r for r in records if r["effect_id"] == "CHRM")
+    assert chrm["name"] == "Charm"
+
+
+def test_name_not_header():
+    records = parse_section(ALTERATION_HTML, "Alteration")
+    names = [r["name"] for r in records]
+    assert "Effect Name" not in names
 
 
 def test_parse_combines_all_sections():

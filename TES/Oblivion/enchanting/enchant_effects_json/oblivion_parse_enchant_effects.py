@@ -30,11 +30,13 @@ def parse_section(html: str, school: str) -> list:
     records = []
     for row in table.find_all("tr"):
         tds = row.find_all("td")
-        # Data rows have exactly 4 td cells: Effect ID, Base Cost, Barter Factor, Description.
-        # Effect Name is in a <th scope="row"> cell and is intentionally skipped.
+        # Data rows: Effect Name in <th scope="row">, then 4 td cells:
+        # Effect ID, Base Cost, Barter Factor, Description.
         if len(tds) < 4:
             continue
 
+        name_th      = row.find(attrs={"scope": "row"})
+        name         = name_th.get_text(separator=" ", strip=True) if name_th else ""
         effect_id    = tds[0].get_text(strip=True)
         raw_cost     = tds[1].get_text(strip=True)
         raw_barter   = tds[2].get_text(strip=True)
@@ -54,6 +56,7 @@ def parse_section(html: str, school: str) -> list:
             continue
 
         records.append({
+            "name":          name,
             "effect_id":     effect_id,
             "base_cost":     base_cost,
             "barter_factor": barter_factor,

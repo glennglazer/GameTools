@@ -206,7 +206,7 @@ Note: "septims" is the in-game name for gold pieces. 1 septim = 1 gold = 1 charg
 
 | Question | Tool |
 |----------|------|
-| What enchantment effects exist? What are their base costs and barter factors? | `oblivion_enchant_effects(school?, keyword?)` — keyword searches description text; the table uses 4-letter CS effect codes, not human-readable names |
+| What enchantment effects exist? What are their base costs and barter factors? | `oblivion_enchant_effects(school?, name?)` |
 | What soul size does creature X carry? | `oblivion_enchant_souls(name?)` |
 | What sigil stones give a specific weapon or armor effect? What are their magnitudes? | `oblivion_sigil_stone(weapon_effect?, armor_effect?, level?)` |
 

@@ -32,20 +32,10 @@ def main():
     conn = sqlite3.connect(args.db)
     cur = conn.cursor()
 
-    exists = cur.execute(
-        f"SELECT name FROM sqlite_master WHERE type='table' AND name='{TABLE_NAME}'"
-    ).fetchone()
-
-    if exists is not None:
-        cur.execute(f"DELETE FROM {TABLE_NAME}")
-        conn.commit()
-
-    df.to_sql(TABLE_NAME, conn, if_exists="append", method="multi", index=False)
+    df.to_sql(TABLE_NAME, conn, if_exists="replace", method="multi", index=False)
     conn.commit()
-
-    if exists is None:
-        cur.execute(f"CREATE UNIQUE INDEX {INDEX_NAME} ON {TABLE_NAME} (effect_id)")
-        conn.commit()
+    cur.execute(f"CREATE UNIQUE INDEX IF NOT EXISTS {INDEX_NAME} ON {TABLE_NAME} (effect_id)")
+    conn.commit()
 
     conn.close()
     print(f"Upserted {len(records)} records into {TABLE_NAME}.", file=sys.stderr)
