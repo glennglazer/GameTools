@@ -41,6 +41,12 @@ combined rate of both.
 enchantments, even if the character has Extra Effect. Almost no exceptions exist (a few are bugs).
 Players who want a differently-enchanted version must find an unenchanted base item.
 
+**2a. Item quality and upgrade level have no bearing on enchantment capacity.** A Legendary sword
+and an unimproved sword accept identical enchantments with identical magnitudes.
+
+**2b. Weapon enchantments can only be placed on weapons; apparel enchantments only on apparel.**
+There is no way to put a damage effect on armor or a defensive effect on a weapon.
+
 **3. Apparel enchantments are passive and permanent while worn.** They consume no charges, require
 no soul gems to maintain, and are always active as long as the piece is equipped. There is no
 charge pool on apparel.

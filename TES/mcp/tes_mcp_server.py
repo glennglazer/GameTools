@@ -303,6 +303,110 @@ def morrowind_alchemy_apparatus(apparatus_type: str | None = None) -> list[dict]
 
 # ─── Oblivion enchanting ────────────────────────────────────────────────────
 
+@mcp.resource("gametools://oblivion/enchanting/rules")
+def oblivion_enchanting_rules() -> str:
+    """Oblivion enchanting mechanics: sigil stones, altar formulae, charges, soul gems, cursed items."""
+    return (_SCRIPT_DIR / 'oblivion_enchanting.md').read_text()
+
+
+@mcp.tool()
+def oblivion_enchant_effects(
+    school: str | None = None,
+    keyword: str | None = None,
+) -> list[dict]:
+    """Return Oblivion enchantment effects with effect_id, base_cost, barter_factor, school,
+    and description. Optional filters: school
+    (Alteration/Conjuration/Destruction/Illusion/Mysticism/Restoration) and/or keyword searched
+    against description text. Note: the table stores 4-letter CS effect codes (e.g. PARA, BRDN),
+    not human-readable names — keyword searches description content.
+    base_cost feeds the weapon charge formula and apparel CEEF; barter_factor feeds the gold cost."""
+    valid_schools = ('Alteration', 'Conjuration', 'Destruction', 'Illusion', 'Mysticism', 'Restoration')
+    where: list[str] = []
+    params: dict = {}
+
+    if school:
+        matched = next((s for s in valid_schools if s.lower() == school.lower()), None)
+        if not matched:
+            return [{"error": f"Unknown school '{school}'. Choose from: {', '.join(valid_schools)}"}]
+        where.append("school = :school")
+        params["school"] = matched
+
+    if keyword:
+        where.append("LOWER(description) LIKE LOWER('%' || :kw || '%')")
+        params["kw"] = keyword
+
+    w = ("WHERE " + " AND ".join(where)) if where else ""
+    return _query(
+        f"SELECT effect_id, base_cost, barter_factor, school, description "
+        f"FROM oblivion_enchant_effects {w} ORDER BY school, effect_id",
+        params,
+    )
+
+
+@mcp.tool()
+def oblivion_enchant_souls(name: str | None = None) -> list[dict]:
+    """Return Oblivion creature soul sizes (soul_size = Power value used in enchanting formulas:
+    150/300/800/1200/1600). Black souls (humanoids, Dremora) are at 1600.
+    Optional partial name filter."""
+    if name:
+        return _query(
+            "SELECT name, soul_size FROM oblivion_enchant_souls "
+            "WHERE LOWER(name) LIKE LOWER('%' || :name || '%') ORDER BY soul_size, name",
+            {"name": name},
+        )
+    return _query("SELECT name, soul_size FROM oblivion_enchant_souls ORDER BY soul_size, name")
+
+
+_SIGIL_LEVELS = ('descendent', 'subjacent', 'latent', 'ascendent', 'transcendent')
+
+@mcp.tool()
+def oblivion_sigil_stone(
+    weapon_effect: str | None = None,
+    armor_effect: str | None = None,
+    level: str | None = None,
+) -> list[dict]:
+    """Return Oblivion sigil stones with weapon effect, armor effect, and all magnitude/charge
+    columns. Optional filters: partial weapon_effect name, partial armor_effect name, and/or
+    level (descendent/subjacent/latent/ascendent/transcendent).
+    Magnitude columns are NULL for all levels except the stone's own level.
+    Weapon columns: {level}_magnitude, {level}_charges.
+    Armor columns: {level}_armor_magnitude."""
+    if level and level.lower() not in _SIGIL_LEVELS:
+        return [{"error": f"Unknown level '{level}'. Choose from: {', '.join(_SIGIL_LEVELS)}"}]
+
+    where: list[str] = []
+    params: dict = {}
+
+    if weapon_effect:
+        where.append("LOWER(s.weapon_effect) LIKE LOWER('%' || :wfx || '%')")
+        params["wfx"] = weapon_effect
+    if armor_effect:
+        where.append("LOWER(s.armor_effect) LIKE LOWER('%' || :afx || '%')")
+        params["afx"] = armor_effect
+    if level:
+        col = f"wm.{level.lower()}_magnitude"
+        where.append(f"{col} IS NOT NULL")
+
+    w = ("WHERE " + " AND ".join(where)) if where else ""
+    return _query(
+        f"SELECT s.form_id, s.weapon_effect, s.armor_effect, "
+        f"wm.descendent_magnitude, wm.descendent_charges, "
+        f"wm.subjacent_magnitude, wm.subjacent_charges, "
+        f"wm.latent_magnitude, wm.latent_charges, "
+        f"wm.ascendent_magnitude, wm.ascendent_charges, "
+        f"wm.transcendent_magnitude, wm.transcendent_charges, "
+        f"am.descendent_magnitude AS descendent_armor_magnitude, "
+        f"am.subjacent_magnitude AS subjacent_armor_magnitude, "
+        f"am.latent_magnitude AS latent_armor_magnitude, "
+        f"am.ascendent_magnitude AS ascendent_armor_magnitude, "
+        f"am.transcendent_magnitude AS transcendent_armor_magnitude "
+        f"FROM oblivion_sigil_stone s "
+        f"JOIN oblivion_sigil_stone_weapon_magnitudes wm ON s.form_id = wm.form_id "
+        f"JOIN oblivion_sigil_stone_armor_magnitudes am ON s.form_id = am.form_id "
+        f"{w} ORDER BY s.weapon_effect, s.armor_effect, s.form_id",
+        params,
+    )
+
 
 # ─── Skyrim enchanting ──────────────────────────────────────────────────────
 
