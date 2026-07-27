@@ -227,90 +227,113 @@ Maximum magnitudes given 30 pts capacity:
 
 ### Q11 `[MORROWIND]` `[STRATEGY]` — Ebony Staff: Alchemy-Enchant Loop for 100% Success
 
-**Q:** Plan the alchemy-enchant loop to self-enchant an Ebony Staff with Paralyze 2s + Weakness to Shock 39% 2s + Shock Damage 49pts CWS at 100% success. Include ingredients, soul values, and a summary table.
+**Q:** Plan the alchemy-enchant loop to self-enchant an Ebony Staff with Paralyze 2s + Weakness to Shock 39% 2s + Shock Damage 49pts CWS at 100% success. Work out each iteration: what is produced, at what magnitude, and what soul gem strength is used.
 
 ---
 
-**Step 1: Verify the enchantment fits**
+**Enchantment verified (pre-loop)**
 
-The Ebony Staff (item_type BluntTwoWide, long reach) requires **Target range** for all effects to reliably land. Target range multiplies enchantment cost by ×1.5.
+The Ebony Staff (`item_type BluntTwoWide`, long reach) requires **Target range** for CWS to reliably land. Target range multiplies enchantment cost by ×1.5.
 
-Effect costs:
-
-| Effect | avg_mag | base_cost | duration | C (self) | ×1.5 Target | Integer |
-|--------|---------|-----------|----------|----------|-------------|---------|
-| Paralyze 2s | 1 (no magnitude) | 40 | 2 | 4.0 | 6.0 | **6** |
+| Effect | avg_mag | base_cost | dur | C (self) | ×1.5 Target | Integer |
+|--------|---------|-----------|-----|----------|-------------|---------|
+| Paralyze 2s | 1 (none) | 40 | 2 | 4.0 | 6.0 | **6** |
 | Weakness to Shock 39% 2s | 39 | 2 | 2 | 7.8 | 11.7 | **11** |
 | Shock Damage 49pts | 49 | 7 | 1 | 17.15 | 25.73 | **25** |
 
-Compounding (cheapest → most expensive): `3×6 + 2×11 + 1×25 = 18 + 22 + 25 = 65 pts`
+Compounding (cheapest → most expensive): `3×6 + 2×11 + 1×25 = 65 pts`  
+Ebony Staff capacity: **90 pts**. 65 ≤ 90 ✓
 
-Ebony Staff capacity: **90 pts**. **65 ≤ 90 ✓** — the enchantment fits with 25 pts spare.
-
----
-
-**Step 2: Check baseline success**
-
-`Base = enchantSkill + intel/5 + luck/10 − 3 × enchantPoints`
-
-At natural maximum (Enchant 100, Intel 100, Luck 100, full fatigue):  
-`Base = 100 + 20 + 10 − 195 = −65`  
-`SuccessChance = −65 × 1.25 = negative → 0%`
-
-The alchemy-enchant loop is required.
-
-For 100% at full fatigue (FatigueMod = 1.25):  
-`Base × 1.25 ≥ 100 → Base ≥ 80`  
-`enchantSkill + intel/5 + luck/10 ≥ 275`
+**Ingredients:** Fortify Intelligence: Ash Yam + Bloat (confirmed in DB).  
+Fortify Enchant: no ingredient provides this — use the spellmaker shortcut (any known Fortify Skill effect unlocks Fortify Skill [Enchant] at any magnitude).
 
 ---
 
-**Step 3: Loop plan**
+**Start**
 
-**Alchemy ingredients for Fortify Intelligence:**  
-From DB: **Ash Yam**, **Bloat**, Horker Tusk, Netch Leather
-
-Use Ash Yam + Bloat (two ingredients sharing Fortify Intelligence) for maximum purity. With Master's Mortar & Pestle and Alchemy 100, each potion gives approximately +20–40 Intel for a limited duration.
-
-**Spellmaker shortcut:**  
-If you know any Fortify Skill spell (from a Mages Guild spellmaker), you can create Fortify Skill (Enchant) at any magnitude and duration. Even knowing Fortify Heavy Armor is enough. Aim for Fortify Enchant +100–150 for 10–15 seconds.
-
-| Step | Action | Materials | Resulting Stats |
-|------|--------|-----------|----------------|
-| 1 | At spellmaker: create Fortify Skill (Enchant) +150, 15s | ~700 gold | Enchant → 250 when cast |
-| 2 | Brew Fortify Intelligence potions × ~8 | Ash Yam × 8 + Bloat × 8 | Intel → ~260–300 |
-| 3 | Drink all pots, cast spell, drag gem to paper doll | Grand Soul Gem + Vivec (1000) | Attempt self-enchant |
-
-Success check at Intel 280, Enchant 250 (fortified), Luck 100, full fatigue:  
-`Base = 250 + 56 + 10 − 195 = 121`  
-`SuccessChance = 121 × 1.25 = 151% → capped at 100% ✓`
+| Stat | Value |
+|------|-------|
+| Enchant | 60 |
+| Intelligence | 70 |
+| Luck | 50 |
+| Alchemy | 65 |
+| Apparatus | Master M&P (1.2) · Master Calcinator (1.2) · Master Retort (1.2) |
+| Success chance (base) | **0%** — Base = 60 + 14 + 5 − 195 = −116 |
+| Target for 100% | Enchant + Intel/5 + Luck/10 ≥ 275 (full fatigue) |
 
 ---
 
-**Step 4: Soul choice and uses**
+**Iteration 1 — Spellmaker: Create Fortify Skill (Enchant) Spell**
 
-This is a **CWS** enchantment — CE's 400-soul threshold does NOT apply. Any soul fills the charge pool.
+Produces: **a spell** — Fortify Skill [Enchant] +180 pts for 10 seconds on Self  
+Soul gem required: **none** — this is a spell, not an enchantment
 
-Use **Vivec (soul_size 1000)** in Azura's Star:
-- Azura's Star is not consumed when used to create an enchantment (the star becomes empty and can be refilled)
-- Charge pool on the Ebony Staff: 1000
+Visit any Mages Guild spellmaker. You already know any Fortify Skill effect (e.g., Fortify Heavy Armor). Purchase spell for ~500–700 gold.
 
-At Enchant 100 (natural), uses:  
-`chargesUsed = total_enchant_cost × (1.1 − 1.0) = 65 × 0.1 = 6.5 → ~7 per use`  
-`Uses = floor(1000 / 7) ≈ 142 strikes`
+```
+When cast: Enchant temporarily = 60 + 180 = 240  (10-second window)
+Approximate magicka cost to cast: ~144
+
+Intermediate check (spell active, base stats):
+  Base = 240 + 70/5 + 50/10 − 195 = 240 + 14 + 5 − 195 = 64
+  SuccessChance = 64 × 1.25 = 80%  — not yet 100%; need more Intel
+```
+
+*Do not cast yet. File in spellbook for the final step.*
 
 ---
 
-**Q11 Summary Table**
+**Iteration 2 — Brew Fortify Intelligence Potions (Ash Yam + Bloat)**
+
+Produces: **5 × Fortify Intelligence potion**, magnitude +34 pts each  
+Soul gem required: **none** — these are potions
+
+```
+SkillFactor = Alchemy + Intel/10 + Luck/10 = 65 + 7 + 5 = 77
+Fortify Intelligence EffectBaseCost = 1.0  (Fortify Attribute family)
+
+Base_Strength = 77 × 1.2 / (3 × 1.0) = 30.8
+Adjustment    = 1.2 + (1.2 × 2)       = 3.6
+Potion_Intel  = 30.8 + 3.6 = 34.4  →  34 pts per potion
+Potion_Duration = (77 × 1.2 / 1.0) + 3.6 = 96 seconds
+```
+
+Brew 5 potions (5× Ash Yam + 5× Bloat). Store; do not drink yet.
+
+---
+
+**Final Attempt — Stack Buffs · Attempt Self-Enchant**
+
+Soul gem required: **Azura's Star holding Vivec (soul_size = 1 000)**
+
+Action sequence — must complete within 96 seconds of drinking:
+1. Ensure full Fatigue
+2. Drink all 5 Fortify Intelligence potions → Intel = 70 + 5 × 34 = **240** temporarily
+3. Cast Fortify Skill (Enchant) 180 → Enchant = 60 + 180 = **240** temporarily
+4. Open inventory → drag Azura's Star to Ebony Staff paper doll → configure effects → confirm
+
+```
+Stats during attempt:
+  Enchant (fortified):      240
+  Intelligence (fortified): 240
+  Luck (base):               50
+  enchantPoints:             65
+
+Base = 240 + 240/5 + 50/10 − 3 × 65
+     = 240 + 48 + 5 − 195
+     = 98
+
+FatigueMod    = 1.25 (full fatigue)
+SuccessChance = 98 × 1.25 = 122.5%  →  100%  ✓
+```
+
+**Soul and uses:**
 
 | Parameter | Value |
 |-----------|-------|
-| Enchantment total cost | 65 pts (of 90 capacity) |
-| Baseline success chance | **0%** (negative at natural stats) |
-| Stats needed for 100% | Enchant + Intel/5 + Luck/10 ≥ 275 |
-| Loop: Fortify Intel ingredients | Ash Yam + Bloat |
-| Loop: Fortify Enchant method | Spellmaker (any known Fortify Skill) |
-| Soul for Ebony Staff | Vivec (1000) in Azura's Star |
-| Charge pool | 1000 charges |
-| Uses at Enchant 100 | ~142 strikes |
-| Recharge options | Passive (1/20s), active rest, or refill Azura's Star |
+| Soul | Vivec (soul_size 1 000) in Azura's Star |
+| Charge pool | 1 000 |
+| chargesUsed at Enchant 60 | 65 × (1.1 − 0.60) = 32.5 → **33 per strike** |
+| Uses at Enchant 60 | floor(1 000 / 33) ≈ **30 strikes** |
+| Uses at Enchant 100 | floor(1 000 / 7) ≈ **142 strikes** (as skill grows) |
+| Azura's Star fate | Returns empty after use — refillable for future enchantments |
