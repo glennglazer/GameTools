@@ -300,6 +300,135 @@ def morrowind_alchemy_apparatus(apparatus_type: str | None = None) -> list[dict]
 
 # ─── Morrowind enchanting ───────────────────────────────────────────────────
 
+@mcp.resource("gametools://morrowind/enchanting/rules")
+def morrowind_enchanting_rules() -> str:
+    """Morrowind enchanting: self-enchant formulae, CE rules, compounding, recharge, alchemy-enchant loop."""
+    return (_SCRIPT_DIR / 'morrowind_enchanting.md').read_text()
+
+
+@mcp.tool()
+def morrowind_enchant_magic_effects(
+    name: str | None = None,
+    school: str | None = None,
+) -> list[dict]:
+    """Return Morrowind magic effects with name, base_cost, school, and description.
+    base_cost feeds the enchantment point formula: C = avg_magnitude × 0.05 × base_cost × duration.
+    Optional partial name filter and/or school filter
+    (Alteration/Conjuration/Destruction/Illusion/Mysticism/Restoration)."""
+    valid_schools = ('Alteration', 'Conjuration', 'Destruction', 'Illusion', 'Mysticism', 'Restoration')
+    where: list[str] = []
+    params: dict = {}
+
+    if school:
+        matched = next((s for s in valid_schools if s.lower() == school.lower()), None)
+        if not matched:
+            return [{"error": f"Unknown school '{school}'. Choose from: {', '.join(valid_schools)}"}]
+        school_id = valid_schools.index(matched)
+        where.append("School = :school_id")
+        params["school_id"] = school_id
+
+    if name:
+        where.append("LOWER(Name) LIKE LOWER('%' || :name || '%')")
+        params["name"] = name
+
+    w = ("WHERE " + " AND ".join(where)) if where else ""
+    rows = _query(
+        f"SELECT Name AS name, [Base Cost] AS base_cost, School AS school_id, Description AS description "
+        f"FROM morrowind_enchant_magic_effects {w} "
+        f"ORDER BY School, Name",
+        params,
+    )
+    school_names = ('Alteration', 'Conjuration', 'Destruction', 'Illusion', 'Mysticism', 'Restoration')
+    for r in rows:
+        sid = r.pop("school_id", None)
+        try:
+            r["school"] = school_names[int(sid)]
+        except (TypeError, ValueError, IndexError):
+            r["school"] = str(sid)
+    return rows
+
+
+@mcp.tool()
+def morrowind_enchant_souls(name: str | None = None) -> list[dict]:
+    """Return Morrowind+Tribunal+Bloodmoon creature soul sizes (soul_size = actual soul strength).
+    Souls ≥ 400 qualify for Constant Effect enchantments.
+    Grizzly Bear appears twice (Bloodmoon): soul_size 50 and 100 — always clarify which.
+    Optional partial name filter."""
+    if name:
+        return _query(
+            "SELECT name, soul_size FROM morrowind_enchant_souls "
+            "WHERE LOWER(name) LIKE LOWER('%' || :name || '%') ORDER BY soul_size, name",
+            {"name": name},
+        )
+    return _query("SELECT name, soul_size FROM morrowind_enchant_souls ORDER BY soul_size, name")
+
+
+@mcp.tool()
+def morrowind_enchant_soul_gems() -> list[dict]:
+    """Return Morrowind soul gem types with weight, value, and capacity.
+    Capacity is the maximum soul size the gem can hold. Grand Soul Gems (capacity 600) and
+    Azura's Star (capacity 15000 in DB — effectively unlimited; holds any soul) are required for
+    Constant Effect enchantments. Azura's Star is reusable; other gems are destroyed on use."""
+    return _query(
+        "SELECT Name AS name, Weight AS weight, Value AS value, Capacity AS capacity "
+        "FROM morrowind_enchant_soul_gems ORDER BY Capacity"
+    )
+
+
+@mcp.tool()
+def morrowind_enchant_item(
+    name: str | None = None,
+    item_type: str | None = None,
+    min_enchant_pts: float | None = None,
+) -> list[dict]:
+    """Search enchantable Morrowind items (weapons, armor, clothing) by name, type, or minimum
+    enchantment capacity. Returns item name, category (weapon/armor/clothing), item type (e.g.
+    LongBladeOneHand, Shield, Ring), and enchant_pts (the enchantment point capacity).
+
+    item_type supports partial match (e.g. 'Shield', 'Ring', 'LongBlade', 'Helmet').
+    min_enchant_pts filters to items with at least that many enchantment points.
+    Results ordered by enchant_pts descending."""
+    where_w, where_a, where_c = [], [], []
+    params: dict = {}
+
+    if name:
+        pattern = f"%{name}%"
+        where_w.append("LOWER(w.Name) LIKE LOWER(:name)")
+        where_a.append("LOWER(a.Name) LIKE LOWER(:name)")
+        where_c.append("LOWER(c.Name) LIKE LOWER(:name)")
+        params["name"] = pattern
+
+    if item_type:
+        tp = f"%{item_type}%"
+        where_w.append("LOWER(w.Type) LIKE LOWER(:itype)")
+        where_a.append("LOWER(a.Type) LIKE LOWER(:itype)")
+        where_c.append("LOWER(c.Type) LIKE LOWER(:itype)")
+        params["itype"] = tp
+
+    if min_enchant_pts is not None:
+        raw = min_enchant_pts * 10
+        where_w.append("CAST(w.Enchantment AS REAL) >= :minraw")
+        where_a.append("CAST(a.Enchantment AS REAL) >= :minraw")
+        where_c.append("CAST(c.Enchantment AS REAL) >= :minraw")
+        params["minraw"] = raw
+
+    def _wc(clauses: list[str]) -> str:
+        return ("WHERE " + " AND ".join(clauses)) if clauses else ""
+
+    sql = f"""
+        SELECT Name AS name, 'weapon' AS category, Type AS item_type,
+               CAST(Enchantment AS REAL)/10 AS enchant_pts
+        FROM morrowind_enchant_weapons w {_wc(where_w)}
+        UNION ALL
+        SELECT Name, 'armor', Type, CAST(Enchantment AS REAL)/10
+        FROM morrowind_enchant_armor a {_wc(where_a)}
+        UNION ALL
+        SELECT Name, 'clothing', Type, CAST(Enchantment AS REAL)/10
+        FROM morrowind_enchant_clothing c {_wc(where_c)}
+        ORDER BY enchant_pts DESC, name
+    """
+    return _query(sql, params)
+
 
 # ─── Oblivion enchanting ────────────────────────────────────────────────────
 
