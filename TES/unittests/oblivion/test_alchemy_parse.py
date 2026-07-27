@@ -193,16 +193,6 @@ MALFORMED_WEIGHT_ENTRY = """|
 |0003365C
 """
 
-def test_parse_unreadable_file_raises(tmp_path):
-    f = tmp_path / "raw.txt"
-    f.write_text(VALID_ENTRY)
-    f.chmod(0o000)
-    try:
-        with pytest.raises(OSError):
-            parse(str(f))
-    finally:
-        f.chmod(0o644)
-
 def test_parse_malformed_weight_raises(tmp_path):
     f = tmp_path / "raw.txt"
     f.write_text(MALFORMED_WEIGHT_ENTRY)

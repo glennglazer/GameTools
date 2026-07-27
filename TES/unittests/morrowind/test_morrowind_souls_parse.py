@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent /
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent /
                        "TES" / "Morrowind" / "enchanting" / "souls_json"))
 from morrowind_parse_souls import parse_souls, parse
 

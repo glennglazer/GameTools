@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent /
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent /
                        "TES" / "Skyrim" / "enchanting" / "creature_souls_sql"))
 from create_or_update_skyrim_enchant_souls import TABLE_NAME, INDEX_NAME, main
 

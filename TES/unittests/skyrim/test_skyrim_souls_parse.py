@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from bs4 import BeautifulSoup
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent /
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent /
                        "TES" / "Skyrim" / "enchanting" / "creature_souls_json"))
 from skyrim_parse_creature_souls_to_json import parse_mapping, parse_souls
 

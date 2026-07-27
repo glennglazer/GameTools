@@ -11,10 +11,10 @@ Development runs inside a Docker container (Python 3.14). From the repo root:
 docker compose build
 
 # Run all tests
-docker compose run --rm dev python -m pytest unittests/ -v
+docker compose run --rm dev python -m pytest TES/unittests/ -v
 
 # Run a specific game's tests
-docker compose run --rm dev python -m pytest unittests/morrowind/
+docker compose run --rm dev python -m pytest TES/unittests/morrowind/
 
 # Open an interactive shell in the container
 docker compose run --rm dev bash
@@ -33,13 +33,13 @@ pip install -r requirements.txt
 > Use `/usr/bin/python3.11` if running outside Docker.
 
 ```bash
-/usr/bin/python3.11 -m pytest unittests/ -v
+/usr/bin/python3.11 -m pytest TES/unittests/ -v
 ```
 
 ## Test Structure
 
 ```
-unittests/
+TES/unittests/
   conftest.py              shared fixtures (tmp_db, make_json, load_module helper)
   morrowind/
     test_alchemy_parse.py  remove_pipe, remove_wiki_link, dash_to_null, parse, write_file

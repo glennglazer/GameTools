@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent /
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent /
                        "TES" / "Oblivion" / "enchanting" / "sigil_stone_json"))
 from oblivion_parse_sigil_stone import parse, LEVELS
 

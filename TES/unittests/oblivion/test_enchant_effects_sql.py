@@ -6,13 +6,13 @@ import tempfile
 from pathlib import Path
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent /
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent /
                        "TES" / "Oblivion" / "enchanting" / "enchant_effects_sql"))
 from create_or_update_oblivion_enchant_effects import TABLE_NAME, INDEX_NAME
 
 # Import main via importlib so we can call with temp file args
 import importlib.util
-_LOADER_PATH = str(Path(__file__).parent.parent.parent /
+_LOADER_PATH = str(Path(__file__).parent.parent.parent.parent /
                    "TES" / "Oblivion" / "enchanting" / "enchant_effects_sql" /
                    "create_or_update_oblivion_enchant_effects.py")
 

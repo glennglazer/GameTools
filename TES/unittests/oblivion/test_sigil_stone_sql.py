@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent.parent /
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent /
                        "TES" / "Oblivion" / "enchanting" / "sigil_stone_sql"))
 from create_or_update_oblivion_sigil_stone import _upsert_table, STONES_TABLE, WEAPONS_TABLE, ARMOR_TABLE
 
