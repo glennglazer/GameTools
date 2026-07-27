@@ -1,6 +1,6 @@
 # TES Enchanting Showcase
 
-Eleven questions spanning Skyrim, Oblivion, and Morrowind — database lookups, formula calculations, and multi-step strategy planning.
+Twelve questions spanning Skyrim, Oblivion, and Morrowind — database lookups, formula calculations, and multi-step strategy planning.
 
 ---
 
@@ -337,3 +337,127 @@ SuccessChance = 98 × 1.25 = 122.5%  →  100%  ✓
 | Uses at Enchant 60 | floor(1 000 / 33) ≈ **30 strikes** |
 | Uses at Enchant 100 | floor(1 000 / 7) ≈ **142 strikes** (as skill grows) |
 | Azura's Star fate | Returns empty after use — refillable for future enchantments |
+
+---
+
+### Q12 `[MORROWIND]` `[STRATEGY]` — Ebony Staff: Same Goal, No Fortify Skill Available
+
+**Q:** Same enchantment, same character — but the Spellmaker shortcut is unavailable (Fortify Skill not known). Can 100% success still be reached, and how?
+
+---
+
+Without any source of Fortify Enchant, the skill stays at base 60 throughout. The success formula must be satisfied by Intelligence alone:
+
+```
+Enchant + Intel/5 + Luck/10 ≥ 275
+60 + Intel/5 + 5 ≥ 275
+Intel/5 ≥ 210  →  Intel ≥ 1 050
+```
+
+**Ingredients:** Fortify Intelligence: Ash Yam + Bloat (same as Q11). The spell is replaced with three nested brew sessions — each brewed at higher Intelligence than the last. All three batches must be **simultaneously active** when the enchanting attempt begins. Batch 1 sets the tightest timer: **96 seconds**.
+
+---
+
+**Start — same stats as Q11**
+
+| Stat | Value |
+|------|-------|
+| Enchant | **60** — fixed; no Fortify Enchant available |
+| Intelligence | 70 |
+| Luck | 50 |
+| Alchemy | 65 |
+| Apparatus | Master M&P (1.2) · Master Calcinator (1.2) · Master Retort (1.2) |
+| Target Intel | **≥ 1 050** (vs 240 in Q11) |
+
+---
+
+**Iteration 1 — Pre-brew Batch 1 (at base Intelligence 70)**
+
+Produces: **10 × Fortify Intelligence**, +34 pts · 96 seconds  
+Soul gem required: **none**
+
+```
+SkillFactor     = 65 + 70/10 + 50/10 = 77
+Base_Strength   = 77 × 1.2 / (3 × 1.0) = 30.8
+Adjustment      = 1.2 + (1.2 × 2) = 3.6
+Potion_Intel    = 30.8 + 3.6 = 34 pts
+Potion_Duration = (77 × 1.2 / 1.0) + 3.6 = 96 seconds
+```
+
+Brew 10 potions (10× Ash Yam + 10× Bloat). **Store; do not drink yet.**
+
+---
+
+**Iteration 2 — Drink Batch 1, Brew Batch 2 (at Intelligence 410)**
+
+Produces: **10 × Fortify Intelligence**, +48 pts · 136 seconds  
+Soul gem required: **none** — **96-second window begins now**
+
+```
+Drink Batch 1 (10 × 34) → Intel = 70 + 340 = 410  (96s clock starts)
+
+SkillFactor     = 65 + 410/10 + 50/10 = 111
+Base_Strength   = 111 × 1.2 / 3 = 44.4
+Potion_Intel    = 44.4 + 3.6 = 48 pts
+Potion_Duration = (111 × 1.2) + 3.6 = 136 seconds
+```
+
+Brew 10 potions (10× Ash Yam + 10× Bloat). **Drink immediately.** Intel = 70 + 340 + 480 = **890**.
+
+---
+
+**Iteration 3 — Brew Batch 3 (at Intelligence 890, both buffs active)**
+
+Produces: **10 × Fortify Intelligence**, +67 pts · 194 seconds  
+Soul gem required: **none** — Batch 1 has ~86 seconds remaining
+
+```
+Intel now = 890  (Batch 1 + Batch 2 both active)
+
+SkillFactor     = 65 + 890/10 + 50/10 = 159
+Base_Strength   = 159 × 1.2 / 3 = 63.6
+Potion_Intel    = 63.6 + 3.6 = 67 pts
+Potion_Duration = (159 × 1.2) + 3.6 = 194 seconds
+```
+
+Brew 10 potions (10× Ash Yam + 10× Bloat). **Drink immediately.** Intel = 70 + 340 + 480 + 670 = **1 560**.
+
+---
+
+**Final Attempt — All Three Batches Stacked · Attempt Self-Enchant**
+
+Soul gem required: **Azura's Star holding Vivec (soul_size = 1 000)**
+
+All three batches simultaneously active. Batch 1 sets the expiry (~96s from when it was drunk; brewing Batches 2 and 3 takes ~10s total, leaving ~86s to complete the enchantment).
+
+```
+Stats during attempt:
+  Enchant (base, no buff):  60
+  Intelligence (fortified): 1 560
+  Luck (base):               50
+  enchantPoints:             65
+
+Base = 60 + 1560/5 + 50/10 − 3 × 65
+     = 60 + 312 + 5 − 195
+     = 182
+
+FatigueMod    = 1.25 (full fatigue)
+SuccessChance = 182 × 1.25 = 227.5%  →  100%  ✓
+```
+
+**Q11 vs Q12 comparison:**
+
+|  | Q11 (Fortify Skill) | Q12 (no Fortify Skill) |
+|---|---|---|
+| Brew sessions | 1 | 3 |
+| Total potions brewed | 5 | 30 |
+| Ingredients | 5 Ash Yam + 5 Bloat | 30 Ash Yam + 30 Bloat |
+| Final Intelligence | 240 | 1 560 |
+| Enchant at attempt | 240 (fortified) | 60 (base) |
+| Success chance | 122.5% | **227.5%** |
+| Time pressure | 96s (1 buff expiry) | 96s (Batch 1 expiry) |
+| Soul gem | Vivec (1 000) in Azura's Star | same |
+
+Paradoxically, the path without Fortify Skill achieves a *higher* final success chance (227.5% vs 122.5%). The deeper Intel loop overshoots the 275 threshold by a larger margin than the one-brew-plus-spell path. The cost is 25 more potions, but the same 96-second window applies in both cases.
+
+Soul uses: floor(1 000 / 33) ≈ **30 strikes** at Enchant 60; floor(1 000 / 7) ≈ **142 strikes** at Enchant 100.
