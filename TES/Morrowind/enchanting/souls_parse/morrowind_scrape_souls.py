@@ -1,4 +1,4 @@
-"""Scrape Morrowind creature souls page from UESP and save raw HTML as JSON."""
+"""Scrape Morrowind creature souls pages from UESP and save raw HTML as JSON."""
 import argparse
 import json
 import sys
@@ -7,8 +7,11 @@ from pathlib import Path
 import requests
 
 API_URL = "https://en.uesp.net/w/api.php"
-PAGE = "Morrowind:Souls"
-SECTION = "0"
+PAGES = [
+    ("Morrowind:Souls", "0"),
+    ("Tribunal:Souls",  "0"),
+    ("Bloodmoon:Souls", "0"),
+]
 USER_AGENT = "GameTools-Scraper/1.0 (https://github.com/glennglazer/GameTools)"
 
 _SCRIPT_DIR = Path(__file__).parent.resolve()
@@ -28,12 +31,16 @@ def fetch(page: str, section: str = "0") -> str:
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(description="Scrape Morrowind souls from UESP.")
+    ap = argparse.ArgumentParser(description="Scrape Morrowind+Tribunal+Bloodmoon souls from UESP.")
     ap.add_argument("outfile", nargs="?", default=_DEFAULT_OUT)
     args = ap.parse_args()
 
-    html = fetch(PAGE, SECTION)
-    record = {"page": PAGE, "section": SECTION, "html": html}
+    pages = []
+    for page, section in PAGES:
+        html = fetch(page, section)
+        pages.append({"page": page, "section": section, "html": html})
+        print(f"  {page}: {len(html)} chars", file=sys.stderr)
+
     with open(args.outfile, "w", encoding="utf-8") as f:
-        json.dump(record, f)
-    print(f"Saved {len(html)} chars → {args.outfile}", file=sys.stderr)
+        json.dump({"pages": pages}, f)
+    print(f"Saved {len(pages)} pages → {args.outfile}", file=sys.stderr)

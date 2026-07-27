@@ -590,5 +590,273 @@
   {
     "name": "Vivec",
     "soul_size": 1000
+  },
+  {
+    "name": "Diseased Durzog",
+    "soul_size": 10
+  },
+  {
+    "name": "Infected Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Pack Rat",
+    "soul_size": 10
+  },
+  {
+    "name": "Verminous Fabricant",
+    "soul_size": 10
+  },
+  {
+    "name": "Wild Durzog (weak)",
+    "soul_size": 10
+  },
+  {
+    "name": "Barilzar",
+    "soul_size": 30
+  },
+  {
+    "name": "Wild Durzog",
+    "soul_size": 50
+  },
+  {
+    "name": "Goblin",
+    "soul_size": 100
+  },
+  {
+    "name": "War Durzog",
+    "soul_size": 100
+  },
+  {
+    "name": "Goblin Footsoldier",
+    "soul_size": 120
+  },
+  {
+    "name": "Hulking Fabricant",
+    "soul_size": 165
+  },
+  {
+    "name": "Imperfect",
+    "soul_size": 165
+  },
+  {
+    "name": "Goblin Bruiser",
+    "soul_size": 200
+  },
+  {
+    "name": "Goblin Handler",
+    "soul_size": 200
+  },
+  {
+    "name": "Greater Ancestor Ghost",
+    "soul_size": 200
+  },
+  {
+    "name": "Radac Stungnthumz",
+    "soul_size": 200
+  },
+  {
+    "name": "Variner's Ghost",
+    "soul_size": 280
+  },
+  {
+    "name": "Gedna Relvel",
+    "soul_size": 300
+  },
+  {
+    "name": "Goblin Officer",
+    "soul_size": 300
+  },
+  {
+    "name": "Khash-Ti Dhrur",
+    "soul_size": 300
+  },
+  {
+    "name": "Lich",
+    "soul_size": 300
+  },
+  {
+    "name": "Profane Acolyte",
+    "soul_size": 300
+  },
+  {
+    "name": "Warchief Durgoc",
+    "soul_size": 350
+  },
+  {
+    "name": "Warchief Kurog",
+    "soul_size": 350
+  },
+  {
+    "name": "Almalexia",
+    "soul_size": 1500
+  },
+  {
+    "name": "Ettiene of Glenmoril Wyrd",
+    "soul_size": 10
+  },
+  {
+    "name": "Werewolf",
+    "soul_size": 20
+  },
+  {
+    "name": "Werewolf Innocent",
+    "soul_size": 20
+  },
+  {
+    "name": "Bonewolf",
+    "soul_size": 50
+  },
+  {
+    "name": "Fearsome Grahl",
+    "soul_size": 50
+  },
+  {
+    "name": "Grizzly Bear",
+    "soul_size": 50
+  },
+  {
+    "name": "Plague Wolf",
+    "soul_size": 50
+  },
+  {
+    "name": "Riekling",
+    "soul_size": 50
+  },
+  {
+    "name": "Snow Bear",
+    "soul_size": 50
+  },
+  {
+    "name": "Snow Wolf",
+    "soul_size": 50
+  },
+  {
+    "name": "Spirit Bear",
+    "soul_size": 50
+  },
+  {
+    "name": "The Good Beast",
+    "soul_size": 50
+  },
+  {
+    "name": "The Swimmer",
+    "soul_size": 50
+  },
+  {
+    "name": "Wolf",
+    "soul_size": 50
+  },
+  {
+    "name": "Horker",
+    "soul_size": 80
+  },
+  {
+    "name": "Caenlorn Wolf",
+    "soul_size": 100
+  },
+  {
+    "name": "Dulk",
+    "soul_size": 100
+  },
+  {
+    "name": "Grahl",
+    "soul_size": 100
+  },
+  {
+    "name": "Grizzly Bear",
+    "soul_size": 100
+  },
+  {
+    "name": "Hircine's Aspect of Guile",
+    "soul_size": 100
+  },
+  {
+    "name": "Hircine's Aspect of Speed",
+    "soul_size": 100
+  },
+  {
+    "name": "Hircine's Aspect of Strength",
+    "soul_size": 100
+  },
+  {
+    "name": "Karstaag",
+    "soul_size": 100
+  },
+  {
+    "name": "Krish",
+    "soul_size": 100
+  },
+  {
+    "name": "Lightkeeper Grahl",
+    "soul_size": 100
+  },
+  {
+    "name": "Plague Bear",
+    "soul_size": 100
+  },
+  {
+    "name": "Riekling",
+    "soul_size": 100
+  },
+  {
+    "name": "Riekling Boarmaster",
+    "soul_size": 100
+  },
+  {
+    "name": "Riekling Raider",
+    "soul_size": 150
+  },
+  {
+    "name": "Tusked Bristleback",
+    "soul_size": 150
+  },
+  {
+    "name": "Dire Frost Atronach",
+    "soul_size": 200
+  },
+  {
+    "name": "Draugr",
+    "soul_size": 200
+  },
+  {
+    "name": "Draugr Lord Aesliip",
+    "soul_size": 200
+  },
+  {
+    "name": "Greater Skeleton Champion",
+    "soul_size": 200
+  },
+  {
+    "name": "Skeleton Berserker",
+    "soul_size": 200
+  },
+  {
+    "name": "Skeleton Pirate",
+    "soul_size": 200
+  },
+  {
+    "name": "Skeleton Pirate Captain",
+    "soul_size": 200
+  },
+  {
+    "name": "Valbrandr draugr",
+    "soul_size": 200
+  },
+  {
+    "name": "The Udyrfrykte",
+    "soul_size": 250
+  },
+  {
+    "name": "Deadly Grahl",
+    "soul_size": 300
+  },
+  {
+    "name": "Draugr",
+    "soul_size": 300
+  },
+  {
+    "name": "Spriggan",
+    "soul_size": 350
   }
 ]

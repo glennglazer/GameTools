@@ -1,6 +1,7 @@
-"""Parse Morrowind creature souls from UESP raw HTML into JSON records."""
+"""Parse Morrowind+Tribunal creature souls from UESP raw HTML into JSON records."""
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -17,6 +18,7 @@ def parse_souls(html: str) -> list:
     The page groups creatures by the soul gem type that best fits them.
     Each table has header rows (colspan th = gem name) and data rows
     (numeric th = soul strength, td cells = creature name lists).
+    Footnote reference markers like [1] are stripped from creature names.
     """
     soup = BeautifulSoup(html, "html.parser")
     records = []
@@ -31,15 +33,33 @@ def parse_souls(html: str) -> list:
             except ValueError:
                 continue
             for li in row.find_all("li"):
-                name = li.get_text(strip=True)
+                name = re.sub(r"\[\d+\]", "", li.get_text(strip=True)).strip()
                 if name and (name, size) not in seen:
                     records.append({"name": name, "soul_size": size})
                     seen.add((name, size))
     return records
 
 
+def parse(data: dict) -> list:
+    """Parse one or more pages of souls data into deduplicated records.
+
+    Handles both single-page format {"page": ..., "html": ...} and the
+    multi-page format {"pages": [{"page": ..., "html": ...}, ...]}.
+    """
+    pages = data["pages"] if "pages" in data else [data]
+    seen: set = set()
+    combined: list = []
+    for page in pages:
+        for r in parse_souls(page["html"]):
+            key = (r["name"], r["soul_size"])
+            if key not in seen:
+                combined.append(r)
+                seen.add(key)
+    return combined
+
+
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(description="Parse Morrowind souls HTML to JSON.")
+    ap = argparse.ArgumentParser(description="Parse Morrowind+Tribunal souls HTML to JSON.")
     ap.add_argument("infile", nargs="?", default=_DEFAULT_IN)
     ap.add_argument("outfile", nargs="?", default=_DEFAULT_OUT)
     args = ap.parse_args()
@@ -47,7 +67,7 @@ if __name__ == "__main__":
     with open(args.infile, encoding="utf-8") as f:
         data = json.load(f)
 
-    records = parse_souls(data["html"])
+    records = parse(data)
     if not records:
         print("ERROR: no souls parsed — check raw file", file=sys.stderr)
         sys.exit(1)
