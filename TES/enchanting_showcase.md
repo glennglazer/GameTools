@@ -1,6 +1,6 @@
 # TES Enchanting Showcase
 
-Twelve questions spanning Skyrim, Oblivion, and Morrowind — database lookups, formula calculations, and multi-step strategy planning.
+Thirteen questions spanning Skyrim, Oblivion, and Morrowind — database lookups, formula calculations, and multi-step strategy planning.
 
 ---
 
@@ -461,3 +461,86 @@ SuccessChance = 182 × 1.25 = 227.5%  →  100%  ✓
 Paradoxically, the path without Fortify Skill achieves a *higher* final success chance (227.5% vs 122.5%). The deeper Intel loop overshoots the 275 threshold by a larger margin than the one-brew-plus-spell path. The cost is 25 more potions, but the same 96-second window applies in both cases.
 
 Soul uses: floor(1 000 / 33) ≈ **30 strikes** at Enchant 60; floor(1 000 / 7) ≈ **142 strikes** at Enchant 100.
+
+---
+
+## Skyrim (continued)
+
+### Q13 `[SKYRIM]` `[FORMULA]` — The Alchemy–Enchanting Feedback Loop (Skyrim)
+
+**Q:** Does iterating Fortify Alchemy enchantments → Fortify Enchanting potions → stronger Fortify Alchemy enchantments compound indefinitely in Skyrim, or does the loop converge? Work through 10 iterations for three characters with different skill and perk investments.
+
+**Sources:** `skyrim_alchemy_effects` (Fortify Enchanting base_magnitude = 1); `skyrim_enchant_apparel` (Fortify Alchemy in 4 slots: head, hands, amulet, ring; base_cost = 167 → +8% per piece at skill 0, no perks).
+
+#### Character profiles
+
+| Attribute | Alvin | Simon | Theodore |
+|-----------|-------|-------|----------|
+| Alchemy skill | 0 | 40 | 100 |
+| Alchemist perk | none ×1.0 | 3/5 ×1.6 | 5/5 ×2.0 |
+| Benefactor perk | — | — | ×1.25 |
+| Enchanting skill | 0 | 40 | 100 |
+| Enchanter perk | none ×1.0 | 3/5 ×1.6 | 5/5 ×2.0 |
+| Insightful Enchanter | — | — | ×1.25 |
+
+#### Formulas
+
+```
+FE_potion = floor( 4 × BaseMag × SkillMult × AlchemistPerk × BenefactorPerk × FortifyAlchemy )
+    SkillMult      = 1 + 0.5 × (Alchemy / 100)
+    FortifyAlchemy = 1 + (total FA% / 100)
+
+FA_per_piece = floor( 8 × skill_mult × EnchanterPerk × InsightfulEnchanter )
+    eff_skill  = Enchanting + FE_potion%
+    s          = eff_skill / 100
+    skill_mult = 1 + (s × max(0, s − 0.14)) / 3.4
+Total FA% = 4 × FA_per_piece
+```
+
+State machine per loop: brew FE potion with current FA bonus → drink → re-enchant 4 FA apparel pieces. Start state: FA factor = 1.0.
+
+#### 10-iteration summary
+
+| Loop | Alvin FA% | Simon FA% | Theodore FA% | Theodore FE% | Theodore FA/piece |
+|------|-----------|-----------|--------------|--------------|-------------------|
+| Start | 0% | 0% | 0% | — | — |
+| **1** | 32% | 52% | **104%** | 15% | 26% |
+| **2** | 32% | 52% | **112%** | 30% | 28% |
+| **3** | 32% | 52% | **116%** | 31% | 29% |
+| 4 | 32% | 52% | 116% | 32% | 29% |
+| 5–10 | 32% | 52% | 116% | 32% | 29% |
+
+Alvin and Simon converge after iteration 1. Theodore converges after iteration 4.
+
+#### Theodore — iteration detail
+
+```
+Loop 1  (FA factor = 1.00):
+  FE = floor(4 × 1 × 1.5 × 2.5 × 1.00) = 15%
+  eff = 115;  sm = 1.3416;  FA/piece = floor(8 × 1.3416 × 2.5) = 26%;  total = 104%
+
+Loop 2  (FA factor = 2.04):
+  FE = floor(4 × 1 × 1.5 × 2.5 × 2.04) = 30%
+  eff = 130;  sm = 1.4435;  FA/piece = floor(8 × 1.4435 × 2.5) = 28%;  total = 112%
+
+Loop 3  (FA factor = 2.12):
+  FE = floor(4 × 1 × 1.5 × 2.5 × 2.12) = 31%
+  eff = 131;  sm = 1.4508;  FA/piece = floor(8 × 1.4508 × 2.5) = 29%;  total = 116%
+
+Loop 4  (FA factor = 2.16):
+  FE = floor(4 × 1 × 1.5 × 2.5 × 2.16) = 32%
+  eff = 132;  sm = 1.4581;  FA/piece = floor(8 × 1.4581 × 2.5) = 29%;  total = 116%  ← converged
+```
+
+#### Secondary power — Restore Health with Theodore's full loop
+
+```
+Without loop  (FA = 1.00):  floor(4 × 5 × 1.5 × 2.5 × 1.00) = 75 HP
+With 116% FA  (FA = 2.16):  floor(4 × 5 × 1.5 × 2.5 × 2.16) = 162 HP
+```
+
+#### Why it converges
+
+Both the alchemy and enchanting formulas use `floor()`. Once the marginal gain from a stronger FA multiplier rounds down to zero FE% improvement, the enchanting skill plateaus and FA/piece stops growing. The `floor()` in both legs is the brake that prevents the Morrowind-style Intelligence explosion.
+
+**Result:** The Skyrim loop converges to a fixed point in at most 4 iterations. Fixed points: Alvin 32% FA, Simon 52% FA, Theodore 116% FA. A fully-invested character gains a ×2.16 multiplier on all beneficial potions permanently after four loops.
