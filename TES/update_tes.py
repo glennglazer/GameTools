@@ -214,6 +214,9 @@ def update_skyrim_smithing() -> None:
     run_step('Skyrim smithing weapons scrape',
              [smt_dir / 'weapons_parse' / 'skyrim_scrape_smithing_weapons.py',
               '--out-dir', smt_dir / 'weapons_parse'])
+    run_step('Skyrim smelting scrape',
+             [smt_dir / 'smelting_parse' / 'skyrim_scrape_smelting.py',
+              '--out-dir', smt_dir / 'smelting_parse'])
 
     for label, json_dir_name, script_name in [
         ('Skyrim smithing perks JSON',
@@ -226,6 +229,8 @@ def update_skyrim_smithing() -> None:
          'improvement_json', 'skyrim_parse_smithing_improvement_to_json.py'),
         ('Skyrim smithing materials JSON',
          'materials_json', 'skyrim_parse_smithing_materials_to_json.py'),
+        ('Skyrim smelting JSON',
+         'smelting_json', 'skyrim_parse_smelting_to_json.py'),
     ]:
         run_step(label, [smt_dir / json_dir_name / script_name])
 
@@ -245,6 +250,9 @@ def update_skyrim_smithing() -> None:
         ('Skyrim smithing materials SQL',
          smt_dir / 'materials_json',
          smt_dir / 'materials_sql' / 'create_or_update_skyrim_smithing_materials.py'),
+        ('Skyrim smelting SQL',
+         smt_dir / 'smelting_json',
+         smt_dir / 'smelting_sql' / 'create_or_update_skyrim_smelting.py'),
     ]
     for label, json_dir, sql_script in sql_pairs:
         if not has_diff_files(json_dir):

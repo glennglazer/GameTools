@@ -1,0 +1,222 @@
+[
+  {
+    "Source_Name": "Corundum Ore",
+    "Source_Weight": 1,
+    "Source_Value": 20,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Corundum Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 40,
+    "Note": null
+  },
+  {
+    "Source_Name": "Bent Dwemer Scrap Metal",
+    "Source_Weight": 2,
+    "Source_Value": 15,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Dwarven Metal Ingot",
+    "Ingots_Produced": 3,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 30,
+    "Note": null
+  },
+  {
+    "Source_Name": "Large Decorative Dwemer Strut",
+    "Source_Weight": 15,
+    "Source_Value": 10,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Dwarven Metal Ingot",
+    "Ingots_Produced": 2,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 30,
+    "Note": null
+  },
+  {
+    "Source_Name": "Large Dwemer Plate Metal",
+    "Source_Weight": 2,
+    "Source_Value": 15,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Dwarven Metal Ingot",
+    "Ingots_Produced": 3,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 30,
+    "Note": null
+  },
+  {
+    "Source_Name": "Large Dwemer Strut",
+    "Source_Weight": 20,
+    "Source_Value": 15,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Dwarven Metal Ingot",
+    "Ingots_Produced": 3,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 30,
+    "Note": null
+  },
+  {
+    "Source_Name": "Small Dwemer Plate Metal",
+    "Source_Weight": 2,
+    "Source_Value": 15,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Dwarven Metal Ingot",
+    "Ingots_Produced": 3,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 30,
+    "Note": null
+  },
+  {
+    "Source_Name": "Solid Dwemer Metal",
+    "Source_Weight": 25,
+    "Source_Value": 25,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Dwarven Metal Ingot",
+    "Ingots_Produced": 5,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 30,
+    "Note": null
+  },
+  {
+    "Source_Name": "Ebony Ore",
+    "Source_Weight": 1,
+    "Source_Value": 60,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Ebony Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 150,
+    "Note": null
+  },
+  {
+    "Source_Name": "Gold Ore",
+    "Source_Weight": 1,
+    "Source_Value": 50,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Gold Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 100,
+    "Note": null
+  },
+  {
+    "Source_Name": "Iron Ore",
+    "Source_Weight": 1,
+    "Source_Value": 2,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Iron Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 7,
+    "Note": null
+  },
+  {
+    "Source_Name": "Malachite Ore",
+    "Source_Weight": 1,
+    "Source_Value": 30,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Refined Malachite",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 100,
+    "Note": null
+  },
+  {
+    "Source_Name": "Moonstone Ore",
+    "Source_Weight": 1,
+    "Source_Value": 30,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Refined Moonstone",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 75,
+    "Note": null
+  },
+  {
+    "Source_Name": "Orichalcum Ore",
+    "Source_Weight": 1,
+    "Source_Value": 20,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Orichalcum Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 45,
+    "Note": null
+  },
+  {
+    "Source_Name": "Quicksilver Ore",
+    "Source_Weight": 1,
+    "Source_Value": 25,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Quicksilver Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 60,
+    "Note": null
+  },
+  {
+    "Source_Name": "Silver Ore",
+    "Source_Weight": 1,
+    "Source_Value": 25,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Silver Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 50,
+    "Note": null
+  },
+  {
+    "Source_Name": "Iron Ore",
+    "Source_Weight": 1,
+    "Source_Value": 2,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Steel Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 20,
+    "Note": "Also requires 1 Corundum Ore"
+  },
+  {
+    "Source_Name": "Corundum Ore",
+    "Source_Weight": 1,
+    "Source_Value": 20,
+    "Source_To_Ingot": 1,
+    "Ingot_Name": "Steel Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 20,
+    "Note": "Also requires 1 Iron Ore"
+  },
+  {
+    "Source_Name": "Amber",
+    "Source_Weight": 1,
+    "Source_Value": 75,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Refined Amber",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 150,
+    "Note": "Saints & Seducers Creation Club content"
+  },
+  {
+    "Source_Name": "Madness Ore",
+    "Source_Weight": 2,
+    "Source_Value": 20,
+    "Source_To_Ingot": 2,
+    "Ingot_Name": "Madness Ingot",
+    "Ingots_Produced": 1,
+    "Ingot_Weight": 1,
+    "Ingot_Value": 150,
+    "Note": "Saints & Seducers Creation Club content"
+  },
+  {
+    "Source_Name": "Stalhrim",
+    "Source_Weight": null,
+    "Source_Value": null,
+    "Source_To_Ingot": null,
+    "Ingot_Name": null,
+    "Ingots_Produced": null,
+    "Ingot_Weight": null,
+    "Ingot_Value": null,
+    "Note": "Stalhrim does not require smelting; it is found as ore and used directly in smithing."
+  }
+]

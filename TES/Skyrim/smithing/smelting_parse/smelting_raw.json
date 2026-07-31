@@ -1,0 +1,218 @@
+{
+  "recipes": [
+    {
+      "source": "Corundum Ore",
+      "source_to_ingot": 2,
+      "ingot": "Corundum Ingot",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Bent Dwemer Scrap Metal",
+      "source_to_ingot": 1,
+      "ingot": "Dwarven Metal Ingot",
+      "ingots_produced": 3
+    },
+    {
+      "source": "Large Decorative Dwemer Strut",
+      "source_to_ingot": 1,
+      "ingot": "Dwarven Metal Ingot",
+      "ingots_produced": 2
+    },
+    {
+      "source": "Large Dwemer Plate Metal",
+      "source_to_ingot": 1,
+      "ingot": "Dwarven Metal Ingot",
+      "ingots_produced": 3
+    },
+    {
+      "source": "Large Dwemer Strut",
+      "source_to_ingot": 1,
+      "ingot": "Dwarven Metal Ingot",
+      "ingots_produced": 3
+    },
+    {
+      "source": "Small Dwemer Plate Metal",
+      "source_to_ingot": 1,
+      "ingot": "Dwarven Metal Ingot",
+      "ingots_produced": 3
+    },
+    {
+      "source": "Solid Dwemer Metal",
+      "source_to_ingot": 1,
+      "ingot": "Dwarven Metal Ingot",
+      "ingots_produced": 5
+    },
+    {
+      "source": "Ebony Ore",
+      "source_to_ingot": 2,
+      "ingot": "Ebony Ingot",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Gold Ore",
+      "source_to_ingot": 2,
+      "ingot": "Gold Ingot",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Iron Ore",
+      "source_to_ingot": 1,
+      "ingot": "Iron Ingot",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Malachite Ore",
+      "source_to_ingot": 2,
+      "ingot": "Refined Malachite",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Moonstone Ore",
+      "source_to_ingot": 2,
+      "ingot": "Refined Moonstone",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Orichalcum Ore",
+      "source_to_ingot": 2,
+      "ingot": "Orichalcum Ingot",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Quicksilver Ore",
+      "source_to_ingot": 2,
+      "ingot": "Quicksilver Ingot",
+      "ingots_produced": 1
+    },
+    {
+      "source": "Silver Ore",
+      "source_to_ingot": 2,
+      "ingot": "Silver Ingot",
+      "ingots_produced": 1
+    }
+  ],
+  "material_stats": {
+    "Iron Ore": {
+      "weight": 1,
+      "value": 2
+    },
+    "Corundum Ore": {
+      "weight": 1,
+      "value": 20
+    },
+    "Silver Ore": {
+      "weight": 1,
+      "value": 25
+    },
+    "Gold Ore": {
+      "weight": 1,
+      "value": 50
+    },
+    "Ebony Ore": {
+      "weight": 1,
+      "value": 60
+    },
+    "Malachite Ore": {
+      "weight": 1,
+      "value": 30
+    },
+    "Moonstone Ore": {
+      "weight": 1,
+      "value": 30
+    },
+    "Orichalcum Ore": {
+      "weight": 1,
+      "value": 20
+    },
+    "Quicksilver Ore": {
+      "weight": 1,
+      "value": 25
+    },
+    "Bent Dwemer Scrap Metal": {
+      "weight": 2,
+      "value": 15
+    },
+    "Large Decorative Dwemer Strut": {
+      "weight": 15,
+      "value": 10
+    },
+    "Large Dwemer Plate Metal": {
+      "weight": 2,
+      "value": 15
+    },
+    "Large Dwemer Strut": {
+      "weight": 20,
+      "value": 15
+    },
+    "Small Dwemer Plate Metal": {
+      "weight": 2,
+      "value": 15
+    },
+    "Solid Dwemer Metal": {
+      "weight": 25,
+      "value": 25
+    },
+    "Amber": {
+      "weight": 1,
+      "value": 75
+    },
+    "Madness Ore": {
+      "weight": 2,
+      "value": 20
+    }
+  },
+  "ingot_stats": {
+    "Corundum Ingot": {
+      "weight": 1,
+      "value": 40
+    },
+    "Dwarven Metal Ingot": {
+      "weight": 1,
+      "value": 30
+    },
+    "Ebony Ingot": {
+      "weight": 1,
+      "value": 150
+    },
+    "Gold Ingot": {
+      "weight": 1,
+      "value": 100
+    },
+    "Iron Ingot": {
+      "weight": 1,
+      "value": 7
+    },
+    "Refined Malachite": {
+      "weight": 1,
+      "value": 100
+    },
+    "Refined Moonstone": {
+      "weight": 1,
+      "value": 75
+    },
+    "Orichalcum Ingot": {
+      "weight": 1,
+      "value": 45
+    },
+    "Quicksilver Ingot": {
+      "weight": 1,
+      "value": 60
+    },
+    "Silver Ingot": {
+      "weight": 1,
+      "value": 50
+    },
+    "Steel Ingot": {
+      "weight": 1,
+      "value": 20
+    },
+    "Refined Amber": {
+      "weight": 1,
+      "value": 150
+    },
+    "Madness Ingot": {
+      "weight": 1,
+      "value": 150
+    }
+  }
+}
