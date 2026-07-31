@@ -645,6 +645,165 @@ def skyrim_enchant_disenchant(effect: str) -> list[dict]:
 
 # ─── Skyrim smithing ────────────────────────────────────────────────────────
 
+@mcp.resource("gametools://skyrim/smithing/rules")
+def skyrim_smithing_rules() -> str:
+    """Skyrim smithing mechanics: perk tree, quality levels, effective skill, armor cap, smelting rules."""
+    return (_SCRIPT_DIR / 'skyrim_smithing.md').read_text()
+
+
+_ARMOR_FIXED  = frozenset({'piece', 'material_perk', 'armor_rating', 'weight', 'value', 'id'})
+_WEAPON_FIXED = frozenset({'piece', 'material_perk', 'damage',       'weight', 'value', 'id'})
+
+
+def _col_display(col: str) -> str:
+    return col.replace('_', ' ').title()
+
+
+def _materialize(row: dict, fixed_cols: frozenset) -> dict:
+    """Separate fixed columns from sparse material columns.
+    Returns the fixed fields plus a 'materials' dict of {display_name: quantity}
+    containing only non-zero entries."""
+    base = {k: v for k, v in row.items() if k in fixed_cols}
+    base['materials'] = {
+        _col_display(k): v
+        for k, v in row.items()
+        if k not in fixed_cols and v
+    }
+    return base
+
+
+@mcp.tool()
+def skyrim_smithing_perks() -> list[dict]:
+    """Return the full Skyrim smithing perk tree with skill level requirements, prerequisites,
+    and descriptions."""
+    return _query(
+        "SELECT name, skill_level, prerequisite, description "
+        "FROM skyrim_smithing_perks ORDER BY skill_level, name"
+    )
+
+
+@mcp.tool()
+def skyrim_smithing_armor(
+    name: str | None = None,
+    perk: str | None = None,
+) -> list[dict]:
+    """Return Skyrim craftable armor pieces with required materials.
+    Optional partial name filter (e.g. 'Helmet', 'Daedric Armor').
+    Optional perk filter — partial match on the material_perk column
+    (e.g. 'Elven', 'Steel', 'Daedric').
+    Materials are returned as a dict of {Material: quantity}; zero entries are omitted.
+    Includes base-game and Creation Club armor (193 total pieces)."""
+    where: list[str] = []
+    params: dict = {}
+    if name:
+        where.append("LOWER(piece) LIKE LOWER(:name)")
+        params['name'] = f'%{name}%'
+    if perk:
+        where.append("LOWER(material_perk) LIKE LOWER(:perk)")
+        params['perk'] = f'%{perk}%'
+    w = ('WHERE ' + ' AND '.join(where)) if where else ''
+    rows = _query(
+        f"SELECT * FROM skyrim_smithing_armor {w} ORDER BY material_perk, piece",
+        params,
+    )
+    return [_materialize(r, _ARMOR_FIXED) for r in rows]
+
+
+@mcp.tool()
+def skyrim_smithing_weapons(
+    name: str | None = None,
+    perk: str | None = None,
+) -> list[dict]:
+    """Return Skyrim craftable weapons and ammunition with required materials.
+    Optional partial name filter (e.g. 'Sword', 'Bow', 'Arrow', 'Crossbow').
+    Optional perk filter — partial match on the material_perk column
+    (e.g. 'Glass', 'Dwarven', 'Steel').
+    Materials are returned as a dict of {Material: quantity}; zero entries are omitted.
+    Includes base-game weapons, Dawnguard crossbows, and Creation Club weapons and ammo
+    (135 weapons + 12 CC ammo pieces)."""
+    where: list[str] = []
+    params: dict = {}
+    if name:
+        where.append("LOWER(piece) LIKE LOWER(:name)")
+        params['name'] = f'%{name}%'
+    if perk:
+        where.append("LOWER(material_perk) LIKE LOWER(:perk)")
+        params['perk'] = f'%{perk}%'
+    w = ('WHERE ' + ' AND '.join(where)) if where else ''
+    weapons = _query(
+        f"SELECT * FROM skyrim_smithing_weapons {w} ORDER BY material_perk, piece",
+        params,
+    )
+    ammo = _query(
+        f"SELECT * FROM skyrim_smithing_ammo {w} ORDER BY material_perk, piece",
+        params,
+    )
+    return [_materialize(r, _WEAPON_FIXED) for r in weapons + ammo]
+
+
+@mcp.tool()
+def skyrim_smithing_improvement() -> list[dict]:
+    """Return Skyrim item improvement quality levels with effective-skill thresholds and stat effects.
+    skill_without_perk / skill_with_perk are the effective_skill values (base + Fortify Smithing)
+    needed to reach each quality.
+    'With perk' means having the specific material perk (e.g. Ebony Smithing for ebony items).
+    quality_number is the level index (Fine=1 … Legendary=6); above 6 the game still displays
+    'Legendary' — always report the actual quality_number as Legendary (N) when N >= 6."""
+    rows = _query(
+        "SELECT quality, skill_without_perk, skill_with_perk, armor_effect, weapon_effect "
+        "FROM skyrim_smithing_improvement ORDER BY skill_without_perk"
+    )
+    for i, r in enumerate(rows, 1):
+        r['quality_number'] = i
+    return rows
+
+
+@mcp.tool()
+def skyrim_tempering_materials(smithing_category: str | None = None) -> list[dict]:
+    """Return the tempering material for each smithing category — the ingot or material consumed
+    when improving an item of that type. Optional partial smithing_category filter
+    (e.g. 'Ebony', 'Daedric', 'Steel', 'Amber')."""
+    if smithing_category:
+        return _query(
+            "SELECT smithing_category, crafting_material "
+            "FROM skyrim_tempering_materials "
+            "WHERE LOWER(smithing_category) LIKE LOWER(:cat) "
+            "ORDER BY smithing_category",
+            {"cat": f'%{smithing_category}%'},
+        )
+    return _query(
+        "SELECT smithing_category, crafting_material "
+        "FROM skyrim_tempering_materials ORDER BY smithing_category"
+    )
+
+
+@mcp.tool()
+def skyrim_smelting(
+    source: str | None = None,
+    ingot: str | None = None,
+) -> list[dict]:
+    """Return Skyrim smelting recipes (ore or Dwemer scrap → ingot).
+    Optional partial Source_Name filter (e.g. 'Iron Ore', 'Dwemer').
+    Optional partial Ingot_Name filter (e.g. 'Dwarven', 'Steel').
+    The Stalhrim row has NULL Ingot_Name — Stalhrim cannot be smelted; see Note.
+    Steel Ingot has two rows (Iron Ore and Corundum Ore are both required — the Note on each row
+    cross-references the other); it is the only recipe that requires two different ore types."""
+    where: list[str] = []
+    params: dict = {}
+    if source:
+        where.append("LOWER(Source_Name) LIKE LOWER(:src)")
+        params['src'] = f'%{source}%'
+    if ingot:
+        where.append("LOWER(Ingot_Name) LIKE LOWER(:ing)")
+        params['ing'] = f'%{ingot}%'
+    w = ('WHERE ' + ' AND '.join(where)) if where else ''
+    return _query(
+        f"SELECT Source_Name, Source_Weight, Source_Value, Source_To_Ingot, "
+        f"Ingot_Name, Ingots_Produced, Ingot_Weight, Ingot_Value, Note "
+        f"FROM skyrim_smelting {w} ORDER BY Ingot_Name, Source_Name",
+        params,
+    )
+
 
 # ─── Skyrim homestead ───────────────────────────────────────────────────────
 
