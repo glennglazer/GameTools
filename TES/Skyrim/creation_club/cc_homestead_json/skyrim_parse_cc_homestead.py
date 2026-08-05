@@ -12,7 +12,7 @@ import re
 import sys
 from pathlib import Path
 
-LOCATION = "Main_Hall_Aquarium"
+LOCATION = "Cellar_Aquarium"
 
 # Material text → DB column name (subset relevant to Aquarium)
 MAT_COL = {
@@ -35,7 +35,8 @@ ALL_MAT_COLS = [
     "refined_moonstone", "filled_grand_soul_gem", "gold_ingot", "leather_strips",
     "straw", "goat_horns", "vampire_dust", "deer_hide", "large_antlers",
     "small_antlers", "goat_hide", "horker_tusk", "mudcrab_chitin",
-    "slaughterfish_scales", "wolf_pelt", "sabre_cat_tooth", "sabre_cat_snow_pelt",
+    "slaughterfish_scales", "wolf_pelt",
+    "sabre_cat_pelt", "sabre_cat_tooth", "sabre_cat_snow_pelt",
     "bear_pelt", "amulet_of_akatosh", "amulet_of_arkay", "amulet_of_dibella",
     "amulet_of_julianos", "amulet_of_kynareth", "amulet_of_mara",
     "amulet_of_stendarr", "amulet_of_talos", "amulet_of_zenithar",
@@ -52,7 +53,7 @@ except ImportError:
 
 
 def _empty_record(section):
-    rec = {"section": section, "location": LOCATION, "stage": None, "batch_size": None}
+    rec = {"section": section, "location": LOCATION, "batch_size": None}
     for col in ALL_MAT_COLS:
         rec[col] = 0
     return rec

@@ -349,6 +349,12 @@ def update_skyrim_homestead() -> None:
     run_step('Skyrim cellar scrape',
              [home_dir / 'cellar_parse' / 'skyrim_scrape_cellar.py',
               home_dir / 'cellar_parse' / 'cellar_raw.json'])
+    run_step('Skyrim homestead wings scrape',
+             [home_dir / 'wings_parse' / 'skyrim_scrape_homestead_wings.py',
+              home_dir / 'wings_parse' / 'wings_raw.json'])
+    run_step('Skyrim homestead entryway scrape',
+             [home_dir / 'entryway_parse' / 'skyrim_scrape_homestead_entryway.py',
+              home_dir / 'entryway_parse' / 'entryway_raw.json'])
 
     # ── parse ────────────────────────────────────────────────────────────────
     run_step('Skyrim homestead build JSON',
@@ -356,6 +362,8 @@ def update_skyrim_homestead() -> None:
               home_dir / 'homestead_parse' / 'homestead_raw.json',
               home_dir / 'main_hall_parse' / 'main_hall_raw.json',
               home_dir / 'cellar_parse' / 'cellar_raw.json',
+              home_dir / 'wings_parse' / 'wings_raw.json',
+              home_dir / 'entryway_parse' / 'entryway_raw.json',
               home_dir / 'build_json' / 'build_records.json'])
     run_step('Skyrim homestead exclusive exterior JSON',
              [home_dir / 'exclusive_exterior_json' / 'skyrim_parse_homestead_exclusive_exterior.py',
@@ -364,6 +372,9 @@ def update_skyrim_homestead() -> None:
              [home_dir / 'steward_cost_json' / 'skyrim_parse_homestead_steward_cost.py',
               home_dir / 'homestead_parse' / 'homestead_raw.json',
               home_dir / 'steward_cost_json' / 'steward_cost_records.json'])
+    run_step('Skyrim homestead crafted components JSON',
+             [home_dir / 'crafted_components_json' / 'skyrim_parse_homestead_crafted_components.py',
+              home_dir / 'crafted_components_json' / 'crafted_components_records.json'])
 
     # ── SQL (full-replace on every run) ──────────────────────────────────────
     run_step('Skyrim homestead build SQL',
@@ -375,6 +386,9 @@ def update_skyrim_homestead() -> None:
     run_step('Skyrim homestead steward cost SQL',
              [home_dir / 'steward_cost_sql' / 'create_or_update_skyrim_homestead_steward_cost.py',
               home_dir / 'steward_cost_json' / 'steward_cost_records.json', db])
+    run_step('Skyrim homestead crafted components SQL',
+             [home_dir / 'crafted_components_sql' / 'create_or_update_skyrim_homestead_crafted_components.py',
+              home_dir / 'crafted_components_json' / 'crafted_components_records.json', db])
 
 
 def update_skyrim_cc() -> None:

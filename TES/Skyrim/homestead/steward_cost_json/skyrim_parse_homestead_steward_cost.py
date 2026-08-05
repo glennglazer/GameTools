@@ -1,4 +1,9 @@
-"""Parse homestead steward costs from the Trivia section of homestead_raw.json."""
+"""Parse homestead steward costs from the Trivia section of homestead_raw.json.
+
+Room names are mapped to the location-prefix conventions used in
+skyrim_homestead_build so that a JOIN on `build.location LIKE cost.room || '%'`
+returns all furnishing rows for the steward's coverage area.
+"""
 import argparse
 import json
 import re
@@ -6,6 +11,25 @@ import sys
 from pathlib import Path
 
 from bs4 import BeautifulSoup
+
+# Map wiki Trivia room names → build-table location prefixes.
+# The steward cost room names match the common prefix of the location column
+# values in skyrim_homestead_build for that room's furnishing rows.
+ROOM_NAME_MAP = {
+    "Small House":        "Small House",
+    "Entry Room Upgrade": "Entryway",
+    "Main Hall":          "Main Hall",
+    "Enchanter's Tower":  "West_Wing_Enchanter's_Tower",
+    "Bedrooms":           "West_Wing_Bedrooms",
+    "Greenhouse":         "West_Wing_Greenhouse",
+    "Trophy Room":        "North_Wing_Trophy_Room",
+    "Storage Room":       "North_Wing_Storage_Room",
+    "Alchemy Laboratory": "North_Wing_Alchemy_Laboratory",
+    "Library":            "East_Wing_Library",
+    "Armory":             "East_Wing_Armory",
+    "Kitchen":            "East_Wing_Kitchen",
+    "Cellar":             "Cellar",
+}
 
 
 def parse_steward_costs(html):
@@ -37,6 +61,8 @@ def parse_steward_costs(html):
             continue
         room = m.group(1).strip()
         gold = int(m.group(2).replace(",", ""))
+        # Map to build-table location prefix; keep original name if unmapped
+        room = ROOM_NAME_MAP.get(room, room)
         records.append({"room": room, "gold_cost": gold})
 
     return records

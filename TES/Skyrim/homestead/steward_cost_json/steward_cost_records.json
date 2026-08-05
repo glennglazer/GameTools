@@ -4,7 +4,7 @@
     "gold_cost": 1000
   },
   {
-    "room": "Entry Room Upgrade",
+    "room": "Entryway",
     "gold_cost": 1000
   },
   {
@@ -12,39 +12,39 @@
     "gold_cost": 3500
   },
   {
-    "room": "Library",
+    "room": "East_Wing_Library",
     "gold_cost": 1500
   },
   {
-    "room": "Trophy Room",
+    "room": "North_Wing_Trophy_Room",
     "gold_cost": 1500
   },
   {
-    "room": "Bedrooms",
+    "room": "West_Wing_Bedrooms",
     "gold_cost": 2000
   },
   {
-    "room": "Greenhouse",
+    "room": "West_Wing_Greenhouse",
     "gold_cost": 1500
   },
   {
-    "room": "Enchanter's Tower",
+    "room": "West_Wing_Enchanter's_Tower",
     "gold_cost": 2500
   },
   {
-    "room": "Alchemy Laboratory",
+    "room": "North_Wing_Alchemy_Laboratory",
     "gold_cost": 2500
   },
   {
-    "room": "Armory",
+    "room": "East_Wing_Armory",
     "gold_cost": 2000
   },
   {
-    "room": "Storage Room",
+    "room": "North_Wing_Storage_Room",
     "gold_cost": 1000
   },
   {
-    "room": "Kitchen",
+    "room": "East_Wing_Kitchen",
     "gold_cost": 1500
   }
 ]

@@ -22,15 +22,21 @@ _cost_sql = load_module(
     "TES/Skyrim/homestead/steward_cost_sql/create_or_update_skyrim_homestead_steward_cost.py",
     "sk_homestead_cost_sql",
 )
+_crafted_sql = load_module(
+    "TES/Skyrim/homestead/crafted_components_sql/create_or_update_skyrim_homestead_crafted_components.py",
+    "sk_homestead_crafted_sql",
+)
 
-BUILD_TABLE = _build_sql.TABLE_NAME
-EXCL_TABLE  = _excl_sql.TABLE_NAME
-COST_TABLE  = _cost_sql.TABLE_NAME
+BUILD_TABLE   = _build_sql.TABLE_NAME
+EXCL_TABLE    = _excl_sql.TABLE_NAME
+COST_TABLE    = _cost_sql.TABLE_NAME
+CRAFTED_TABLE = _crafted_sql.TABLE_NAME
 MATERIAL_COLS = _build_sql.MATERIAL_COLS
 
-BUILD_SCRIPT = str(REPO_ROOT / "TES/Skyrim/homestead/build_sql/create_or_update_skyrim_homestead_build.py")
-EXCL_SCRIPT  = str(REPO_ROOT / "TES/Skyrim/homestead/exclusive_exterior_sql/create_or_update_skyrim_homestead_exclusive_exterior.py")
-COST_SCRIPT  = str(REPO_ROOT / "TES/Skyrim/homestead/steward_cost_sql/create_or_update_skyrim_homestead_steward_cost.py")
+BUILD_SCRIPT   = str(REPO_ROOT / "TES/Skyrim/homestead/build_sql/create_or_update_skyrim_homestead_build.py")
+EXCL_SCRIPT    = str(REPO_ROOT / "TES/Skyrim/homestead/exclusive_exterior_sql/create_or_update_skyrim_homestead_exclusive_exterior.py")
+COST_SCRIPT    = str(REPO_ROOT / "TES/Skyrim/homestead/steward_cost_sql/create_or_update_skyrim_homestead_steward_cost.py")
+CRAFTED_SCRIPT = str(REPO_ROOT / "TES/Skyrim/homestead/crafted_components_sql/create_or_update_skyrim_homestead_crafted_components.py")
 
 
 def run(script, args):
@@ -39,7 +45,7 @@ def run(script, args):
 
 
 def _base_build_row(**kwargs):
-    row = {"section": "Test Item", "location": "Small House", "stage": "Stage 1", "batch_size": None}
+    row = {"section": "Test Item", "location": "Small House", "batch_size": None}
     for col in MATERIAL_COLS:
         row[col] = 0
     row.update(kwargs)
@@ -48,14 +54,21 @@ def _base_build_row(**kwargs):
 
 BUILD_SAMPLE = [
     _base_build_row(section="House, Foundation", location="Small House",
-                    stage="Stage 1", sawn_log=1, quarried_stone=10),
+                    sawn_log=1, quarried_stone=10),
     _base_build_row(section="Barrel_1", location="Cellar_Containers",
-                    stage=None, sawn_log=1, nails=1, iron_ingot=1),
+                    sawn_log=1, nails=1, iron_ingot=1),
     _base_build_row(section="Shrine of Akatosh", location="Cellar_Divine_Shrines",
-                    stage=None, amulet_of_akatosh=1, iron_ingot=1,
+                    amulet_of_akatosh=1, iron_ingot=1,
                     flawless_amethyst=1, corundum_ingot=1),
-    _base_build_row(section="Nails", location="Crafted_Component",
-                    stage=None, batch_size=10, iron_ingot=1),
+    _base_build_row(section="Barrels", location="Entryway",
+                    sawn_log=1, nails=1, iron_ingot=1),
+]
+
+CRAFTED_SAMPLE = [
+    {"name": "nails",         "batch_size": 10, "iron_ingot": 1, "corundum_ingot": 0},
+    {"name": "hinge",         "batch_size":  2, "iron_ingot": 1, "corundum_ingot": 0},
+    {"name": "iron fittings", "batch_size":  1, "iron_ingot": 1, "corundum_ingot": 0},
+    {"name": "lock",          "batch_size":  1, "iron_ingot": 1, "corundum_ingot": 1},
 ]
 
 EXCL_SAMPLE = [
@@ -126,7 +139,7 @@ def test_build_table_material_values(build_json, tmp_db):
 def test_build_table_full_replace_on_rerun(build_json, tmp_db, tmp_path):
     run(BUILD_SCRIPT, [build_json, tmp_db])
 
-    new_data = [_base_build_row(section="Only Row", location="Exterior", stage=None)]
+    new_data = [_base_build_row(section="Only Row", location="Exterior")]
     new_json = str(tmp_path / "new.json")
     Path(new_json).write_text(json.dumps(new_data))
     run(BUILD_SCRIPT, [new_json, tmp_db])
@@ -155,46 +168,51 @@ def test_build_table_batch_size_null_for_build_rows(build_json, tmp_db):
     assert val is None
 
 
-def test_build_table_batch_size_for_crafted_rows(build_json, tmp_db):
+def test_build_table_no_stage_column(build_json, tmp_db):
+    """The 'stage' column must not exist in the current schema."""
     run(BUILD_SCRIPT, [build_json, tmp_db])
 
     conn = sqlite3.connect(tmp_db)
-    row = conn.execute(
-        f"SELECT batch_size, iron_ingot FROM {BUILD_TABLE} "
-        f"WHERE section='Nails' AND location='Crafted_Component'"
-    ).fetchone()
+    cols = {r[1] for r in conn.execute(f"PRAGMA table_info({BUILD_TABLE})").fetchall()}
     conn.close()
-    assert row == (10, 1)
+    assert "stage" not in cols
 
 
-def test_build_table_migration_adds_batch_size(tmp_db, tmp_path, build_json):
-    """Migration path: loader upgrades a table that was created without batch_size."""
-    # Create the table without batch_size by running a loader from an old-schema JSON
-    old_row = _base_build_row(section="Old Row", location="Small House", stage="Stage 1")
-    old_row.pop("batch_size")
-    old_json = str(tmp_path / "old.json")
-    Path(old_json).write_text(json.dumps([old_row]))
-    run(BUILD_SCRIPT, [old_json, tmp_db])
+def test_build_table_sabre_cat_pelt_column(build_json, tmp_db):
+    """The sabre_cat_pelt column must exist."""
+    run(BUILD_SCRIPT, [build_json, tmp_db])
 
-    # Manually drop batch_size to simulate pre-migration table
     conn = sqlite3.connect(tmp_db)
-    # SQLite doesn't support DROP COLUMN before 3.35; recreate the table without it
-    cols_without = ", ".join(["section TEXT", "location TEXT", "stage TEXT"] +
-                             [f"{c} INTEGER DEFAULT 0" for c in MATERIAL_COLS])
-    conn.execute(f"DROP TABLE {BUILD_TABLE}")
-    conn.execute(f"CREATE TABLE {BUILD_TABLE} ({cols_without})")
-    conn.execute(f"INSERT INTO {BUILD_TABLE} (section, location, stage) VALUES ('Old Row', 'Small House', 'Stage 1')")
+    cols = {r[1] for r in conn.execute(f"PRAGMA table_info({BUILD_TABLE})").fetchall()}
+    conn.close()
+    assert "sabre_cat_pelt" in cols
+
+
+def test_build_table_migration_drops_stage(tmp_db, tmp_path, build_json):
+    """Migration: loader must drop and recreate the table when it has a 'stage' column."""
+    # Simulate old-schema table with 'stage' column
+    conn = sqlite3.connect(tmp_db)
+    conn.execute(
+        f"CREATE TABLE {BUILD_TABLE} "
+        "(section TEXT, location TEXT, stage TEXT, batch_size INTEGER, sawn_log INTEGER DEFAULT 0)"
+    )
+    conn.execute(
+        f"INSERT INTO {BUILD_TABLE} (section, location, stage) "
+        "VALUES ('Old Row', 'Small House', 'Stage 1')"
+    )
     conn.commit()
     conn.close()
 
-    # Now run with the current build_json — loader should add batch_size via migration
     result = run(BUILD_SCRIPT, [build_json, tmp_db])
     assert result.returncode == 0, result.stderr
 
     conn = sqlite3.connect(tmp_db)
-    cols = [r[1] for r in conn.execute(f"PRAGMA table_info({BUILD_TABLE})").fetchall()]
+    cols = {r[1] for r in conn.execute(f"PRAGMA table_info({BUILD_TABLE})").fetchall()}
+    count = conn.execute(f"SELECT count(*) FROM {BUILD_TABLE}").fetchone()[0]
     conn.close()
-    assert "batch_size" in cols
+    # Old 'stage' column gone, new rows loaded
+    assert "stage" not in cols
+    assert count == len(BUILD_SAMPLE)
 
 
 # ── exclusive exterior table ──────────────────────────────────────────────────
@@ -310,4 +328,75 @@ def test_cost_table_full_replace_on_rerun(cost_json, tmp_db, tmp_path):
 
 def test_cost_bad_db_exits_nonzero(cost_json):
     result = run(COST_SCRIPT, [cost_json, "/nonexistent_xyz/db.sqlite3"])
+    assert result.returncode != 0
+
+
+# ── crafted components table ──────────────────────────────────────────────────
+
+@pytest.fixture
+def crafted_json(tmp_path):
+    p = tmp_path / "crafted.json"
+    p.write_text(json.dumps(CRAFTED_SAMPLE))
+    return str(p)
+
+
+def test_crafted_table_created(crafted_json, tmp_db):
+    result = run(CRAFTED_SCRIPT, [crafted_json, tmp_db])
+    assert result.returncode == 0, result.stderr
+
+    conn = sqlite3.connect(tmp_db)
+    cur = conn.execute(f"SELECT name FROM sqlite_master WHERE name='{CRAFTED_TABLE}'")
+    assert cur.fetchone() is not None
+    conn.close()
+
+
+def test_crafted_table_row_count(crafted_json, tmp_db):
+    run(CRAFTED_SCRIPT, [crafted_json, tmp_db])
+
+    conn = sqlite3.connect(tmp_db)
+    count = conn.execute(f"SELECT count(*) FROM {CRAFTED_TABLE}").fetchone()[0]
+    conn.close()
+    assert count == len(CRAFTED_SAMPLE)
+
+
+def test_crafted_table_index_exists(crafted_json, tmp_db):
+    run(CRAFTED_SCRIPT, [crafted_json, tmp_db])
+
+    conn = sqlite3.connect(tmp_db)
+    cur = conn.execute(
+        f"SELECT name FROM sqlite_master WHERE type='index' "
+        f"AND name='idx_{CRAFTED_TABLE}'"
+    )
+    assert cur.fetchone() is not None
+    conn.close()
+
+
+def test_crafted_table_lock_materials(crafted_json, tmp_db):
+    run(CRAFTED_SCRIPT, [crafted_json, tmp_db])
+
+    conn = sqlite3.connect(tmp_db)
+    row = conn.execute(
+        f"SELECT batch_size, iron_ingot, corundum_ingot FROM {CRAFTED_TABLE} "
+        f"WHERE name='lock'"
+    ).fetchone()
+    conn.close()
+    assert row == (1, 1, 1)
+
+
+def test_crafted_table_full_replace_on_rerun(crafted_json, tmp_db, tmp_path):
+    run(CRAFTED_SCRIPT, [crafted_json, tmp_db])
+
+    new_data = [{"name": "only", "batch_size": 1, "iron_ingot": 0, "corundum_ingot": 0}]
+    new_json = str(tmp_path / "new.json")
+    Path(new_json).write_text(json.dumps(new_data))
+    run(CRAFTED_SCRIPT, [new_json, tmp_db])
+
+    conn = sqlite3.connect(tmp_db)
+    count = conn.execute(f"SELECT count(*) FROM {CRAFTED_TABLE}").fetchone()[0]
+    conn.close()
+    assert count == 1
+
+
+def test_crafted_bad_db_exits_nonzero(crafted_json):
+    result = run(CRAFTED_SCRIPT, [crafted_json, "/nonexistent_xyz/db.sqlite3"])
     assert result.returncode != 0

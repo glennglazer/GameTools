@@ -508,8 +508,7 @@ def test_homestead_parses_single_material():
     assert fishing["sawn_log"] == 1
     assert fishing["nails"] == 1
     assert fishing["iron_ingot"] == 1
-    assert fishing["location"] == "Main_Hall_Aquarium"
-    assert fishing["stage"] is None
+    assert fishing["location"] == "Cellar_Aquarium"
     assert fishing["batch_size"] is None
 
 
@@ -570,7 +569,7 @@ def test_homestead_integration_aquarium_location():
     with open(CC_PARSE_DIR / "main_hall_raw.json") as f:
         data = json.load(f)
     recs = _homestead.parse_aquarium_section(data["sections"]["9"]["html"])
-    assert all(r["location"] == "Main_Hall_Aquarium" for r in recs)
+    assert all(r["location"] == "Cellar_Aquarium" for r in recs)
 
 
 # ── CC effects scraper ────────────────────────────────────────────────────────

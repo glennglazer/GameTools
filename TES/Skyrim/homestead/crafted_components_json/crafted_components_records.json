@@ -1,0 +1,26 @@
+[
+  {
+    "name": "nails",
+    "batch_size": 10,
+    "iron_ingot": 1,
+    "corundum_ingot": 0
+  },
+  {
+    "name": "hinge",
+    "batch_size": 2,
+    "iron_ingot": 1,
+    "corundum_ingot": 0
+  },
+  {
+    "name": "iron fittings",
+    "batch_size": 1,
+    "iron_ingot": 1,
+    "corundum_ingot": 0
+  },
+  {
+    "name": "lock",
+    "batch_size": 1,
+    "iron_ingot": 1,
+    "corundum_ingot": 1
+  }
+]

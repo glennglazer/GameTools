@@ -17,14 +17,15 @@ MATERIAL_COLS = [
     "filled_grand_soul_gem", "gold_ingot", "leather_strips", "straw", "goat_horns",
     "vampire_dust", "deer_hide", "large_antlers", "small_antlers", "goat_hide",
     "horker_tusk", "mudcrab_chitin", "slaughterfish_scales", "wolf_pelt",
-    "sabre_cat_tooth", "sabre_cat_snow_pelt", "bear_pelt", "amulet_of_akatosh",
-    "amulet_of_arkay", "amulet_of_dibella", "amulet_of_julianos", "amulet_of_kynareth",
-    "amulet_of_mara", "amulet_of_stendarr", "amulet_of_talos", "amulet_of_zenithar",
-    "flawless_amethyst", "flawless_sapphire", "corundum_ingot", "orichalcum_ingot",
-    "silver_ingot", "ebony_ingot", "refined_malachite", "dragon_bone", "dragon_scales",
+    "sabre_cat_pelt", "sabre_cat_tooth", "sabre_cat_snow_pelt", "bear_pelt",
+    "amulet_of_akatosh", "amulet_of_arkay", "amulet_of_dibella", "amulet_of_julianos",
+    "amulet_of_kynareth", "amulet_of_mara", "amulet_of_stendarr", "amulet_of_talos",
+    "amulet_of_zenithar", "flawless_amethyst", "flawless_sapphire", "corundum_ingot",
+    "orichalcum_ingot", "silver_ingot", "ebony_ingot", "refined_malachite",
+    "dragon_bone", "dragon_scales",
 ]
 
-ALL_COLS = ["section", "location", "stage", "batch_size"] + MATERIAL_COLS
+ALL_COLS = ["section", "location", "batch_size"] + MATERIAL_COLS
 
 
 def main():
@@ -54,13 +55,19 @@ def main():
     ).fetchone()
 
     if exists is not None:
-        # Migration: add batch_size column if an older version of the table lacks it.
-        existing_cols = [r[1] for r in cur.execute(f"PRAGMA table_info({TABLE_NAME})").fetchall()]
-        if "batch_size" not in existing_cols:
-            cur.execute(f"ALTER TABLE {TABLE_NAME} ADD COLUMN batch_size INTEGER")
+        # Schema migration: if the table has a 'stage' column (old schema) or is
+        # missing 'sabre_cat_pelt', drop and recreate so pandas can append cleanly.
+        existing_cols = {r[1] for r in cur.execute(
+            f"PRAGMA table_info({TABLE_NAME})"
+        ).fetchall()}
+        if "stage" in existing_cols or "sabre_cat_pelt" not in existing_cols:
+            cur.execute(f"DROP INDEX IF EXISTS idx_{TABLE_NAME}")
+            cur.execute(f"DROP TABLE {TABLE_NAME}")
             conn.commit()
-        cur.execute(f"DELETE FROM {TABLE_NAME}")
-        conn.commit()
+            exists = None
+        else:
+            cur.execute(f"DELETE FROM {TABLE_NAME}")
+            conn.commit()
 
     df.to_sql(TABLE_NAME, conn, if_exists="append", method="multi", index=False)
 
