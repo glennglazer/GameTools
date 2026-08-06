@@ -858,16 +858,22 @@ def skyrim_homestead_locations() -> list[str]:
 @mcp.tool()
 def skyrim_homestead_build(location: str | None = None) -> list[dict]:
     """Return Skyrim homestead build rows with non-zero material quantities.
-    Optional location: prefix match — 'Main Hall' returns 'Main Hall' itself and all
-    'Main_Hall_*' sub-locations; 'West_Wing' returns the wing shell and all
-    'West_Wing_*' furnishing sub-locations. Omit for all 410 rows.
+    Optional location: prefix match — 'Main Hall' (or 'Main_Hall') returns the
+    'Main Hall' shell row AND all 'Main_Hall_*' furnishing sub-locations.
+    Spaces are normalised to underscores before matching so that SQLite's _
+    wildcard captures both space and underscore variants in the data.
+    'West_Wing' returns the wing shell and all 'West_Wing_*' furnishing rows.
+    Omit for all 410 rows.
     Each result row has section, location, and a materials dict of {column: quantity}
     containing only non-zero entries."""
     if location:
+        # Normalise spaces to underscores so the SQLite _ wildcard in the LIKE
+        # pattern matches both 'Main Hall' (space) and 'Main_Hall_*' (underscore).
+        prefix = location.replace(' ', '_')
         rows = _query(
             "SELECT * FROM skyrim_homestead_build "
             "WHERE location LIKE :loc ORDER BY location, section",
-            {"loc": f"{location}%"},
+            {"loc": f"{prefix}%"},
         )
     else:
         rows = _query(
@@ -951,7 +957,9 @@ def skyrim_homestead_manifest(
 
     if location_list:
         conds = ' OR '.join(f"location LIKE :loc{i}" for i in range(len(location_list)))
-        q_params: dict = {f'loc{i}': f'{p}%' for i, p in enumerate(location_list)}
+        # Normalise spaces to underscores so the SQLite _ wildcard matches both
+        # 'Main Hall' (space in data) and 'Main_Hall_*' (underscore in data).
+        q_params: dict = {f'loc{i}': f'{p.replace(" ", "_")}%' for i, p in enumerate(location_list)}
         where = f"WHERE ({conds})"
     else:
         q_params = {}
