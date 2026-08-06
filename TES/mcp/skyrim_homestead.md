@@ -21,25 +21,27 @@ location prefixes with `skyrim_homestead_build(location=...)` and
 | `Main_Hall_Upstairs_*` | Main Hall upper-floor furnishings |
 | `Main_Hall_Back_Room_*` | Main Hall back room furnishings |
 | `Entryway` | Optional conversion of Small House into pass-through entry (after Main Hall) |
-| `West_Wing` | Tower wing shell (structural only) |
-| `West_Wing_Enchanter's_Tower_*` | Tower wing — Enchanter's Tower room furnishings |
-| `West_Wing_Bedrooms_*` | Tower wing — Bedrooms room furnishings |
-| `West_Wing_Greenhouse_*` | Tower wing — Greenhouse room furnishings |
-| `North_Wing` | Room with Outdoor Patio wing shell (structural only) |
-| `North_Wing_Trophy_Room_*` | Patio wing — Trophy Room furnishings |
-| `North_Wing_Storage_Room_*` | Patio wing — Storage Room furnishings |
-| `North_Wing_Alchemy_Laboratory_*` | Patio wing — Alchemy Laboratory furnishings |
-| `East_Wing` | Downstairs Room wing shell (structural only) |
-| `East_Wing_Library_*` | Downstairs wing — Library room furnishings |
-| `East_Wing_Armory_*` | Downstairs wing — Armory room furnishings |
-| `East_Wing_Kitchen_*` | Downstairs wing — Kitchen room furnishings |
+| `West_Wing` | West wing shell — Tower type (structural only; pick one room below) |
+| `West_Wing_Enchanter's_Tower_*` | West wing — Enchanter's Tower room furnishings |
+| `West_Wing_Bedrooms_*` | West wing — Bedrooms room furnishings |
+| `West_Wing_Greenhouse_*` | West wing — Greenhouse room furnishings |
+| `North_Wing` | North wing shell — Room with Outdoor Patio type (pick one room below) |
+| `North_Wing_Trophy_Room_*` | North wing — Trophy Room furnishings |
+| `North_Wing_Storage_Room_*` | North wing — Storage Room furnishings |
+| `North_Wing_Alchemy_Laboratory_*` | North wing — Alchemy Laboratory furnishings |
+| `East_Wing` | East wing shell — Downstairs Room type (pick one room below) |
+| `East_Wing_Library_*` | East wing — Library room furnishings |
+| `East_Wing_Armory_*` | East wing — Armory room furnishings |
+| `East_Wing_Kitchen_*` | East wing — Kitchen room furnishings |
 | `Cellar` | Underground cellar (added after Main Hall) |
 | `Cellar_Aquarium_*` | CC Aquarium extension of the Cellar |
 | `Exterior` | Exterior structures: Stable, Apiary, Fish Hatchery, etc. |
 
-**Wing restriction**: each manor has exactly **one** wing slot. Choose one of the three wing
-shells (West/North/East) and exactly **one** room within it. Do not combine furnishing rows
-from multiple wing types or multiple rooms in the same manifest.
+**Wing restriction (game rule)**: a manor has **three** wing slots — one West wing, one
+North wing, one East wing — and within each slot the player picks **one room**. A fully
+built manor therefore has all three wing shells plus one room's furnishings per wing. When
+answering "what do I need for my house?", combine all the player's chosen locations into a
+single `skyrim_homestead_manifest` call to get the complete shopping list.
 
 ## Three-Layer Materials Hierarchy
 
@@ -135,19 +137,36 @@ Location for Entryway materials: `Entryway` in the build table.
 
 ## Key Query Patterns
 
-**What do I need to build my Enchanter's Tower (shell + furnishings)?**
+**Complete house spec (the most common use case):**
+A fully built manor has Small House + Main Hall + all three wings (one room each) + Cellar
++ Exterior. Combine all chosen locations into a single manifest call:
+```
+skyrim_homestead_manifest(
+  locations="Small House,Main Hall,Main_Hall,
+             West_Wing,West_Wing_Enchanter's_Tower,
+             North_Wing,North_Wing_Alchemy_Laboratory,
+             East_Wing,East_Wing_Armory,
+             Cellar,Exterior",
+  level=3
+)
+```
+This produces one unified ore/base shopping list for the entire build.
+Swap in whichever room the player chose for each wing (e.g. `West_Wing_Bedrooms` instead
+of `West_Wing_Enchanter's_Tower`).
+
+**Just a wing with its room (shell + furnishings):**
 ```
 skyrim_homestead_manifest(locations="West_Wing,West_Wing_Enchanter's_Tower", level=1)
 ```
 
-**Full manor manifest at the ore level:**
-```
-skyrim_homestead_manifest(level=3)  # no locations = all rows
-```
-
-**Just the Main Hall at ingot level:**
+**Main Hall at ingot level:**
 ```
 skyrim_homestead_manifest(locations="Main Hall,Main_Hall", level=2)
+```
+
+**All locations the player might choose from:**
+```
+skyrim_homestead_locations()
 ```
 
 **Can the steward furnish my Alchemy Laboratory?**
