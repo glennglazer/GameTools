@@ -1,4 +1,5 @@
 """TES GameTools MCP server — Morrowind, Oblivion, and Skyrim."""
+import math
 import sqlite3
 from pathlib import Path
 
@@ -806,6 +807,272 @@ def skyrim_smelting(
 
 
 # ─── Skyrim homestead ───────────────────────────────────────────────────────
+
+@mcp.resource("gametools://skyrim/homestead/rules")
+def skyrim_homestead_rules() -> str:
+    """Skyrim Hearthfire homestead construction: materials hierarchy, crafted components,
+    manifest levels, wing restriction, steward costs, Entry Hall ordering rule."""
+    return (_SCRIPT_DIR / 'skyrim_homestead.md').read_text()
+
+
+# Material columns in skyrim_homestead_build (excludes section, location, batch_size)
+_BUILD_MAT_COLS = [
+    'sawn_log', 'quarried_stone', 'nails', 'clay', 'iron_fittings', 'lock', 'hinge',
+    'iron_ingot', 'steel_ingot', 'glass', 'quicksilver_ingot', 'refined_moonstone',
+    'filled_grand_soul_gem', 'gold_ingot', 'leather_strips', 'straw', 'goat_horns',
+    'vampire_dust', 'deer_hide', 'large_antlers', 'small_antlers', 'goat_hide',
+    'horker_tusk', 'mudcrab_chitin', 'slaughterfish_scales', 'wolf_pelt',
+    'sabre_cat_pelt', 'sabre_cat_tooth', 'sabre_cat_snow_pelt', 'bear_pelt',
+    'amulet_of_akatosh', 'amulet_of_arkay', 'amulet_of_dibella', 'amulet_of_julianos',
+    'amulet_of_kynareth', 'amulet_of_mara', 'amulet_of_stendarr', 'amulet_of_talos',
+    'amulet_of_zenithar', 'flawless_amethyst', 'flawless_sapphire',
+    'corundum_ingot', 'orichalcum_ingot', 'silver_ingot', 'ebony_ingot',
+    'refined_malachite', 'dragon_bone', 'dragon_scales',
+]
+
+# Ingot column → {ore_name: multiplier} for Level 3 conversion
+_INGOT_TO_ORE: dict[str, dict[str, int]] = {
+    'iron_ingot':        {'Iron Ore':          1},
+    'corundum_ingot':    {'Corundum Ore':       2},
+    'steel_ingot':       {'Iron Ore':           1, 'Corundum Ore': 1},
+    'quicksilver_ingot': {'Quicksilver Ore':    2},
+    'refined_moonstone': {'Moonstone Ore':      2},
+    'gold_ingot':        {'Gold Ore':           2},
+    'orichalcum_ingot':  {'Orichalcum Ore':     2},
+    'silver_ingot':      {'Silver Ore':         2},
+    'ebony_ingot':       {'Ebony Ore':          2},
+    'refined_malachite': {'Malachite Ore':      2},
+}
+
+
+@mcp.tool()
+def skyrim_homestead_locations() -> list[str]:
+    """List all distinct location values in the Skyrim homestead build table.
+    Use these as prefix arguments in skyrim_homestead_build() and
+    skyrim_homestead_manifest(). Top-level locations include Small House, Main Hall,
+    West_Wing, North_Wing, East_Wing, Cellar, Exterior, and Entryway."""
+    rows = _query("SELECT DISTINCT location FROM skyrim_homestead_build ORDER BY location")
+    return [r['location'] for r in rows]
+
+
+@mcp.tool()
+def skyrim_homestead_build(location: str | None = None) -> list[dict]:
+    """Return Skyrim homestead build rows with non-zero material quantities.
+    Optional location: prefix match — 'Main Hall' returns 'Main Hall' itself and all
+    'Main_Hall_*' sub-locations; 'West_Wing' returns the wing shell and all
+    'West_Wing_*' furnishing sub-locations. Omit for all 410 rows.
+    Each result row has section, location, and a materials dict of {column: quantity}
+    containing only non-zero entries."""
+    if location:
+        rows = _query(
+            "SELECT * FROM skyrim_homestead_build "
+            "WHERE location LIKE :loc ORDER BY location, section",
+            {"loc": f"{location}%"},
+        )
+    else:
+        rows = _query(
+            "SELECT * FROM skyrim_homestead_build ORDER BY location, section"
+        )
+    result = []
+    for row in rows:
+        mats = {k: row[k] for k in _BUILD_MAT_COLS if row.get(k)}
+        result.append({'section': row['section'], 'location': row['location'], 'materials': mats})
+    return result
+
+
+@mcp.tool()
+def skyrim_homestead_crafted_components() -> list[dict]:
+    """Return Skyrim homestead forge recipes for nails, hinge, iron fittings, and lock.
+    Each record: name (matches build table column), batch_size (units per forge action),
+    iron_ingot and corundum_ingot (ingots consumed per forge action).
+    Use ceil(needed / batch_size) to compute forge actions and ingot cost."""
+    return _query(
+        "SELECT name, batch_size, iron_ingot, corundum_ingot "
+        "FROM skyrim_homestead_crafted_components ORDER BY name"
+    )
+
+
+@mcp.tool()
+def skyrim_homestead_steward_cost(room: str | None = None) -> list[dict]:
+    """Return gold cost to have the steward furnish each homestead room.
+    'room' values match location prefixes in skyrim_homestead_build (e.g.
+    'Main Hall', \"West_Wing_Enchanter's_Tower\", 'Cellar'). Note: the steward
+    cannot furnish the Cellar — all cellar items must be built manually.
+    Optional partial room name filter."""
+    if room:
+        return _query(
+            "SELECT room, gold_cost FROM skyrim_homestead_steward_cost "
+            "WHERE LOWER(room) LIKE LOWER(:room) ORDER BY room",
+            {"room": f"%{room}%"},
+        )
+    return _query("SELECT room, gold_cost FROM skyrim_homestead_steward_cost ORDER BY room")
+
+
+@mcp.tool()
+def skyrim_homestead_manifest(
+    locations: str | None = None,
+    level: int = 1,
+) -> dict:
+    """Compute a Skyrim Hearthfire build manifest at one of three abstraction levels.
+
+    locations: comma-separated location prefixes to include (e.g.
+    'Small House,Main Hall,Cellar' or 'West_Wing,West_Wing_Enchanter\\'s_Tower').
+    Each prefix matches that exact location AND all sub-locations (prefix match).
+    Omit or pass None to compute a full-manor manifest covering all 410 rows.
+
+    level:
+      1 = Component — raw quantities from the build table; crafted components
+          (nails / hinge / iron_fittings / lock) are listed as-is.
+      2 = Ingot — crafted components resolved to iron / corundum ingots via ceiling
+          division over forge batch sizes; batch_info shows waste produced.
+      3 = Ore/base — ingots converted to raw ores; leather_strips folded into
+          leather (ceil(strips / 4)); non-smelted materials carry forward unchanged.
+
+    Returns level, description, locations_queried, row_count, materials (non-zero
+    only), plus batch_info at level 2 and ore_notes at level 3."""
+    if level not in (1, 2, 3):
+        return {"error": "level must be 1, 2, or 3"}
+
+    # Build WHERE clause for location prefix matching
+    location_list = [loc.strip() for loc in (locations or '').split(',') if loc.strip()]
+    if location_list:
+        conds = ' OR '.join(f"location LIKE :loc{i}" for i in range(len(location_list)))
+        q_params: dict = {f'loc{i}': f'{p}%' for i, p in enumerate(location_list)}
+        where = f"WHERE ({conds})"
+    else:
+        q_params = {}
+        where = ""
+
+    col_list = ', '.join(_BUILD_MAT_COLS)
+    rows = _query(
+        f"SELECT section, location, {col_list} FROM skyrim_homestead_build "
+        f"{where} ORDER BY location, section",
+        q_params,
+    )
+
+    if not rows:
+        return {
+            "level": level,
+            "locations_queried": location_list or ["(all)"],
+            "row_count": 0,
+            "materials": {},
+            "note": "No rows matched — verify location prefix spelling with skyrim_homestead_locations().",
+        }
+
+    # Aggregate Level 1 totals
+    totals: dict[str, int] = {}
+    for row in rows:
+        for col in _BUILD_MAT_COLS:
+            v = row.get(col) or 0
+            if v:
+                totals[col] = totals.get(col, 0) + v
+
+    _LEVEL_DESC = {
+        1: "Component level — raw build quantities; crafted components listed as-is",
+        2: "Ingot level — crafted components expanded to ingots via forge batch recipes",
+        3: "Ore/base level — ingots converted to raw ores; leather strips folded into leather",
+    }
+
+    result: dict = {
+        "level": level,
+        "description": _LEVEL_DESC[level],
+        "locations_queried": location_list or ["(all)"],
+        "row_count": len(rows),
+    }
+
+    if level == 1:
+        result["materials"] = {k: v for k, v in totals.items() if v}
+        return result
+
+    # ── Level 2: expand crafted components to ingots ──────────────────────────
+    comp_rows = _query(
+        "SELECT name, batch_size, iron_ingot, corundum_ingot "
+        "FROM skyrim_homestead_crafted_components"
+    )
+    # Normalize names to match build table column names (e.g. 'iron fittings' → 'iron_fittings')
+    recipes = {r['name'].replace(' ', '_'): r for r in comp_rows}
+    craftable = ('nails', 'hinge', 'iron_fittings', 'lock')
+
+    batch_info: dict[str, dict] = {}
+    extra_iron = 0
+    extra_corundum = 0
+
+    for comp in craftable:
+        needed = totals.pop(comp, 0)
+        if not needed:
+            continue
+        rec = recipes.get(comp)
+        if not rec:
+            continue
+        bs = rec['batch_size']
+        batches = math.ceil(needed / bs)
+        produced = batches * bs
+        waste = produced - needed
+        iron_used = batches * rec['iron_ingot']
+        corundum_used = batches * rec['corundum_ingot']
+        extra_iron += iron_used
+        extra_corundum += corundum_used
+        batch_info[comp] = {
+            'needed': needed,
+            'batches': batches,
+            'produced': produced,
+            'waste': waste,
+            'iron_ingot_consumed': iron_used,
+            'corundum_ingot_consumed': corundum_used,
+        }
+
+    if extra_iron:
+        totals['iron_ingot'] = totals.get('iron_ingot', 0) + extra_iron
+    if extra_corundum:
+        totals['corundum_ingot'] = totals.get('corundum_ingot', 0) + extra_corundum
+
+    result["materials"] = {k: v for k, v in totals.items() if v}
+    if batch_info:
+        result["batch_info"] = batch_info
+        result["note"] = (
+            "Ceiling division applied: forge actions rounded up to whole batches. "
+            "'waste' shows excess components produced beyond what is needed."
+        )
+
+    if level == 2:
+        return result
+
+    # ── Level 3: convert ingots to ores, fold leather strips ─────────────────
+    # Capture steel count before removing it (for ore_notes)
+    steel_count = totals.get('steel_ingot', 0)
+
+    ore_notes: list[str] = []
+    for col, ore_map in _INGOT_TO_ORE.items():
+        qty = totals.pop(col, 0)
+        if not qty:
+            continue
+        for ore_name, mult in ore_map.items():
+            totals[ore_name] = totals.get(ore_name, 0) + qty * mult
+
+    if steel_count:
+        ore_notes.append(
+            f"Steel Ingot: each of the {steel_count} steel ingots contributes "
+            f"1 Iron Ore and 1 Corundum Ore — both ore totals above include this."
+        )
+
+    # Fold leather strips into leather
+    strips = totals.pop('leather_strips', 0)
+    if strips:
+        leather = math.ceil(strips / 4)
+        waste_strips = leather * 4 - strips
+        totals['leather'] = totals.get('leather', 0) + leather
+        ore_notes.append(
+            f"Leather strips: {strips} strips → {leather} leather "
+            f"(4 strips per leather at the tanning rack"
+            + (f"; {waste_strips} extra strip(s) produced" if waste_strips else "")
+            + ")"
+        )
+
+    result["materials"] = {k: v for k, v in totals.items() if v}
+    if ore_notes:
+        result["ore_notes"] = ore_notes
+
+    return result
 
 
 if __name__ == '__main__':
