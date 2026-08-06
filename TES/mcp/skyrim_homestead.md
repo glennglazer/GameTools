@@ -43,6 +43,11 @@ built manor therefore has all three wing shells plus one room's furnishings per 
 answering "what do I need for my house?", combine all the player's chosen locations into a
 single `skyrim_homestead_manifest` call to get the complete shopping list.
 
+**Small House prerequisite**: the Small House must be built before the Main Hall can be
+started. `skyrim_homestead_manifest` automatically includes `Small House` in the query
+whenever any Main Hall location is specified and Small House is not already in the list.
+The result will include an `auto_included` field noting this when it occurs.
+
 ## Three-Layer Materials Hierarchy
 
 Building anything in Hearthfire involves up to three layers of abstraction:

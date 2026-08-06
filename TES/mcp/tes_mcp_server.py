@@ -935,6 +935,20 @@ def skyrim_homestead_manifest(
 
     # Build WHERE clause for location prefix matching
     location_list = [loc.strip() for loc in (locations or '').split(',') if loc.strip()]
+
+    # Small House is a required prerequisite for the Main Hall. Auto-include it
+    # when any Main Hall location is requested but Small House is not.
+    auto_included: list[str] = []
+    if location_list:
+        has_main_hall = any(
+            loc.lower().startswith('main hall') or loc.lower().startswith('main_hall')
+            for loc in location_list
+        )
+        has_small_house = any(loc.lower().startswith('small house') for loc in location_list)
+        if has_main_hall and not has_small_house:
+            location_list = ['Small House'] + location_list
+            auto_included.append('Small House (prerequisite for Main Hall)')
+
     if location_list:
         conds = ' OR '.join(f"location LIKE :loc{i}" for i in range(len(location_list)))
         q_params: dict = {f'loc{i}': f'{p}%' for i, p in enumerate(location_list)}
@@ -979,6 +993,8 @@ def skyrim_homestead_manifest(
         "locations_queried": location_list or ["(all)"],
         "row_count": len(rows),
     }
+    if auto_included:
+        result["auto_included"] = auto_included
 
     if level == 1:
         result["materials"] = {k: v for k, v in totals.items() if v}
