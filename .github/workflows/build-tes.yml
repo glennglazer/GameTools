@@ -1,0 +1,280 @@
+# GameTools TES — Cross-platform release build
+#
+# Trigger: push a tag matching tes-v* (e.g.  git tag tes-v1.0.0 && git push --tags)
+#
+# Produces three artifacts uploaded to a GitHub Release:
+#   GameTools_TES_<version>_Setup.exe   (Windows installer via NSIS)
+#   GameTools_TES_<version>_Intel.dmg   (macOS 13 / Intel)
+#   GameTools_TES_<version>_ARM.dmg     (macOS 14 / Apple Silicon)
+#
+# IMPORTANT: No Anthropic credentials are stored here or bundled into the
+# executables.  Users supply their own API key on first run.
+
+name: Build TES Release
+
+on:
+  push:
+    tags:
+      - 'tes-v*'
+
+permissions:
+  contents: write   # needed to create a GitHub Release
+
+jobs:
+  # ──────────────────────────────────────────────────────────────────────────
+  # Windows Intel
+  # ──────────────────────────────────────────────────────────────────────────
+  build-windows:
+    name: Build Windows (Intel)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Parse version from tag
+        id: version
+        shell: bash
+        run: echo "VERSION=${GITHUB_REF_NAME#tes-v}" >> "$GITHUB_OUTPUT"
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r TES/executables/src/requirements.txt nuitka zstandard
+
+      - name: Compile with Nuitka
+        shell: bash
+        run: |
+          python -m nuitka \
+            --onefile \
+            --standalone \
+            --windows-console-mode=disable \
+            --windows-icon-from-ico=TES/executables/assets/gametools.ico \
+            --include-data-dir=TES/executables/src/ui=ui \
+            --include-data-dir=TES/mcp=rag \
+            --include-data-files=TES/database/gametools.sqlite3=data/gametools.sqlite3 \
+            --output-filename=GameToolsTES.exe \
+            --output-dir=build_out \
+            --assume-yes-for-downloads \
+            --enable-plugin=anti-bloat \
+            TES/executables/src/main.py
+
+      - name: Install NSIS
+        run: choco install nsis --no-progress -y
+
+      - name: Build NSIS installer
+        shell: bash
+        run: |
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          makensis \
+            /DVERSION="$VERSION" \
+            "/DSRC_EXE=$(cygpath -w $(pwd)/build_out/GameToolsTES.exe)" \
+            "/DOUT_DIR=$(cygpath -w $(pwd)/dist_out)" \
+            TES/executables/scripts/wintel/gametools_tes.nsi
+        # Create output dir if NSIS doesn't
+        continue-on-error: false
+
+      - name: Rename installer artifact
+        shell: bash
+        run: |
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          mv "dist_out/GameTools_TES_Setup_${VERSION}.exe" \
+             "dist_out/GameTools_TES_${VERSION}_Setup.exe" || true
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-installer
+          path: dist_out/GameTools_TES_*_Setup.exe
+          if-no-files-found: error
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # macOS Intel (macOS 13 runner = Intel)
+  # ──────────────────────────────────────────────────────────────────────────
+  build-macos-intel:
+    name: Build macOS Intel
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11 (x86_64)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Parse version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#tes-v}" >> "$GITHUB_OUTPUT"
+
+      - name: Install build dependencies
+        run: |
+          pip install -r TES/executables/src/requirements.txt nuitka zstandard
+          brew install create-dmg || true
+
+      - name: Compile with Nuitka
+        run: |
+          python -m nuitka \
+            --onefile \
+            --standalone \
+            --macos-create-app-bundle \
+            --macos-app-name="GameTools TES" \
+            --macos-app-version="${{ steps.version.outputs.VERSION }}" \
+            --macos-app-icon=TES/executables/assets/gametools.icns \
+            --include-data-dir=TES/executables/src/ui=ui \
+            --include-data-dir=TES/mcp=rag \
+            --include-data-files=TES/database/gametools.sqlite3=data/gametools.sqlite3 \
+            --output-filename=GameToolsTES \
+            --output-dir=build_out \
+            --assume-yes-for-downloads \
+            --enable-plugin=anti-bloat \
+            TES/executables/src/main.py
+
+      - name: Ad-hoc sign app bundle
+        run: |
+          codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
+
+      - name: Create DMG
+        run: |
+          mkdir -p dist_out
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          create-dmg \
+            --volname "GameTools TES" \
+            --volicon "TES/executables/assets/gametools.icns" \
+            --window-size 540 360 \
+            --icon-size 128 \
+            --icon "GameToolsTES.app" 140 180 \
+            --app-drop-link 400 180 \
+            "dist_out/GameTools_TES_${VERSION}_Intel.dmg" \
+            "build_out/GameToolsTES.app" || \
+          hdiutil create -volname "GameTools TES" \
+            -srcfolder "build_out/GameToolsTES.app" \
+            -ov -format UDZO \
+            "dist_out/GameTools_TES_${VERSION}_Intel.dmg"
+
+      - name: Upload macOS Intel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-intel-dmg
+          path: dist_out/GameTools_TES_*_Intel.dmg
+          if-no-files-found: error
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # macOS Apple Silicon (macOS 14 runner = ARM64)
+  # ──────────────────────────────────────────────────────────────────────────
+  build-macos-arm:
+    name: Build macOS ARM (Apple Silicon)
+    runs-on: macos-latest   # macos-latest is ARM64 as of 2024
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11 (arm64)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Parse version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#tes-v}" >> "$GITHUB_OUTPUT"
+
+      - name: Install build dependencies
+        run: |
+          pip install -r TES/executables/src/requirements.txt nuitka zstandard
+          brew install create-dmg || true
+
+      - name: Compile with Nuitka
+        run: |
+          python -m nuitka \
+            --onefile \
+            --standalone \
+            --macos-create-app-bundle \
+            --macos-app-name="GameTools TES" \
+            --macos-app-version="${{ steps.version.outputs.VERSION }}" \
+            --macos-app-icon=TES/executables/assets/gametools.icns \
+            --include-data-dir=TES/executables/src/ui=ui \
+            --include-data-dir=TES/mcp=rag \
+            --include-data-files=TES/database/gametools.sqlite3=data/gametools.sqlite3 \
+            --output-filename=GameToolsTES \
+            --output-dir=build_out \
+            --assume-yes-for-downloads \
+            --enable-plugin=anti-bloat \
+            TES/executables/src/main.py
+
+      - name: Ad-hoc sign app bundle
+        run: |
+          codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
+
+      - name: Create DMG
+        run: |
+          mkdir -p dist_out
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          create-dmg \
+            --volname "GameTools TES" \
+            --volicon "TES/executables/assets/gametools.icns" \
+            --window-size 540 360 \
+            --icon-size 128 \
+            --icon "GameToolsTES.app" 140 180 \
+            --app-drop-link 400 180 \
+            "dist_out/GameTools_TES_${VERSION}_ARM.dmg" \
+            "build_out/GameToolsTES.app" || \
+          hdiutil create -volname "GameTools TES" \
+            -srcfolder "build_out/GameToolsTES.app" \
+            -ov -format UDZO \
+            "dist_out/GameTools_TES_${VERSION}_ARM.dmg"
+
+      - name: Upload macOS ARM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-arm-dmg
+          path: dist_out/GameTools_TES_*_ARM.dmg
+          if-no-files-found: error
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Publish GitHub Release
+  # ──────────────────────────────────────────────────────────────────────────
+  release:
+    name: Create GitHub Release
+    needs: [build-windows, build-macos-intel, build-macos-arm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#tes-v}" >> "$GITHUB_OUTPUT"
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release_assets/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "GameTools TES v${{ steps.version.outputs.VERSION }}"
+          tag_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          body: |
+            ## GameTools TES v${{ steps.version.outputs.VERSION }}
+
+            Crafting assistant for Morrowind, Oblivion, and Skyrim.
+
+            ### Downloads
+            | Platform | File |
+            |---|---|
+            | Windows (x64) | `GameTools_TES_${{ steps.version.outputs.VERSION }}_Setup.exe` |
+            | macOS Intel | `GameTools_TES_${{ steps.version.outputs.VERSION }}_Intel.dmg` |
+            | macOS Apple Silicon | `GameTools_TES_${{ steps.version.outputs.VERSION }}_ARM.dmg` |
+
+            ### First-time setup
+            1. Install the app for your platform (see README for security prompts)
+            2. Launch GameTools TES — your browser opens automatically
+            3. Click ⚙ Settings and enter your [Anthropic API key](https://console.anthropic.com)
+            4. Start asking questions!
+
+            > **Your API key is never included in this release.** It is stored in your
+            > OS credential store (Windows Credential Manager / macOS Keychain) after you enter it.
+          files: |
+            release_assets/**/*.exe
+            release_assets/**/*.dmg

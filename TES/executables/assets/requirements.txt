@@ -1,0 +1,3 @@
+# Dependencies for generate_assets.py only (not needed for the app itself)
+Pillow>=9.0.0
+icnsutil>=1.1.0

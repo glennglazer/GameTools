@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameTools — The Elder Scrolls</title>
+<style>
+/* ── Tokens ──────────────────────────────────────────────────────────── */
+:root {
+  --bg:         #0f1117;
+  --surface:    #1a1d27;
+  --surface2:   #242736;
+  --border:     #2e3147;
+  --text:       #e0e2f0;
+  --text-dim:   #7c82a0;
+  --text-code:  #a8d8b0;
+  --accent:     #5b8dd9;
+  --accent-dim: #3a5fa0;
+  --warn:       #d98b3a;
+  --err:        #d95b5b;
+  --success:    #5bc98b;
+  --mw-badge:   #7a3d2c;
+  --ob-badge:   #2c4e7a;
+  --sk-badge:   #1e6a8a;
+  --all-badge:  #3a3a5e;
+  --radius:     8px;
+  --font-ui:    'Segoe UI', system-ui, sans-serif;
+  --font-mono:  'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  --font-serif: Georgia, 'Times New Roman', serif;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:       #f5f4ef;
+    --surface:  #ffffff;
+    --surface2: #eeeae0;
+    --border:   #d0c8b0;
+    --text:     #1a1810;
+    --text-dim: #706860;
+    --text-code:#2d5a38;
+    --accent:   #2e5ca0;
+    --accent-dim:#1a3a6e;
+  }
+}
+:root[data-theme="light"] {
+  --bg:       #f5f4ef;
+  --surface:  #ffffff;
+  --surface2: #eeeae0;
+  --border:   #d0c8b0;
+  --text:     #1a1810;
+  --text-dim: #706860;
+  --text-code:#2d5a38;
+  --accent:   #2e5ca0;
+  --accent-dim:#1a3a6e;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body { font-family: var(--font-ui); background: var(--bg); color: var(--text);
+       display: flex; flex-direction: column; font-size: 15px; line-height: 1.6; }
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+#header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  flex-shrink: 0;
+}
+#logo {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text);
+  letter-spacing: .02em;
+}
+#logo span { color: var(--accent); }
+#spacer { flex: 1; }
+
+/* Game context selector */
+#ctx-label { font-size: 13px; color: var(--text-dim); }
+#game-select {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+#game-select:focus { outline: 2px solid var(--accent); }
+
+#theme-btn, #settings-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 9px;
+  transition: color .15s, border-color .15s;
+}
+#theme-btn:hover, #settings-btn:hover { color: var(--text); border-color: var(--accent); }
+
+/* ── Warning banner ──────────────────────────────────────────────────── */
+#warning-banner {
+  display: none;
+  background: #3a2a10;
+  border-bottom: 1px solid var(--warn);
+  color: var(--warn);
+  font-size: 13px;
+  padding: 8px 16px;
+}
+#warning-banner.visible { display: block; }
+
+/* ── Setup notice ────────────────────────────────────────────────────── */
+#setup-notice {
+  display: none;
+  background: #1a0a0a;
+  border-bottom: 1px solid var(--err);
+  color: #e08080;
+  font-size: 13px;
+  padding: 10px 16px;
+  text-align: center;
+}
+#setup-notice button {
+  background: var(--err);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  margin-left: 8px;
+  padding: 3px 10px;
+}
+
+/* ── Chat area ───────────────────────────────────────────────────────── */
+#chat-wrap { flex: 1; overflow-y: auto; padding: 20px 0; }
+#chat { max-width: 820px; margin: 0 auto; padding: 0 16px; display: flex; flex-direction: column; gap: 20px; }
+
+.msg { display: flex; flex-direction: column; gap: 6px; }
+.msg.user { align-items: flex-end; }
+.msg.assistant { align-items: flex-start; }
+
+.bubble {
+  border-radius: var(--radius);
+  line-height: 1.65;
+  max-width: 90%;
+  padding: 12px 16px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.msg.user .bubble {
+  background: var(--accent);
+  color: #fff;
+}
+.msg.assistant .bubble {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+/* Rendered markdown inside assistant bubbles */
+.bubble h1, .bubble h2, .bubble h3 { margin: .6em 0 .3em; line-height: 1.3; }
+.bubble h1 { font-size: 1.2em; }
+.bubble h2 { font-size: 1.1em; }
+.bubble h3 { font-size: 1em; }
+.bubble p { margin: .4em 0; }
+.bubble ul, .bubble ol { padding-left: 1.5em; margin: .3em 0; }
+.bubble li { margin: .2em 0; }
+.bubble code {
+  background: var(--surface2);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: .88em;
+  padding: 1px 5px;
+  color: var(--text-code);
+}
+.bubble pre {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: .5em 0;
+  overflow-x: auto;
+  padding: 10px 12px;
+}
+.bubble pre code {
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  font-size: .85em;
+  color: var(--text-code);
+}
+.bubble table {
+  border-collapse: collapse;
+  font-size: .9em;
+  margin: .5em 0;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+.bubble th, .bubble td {
+  border: 1px solid var(--border);
+  padding: 5px 10px;
+  text-align: left;
+}
+.bubble th { background: var(--surface2); font-weight: 600; }
+.bubble blockquote {
+  border-left: 3px solid var(--accent);
+  margin: .4em 0;
+  padding: .2em .8em;
+  color: var(--text-dim);
+}
+.bubble strong { font-weight: 700; }
+.bubble em { font-style: italic; }
+.bubble hr { border: none; border-top: 1px solid var(--border); margin: .7em 0; }
+.bubble a { color: var(--accent); text-decoration: underline; }
+
+/* Tool call disclosure */
+.tool-summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-dim);
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 0;
+}
+.tool-summary::before { content: "▶"; font-size: 9px; }
+.tool-detail { display: none; }
+.tool-detail.open { display: block; }
+.tool-arrow.open::before { content: "▼"; }
+.tool-block {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-top: 4px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 8px 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--text-dim);
+}
+
+/* Typing indicator */
+.typing-dots span {
+  animation: blink 1.2s infinite;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1;
+  margin: 0 1px;
+}
+.typing-dots span:nth-child(2) { animation-delay: .2s; }
+.typing-dots span:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: .2; } 40% { opacity: 1; } }
+
+/* ── Input area ──────────────────────────────────────────────────────── */
+#input-area {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  flex-shrink: 0;
+}
+#input-row {
+  display: flex;
+  gap: 8px;
+  max-width: 820px;
+  margin: 0 auto;
+  align-items: flex-end;
+}
+#user-input {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.5;
+  max-height: 180px;
+  min-height: 44px;
+  overflow-y: auto;
+  padding: 10px 14px;
+  resize: none;
+  transition: border-color .15s;
+}
+#user-input:focus { outline: none; border-color: var(--accent); }
+#user-input::placeholder { color: var(--text-dim); }
+#send-btn {
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .15s;
+}
+#send-btn:hover:not(:disabled) { background: var(--accent-dim); }
+#send-btn:disabled { opacity: .4; cursor: not-allowed; }
+#hint { font-size: 12px; color: var(--text-dim); margin-top: 6px; text-align: center; }
+
+/* ── Export button ───────────────────────────────────────────────────── */
+#export-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 4px 8px;
+  transition: color .15s, border-color .15s;
+}
+#export-btn:hover { color: var(--text); border-color: var(--accent); }
+
+/* ── Settings modal ──────────────────────────────────────────────────── */
+#modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+#modal-overlay.open { display: flex; }
+#modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  width: 420px;
+  max-width: 96vw;
+}
+#modal h2 { font-size: 18px; margin-bottom: 18px; }
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 13px; color: var(--text-dim); margin-bottom: 5px; }
+.field input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 14px;
+  padding: 8px 10px;
+}
+.field input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 20px; }
+.modal-actions button {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 18px;
+}
+#modal-save { background: var(--accent); color: #fff; }
+#modal-cancel { background: var(--surface2); color: var(--text); }
+#modal-clear { background: transparent; color: var(--err); border: 1px solid var(--err) !important;
+               padding: 6px 12px !important; font-size: 13px !important; }
+#modal-status { font-size: 13px; margin-top: 10px; min-height: 20px; }
+#modal-status.ok { color: var(--success); }
+#modal-status.err { color: var(--err); }
+.api-hint { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.api-hint a { color: var(--accent); }
+
+/* ── Scrollbar style ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ── Header ────────────────────────────────────────────────────────── -->
+<header id="header">
+  <div id="logo">Game<span>Tools</span> &mdash; The Elder Scrolls</div>
+  <div id="spacer"></div>
+  <label id="ctx-label" for="game-select">Context:</label>
+  <select id="game-select">
+    <option value="All Games">All Games</option>
+    <option value="Morrowind">Morrowind</option>
+    <option value="Oblivion">Oblivion</option>
+    <option value="Skyrim">Skyrim</option>
+  </select>
+  <button id="export-btn" title="Export conversation">⬇ Export</button>
+  <button id="theme-btn" title="Toggle light/dark">☀</button>
+  <button id="settings-btn" title="Settings (API key)">⚙</button>
+</header>
+
+<!-- ── Context mismatch warning ──────────────────────────────────────── -->
+<div id="warning-banner"></div>
+
+<!-- ── API key notice ────────────────────────────────────────────────── -->
+<div id="setup-notice">
+  No Anthropic API key configured. You won't be able to chat until you add one.
+  <button onclick="openModal()">Add Key</button>
+</div>
+
+<!-- ── Chat ──────────────────────────────────────────────────────────── -->
+<main id="chat-wrap">
+  <div id="chat">
+    <div class="msg assistant">
+      <div class="bubble">
+        <strong>Welcome to GameTools TES!</strong><br><br>
+        Ask me anything about crafting in <strong>Morrowind</strong>, <strong>Oblivion</strong>, or <strong>Skyrim</strong> — alchemy, enchanting, smithing, homestead construction, and more.<br><br>
+        <em>Set the game context in the header to get focused answers, or leave it on "All Games" to ask cross-game questions.</em><br><br>
+        <strong>Example questions:</strong><br>
+        • "Which Skyrim ingredients share Fortify Smithing and Resist Magic?"<br>
+        • "What soul do I need for a Grand Soul Gem in Morrowind?"<br>
+        • "How much iron ore does it take to build a full Skyrim homestead?"
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ── Input ─────────────────────────────────────────────────────────── -->
+<div id="input-area">
+  <div id="input-row">
+    <textarea id="user-input" placeholder="Ask about TES crafting…" rows="1"></textarea>
+    <button id="send-btn" title="Send (Enter)">&#10148;</button>
+  </div>
+  <div id="hint">Enter to send &nbsp;·&nbsp; Shift+Enter for newline &nbsp;·&nbsp; Tool calls shown below each answer</div>
+</div>
+
+<!-- ── Settings Modal ────────────────────────────────────────────────── -->
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Settings">
+  <div id="modal">
+    <h2>⚙ Settings</h2>
+    <div class="field">
+      <label for="api-key-input">Anthropic API Key</label>
+      <input type="password" id="api-key-input" placeholder="sk-ant-…" autocomplete="off">
+      <div class="api-hint">Stored securely in the OS credential store (Keychain / Credential Manager). Never saved to disk in plaintext. Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>.</div>
+    </div>
+    <div id="modal-status"></div>
+    <div class="modal-actions">
+      <button id="modal-clear">Clear key</button>
+      <button id="modal-cancel" onclick="closeModal()">Cancel</button>
+      <button id="modal-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── State ────────────────────────────────────────────────────────────────
+let conversationHistory = [];
+let isLoading = false;
+let apiKeyConfigured = false;
+
+// ── Theme ────────────────────────────────────────────────────────────────
+const root = document.documentElement;
+const themeBtn = document.getElementById('theme-btn');
+function applyTheme(t) {
+  root.setAttribute('data-theme', t);
+  themeBtn.textContent = t === 'dark' ? '☀' : '🌙';
+  localStorage.setItem('gt-theme', t);
+}
+const savedTheme = localStorage.getItem('gt-theme') ||
+  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+applyTheme(savedTheme);
+themeBtn.addEventListener('click', () => {
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+// ── Markdown renderer (simple) ────────────────────────────────────────────
+function renderMd(text) {
+  if (!text) return '';
+  let s = text;
+  // Escape HTML first
+  s = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  // Code blocks (``` ... ```)
+  s = s.replace(/```(?:\w+)?\n([\s\S]*?)```/g, (_, code) =>
+    '<pre><code>' + code.trimEnd() + '</code></pre>');
+
+  // Inline code
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+  // Headers
+  s = s.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  s = s.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  s = s.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+
+  // Horizontal rule
+  s = s.replace(/^---+$/gm, '<hr>');
+
+  // Bold and italic
+  s = s.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+  // Tables (| col | col |)
+  s = s.replace(/((?:^\|.+\|\n)+)/gm, (block) => {
+    const lines = block.trim().split('\n');
+    let out = '<table>';
+    lines.forEach((line, i) => {
+      if (/^\|[-:| ]+\|$/.test(line)) return; // separator row
+      const cells = line.replace(/^\||\|$/g,'').split('|');
+      const tag = (i === 0) ? 'th' : 'td';
+      out += '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
+    });
+    return out + '</table>';
+  });
+
+  // Blockquote
+  s = s.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+
+  // Unordered lists
+  s = s.replace(/((?:^[*-] .+\n?)+)/gm, (block) => {
+    const items = block.trim().split('\n').map(l => '<li>' + l.replace(/^[*-] /, '') + '</li>').join('');
+    return '<ul>' + items + '</ul>';
+  });
+
+  // Ordered lists
+  s = s.replace(/((?:^\d+\. .+\n?)+)/gm, (block) => {
+    const items = block.trim().split('\n').map(l => '<li>' + l.replace(/^\d+\. /, '') + '</li>').join('');
+    return '<ol>' + items + '</ol>';
+  });
+
+  // Links
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+  // Paragraphs (double newline → paragraph break)
+  s = s.replace(/\n\n+/g, '</p><p>');
+  s = '<p>' + s + '</p>';
+
+  // Single newlines inside paragraphs → <br>
+  s = s.replace(/<\/p><p>/g, '</p><p>');
+  s = s.replace(/\n/g, '<br>');
+
+  // Clean up empty paragraphs
+  s = s.replace(/<p><\/p>/g, '');
+  s = s.replace(/<p>(<(?:h[1-3]|ul|ol|pre|table|hr|blockquote))/g, '$1');
+  s = s.replace(/(<\/(?:h[1-3]|ul|ol|pre|table|hr|blockquote)>)<\/p>/g, '$1');
+
+  return s;
+}
+
+// ── DOM helpers ───────────────────────────────────────────────────────────
+const chatDiv = document.getElementById('chat');
+const chatWrap = document.getElementById('chat-wrap');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+const warningBanner = document.getElementById('warning-banner');
+const setupNotice = document.getElementById('setup-notice');
+const gameSelect = document.getElementById('game-select');
+
+function scrollToBottom() {
+  chatWrap.scrollTop = chatWrap.scrollHeight;
+}
+
+function appendMessage(role, contentHtml, isMarkdown = false) {
+  const wrap = document.createElement('div');
+  wrap.className = `msg ${role}`;
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  if (isMarkdown) {
+    bubble.innerHTML = contentHtml;
+  } else {
+    bubble.textContent = contentHtml;
+  }
+  wrap.appendChild(bubble);
+  chatDiv.appendChild(wrap);
+  scrollToBottom();
+  return bubble;
+}
+
+function appendTyping() {
+  const wrap = document.createElement('div');
+  wrap.className = 'msg assistant';
+  wrap.id = 'typing-indicator';
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble typing-dots';
+  bubble.innerHTML = '<span>•</span><span>•</span><span>•</span>';
+  wrap.appendChild(bubble);
+  chatDiv.appendChild(wrap);
+  scrollToBottom();
+  return wrap;
+}
+
+function removeTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+function appendToolCalls(toolCalls, parentBubble) {
+  if (!toolCalls || toolCalls.length === 0) return;
+  const label = document.createElement('div');
+  label.className = 'tool-summary tool-arrow';
+  label.textContent = `${toolCalls.length} tool call${toolCalls.length > 1 ? 's' : ''} used`;
+  const detail = document.createElement('div');
+  detail.className = 'tool-detail';
+  toolCalls.forEach(tc => {
+    const block = document.createElement('div');
+    block.className = 'tool-block';
+    block.textContent = `▶ ${tc.name}(${JSON.stringify(tc.arguments, null, 2)})\n\n${JSON.stringify(tc.result, null, 2)}`;
+    detail.appendChild(block);
+  });
+  label.addEventListener('click', () => {
+    detail.classList.toggle('open');
+    label.classList.toggle('open');
+  });
+  const wrap = parentBubble.parentElement;
+  wrap.appendChild(label);
+  wrap.appendChild(detail);
+}
+
+// ── API ────────────────────────────────────────────────────────────────────
+async function checkStatus() {
+  try {
+    const r = await fetch('/api/status');
+    const d = await r.json();
+    apiKeyConfigured = d.api_key_configured;
+    setupNotice.style.display = apiKeyConfigured ? 'none' : 'block';
+    sendBtn.disabled = !apiKeyConfigured || isLoading;
+  } catch {
+    setupNotice.style.display = 'block';
+  }
+}
+
+async function sendMessage() {
+  const text = userInput.value.trim();
+  if (!text || isLoading) return;
+
+  userInput.value = '';
+  userInput.style.height = 'auto';
+  isLoading = true;
+  sendBtn.disabled = true;
+
+  // User message
+  conversationHistory.push({ role: 'user', content: text });
+  appendMessage('user', text);
+
+  // Hide previous warning
+  warningBanner.classList.remove('visible');
+  warningBanner.textContent = '';
+
+  const typing = appendTyping();
+
+  try {
+    const resp = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: conversationHistory,
+        game_context: gameSelect.value,
+      }),
+    });
+
+    removeTyping();
+
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({ detail: resp.statusText }));
+      if (resp.status === 401) {
+        appendMessage('assistant', '🔑 ' + (err.detail || 'API key not configured.'), false);
+        openModal();
+      } else {
+        appendMessage('assistant', '⚠️ Error: ' + (err.detail || resp.statusText), false);
+      }
+      conversationHistory.pop();
+      return;
+    }
+
+    const data = await resp.json();
+
+    if (data.warning) {
+      warningBanner.innerHTML = renderMd(data.warning);
+      warningBanner.classList.add('visible');
+    }
+
+    if (data.error) {
+      appendMessage('assistant', '⚠️ ' + data.error, false);
+      conversationHistory.pop();
+      return;
+    }
+
+    const assistantText = data.response || '(No response)';
+    const bubble = appendMessage('assistant', renderMd(assistantText), true);
+    appendToolCalls(data.tool_calls, bubble);
+
+    conversationHistory.push({ role: 'assistant', content: assistantText });
+
+  } catch (e) {
+    removeTyping();
+    appendMessage('assistant', '⚠️ Network error: ' + e.message, false);
+    conversationHistory.pop();
+  } finally {
+    isLoading = false;
+    sendBtn.disabled = !apiKeyConfigured;
+    userInput.focus();
+  }
+}
+
+// ── Input handling ─────────────────────────────────────────────────────────
+userInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+userInput.addEventListener('input', () => {
+  userInput.style.height = 'auto';
+  userInput.style.height = Math.min(userInput.scrollHeight, 180) + 'px';
+});
+sendBtn.addEventListener('click', sendMessage);
+
+// ── Game context ────────────────────────────────────────────────────────────
+const savedCtx = localStorage.getItem('gt-context');
+if (savedCtx) gameSelect.value = savedCtx;
+gameSelect.addEventListener('change', () => {
+  localStorage.setItem('gt-context', gameSelect.value);
+});
+
+// ── Export ─────────────────────────────────────────────────────────────────
+document.getElementById('export-btn').addEventListener('click', () => {
+  const md = conversationHistory.map(m =>
+    `**${m.role === 'user' ? 'You' : 'Assistant'}:**\n\n${m.content}`
+  ).join('\n\n---\n\n');
+  const blob = new Blob([md], { type: 'text/markdown' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `gametools-tes-${new Date().toISOString().slice(0,10)}.md`;
+  a.click();
+});
+
+// ── Settings Modal ─────────────────────────────────────────────────────────
+const modalOverlay = document.getElementById('modal-overlay');
+const apiKeyInput = document.getElementById('api-key-input');
+const modalStatus = document.getElementById('modal-status');
+
+function openModal() {
+  modalOverlay.classList.add('open');
+  apiKeyInput.value = '';
+  apiKeyInput.focus();
+  modalStatus.textContent = '';
+  modalStatus.className = '';
+}
+function closeModal() {
+  modalOverlay.classList.remove('open');
+}
+
+document.getElementById('settings-btn').addEventListener('click', openModal);
+modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+
+document.getElementById('modal-save').addEventListener('click', async () => {
+  const key = apiKeyInput.value.trim();
+  if (!key) {
+    modalStatus.textContent = 'Please enter an API key.';
+    modalStatus.className = 'err';
+    return;
+  }
+  try {
+    const r = await fetch('/api/settings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_key: key }),
+    });
+    const d = await r.json();
+    if (r.ok) {
+      modalStatus.textContent = '✓ ' + d.message;
+      modalStatus.className = 'ok';
+      apiKeyConfigured = true;
+      setupNotice.style.display = 'none';
+      sendBtn.disabled = false;
+      setTimeout(closeModal, 1200);
+    } else {
+      modalStatus.textContent = '✗ ' + (d.detail || 'Error saving key.');
+      modalStatus.className = 'err';
+    }
+  } catch {
+    modalStatus.textContent = '✗ Network error.';
+    modalStatus.className = 'err';
+  }
+});
+
+document.getElementById('modal-clear').addEventListener('click', async () => {
+  if (!confirm('Remove the stored API key?')) return;
+  await fetch('/api/settings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ clear_key: true }),
+  });
+  apiKeyConfigured = false;
+  sendBtn.disabled = true;
+  setupNotice.style.display = 'block';
+  closeModal();
+});
+
+// ── Init ───────────────────────────────────────────────────────────────────
+checkStatus();
+userInput.focus();
+</script>
+</body>
+</html>
