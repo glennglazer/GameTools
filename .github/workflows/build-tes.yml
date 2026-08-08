@@ -62,20 +62,24 @@ jobs:
             --enable-plugin=anti-bloat \
             TES/executables/src/main.py
 
-      - name: Install NSIS
-        run: choco install nsis --no-progress -y
+      - name: Install NSIS and add to PATH
+        # Chocolatey installs NSIS but does not refresh PATH for subsequent steps.
+        # Writing to GITHUB_PATH propagates the directory to all later steps.
+        shell: pwsh
+        run: |
+          choco install nsis --no-progress -y
+          Add-Content $env:GITHUB_PATH "C:\Program Files (x86)\NSIS"
 
       - name: Build NSIS installer
         shell: bash
         run: |
           VERSION="${{ steps.version.outputs.VERSION }}"
+          mkdir -p dist_out
           makensis \
             /DVERSION="$VERSION" \
             "/DSRC_EXE=$(cygpath -w $(pwd)/build_out/GameToolsTES.exe)" \
             "/DOUT_DIR=$(cygpath -w $(pwd)/dist_out)" \
             TES/executables/scripts/wintel/gametools_tes.nsi
-        # Create output dir if NSIS doesn't
-        continue-on-error: false
 
       - name: Rename installer artifact
         shell: bash
@@ -115,9 +119,11 @@ jobs:
           brew install create-dmg || true
 
       - name: Compile with Nuitka
+        # --standalone + --macos-create-app-bundle is the correct Nuitka mode for
+        # macOS .app bundles.  --onefile conflicts with --macos-create-app-bundle
+        # in Nuitka 2.x and produces no .app output.
         run: |
           python -m nuitka \
-            --onefile \
             --standalone \
             --macos-create-app-bundle \
             --macos-app-name="GameTools TES" \
@@ -132,9 +138,11 @@ jobs:
             --enable-plugin=anti-bloat \
             TES/executables/src/main.py
 
+      - name: Show Nuitka output (debug)
+        run: find build_out -maxdepth 3 | sort
+
       - name: Ad-hoc sign app bundle
-        run: |
-          codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
+        run: codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
 
       - name: Create DMG
         run: |
@@ -187,7 +195,6 @@ jobs:
       - name: Compile with Nuitka
         run: |
           python -m nuitka \
-            --onefile \
             --standalone \
             --macos-create-app-bundle \
             --macos-app-name="GameTools TES" \
@@ -202,9 +209,11 @@ jobs:
             --enable-plugin=anti-bloat \
             TES/executables/src/main.py
 
+      - name: Show Nuitka output (debug)
+        run: find build_out -maxdepth 3 | sort
+
       - name: Ad-hoc sign app bundle
-        run: |
-          codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
+        run: codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
 
       - name: Create DMG
         run: |

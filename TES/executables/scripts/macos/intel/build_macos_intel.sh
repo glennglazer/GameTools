@@ -33,7 +33,6 @@ echo ""
 echo "[2/5] Compiling with Nuitka (standalone onefile)..."
 
 $PYTHON -m nuitka \
-  --onefile \
   --standalone \
   --macos-create-app-bundle \
   --macos-app-name="GameTools TES" \

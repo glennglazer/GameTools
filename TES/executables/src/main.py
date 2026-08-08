@@ -11,49 +11,54 @@ import webbrowser
 from pathlib import Path
 
 
-def _find_data_dir() -> Path:
-    """Locate the data directory next to this executable / script."""
-    # When compiled with Nuitka onefile, __file__ is in the extraction dir.
-    # When running from source, it's in TES/executables/src/.
-    here = Path(__file__).resolve().parent
-    # Compiled layout: data/ sits alongside main.py in the extraction dir
-    candidate = here / "data"
-    if candidate.is_dir():
-        return candidate
-    # Running from source: data lives two levels up in TES/database/ for the DB
-    # and TES/mcp/ for the RAG docs — but we handle that separately.
-    return here / "data"   # caller checks what it needs
+def _exe_dir() -> Path:
+    """Return the directory that contains the compiled binary (or this script).
+
+    In Nuitka standalone / app-bundle mode sys.argv[0] is the real executable
+    path inside Contents/MacOS/ (or next to GameToolsTES.exe on Windows), which
+    is exactly where --include-data-dir / --include-data-files puts the bundled
+    data.  When running from source, sys.argv[0] is the Python interpreter or
+    the script path, both of which lack 'data/' and 'ui/' siblings, so we fall
+    back to __file__ (this script's location in TES/executables/src/).
+    """
+    # Nuitka sets __compiled__ to True inside compiled code.
+    compiled = getattr(sys.modules.get('__main__', None), '__compiled__', False)
+    if compiled:
+        return Path(sys.argv[0]).resolve().parent
+
+    # Running from source: use this file's directory.
+    return Path(__file__).resolve().parent
 
 
 def _find_ui_dir() -> Path:
-    here = Path(__file__).resolve().parent
+    here = _exe_dir()
     return here / "ui"
 
 
 def _find_rag_dir() -> Path:
-    here = Path(__file__).resolve().parent
-    # Compiled: rag/ next to main.py
+    here = _exe_dir()
+    # Compiled: rag/ sits next to the binary (bundled via --include-data-dir)
     compiled_rag = here / "rag"
     if compiled_rag.is_dir():
         return compiled_rag
-    # Source: TES/mcp/
-    source_rag = here.parent.parent.parent / "mcp"
+    # Source layout: TES/executables/src/ → TES/executables/ → TES/ → TES/mcp/
+    source_rag = here.parent.parent / "mcp"
     if source_rag.is_dir():
         return source_rag
-    return compiled_rag
+    return compiled_rag   # will fail gracefully in claude_client.py
 
 
 def _find_db() -> Path:
-    here = Path(__file__).resolve().parent
-    # Compiled: data/gametools.sqlite3
+    here = _exe_dir()
+    # Compiled: data/gametools.sqlite3 next to the binary
     compiled_db = here / "data" / "gametools.sqlite3"
     if compiled_db.exists():
         return compiled_db
-    # Source: TES/database/gametools.sqlite3
-    source_db = here.parent.parent.parent / "database" / "gametools.sqlite3"
+    # Source layout: TES/executables/src/ → TES/executables/ → TES/ → TES/database/
+    source_db = here.parent.parent / "database" / "gametools.sqlite3"
     if source_db.exists():
         return source_db
-    return compiled_db   # will fail gracefully in tools.py
+    return compiled_db   # caller reports the missing file
 
 
 def _free_port() -> int:
@@ -98,7 +103,7 @@ def main() -> None:
         server.app,
         host="127.0.0.1",
         port=port,
-        log_level="warning",   # suppress request logs in the terminal
+        log_level="warning",   # suppress per-request logs in the terminal
     )
 
 
