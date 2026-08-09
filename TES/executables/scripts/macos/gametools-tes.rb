@@ -7,30 +7,22 @@
 #   brew tap glennglazer/gametools
 #   brew install --cask gametools-tes
 #
-# To update: bump version + sha256 values after each GitHub Release.
+# To update: bump version + sha256 after each GitHub Release.
+#   shasum -a 256 GameTools_TES_<version>_macOS.dmg
 #
-# The sha256 values come from:
-#   shasum -a 256 GameTools_TES_<version>_ARM.dmg
-#   shasum -a 256 GameTools_TES_<version>_Intel.dmg
+# The DMG is built on Apple Silicon (arm64) and runs on Intel Macs via Rosetta 2.
 
 cask "gametools-tes" do
   version "1.0.0"
 
-  on_arm do
-    url "https://github.com/glennglazer/GameTools/releases/download/tes-v#{version}/GameTools_TES_#{version}_ARM.dmg"
-    sha256 "PLACEHOLDER_ARM_SHA256"
-  end
-
-  on_intel do
-    url "https://github.com/glennglazer/GameTools/releases/download/tes-v#{version}/GameTools_TES_#{version}_Intel.dmg"
-    sha256 "PLACEHOLDER_INTEL_SHA256"
-  end
+  url "https://github.com/glennglazer/GameTools/releases/download/tes-v#{version}/GameTools_TES_#{version}_macOS.dmg"
+  sha256 "PLACEHOLDER_SHA256"
 
   name "GameTools — The Elder Scrolls"
   desc "Crafting assistant for Morrowind, Oblivion, and Skyrim"
   homepage "https://github.com/glennglazer/GameTools"
 
-  app "GameToolsTES.app"
+  app "GameTools TES.app"
 
   zap trash: [
     "~/Library/Application Support/GameTools TES",

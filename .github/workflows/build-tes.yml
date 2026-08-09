@@ -2,10 +2,9 @@
 #
 # Trigger: push a tag matching tes-v* (e.g.  git tag tes-v1.0.0 && git push --tags)
 #
-# Produces three artifacts uploaded to a GitHub Release:
-#   GameTools_TES_<version>_Setup.exe   (Windows installer via NSIS)
-#   GameTools_TES_<version>_Intel.dmg   (macOS 13 / Intel)
-#   GameTools_TES_<version>_ARM.dmg     (macOS 14 / Apple Silicon)
+# Produces two artifacts uploaded to a GitHub Release:
+#   GameTools_TES_<version>_Setup.exe    (Windows installer via NSIS)
+#   GameTools_TES_<version>_macOS.dmg   (macOS, Apple Silicon native; runs on Intel via Rosetta 2)
 #
 # IMPORTANT: No Anthropic credentials are stored here or bundled into the
 # executables.  Users supply their own API key on first run.
@@ -73,13 +72,13 @@ jobs:
       - name: Build NSIS installer
         # Use PowerShell (not bash) to avoid Git Bash MSYS path conversion,
         # which rewrites /DVERSION=... to C:\Program Files\Git\DVERSION=...
+        # All paths must be absolute: ${__FILEDIR__} in the NSIS script expands
+        # to whatever path form we pass; a relative script path causes NSIS to
+        # double-prepend the CWD when resolving LicenseData.
         shell: pwsh
         run: |
-          $VERSION = "${{ steps.version.outputs.VERSION }}"
+          $VERSION   = "${{ steps.version.outputs.VERSION }}"
           New-Item -ItemType Directory -Force -Path dist_out | Out-Null
-          # All paths must be absolute.  ${__FILEDIR__} in the NSIS script
-          # expands to whatever path form we pass here; a relative path causes
-          # NSIS to double-prepend the CWD when resolving LicenseData.
           $NsiScript = (Join-Path (Get-Location) "TES\executables\scripts\wintel\gametools_tes.nsi")
           $SrcExe    = (Join-Path (Get-Location) "build_out\GameToolsTES.exe")
           $OutDir    = (Join-Path (Get-Location) "dist_out")
@@ -105,94 +104,13 @@ jobs:
           if-no-files-found: error
 
   # ──────────────────────────────────────────────────────────────────────────
-  # macOS Intel (macOS 13 runner = Intel)
+  # macOS (Apple Silicon native; runs on Intel Macs via Rosetta 2)
+  # macos-13 (Intel runner) was retired by GitHub; a single ARM build covers
+  # both architectures because macOS Rosetta 2 is transparent for this app.
   # ──────────────────────────────────────────────────────────────────────────
-  build-macos-intel:
-    name: Build macOS Intel
-    runs-on: macos-13
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python 3.11 (x86_64)
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Parse version from tag
-        id: version
-        run: echo "VERSION=${GITHUB_REF_NAME#tes-v}" >> "$GITHUB_OUTPUT"
-
-      - name: Install build dependencies
-        run: |
-          pip install -r TES/executables/src/requirements.txt nuitka zstandard
-          brew install create-dmg || true
-
-      - name: Compile with Nuitka
-        # --standalone + --macos-create-app-bundle is the correct mode for .app bundles.
-        # --output-filename names the binary INSIDE the bundle; the bundle directory
-        # itself is named by Nuitka from the input file (main.py → main.app).
-        # We detect the actual path dynamically in the next step.
-        run: |
-          python -m nuitka \
-            --standalone \
-            --macos-create-app-bundle \
-            --macos-app-name="GameTools TES" \
-            --macos-app-version="${{ steps.version.outputs.VERSION }}" \
-            --macos-app-icon=TES/executables/assets/gametools.icns \
-            --include-data-dir=TES/executables/src/ui=ui \
-            --include-data-dir=TES/mcp=rag \
-            --include-data-files=TES/database/gametools.sqlite3=data/gametools.sqlite3 \
-            --output-filename=GameToolsTES \
-            --output-dir=build_out \
-            --assume-yes-for-downloads \
-            --enable-plugin=anti-bloat \
-            TES/executables/src/main.py
-
-      - name: Locate, sign, and package DMG
-        # Nuitka names the .app bundle from the input module (main.app) not
-        # --output-filename, so we find it dynamically rather than hardcoding.
-        run: |
-          echo "=== Nuitka output ==="
-          find build_out -maxdepth 4 | sort
-
-          APP_BUNDLE=$(find build_out -name "*.app" -maxdepth 2 -type d | head -1)
-          if [ -z "$APP_BUNDLE" ]; then
-            echo "ERROR: no .app bundle found in build_out/"
-            exit 1
-          fi
-          echo "Using bundle: $APP_BUNDLE"
-
-          codesign --deep --force --sign "-" "$APP_BUNDLE" || true
-
-          mkdir -p dist_out
-          VERSION="${{ steps.version.outputs.VERSION }}"
-          create-dmg \
-            --volname "GameTools TES" \
-            --volicon "TES/executables/assets/gametools.icns" \
-            --window-size 540 360 \
-            --icon-size 128 \
-            --icon "$(basename "$APP_BUNDLE")" 140 180 \
-            --app-drop-link 400 180 \
-            "dist_out/GameTools_TES_${VERSION}_Intel.dmg" \
-            "$APP_BUNDLE" || \
-          hdiutil create -volname "GameTools TES" \
-            -srcfolder "$APP_BUNDLE" \
-            -ov -format UDZO \
-            "dist_out/GameTools_TES_${VERSION}_Intel.dmg"
-
-      - name: Upload macOS Intel artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: macos-intel-dmg
-          path: dist_out/GameTools_TES_*_Intel.dmg
-          if-no-files-found: error
-
-  # ──────────────────────────────────────────────────────────────────────────
-  # macOS Apple Silicon (macOS 14 runner = ARM64)
-  # ──────────────────────────────────────────────────────────────────────────
-  build-macos-arm:
-    name: Build macOS ARM (Apple Silicon)
-    runs-on: macos-latest   # macos-latest is ARM64 as of 2024
+  build-macos:
+    name: Build macOS
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -211,6 +129,10 @@ jobs:
           brew install create-dmg || true
 
       - name: Compile with Nuitka
+        # --standalone + --macos-create-app-bundle is the correct mode.
+        # --output-filename names the binary INSIDE the bundle; the bundle
+        # directory itself is named from the input file (main.py → main.app).
+        # We detect and rename it in the next step.
         run: |
           python -m nuitka \
             --standalone \
@@ -227,7 +149,10 @@ jobs:
             --enable-plugin=anti-bloat \
             TES/executables/src/main.py
 
-      - name: Locate, sign, and package DMG
+      - name: Locate, rename, sign, and package DMG
+        # Nuitka names the bundle from the input module (main.py → main.app),
+        # not --output-filename.  Rename to "GameTools TES.app" so users see
+        # the proper name in their Applications folder.
         run: |
           echo "=== Nuitka output ==="
           find build_out -maxdepth 4 | sort
@@ -237,9 +162,16 @@ jobs:
             echo "ERROR: no .app bundle found in build_out/"
             exit 1
           fi
-          echo "Using bundle: $APP_BUNDLE"
+          echo "Found: $APP_BUNDLE"
 
-          codesign --deep --force --sign "-" "$APP_BUNDLE" || true
+          # Rename to the user-visible name if Nuitka used a different name
+          FINAL_BUNDLE="$(dirname "$APP_BUNDLE")/GameTools TES.app"
+          if [ "$APP_BUNDLE" != "$FINAL_BUNDLE" ]; then
+            mv "$APP_BUNDLE" "$FINAL_BUNDLE"
+          fi
+          echo "Using: $FINAL_BUNDLE"
+
+          codesign --deep --force --sign "-" "$FINAL_BUNDLE" || true
 
           mkdir -p dist_out
           VERSION="${{ steps.version.outputs.VERSION }}"
@@ -248,20 +180,20 @@ jobs:
             --volicon "TES/executables/assets/gametools.icns" \
             --window-size 540 360 \
             --icon-size 128 \
-            --icon "$(basename "$APP_BUNDLE")" 140 180 \
+            --icon "GameTools TES.app" 140 180 \
             --app-drop-link 400 180 \
-            "dist_out/GameTools_TES_${VERSION}_ARM.dmg" \
-            "$APP_BUNDLE" || \
+            "dist_out/GameTools_TES_${VERSION}_macOS.dmg" \
+            "$FINAL_BUNDLE" || \
           hdiutil create -volname "GameTools TES" \
-            -srcfolder "$APP_BUNDLE" \
+            -srcfolder "$FINAL_BUNDLE" \
             -ov -format UDZO \
-            "dist_out/GameTools_TES_${VERSION}_ARM.dmg"
+            "dist_out/GameTools_TES_${VERSION}_macOS.dmg"
 
-      - name: Upload macOS ARM artifact
+      - name: Upload macOS artifact
         uses: actions/upload-artifact@v4
         with:
-          name: macos-arm-dmg
-          path: dist_out/GameTools_TES_*_ARM.dmg
+          name: macos-dmg
+          path: dist_out/GameTools_TES_*_macOS.dmg
           if-no-files-found: error
 
   # ──────────────────────────────────────────────────────────────────────────
@@ -269,7 +201,7 @@ jobs:
   # ──────────────────────────────────────────────────────────────────────────
   release:
     name: Create GitHub Release
-    needs: [build-windows, build-macos-intel, build-macos-arm]
+    needs: [build-windows, build-macos]
     runs-on: ubuntu-latest
     steps:
       - name: Parse version from tag
@@ -296,9 +228,8 @@ jobs:
             ### Downloads
             | Platform | File |
             |---|---|
-            | Windows (x64) | `GameTools_TES_${{ steps.version.outputs.VERSION }}_Setup.exe` |
-            | macOS Intel | `GameTools_TES_${{ steps.version.outputs.VERSION }}_Intel.dmg` |
-            | macOS Apple Silicon | `GameTools_TES_${{ steps.version.outputs.VERSION }}_ARM.dmg` |
+            | Windows 10/11 (x64) | `GameTools_TES_${{ steps.version.outputs.VERSION }}_Setup.exe` |
+            | macOS (Apple Silicon + Intel via Rosetta 2) | `GameTools_TES_${{ steps.version.outputs.VERSION }}_macOS.dmg` |
 
             ### First-time setup
             1. Install the app for your platform (see README for security prompts)

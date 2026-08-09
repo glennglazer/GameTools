@@ -13,8 +13,7 @@ Find the latest release on [GitHub Releases](https://github.com/glennglazer/Game
 | Platform | File |
 |---|---|
 | Windows 10/11 (x64) | `GameTools_TES_<version>_Setup.exe` |
-| macOS Intel (10.15+) | `GameTools_TES_<version>_Intel.dmg` |
-| macOS Apple Silicon | `GameTools_TES_<version>_ARM.dmg` |
+| macOS (Apple Silicon + Intel via Rosetta 2) | `GameTools_TES_<version>_macOS.dmg` |
 
 ---
 
@@ -30,10 +29,12 @@ Find the latest release on [GitHub Releases](https://github.com/glennglazer/Game
 
 **First launch:** Right-click the Start Menu shortcut and choose **Run as administrator** is *not* required — the app runs as a normal user.
 
-### macOS (Intel or Apple Silicon)
+### macOS (Apple Silicon and Intel)
 
-1. Download the appropriate `.dmg` for your Mac
-2. Open the DMG and drag `GameToolsTES.app` to your **Applications** folder
+The single DMG runs natively on Apple Silicon and on Intel Macs via Rosetta 2 — no separate download is needed.
+
+1. Download `GameTools_TES_<version>_macOS.dmg`
+2. Open the DMG and drag **GameTools TES** to your **Applications** folder
 3. **First launch only:** macOS will block the app because it is not from the Mac App Store:
    - Right-click `GameToolsTES.app` in Applications → **Open**
    - In the dialog that appears, click **Open** again
