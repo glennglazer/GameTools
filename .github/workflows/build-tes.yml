@@ -77,13 +77,17 @@ jobs:
         run: |
           $VERSION = "${{ steps.version.outputs.VERSION }}"
           New-Item -ItemType Directory -Force -Path dist_out | Out-Null
-          $SrcExe = (Join-Path (Get-Location) "build_out\GameToolsTES.exe")
-          $OutDir  = (Join-Path (Get-Location) "dist_out")
+          # All paths must be absolute.  ${__FILEDIR__} in the NSIS script
+          # expands to whatever path form we pass here; a relative path causes
+          # NSIS to double-prepend the CWD when resolving LicenseData.
+          $NsiScript = (Join-Path (Get-Location) "TES\executables\scripts\wintel\gametools_tes.nsi")
+          $SrcExe    = (Join-Path (Get-Location) "build_out\GameToolsTES.exe")
+          $OutDir    = (Join-Path (Get-Location) "dist_out")
           makensis `
             "/DVERSION=$VERSION" `
             "/DSRC_EXE=$SrcExe" `
             "/DOUT_DIR=$OutDir" `
-            "TES\executables\scripts\wintel\gametools_tes.nsi"
+            "$NsiScript"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Rename installer artifact
