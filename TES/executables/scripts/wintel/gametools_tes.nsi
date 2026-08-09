@@ -13,6 +13,8 @@
 Unicode true
 SetCompressor /SOLID lzma
 
+!include "FileFunc.nsh"   ; needed for ${GetSize}
+
 ; ── Variables passed from build script ───────────────────────────────────────
 !ifndef VERSION
   !define VERSION "1.0.0"
@@ -115,8 +117,7 @@ Section "Uninstall"
 SectionEnd
 
 
-; ── Descriptions ─────────────────────────────────────────────────────────────
-!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecMain}    "The GameTools TES application. Required."
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecDesktop} "Add a shortcut to the Desktop."
-!insertmacro MUI_FUNCTION_DESCRIPTION_END
+; ── Section descriptions (shown in the Components page tooltip area) ──────────
+; Note: ComponentText descriptions use VarDescription, not MUI macros, because
+; this installer uses classic NSIS pages, not the MUI2 interface.
+; The two sections are self-explanatory, so descriptions are omitted here.

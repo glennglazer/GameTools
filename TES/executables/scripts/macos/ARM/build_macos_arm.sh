@@ -45,7 +45,16 @@ $PYTHON -m nuitka \
   --nofollow-import-to=tkinter,unittest,email.mime,xml.etree \
   "$SRC_DIR/main.py"
 
-APP_BUNDLE="$BUILD_TMP/GameToolsTES.app"
+# Nuitka names the .app bundle from the input module (main.py → main.app), not
+# --output-filename (which only names the binary inside the bundle).
+# Detect it dynamically so the script works regardless of Nuitka naming.
+APP_BUNDLE=$(find "$BUILD_TMP" -name "*.app" -maxdepth 2 -type d | head -1)
+if [ -z "$APP_BUNDLE" ]; then
+  echo "ERROR: no .app bundle found in $BUILD_TMP:"
+  find "$BUILD_TMP" -maxdepth 4 | sort
+  exit 1
+fi
+echo "Using bundle: $APP_BUNDLE"
 
 # ── 3. Code sign (ad-hoc) ─────────────────────────────────────────────────
 echo ""
@@ -57,6 +66,7 @@ echo ""
 echo "[4/5] Creating DMG..."
 mkdir -p "$DIST_DIR"
 DMG_PATH="$DIST_DIR/GameTools_TES_${VERSION}_ARM.dmg"
+BUNDLE_BASENAME="$(basename "$APP_BUNDLE")"
 
 if command -v create-dmg &>/dev/null; then
   create-dmg \
@@ -64,9 +74,9 @@ if command -v create-dmg &>/dev/null; then
     --volicon "$REPO_ROOT/TES/executables/assets/gametools.icns" \
     --window-size 540 360 \
     --icon-size 128 \
-    --icon "GameToolsTES.app" 140 180 \
+    --icon "$BUNDLE_BASENAME" 140 180 \
     --app-drop-link 400 180 \
-    --hide-extension "GameToolsTES.app" \
+    --hide-extension "$BUNDLE_BASENAME" \
     "$DMG_PATH" \
     "$APP_BUNDLE" || true
 else

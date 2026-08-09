@@ -63,23 +63,28 @@ jobs:
             TES/executables/src/main.py
 
       - name: Install NSIS and add to PATH
-        # Chocolatey installs NSIS but does not refresh PATH for subsequent steps.
-        # Writing to GITHUB_PATH propagates the directory to all later steps.
+        # Chocolatey installs NSIS but doesn't refresh PATH for subsequent
+        # steps; writing to GITHUB_PATH propagates it forward.
         shell: pwsh
         run: |
           choco install nsis --no-progress -y
           Add-Content $env:GITHUB_PATH "C:\Program Files (x86)\NSIS"
 
       - name: Build NSIS installer
-        shell: bash
+        # Use PowerShell (not bash) to avoid Git Bash MSYS path conversion,
+        # which rewrites /DVERSION=... to C:\Program Files\Git\DVERSION=...
+        shell: pwsh
         run: |
-          VERSION="${{ steps.version.outputs.VERSION }}"
-          mkdir -p dist_out
-          makensis \
-            /DVERSION="$VERSION" \
-            "/DSRC_EXE=$(cygpath -w $(pwd)/build_out/GameToolsTES.exe)" \
-            "/DOUT_DIR=$(cygpath -w $(pwd)/dist_out)" \
-            TES/executables/scripts/wintel/gametools_tes.nsi
+          $VERSION = "${{ steps.version.outputs.VERSION }}"
+          New-Item -ItemType Directory -Force -Path dist_out | Out-Null
+          $SrcExe = (Join-Path (Get-Location) "build_out\GameToolsTES.exe")
+          $OutDir  = (Join-Path (Get-Location) "dist_out")
+          makensis `
+            "/DVERSION=$VERSION" `
+            "/DSRC_EXE=$SrcExe" `
+            "/DOUT_DIR=$OutDir" `
+            "TES\executables\scripts\wintel\gametools_tes.nsi"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Rename installer artifact
         shell: bash
@@ -119,9 +124,10 @@ jobs:
           brew install create-dmg || true
 
       - name: Compile with Nuitka
-        # --standalone + --macos-create-app-bundle is the correct Nuitka mode for
-        # macOS .app bundles.  --onefile conflicts with --macos-create-app-bundle
-        # in Nuitka 2.x and produces no .app output.
+        # --standalone + --macos-create-app-bundle is the correct mode for .app bundles.
+        # --output-filename names the binary INSIDE the bundle; the bundle directory
+        # itself is named by Nuitka from the input file (main.py → main.app).
+        # We detect the actual path dynamically in the next step.
         run: |
           python -m nuitka \
             --standalone \
@@ -138,14 +144,22 @@ jobs:
             --enable-plugin=anti-bloat \
             TES/executables/src/main.py
 
-      - name: Show Nuitka output (debug)
-        run: find build_out -maxdepth 3 | sort
-
-      - name: Ad-hoc sign app bundle
-        run: codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
-
-      - name: Create DMG
+      - name: Locate, sign, and package DMG
+        # Nuitka names the .app bundle from the input module (main.app) not
+        # --output-filename, so we find it dynamically rather than hardcoding.
         run: |
+          echo "=== Nuitka output ==="
+          find build_out -maxdepth 4 | sort
+
+          APP_BUNDLE=$(find build_out -name "*.app" -maxdepth 2 -type d | head -1)
+          if [ -z "$APP_BUNDLE" ]; then
+            echo "ERROR: no .app bundle found in build_out/"
+            exit 1
+          fi
+          echo "Using bundle: $APP_BUNDLE"
+
+          codesign --deep --force --sign "-" "$APP_BUNDLE" || true
+
           mkdir -p dist_out
           VERSION="${{ steps.version.outputs.VERSION }}"
           create-dmg \
@@ -153,12 +167,12 @@ jobs:
             --volicon "TES/executables/assets/gametools.icns" \
             --window-size 540 360 \
             --icon-size 128 \
-            --icon "GameToolsTES.app" 140 180 \
+            --icon "$(basename "$APP_BUNDLE")" 140 180 \
             --app-drop-link 400 180 \
             "dist_out/GameTools_TES_${VERSION}_Intel.dmg" \
-            "build_out/GameToolsTES.app" || \
+            "$APP_BUNDLE" || \
           hdiutil create -volname "GameTools TES" \
-            -srcfolder "build_out/GameToolsTES.app" \
+            -srcfolder "$APP_BUNDLE" \
             -ov -format UDZO \
             "dist_out/GameTools_TES_${VERSION}_Intel.dmg"
 
@@ -209,14 +223,20 @@ jobs:
             --enable-plugin=anti-bloat \
             TES/executables/src/main.py
 
-      - name: Show Nuitka output (debug)
-        run: find build_out -maxdepth 3 | sort
-
-      - name: Ad-hoc sign app bundle
-        run: codesign --deep --force --sign "-" build_out/GameToolsTES.app || true
-
-      - name: Create DMG
+      - name: Locate, sign, and package DMG
         run: |
+          echo "=== Nuitka output ==="
+          find build_out -maxdepth 4 | sort
+
+          APP_BUNDLE=$(find build_out -name "*.app" -maxdepth 2 -type d | head -1)
+          if [ -z "$APP_BUNDLE" ]; then
+            echo "ERROR: no .app bundle found in build_out/"
+            exit 1
+          fi
+          echo "Using bundle: $APP_BUNDLE"
+
+          codesign --deep --force --sign "-" "$APP_BUNDLE" || true
+
           mkdir -p dist_out
           VERSION="${{ steps.version.outputs.VERSION }}"
           create-dmg \
@@ -224,12 +244,12 @@ jobs:
             --volicon "TES/executables/assets/gametools.icns" \
             --window-size 540 360 \
             --icon-size 128 \
-            --icon "GameToolsTES.app" 140 180 \
+            --icon "$(basename "$APP_BUNDLE")" 140 180 \
             --app-drop-link 400 180 \
             "dist_out/GameTools_TES_${VERSION}_ARM.dmg" \
-            "build_out/GameToolsTES.app" || \
+            "$APP_BUNDLE" || \
           hdiutil create -volname "GameTools TES" \
-            -srcfolder "build_out/GameToolsTES.app" \
+            -srcfolder "$APP_BUNDLE" \
             -ov -format UDZO \
             "dist_out/GameTools_TES_${VERSION}_ARM.dmg"
 
