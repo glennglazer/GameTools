@@ -44,8 +44,7 @@ $NuitkaArgs = @(
     "--output-filename=GameToolsTES.exe",
     "--output-dir=$BuildTmp",
     "--assume-yes-for-downloads",
-    "--enable-plugin=anti-bloat",
-    "--nofollow-import-to=tkinter,unittest,email,html,xml,xmlrpc",
+    "--nofollow-import-to=uvloop",          # uvloop is Unix-only; exclude it
     "$SrcDir\main.py"
 )
 & $PythonExe @NuitkaArgs
