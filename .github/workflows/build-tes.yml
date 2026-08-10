@@ -44,11 +44,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r TES/executables/src/requirements.txt nuitka zstandard
 
-      - name: Compile with Nuitka
+      - name: Compile with Nuitka (standalone directory)
+        # --onefile is NOT used: it extracts to %TEMP% at runtime, which means
+        # sys.argv[0] no longer points at the data files, causing a silent crash.
+        # --standalone produces a directory tree that NSIS installs wholesale.
         shell: bash
         run: |
           python -m nuitka \
-            --onefile \
             --standalone \
             --windows-console-mode=disable \
             --windows-icon-from-ico=TES/executables/assets/gametools.ico \
@@ -70,21 +72,28 @@ jobs:
           Add-Content $env:GITHUB_PATH "C:\Program Files (x86)\NSIS"
 
       - name: Build NSIS installer
-        # Use PowerShell (not bash) to avoid Git Bash MSYS path conversion,
-        # which rewrites /DVERSION=... to C:\Program Files\Git\DVERSION=...
-        # All paths must be absolute: ${__FILEDIR__} in the NSIS script expands
-        # to whatever path form we pass; a relative script path causes NSIS to
-        # double-prepend the CWD when resolving LicenseData.
+        # Use PowerShell (not bash) to avoid Git Bash MSYS path conversion.
+        # All paths passed to makensis must be absolute (NSIS expands
+        # ${__FILEDIR__} relative to whatever path form the script is given).
         shell: pwsh
         run: |
-          $VERSION   = "${{ steps.version.outputs.VERSION }}"
+          $VERSION = "${{ steps.version.outputs.VERSION }}"
           New-Item -ItemType Directory -Force -Path dist_out | Out-Null
+
+          # Find the Nuitka standalone output directory (named from input file: main.dist)
+          $StandaloneDir = (Get-ChildItem -Path "build_out" -Filter "*.dist" -Directory |
+                            Select-Object -First 1).FullName
+          if (-not $StandaloneDir) {
+            Write-Error "No .dist directory found in build_out/"
+            exit 1
+          }
+          Write-Host "Standalone dir: $StandaloneDir"
+
           $NsiScript = (Join-Path (Get-Location) "TES\executables\scripts\wintel\gametools_tes.nsi")
-          $SrcExe    = (Join-Path (Get-Location) "build_out\GameToolsTES.exe")
           $OutDir    = (Join-Path (Get-Location) "dist_out")
           makensis `
             "/DVERSION=$VERSION" `
-            "/DSRC_EXE=$SrcExe" `
+            "/DSRC_DIR=$StandaloneDir" `
             "/DOUT_DIR=$OutDir" `
             "$NsiScript"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -208,10 +217,15 @@ jobs:
         id: version
         run: echo "VERSION=${GITHUB_REF_NAME#tes-v}" >> "$GITHUB_OUTPUT"
 
+      - uses: actions/checkout@v4
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
           path: release_assets/
+
+      - name: Add README to release assets
+        run: cp TES/executables/README.md release_assets/README.md
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -231,8 +245,10 @@ jobs:
             | Windows 10/11 (x64) | `GameTools_TES_${{ steps.version.outputs.VERSION }}_Setup.exe` |
             | macOS (Apple Silicon + Intel via Rosetta 2) | `GameTools_TES_${{ steps.version.outputs.VERSION }}_macOS.dmg` |
 
+            📄 **See `README.md` in this release for installation instructions and first-time setup.**
+
             ### First-time setup
-            1. Install the app for your platform (see README for security prompts)
+            1. Install the app for your platform (see README for OS security prompts)
             2. Launch GameTools TES — your browser opens automatically
             3. Click ⚙ Settings and enter your [Anthropic API key](https://console.anthropic.com)
             4. Start asking questions!
@@ -242,3 +258,4 @@ jobs:
           files: |
             release_assets/**/*.exe
             release_assets/**/*.dmg
+            release_assets/README.md

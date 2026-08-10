@@ -14,11 +14,12 @@ from pathlib import Path
 def _exe_dir() -> Path:
     """Return the directory that contains the compiled binary (or this script).
 
-    In Nuitka standalone / app-bundle mode sys.argv[0] is the real executable
-    path inside Contents/MacOS/ (or next to GameToolsTES.exe on Windows), which
-    is exactly where --include-data-dir / --include-data-files puts the bundled
-    data.  When running from source, sys.argv[0] is the Python interpreter or
-    the script path, both of which lack 'data/' and 'ui/' siblings, so we fall
+    In Nuitka standalone mode the binary and its data files sit in the same
+    directory.  sys.argv[0] is the real executable path, which is exactly where
+    --include-data-dir / --include-data-files puts the bundled data.
+
+    When running from source, sys.argv[0] is the Python interpreter or the
+    script path, both of which lack 'data/' and 'ui/' siblings, so we fall
     back to __file__ (this script's location in TES/executables/src/).
     """
     # Nuitka sets __compiled__ to True inside compiled code.
@@ -74,6 +75,19 @@ def _open_browser(url: str, delay: float = 1.5) -> None:
 
 
 def main() -> None:
+    # ── Windows frozen-executable setup ───────────────────────────────────────
+    # freeze_support() must be the very first call in a frozen Windows entry
+    # point.  It is a no-op on macOS/Linux and when running from source.
+    import multiprocessing
+    multiprocessing.freeze_support()
+
+    # uvicorn requires SelectorEventLoop; Windows Python 3.8+ defaults to
+    # ProactorEventLoop (incompatible).  Set the policy before any async code.
+    if sys.platform == 'win32':
+        import asyncio
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    # ── end Windows setup ─────────────────────────────────────────────────────
+
     import uvicorn
     import server
 

@@ -1,13 +1,15 @@
 ; GameTools TES — NSIS Installer Script
 ; Requires NSIS 3.x (https://nsis.sourceforge.io/Download)
-; Called by build_windows.ps1 with /DVERSION=x.y.z /DSRC_EXE=... /DOUT_DIR=...
+; Called by build_windows.ps1 (or CI) with:
+;   /DVERSION=x.y.z  /DSRC_DIR=<abs-path-to-standalone-dist-dir>  /DOUT_DIR=<abs-path>
 ;
 ; What this installer does:
-;   - Installs GameToolsTES.exe to %ProgramFiles%\GameTools TES\
+;   - Copies the entire Nuitka standalone directory to %ProgramFiles%\GameTools TES\
 ;   - Creates a Start Menu shortcut
 ;   - Optionally creates a Desktop shortcut
 ;   - Registers the application in Programs and Features (Add/Remove Programs)
 ;   - Creates an uninstaller (also registered in the registry)
+;   - Supports in-place upgrade: re-run the installer to update without uninstalling first
 ;   - Allows clean removal via uninstaller or Programs and Features
 
 Unicode true
@@ -19,8 +21,8 @@ SetCompressor /SOLID lzma
 !ifndef VERSION
   !define VERSION "1.0.0"
 !endif
-!ifndef SRC_EXE
-  !define SRC_EXE "GameToolsTES.exe"
+!ifndef SRC_DIR
+  !define SRC_DIR "GameToolsTES.dist"
 !endif
 !ifndef OUT_DIR
   !define OUT_DIR "."
@@ -58,7 +60,12 @@ Section "GameTools TES (required)" SecMain
   SectionIn RO   ; required, cannot be unchecked
 
   SetOutPath "$INSTDIR"
-  File "${SRC_EXE}"
+
+  ; Copy the entire Nuitka standalone directory (exe + DLLs + data subdirs).
+  ; File /r with a trailing \* copies the CONTENTS (not the dir itself) into
+  ; $INSTDIR.  If upgrading, existing files are overwritten in place — the user
+  ; does not need to uninstall first.
+  File /r "${SRC_DIR}\*"
 
   ; ── Write application registry key ──────────────────────────────────────
   WriteRegStr HKLM "${APP_KEY}" "InstallDir" "$INSTDIR"
@@ -100,11 +107,6 @@ SectionEnd
 ; ── Uninstaller ───────────────────────────────────────────────────────────────
 
 Section "Uninstall"
-  ; Remove files
-  Delete "$INSTDIR\GameToolsTES.exe"
-  Delete "$INSTDIR\Uninstall.exe"
-  RMDir  "$INSTDIR"
-
   ; Remove shortcuts
   Delete "$SMPROGRAMS\GameTools TES\GameTools TES.lnk"
   RMDir  "$SMPROGRAMS\GameTools TES"
@@ -114,10 +116,9 @@ Section "Uninstall"
   DeleteRegKey HKLM "${UNINSTALL_KEY}"
   DeleteRegKey HKLM "${APP_KEY}"
   DeleteRegKey /ifempty HKLM "Software\GameTools"
+
+  ; Remove all installed files.  /REBOOTOK schedules the uninstaller exe itself
+  ; for deletion on next reboot if it cannot be deleted immediately (it is the
+  ; running process).  All other files are removed immediately.
+  RMDir /r /REBOOTOK "$INSTDIR"
 SectionEnd
-
-
-; ── Section descriptions (shown in the Components page tooltip area) ──────────
-; Note: ComponentText descriptions use VarDescription, not MUI macros, because
-; this installer uses classic NSIS pages, not the MUI2 interface.
-; The two sections are self-explanatory, so descriptions are omitted here.
