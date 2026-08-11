@@ -28,7 +28,7 @@ def set_rag_dir(rag_dir: Path) -> None:
     _RAG_DIR = rag_dir
     docs = []
     for md_file in sorted(rag_dir.glob("*.md")):
-        docs.append(f"## {md_file.stem}\n\n{md_file.read_text()}")
+        docs.append(f"## {md_file.stem}\n\n{md_file.read_text(encoding='utf-8')}")
     _SYSTEM_PROMPT = (
         "You are GameTools TES Assistant, an expert on The Elder Scrolls crafting systems "
         "(Morrowind, Oblivion, Skyrim). You have access to a SQLite database via tools. "
