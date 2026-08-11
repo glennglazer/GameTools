@@ -154,6 +154,8 @@ def main() -> None:
         host="127.0.0.1",
         port=port,
         log_level="warning",   # suppress per-request logs in the terminal
+        ws="none",             # no WebSocket routes; skip backend probe (avoids
+                               # websockets.__version__ ImportError on Windows)
     )
 
 

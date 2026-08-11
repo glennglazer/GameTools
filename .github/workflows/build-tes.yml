@@ -61,6 +61,7 @@ jobs:
             --output-dir=build_out \
             --assume-yes-for-downloads \
             --nofollow-import-to=uvloop \
+            --nofollow-import-to=websockets \
             TES/executables/src/main.py
 
       - name: Install NSIS and add to PATH

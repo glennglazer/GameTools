@@ -45,6 +45,7 @@ $NuitkaArgs = @(
     "--output-dir=$BuildTmp",
     "--assume-yes-for-downloads",
     "--nofollow-import-to=uvloop",          # uvloop is Unix-only; exclude it
+    "--nofollow-import-to=websockets",      # not used; version probe crashes on Windows
     "$SrcDir\main.py"
 )
 & $PythonExe @NuitkaArgs
