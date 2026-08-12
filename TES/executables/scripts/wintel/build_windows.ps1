@@ -49,7 +49,8 @@ $NuitkaArgs = @(
     "--assume-yes-for-downloads",
     "--nofollow-import-to=uvloop",          # uvloop is Unix-only; exclude it
     "--nofollow-import-to=websockets",      # not used; version probe crashes on Windows
-    "--include-module=h11",                 # uvicorn's HTTP/1.1 parser (conditional import)
+    "--nofollow-import-to=httptools",       # C extension; Nuitka stub missing HttpRequestParser
+    "--include-module=h11",                 # uvicorn's HTTP/1.1 parser (force-include)
     "--include-module=asyncio.windows_events",  # Windows ProactorEventLoop; force-include
     "$SrcDir\main.py"
 )

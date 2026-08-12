@@ -202,6 +202,7 @@ def main() -> None:
         host="127.0.0.1",
         port=port,
         log_level="debug",   # verbose for diagnostic build; change to "warning" for release
+        http="h11",          # force h11; httptools is a C extension that Nuitka can't bundle
         ws="none",
     )
     _step("Step 10: uvicorn.run() returned — server stopped")

@@ -62,6 +62,7 @@ jobs:
             --assume-yes-for-downloads \
             --nofollow-import-to=uvloop \
             --nofollow-import-to=websockets \
+            --nofollow-import-to=httptools \
             --include-module=h11 \
             --include-module=asyncio.windows_events \
             TES/executables/src/main.py
@@ -237,7 +238,7 @@ jobs:
         run: cp TES/executables/README.md release_assets/README.md
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.3.2
         with:
           name: "GameTools TES v${{ steps.version.outputs.VERSION }}"
           tag_name: ${{ github.ref_name }}
