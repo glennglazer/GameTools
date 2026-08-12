@@ -41,6 +41,32 @@ def _write_startup_log(content: str) -> None:
         pass
 
 
+class _TruncateAnthropicFilter(logging.Filter):
+    """Mask the huge system-prompt payload in anthropic._base_client DEBUG lines.
+
+    The Anthropic client logs the full request dict at DEBUG level, including
+    the entire system prompt (all RAG docs concatenated — potentially hundreds
+    of KB).  We keep the outer envelope (method, url, timeout, idempotency_key,
+    etc.) and the json_data keys up to 'system', then replace the remainder.
+
+    Before: ... 'json_data': {'max_tokens': 4096, 'messages': [...], 'model':
+            'claude-sonnet-5', 'system': 'You are GameTools TES Assistant ... '
+            (200 KB of RAG text) ...}}
+    After:  ... 'json_data': {'max_tokens': 4096, 'messages': [...], 'model':
+            'claude-sonnet-5', 'system': <truncated>}
+    """
+
+    def filter(self, record: logging.LogRecord) -> bool:  # noqa: A003
+        if record.name != 'anthropic._base_client':
+            return True
+        msg = record.getMessage()   # formats any % args into the string
+        idx = msg.find("'system'")
+        if idx != -1:
+            record.msg  = msg[:idx] + "'system': <truncated>}"
+            record.args = ()        # already formatted above; prevent double-%
+        return True
+
+
 def _install_log_file_handler() -> None:
     """Attach a FileHandler to the root logger so uvicorn's output also lands
     in startup.log.  Called once at startup; never raises."""
@@ -53,6 +79,7 @@ def _install_log_file_handler() -> None:
         fh.setFormatter(logging.Formatter(
             '%(asctime)s %(levelname)-8s %(name)s: %(message)s'
         ))
+        fh.addFilter(_TruncateAnthropicFilter())
         root = logging.getLogger()
         root.addHandler(fh)
         root.setLevel(logging.DEBUG)
