@@ -105,6 +105,30 @@ body { font-family: var(--font-ui); background: var(--bg); color: var(--text);
 }
 #theme-btn:hover, #settings-btn:hover { color: var(--text); border-color: var(--accent); }
 
+#exit-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 5px 9px;
+  transition: color .15s, border-color .15s, background .15s;
+}
+#exit-btn:hover { color: var(--err); border-color: var(--err); }
+
+/* Shown after server stops */
+#stopped-banner {
+  display: none;
+  background: #1a0a0a;
+  border-bottom: 1px solid var(--err);
+  color: #e08080;
+  font-size: 13px;
+  padding: 8px 16px;
+  text-align: center;
+}
+#stopped-banner.visible { display: block; }
+
 /* ── Warning banner ──────────────────────────────────────────────────── */
 #warning-banner {
   display: none;
@@ -397,10 +421,16 @@ body { font-family: var(--font-ui); background: var(--bg); color: var(--text);
   <button id="export-btn" title="Export conversation">⬇ Export</button>
   <button id="theme-btn" title="Toggle light/dark">☀</button>
   <button id="settings-btn" title="Settings (API key)">⚙</button>
+  <button id="exit-btn" title="Stop the GameTools server">⏻</button>
 </header>
 
 <!-- ── Context mismatch warning ──────────────────────────────────────── -->
 <div id="warning-banner"></div>
+
+<!-- ── Server-stopped notice (shown after Exit is confirmed) ─────────── -->
+<div id="stopped-banner">
+  GameTools server has stopped. This tab is now read-only — you may close it.
+</div>
 
 <!-- ── API key notice ────────────────────────────────────────────────── -->
 <div id="setup-notice">
@@ -795,6 +825,21 @@ document.getElementById('modal-clear').addEventListener('click', async () => {
   sendBtn.disabled = true;
   setupNotice.style.display = 'block';
   closeModal();
+});
+
+// ── Exit / shutdown ────────────────────────────────────────────────────────
+document.getElementById('exit-btn').addEventListener('click', async () => {
+  if (!confirm('Stop the GameTools server?\n\nThe page will stay open but you will need to relaunch the app to chat again.')) return;
+  try {
+    await fetch('/api/shutdown', { method: 'POST' });
+  } catch { /* server closed before response arrived — that's fine */ }
+  // Mark the UI as stopped regardless of whether the response came back
+  document.getElementById('stopped-banner').classList.add('visible');
+  sendBtn.disabled = true;
+  userInput.disabled = true;
+  userInput.placeholder = 'Server stopped.';
+  document.getElementById('exit-btn').disabled = true;
+  document.getElementById('exit-btn').style.opacity = '0.4';
 });
 
 // ── Init ───────────────────────────────────────────────────────────────────

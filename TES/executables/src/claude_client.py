@@ -31,17 +31,14 @@ def set_rag_dir(rag_dir: Path) -> None:
     _RAG_DIR = rag_dir
 
     md_files = sorted(rag_dir.glob("*.md"))
-    log.debug("set_rag_dir: found %d .md files in %s", len(md_files), rag_dir)
-    print(f"  [rag] loading {len(md_files)} docs from {rag_dir}", flush=True)
+    log.debug("set_rag_dir: loading %d docs from %s", len(md_files), rag_dir)
 
     docs = []
     for md_file in md_files:
         log.debug("set_rag_dir: reading %s", md_file.name)
-        print(f"  [rag]   {md_file.name}", flush=True)
         docs.append(f"## {md_file.stem}\n\n{md_file.read_text(encoding='utf-8')}")
 
-    log.debug("set_rag_dir: all docs loaded, building system prompt")
-    print("  [rag] all docs loaded", flush=True)
+    log.debug("set_rag_dir: system prompt built")
 
     _SYSTEM_PROMPT = (
         "You are GameTools TES Assistant, an expert on The Elder Scrolls crafting systems "
@@ -73,7 +70,7 @@ def chat(
     messages: list[dict],
     api_key: str,
     game_context: str = "",
-    model: str = "claude-sonnet-5-20251101",
+    model: str = "claude-sonnet-5",
     max_tool_rounds: int = 15,
 ) -> dict:
     """Run a full tool-use conversation loop.

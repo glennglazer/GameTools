@@ -36,10 +36,7 @@ New-Item -ItemType Directory -Force -Path $BuildTmp | Out-Null
 $NuitkaArgs = @(
     "-m", "nuitka",
     "--standalone",
-    # NOTE: using --windows-console-mode=force for diagnostic builds so startup
-    # messages and uvicorn debug output are visible in the console window.
-    # Change back to --windows-console-mode=disable for production releases.
-    "--windows-console-mode=force",
+    "--windows-console-mode=disable",       # no console window in production
     "--windows-icon-from-ico=$RepoRoot\TES\executables\assets\gametools.ico",
     "--include-data-dir=$SrcDir\ui=ui",
     "--include-data-dir=$RepoRoot\TES\mcp=rag",

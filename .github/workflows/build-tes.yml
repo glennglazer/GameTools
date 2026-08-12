@@ -52,7 +52,7 @@ jobs:
         run: |
           python -m nuitka \
             --standalone \
-            --windows-console-mode=force \
+            --windows-console-mode=disable \
             --windows-icon-from-ico=TES/executables/assets/gametools.ico \
             --include-data-dir=TES/executables/src/ui=ui \
             --include-data-dir=TES/mcp=rag \

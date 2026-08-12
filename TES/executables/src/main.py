@@ -196,16 +196,22 @@ def main() -> None:
     _step("Step 8: browser watcher thread started")
 
     # ── Step 7: start uvicorn ──────────────────────────────────────────────────
-    _step("Step 9: calling uvicorn.run() — server starting...")
-    uvicorn.run(
+    # Use uvicorn.Server directly (rather than uvicorn.run) so we can hand
+    # the Server instance to the FastAPI app and let /api/shutdown signal it
+    # to stop cleanly via server.should_exit = True.
+    _step("Step 9: starting uvicorn server...")
+    config     = uvicorn.Config(
         server.app,
         host="127.0.0.1",
         port=port,
-        log_level="debug",   # verbose for diagnostic build; change to "warning" for release
-        http="h11",          # force h11; httptools is a C extension that Nuitka can't bundle
+        log_level="warning",
+        http="h11",   # force h11; httptools is a C extension Nuitka can't bundle
         ws="none",
     )
-    _step("Step 10: uvicorn.run() returned — server stopped")
+    uv_server  = uvicorn.Server(config)
+    server.set_server_instance(uv_server)
+    uv_server.run()
+    _step("Step 10: uvicorn stopped")
 
 
 if __name__ == "__main__":

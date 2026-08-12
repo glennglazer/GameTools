@@ -18,6 +18,8 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel
 
+import threading
+
 import claude_client
 import credentials
 import tools as _tools
@@ -37,7 +39,8 @@ async def _lifespan(app: FastAPI):
 
 app = FastAPI(title="GameTools TES", docs_url=None, redoc_url=None, lifespan=_lifespan)
 
-_UI_DIR: Path | None = None
+_UI_DIR:    Path | None = None
+_UV_SERVER: object | None = None          # uvicorn.Server; typed as object to avoid import
 
 VALID_CONTEXTS = ["All Games", "Morrowind", "Oblivion", "Skyrim"]
 
@@ -48,6 +51,12 @@ def configure(ui_dir: Path, db_path: Path, rag_dir: Path) -> None:
     _UI_DIR = ui_dir
     _tools.DB_PATH = db_path
     claude_client.set_rag_dir(rag_dir)
+
+
+def set_server_instance(server) -> None:
+    """Store the uvicorn.Server instance so /api/shutdown can signal it."""
+    global _UV_SERVER
+    _UV_SERVER = server
 
 
 # ── Request error logging ─────────────────────────────────────────────────────
@@ -91,7 +100,7 @@ async def _global_exc_handler(request: Request, exc: Exception) -> Response:
 class ChatRequest(BaseModel):
     messages: list[dict]          # full conversation history in Anthropic format
     game_context: str = ""        # "Morrowind" | "Oblivion" | "Skyrim" | ""
-    model: str = "claude-sonnet-5-20251101"
+    model: str = "claude-sonnet-5"
 
 
 class ChatResponse(BaseModel):
@@ -176,6 +185,23 @@ def post_chat(body: ChatRequest) -> ChatResponse:
         model=body.model,
     )
     return ChatResponse(**result)
+
+
+@app.post("/api/shutdown")
+def shutdown() -> dict:
+    """Ask uvicorn to stop gracefully.
+
+    The response is sent first; then a background thread waits 150 ms before
+    setting should_exit so the HTTP response has time to reach the browser.
+    """
+    def _stop() -> None:
+        import time
+        time.sleep(0.15)
+        if _UV_SERVER is not None:
+            _UV_SERVER.should_exit = True
+
+    threading.Thread(target=_stop, daemon=True).start()
+    return {"ok": True, "message": "Server shutting down."}
 
 
 # ─── Static file serving ─────────────────────────────────────────────────────
