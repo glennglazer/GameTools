@@ -36,7 +36,10 @@ New-Item -ItemType Directory -Force -Path $BuildTmp | Out-Null
 $NuitkaArgs = @(
     "-m", "nuitka",
     "--standalone",
-    "--windows-console-mode=disable",       # no console window
+    # NOTE: using --windows-console-mode=force for diagnostic builds so startup
+    # messages and uvicorn debug output are visible in the console window.
+    # Change back to --windows-console-mode=disable for production releases.
+    "--windows-console-mode=force",
     "--windows-icon-from-ico=$RepoRoot\TES\executables\assets\gametools.ico",
     "--include-data-dir=$SrcDir\ui=ui",
     "--include-data-dir=$RepoRoot\TES\mcp=rag",
@@ -46,6 +49,8 @@ $NuitkaArgs = @(
     "--assume-yes-for-downloads",
     "--nofollow-import-to=uvloop",          # uvloop is Unix-only; exclude it
     "--nofollow-import-to=websockets",      # not used; version probe crashes on Windows
+    "--include-module=h11",                 # uvicorn's HTTP/1.1 parser (conditional import)
+    "--include-module=asyncio.windows_events",  # Windows ProactorEventLoop; force-include
     "$SrcDir\main.py"
 )
 & $PythonExe @NuitkaArgs

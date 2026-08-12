@@ -24,11 +24,25 @@ _CONTEXT_ALERTS = {
 
 def set_rag_dir(rag_dir: Path) -> None:
     """Load RAG markdown docs and build the system prompt."""
+    import logging
+    log = logging.getLogger(__name__)
+
     global _RAG_DIR, _SYSTEM_PROMPT
     _RAG_DIR = rag_dir
+
+    md_files = sorted(rag_dir.glob("*.md"))
+    log.debug("set_rag_dir: found %d .md files in %s", len(md_files), rag_dir)
+    print(f"  [rag] loading {len(md_files)} docs from {rag_dir}", flush=True)
+
     docs = []
-    for md_file in sorted(rag_dir.glob("*.md")):
+    for md_file in md_files:
+        log.debug("set_rag_dir: reading %s", md_file.name)
+        print(f"  [rag]   {md_file.name}", flush=True)
         docs.append(f"## {md_file.stem}\n\n{md_file.read_text(encoding='utf-8')}")
+
+    log.debug("set_rag_dir: all docs loaded, building system prompt")
+    print("  [rag] all docs loaded", flush=True)
+
     _SYSTEM_PROMPT = (
         "You are GameTools TES Assistant, an expert on The Elder Scrolls crafting systems "
         "(Morrowind, Oblivion, Skyrim). You have access to a SQLite database via tools. "

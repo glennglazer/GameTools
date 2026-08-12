@@ -10,6 +10,7 @@ import mimetypes
 import os
 import sys
 import traceback
+from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
 
@@ -21,7 +22,20 @@ import claude_client
 import credentials
 import tools as _tools
 
-app = FastAPI(title="GameTools TES", docs_url=None, redoc_url=None)
+
+@asynccontextmanager
+async def _lifespan(app: FastAPI):
+    """Log when uvicorn transitions to 'accepting connections' state."""
+    import datetime
+    msg = f"[{datetime.datetime.now().strftime('%H:%M:%S.%f')[:-3]}] Lifespan startup: uvicorn accepting connections"
+    print(msg, flush=True)
+    _log_request_error("STARTUP", "uvicorn accepting connections", "")
+    yield
+    print(f"[{datetime.datetime.now().strftime('%H:%M:%S.%f')[:-3]}] Lifespan shutdown: uvicorn stopping", flush=True)
+    _log_request_error("SHUTDOWN", "uvicorn shutting down", "")
+
+
+app = FastAPI(title="GameTools TES", docs_url=None, redoc_url=None, lifespan=_lifespan)
 
 _UI_DIR: Path | None = None
 

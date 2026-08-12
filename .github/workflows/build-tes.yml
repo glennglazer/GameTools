@@ -52,7 +52,7 @@ jobs:
         run: |
           python -m nuitka \
             --standalone \
-            --windows-console-mode=disable \
+            --windows-console-mode=force \
             --windows-icon-from-ico=TES/executables/assets/gametools.ico \
             --include-data-dir=TES/executables/src/ui=ui \
             --include-data-dir=TES/mcp=rag \
@@ -62,6 +62,8 @@ jobs:
             --assume-yes-for-downloads \
             --nofollow-import-to=uvloop \
             --nofollow-import-to=websockets \
+            --include-module=h11 \
+            --include-module=asyncio.windows_events \
             TES/executables/src/main.py
 
       - name: Install NSIS and add to PATH
