@@ -66,18 +66,16 @@ jobs:
             --include-module=asyncio.windows_events \
             TES/executables/src/main.py
 
-      - name: Install NSIS and add to PATH
-        # Chocolatey installs NSIS but doesn't refresh PATH for subsequent
-        # steps; writing to GITHUB_PATH propagates it forward.
+      - name: Install NSIS
         shell: pwsh
-        run: |
-          choco install nsis --no-progress -y
-          Add-Content $env:GITHUB_PATH "C:\Program Files (x86)\NSIS"
+        run: choco install nsis --no-progress -y
 
       - name: Build NSIS installer
         # Use PowerShell (not bash) to avoid Git Bash MSYS path conversion.
         # All paths passed to makensis must be absolute (NSIS expands
         # ${__FILEDIR__} relative to whatever path form the script is given).
+        # Use the full path to makensis.exe rather than relying on PATH — the
+        # Chocolatey install doesn't propagate to subsequent steps reliably.
         shell: pwsh
         run: |
           $VERSION = "${{ steps.version.outputs.VERSION }}"
@@ -92,9 +90,17 @@ jobs:
           }
           Write-Host "Standalone dir: $StandaloneDir"
 
+          # Resolve makensis.exe — Chocolatey always installs to Program Files (x86)
+          $NsisExe = "C:\Program Files (x86)\NSIS\makensis.exe"
+          if (-not (Test-Path $NsisExe)) {
+            Write-Error "makensis.exe not found at $NsisExe"
+            exit 1
+          }
+          Write-Host "NSIS: $NsisExe"
+
           $NsiScript = (Join-Path (Get-Location) "TES\executables\scripts\wintel\gametools_tes.nsi")
           $OutDir    = (Join-Path (Get-Location) "dist_out")
-          makensis `
+          & "$NsisExe" `
             "/DVERSION=$VERSION" `
             "/DSRC_DIR=$StandaloneDir" `
             "/DOUT_DIR=$OutDir" `
