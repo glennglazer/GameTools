@@ -6,11 +6,15 @@ Serves the browser UI and provides REST endpoints for:
   GET /api/status         — health check / configuration status
 """
 import json
+import mimetypes
+import os
+import sys
+import traceback
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel
 
 import claude_client
@@ -30,6 +34,42 @@ def configure(ui_dir: Path, db_path: Path, rag_dir: Path) -> None:
     _UI_DIR = ui_dir
     _tools.DB_PATH = db_path
     claude_client.set_rag_dir(rag_dir)
+
+
+# ── Request error logging ─────────────────────────────────────────────────────
+
+def _log_request_error(method: str, url: str, tb: str) -> None:
+    """Append a request-level error to the startup log.  Never raises."""
+    try:
+        import datetime
+        if sys.platform == 'win32':
+            base = Path(os.environ.get('APPDATA', Path.home()))
+        elif sys.platform == 'darwin':
+            base = Path.home() / 'Library' / 'Logs'
+        else:
+            base = Path.home() / '.local' / 'share'
+        log_path = base / 'GameTools TES' / 'startup.log'
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(log_path, 'a', encoding='utf-8') as f:
+            f.write(
+                f"\n{'='*60}\n{datetime.datetime.now().isoformat()}\n"
+                f"Request error: {method} {url}\n{tb}\n"
+            )
+    except Exception:
+        pass
+
+
+@app.exception_handler(Exception)
+async def _global_exc_handler(request: Request, exc: Exception) -> Response:
+    """Catch any unhandled exception, log it, and return a JSON 500."""
+    if isinstance(exc, HTTPException):
+        # Let FastAPI's built-in HTTPException handler manage 4xx/5xx from routes.
+        return JSONResponse(
+            status_code=exc.status_code,
+            content={"detail": exc.detail},
+        )
+    _log_request_error(request.method, str(request.url), traceback.format_exc())
+    return JSONResponse(status_code=500, content={"error": str(exc)})
 
 
 # ─── Request / Response models ───────────────────────────────────────────────
@@ -124,20 +164,30 @@ def post_chat(body: ChatRequest) -> ChatResponse:
     return ChatResponse(**result)
 
 
-# ─── Static file serving ────────────────────────────────────────────────────
+# ─── Static file serving ─────────────────────────────────────────────────────
+# FileResponse (async streaming) deadlocks on Windows with SelectorEventLoop.
+# These routes run in FastAPI's sync thread pool; synchronous read_bytes() is
+# the correct approach here and avoids all async file-I/O issues.
 
 @app.get("/")
-def serve_index() -> FileResponse:
+def serve_index() -> Response:
     if _UI_DIR is None:
         raise HTTPException(status_code=503, detail="UI not configured")
-    return FileResponse(_UI_DIR / "index.html")
+    path = _UI_DIR / "index.html"
+    if not path.exists():
+        raise HTTPException(status_code=404, detail="index.html not found")
+    return Response(content=path.read_bytes(), media_type="text/html; charset=utf-8")
 
 
 @app.get("/{path:path}")
-def serve_static(path: str) -> FileResponse:
+def serve_static(path: str) -> Response:
     if _UI_DIR is None:
         raise HTTPException(status_code=503, detail="UI not configured")
     target = _UI_DIR / path
     if target.exists() and target.is_file():
-        return FileResponse(target)
+        media_type, _ = mimetypes.guess_type(str(target))
+        return Response(
+            content=target.read_bytes(),
+            media_type=media_type or "application/octet-stream",
+        )
     raise HTTPException(status_code=404, detail="Not found")
