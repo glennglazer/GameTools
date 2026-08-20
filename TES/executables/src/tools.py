@@ -105,6 +105,21 @@ def skyrim_alchemy_list_effects() -> list[str]:
     return [r["effect"] for r in rows]
 
 
+def skyrim_alchemy_list_ingredients() -> list[dict]:
+    ingredients = _query(
+        "SELECT name, weight, value FROM skyrim_alchemy_ingredients ORDER BY name"
+    )
+    effects_rows = _query(
+        "SELECT name, effect FROM skyrim_alchemy_effects ORDER BY name, rowid"
+    )
+    effects_map: dict[str, list[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], []).append(r["effect"])
+    for ing in ingredients:
+        ing["effects"] = effects_map.get(ing["name"], [])
+    return ingredients
+
+
 def skyrim_alchemy_perks() -> list[dict]:
     return _query(
         "SELECT name, skill_level, prerequisite, description "
@@ -171,6 +186,22 @@ def oblivion_alchemy_list_effects() -> list[str]:
         "WHERE effect IS NOT NULL ORDER BY effect"
     )
     return [r["effect"] for r in rows]
+
+
+def oblivion_alchemy_list_ingredients() -> list[dict]:
+    ingredients = _query(
+        "SELECT name, weight, value FROM oblivion_alchemy_ingredients ORDER BY name"
+    )
+    effects_rows = _query(
+        "SELECT name, effect FROM oblivion_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name, rowid"
+    )
+    effects_map: dict[str, list[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], []).append(r["effect"])
+    for ing in ingredients:
+        ing["effects"] = effects_map.get(ing["name"], [])
+    return ingredients
 
 
 def oblivion_alchemy_apparatus(apparatus_type: str | None = None) -> list[dict]:
@@ -245,6 +276,22 @@ def morrowind_alchemy_list_effects() -> list[str]:
         "WHERE effect IS NOT NULL ORDER BY effect"
     )
     return [r["effect"] for r in rows]
+
+
+def morrowind_alchemy_list_ingredients() -> list[dict]:
+    ingredients = _query(
+        "SELECT name, weight, value FROM morrowind_alchemy_ingredients ORDER BY name"
+    )
+    effects_rows = _query(
+        "SELECT name, effect FROM morrowind_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name, rowid"
+    )
+    effects_map: dict[str, list[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], []).append(r["effect"])
+    for ing in ingredients:
+        ing["effects"] = effects_map.get(ing["name"], [])
+    return ingredients
 
 
 def morrowind_alchemy_apparatus(apparatus_type: str | None = None) -> list[dict]:
@@ -896,6 +943,9 @@ TOOL_MAP: dict[str, tuple[Any, dict]] = {
     "skyrim_alchemy_list_effects": (skyrim_alchemy_list_effects, {
         "type": "object", "properties": {}, "required": []
     }),
+    "skyrim_alchemy_list_ingredients": (skyrim_alchemy_list_ingredients, {
+        "type": "object", "properties": {}, "required": []
+    }),
     "skyrim_alchemy_perks": (skyrim_alchemy_perks, {
         "type": "object", "properties": {}, "required": []
     }),
@@ -921,6 +971,9 @@ TOOL_MAP: dict[str, tuple[Any, dict]] = {
         "required": ["ingredients"],
     }),
     "oblivion_alchemy_list_effects": (oblivion_alchemy_list_effects, {
+        "type": "object", "properties": {}, "required": []
+    }),
+    "oblivion_alchemy_list_ingredients": (oblivion_alchemy_list_ingredients, {
         "type": "object", "properties": {}, "required": []
     }),
     "oblivion_alchemy_apparatus": (oblivion_alchemy_apparatus, {
@@ -950,6 +1003,9 @@ TOOL_MAP: dict[str, tuple[Any, dict]] = {
         "required": ["ingredients"],
     }),
     "morrowind_alchemy_list_effects": (morrowind_alchemy_list_effects, {
+        "type": "object", "properties": {}, "required": []
+    }),
+    "morrowind_alchemy_list_ingredients": (morrowind_alchemy_list_ingredients, {
         "type": "object", "properties": {}, "required": []
     }),
     "morrowind_alchemy_apparatus": (morrowind_alchemy_apparatus, {
@@ -1115,18 +1171,21 @@ _TOOL_DESCRIPTIONS: dict[str, str] = {
     "skyrim_alchemy_find_by_effect": "Return all Skyrim ingredients carrying a given effect.",
     "skyrim_alchemy_combos": "Given Skyrim ingredient names, return all pairs that share an effect.",
     "skyrim_alchemy_list_effects": "Return all 60 distinct Skyrim alchemy effects.",
+    "skyrim_alchemy_list_ingredients": "Return all Skyrim alchemy ingredients with name, weight, value, and full effect list. Use for exhaustive searches such as perfect-overlap analysis.",
     "skyrim_alchemy_perks": "Return the Skyrim alchemy perk tree.",
     "oblivion_alchemy_ingredient": "Return weight, value, and effects for a named Oblivion alchemy ingredient.",
     "oblivion_alchemy_search": "Search Oblivion alchemy ingredients by partial name.",
     "oblivion_alchemy_find_by_effect": "Return all Oblivion ingredients carrying a given effect.",
     "oblivion_alchemy_combos": "Given Oblivion ingredient names, return all pairs that share an effect.",
     "oblivion_alchemy_list_effects": "Return all distinct Oblivion alchemy effects.",
+    "oblivion_alchemy_list_ingredients": "Return all Oblivion alchemy ingredients with name, weight, value, and full effect list. Use for exhaustive searches such as perfect-overlap analysis.",
     "oblivion_alchemy_apparatus": "Return Oblivion alchemy apparatus with grade and strength.",
     "morrowind_alchemy_ingredient": "Return weight, value, and effects for a named Morrowind alchemy ingredient (hidden effects included).",
     "morrowind_alchemy_search": "Search Morrowind alchemy ingredients by partial name.",
     "morrowind_alchemy_find_by_effect": "Return all Morrowind ingredients carrying a given effect (hidden included).",
     "morrowind_alchemy_combos": "Given Morrowind ingredient names, return all pairs that share an effect.",
     "morrowind_alchemy_list_effects": "Return all distinct Morrowind alchemy effects.",
+    "morrowind_alchemy_list_ingredients": "Return all Morrowind alchemy ingredients with name, weight, value, and full effect list (including hidden effects). Use for exhaustive searches such as perfect-overlap analysis.",
     "morrowind_alchemy_apparatus": "Return Morrowind alchemy apparatus with quality values.",
     "morrowind_enchant_magic_effects": "Return Morrowind magic effects with base_cost and school. Optional name/school filter.",
     "morrowind_enchant_souls": "Return Morrowind creature soul sizes. Optional partial name filter.",

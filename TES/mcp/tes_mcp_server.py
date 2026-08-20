@@ -116,6 +116,26 @@ def skyrim_alchemy_list_effects() -> list[str]:
 
 
 @mcp.tool()
+def skyrim_alchemy_list_ingredients() -> list[dict]:
+    """Return all Skyrim alchemy ingredients with name, weight, value, and full effect list.
+    Use for exhaustive searches — for example, finding every pair of ingredients
+    whose all four effects overlap (perfect overlap), or any combinatorial analysis
+    that requires the complete ingredient set at once."""
+    ingredients = _query(
+        "SELECT name, weight, value FROM skyrim_alchemy_ingredients ORDER BY name"
+    )
+    effects_rows = _query(
+        "SELECT name, effect FROM skyrim_alchemy_effects ORDER BY name, rowid"
+    )
+    effects_map: dict[str, list[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], []).append(r["effect"])
+    for ing in ingredients:
+        ing["effects"] = effects_map.get(ing["name"], [])
+    return ingredients
+
+
+@mcp.tool()
 def skyrim_alchemy_perks() -> list[dict]:
     """Return the full Skyrim alchemy perk tree with skill level requirements, prerequisites, and descriptions."""
     return _query("SELECT name, skill_level, prerequisite, description FROM skyrim_alchemy_perks ORDER BY skill_level, name")
@@ -193,6 +213,28 @@ def oblivion_alchemy_list_effects() -> list[str]:
         "SELECT DISTINCT effect FROM oblivion_alchemy_effects WHERE effect IS NOT NULL ORDER BY effect"
     )
     return [r["effect"] for r in rows]
+
+
+@mcp.tool()
+def oblivion_alchemy_list_ingredients() -> list[dict]:
+    """Return all Oblivion alchemy ingredients with name, weight, value, and full effect list.
+    Use for exhaustive searches — for example, finding every pair of ingredients
+    whose all four effects overlap (perfect overlap), or any combinatorial analysis
+    that requires the complete ingredient set at once. Note that in Oblivion only
+    effects visible at the character's current Alchemy skill level are usable in crafting."""
+    ingredients = _query(
+        "SELECT name, weight, value FROM oblivion_alchemy_ingredients ORDER BY name"
+    )
+    effects_rows = _query(
+        "SELECT name, effect FROM oblivion_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name, rowid"
+    )
+    effects_map: dict[str, list[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], []).append(r["effect"])
+    for ing in ingredients:
+        ing["effects"] = effects_map.get(ing["name"], [])
+    return ingredients
 
 
 @mcp.tool()
@@ -282,6 +324,28 @@ def morrowind_alchemy_list_effects() -> list[str]:
         "SELECT DISTINCT effect FROM morrowind_alchemy_effects WHERE effect IS NOT NULL ORDER BY effect"
     )
     return [r["effect"] for r in rows]
+
+
+@mcp.tool()
+def morrowind_alchemy_list_ingredients() -> list[dict]:
+    """Return all Morrowind alchemy ingredients with name, weight, value, and full effect list
+    (including hidden effects). Use for exhaustive searches — for example, finding every pair
+    of ingredients whose all four effects overlap (perfect overlap), or any combinatorial
+    analysis that requires the complete ingredient set at once. Unlike Oblivion, hidden effects
+    always count toward crafting in Morrowind regardless of Alchemy skill level."""
+    ingredients = _query(
+        "SELECT name, weight, value FROM morrowind_alchemy_ingredients ORDER BY name"
+    )
+    effects_rows = _query(
+        "SELECT name, effect FROM morrowind_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name, rowid"
+    )
+    effects_map: dict[str, list[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], []).append(r["effect"])
+    for ing in ingredients:
+        ing["effects"] = effects_map.get(ing["name"], [])
+    return ingredients
 
 
 @mcp.tool()
