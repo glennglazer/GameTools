@@ -120,6 +120,29 @@ def skyrim_alchemy_list_ingredients() -> list[dict]:
     return ingredients
 
 
+def skyrim_alchemy_perfect_overlaps(min_shared: int = 4) -> list[dict]:
+    effects_rows = _query(
+        "SELECT name, effect FROM skyrim_alchemy_effects ORDER BY name"
+    )
+    effects_map: dict[str, set[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], set()).add(r["effect"])
+    names = sorted(effects_map)
+    result = []
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            shared = effects_map[names[i]] & effects_map[names[j]]
+            if len(shared) >= min_shared:
+                result.append({
+                    "ingredient_1": names[i],
+                    "ingredient_2": names[j],
+                    "shared_effects": sorted(shared),
+                    "shared_count": len(shared),
+                })
+    result.sort(key=lambda r: (-r["shared_count"], r["ingredient_1"], r["ingredient_2"]))
+    return result
+
+
 def skyrim_alchemy_perks() -> list[dict]:
     return _query(
         "SELECT name, skill_level, prerequisite, description "
@@ -202,6 +225,30 @@ def oblivion_alchemy_list_ingredients() -> list[dict]:
     for ing in ingredients:
         ing["effects"] = effects_map.get(ing["name"], [])
     return ingredients
+
+
+def oblivion_alchemy_perfect_overlaps(min_shared: int = 4) -> list[dict]:
+    effects_rows = _query(
+        "SELECT name, effect FROM oblivion_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name"
+    )
+    effects_map: dict[str, set[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], set()).add(r["effect"])
+    names = sorted(effects_map)
+    result = []
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            shared = effects_map[names[i]] & effects_map[names[j]]
+            if len(shared) >= min_shared:
+                result.append({
+                    "ingredient_1": names[i],
+                    "ingredient_2": names[j],
+                    "shared_effects": sorted(shared),
+                    "shared_count": len(shared),
+                })
+    result.sort(key=lambda r: (-r["shared_count"], r["ingredient_1"], r["ingredient_2"]))
+    return result
 
 
 def oblivion_alchemy_apparatus(apparatus_type: str | None = None) -> list[dict]:
@@ -292,6 +339,30 @@ def morrowind_alchemy_list_ingredients() -> list[dict]:
     for ing in ingredients:
         ing["effects"] = effects_map.get(ing["name"], [])
     return ingredients
+
+
+def morrowind_alchemy_perfect_overlaps(min_shared: int = 4) -> list[dict]:
+    effects_rows = _query(
+        "SELECT name, effect FROM morrowind_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name"
+    )
+    effects_map: dict[str, set[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], set()).add(r["effect"])
+    names = sorted(effects_map)
+    result = []
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            shared = effects_map[names[i]] & effects_map[names[j]]
+            if len(shared) >= min_shared:
+                result.append({
+                    "ingredient_1": names[i],
+                    "ingredient_2": names[j],
+                    "shared_effects": sorted(shared),
+                    "shared_count": len(shared),
+                })
+    result.sort(key=lambda r: (-r["shared_count"], r["ingredient_1"], r["ingredient_2"]))
+    return result
 
 
 def morrowind_alchemy_apparatus(apparatus_type: str | None = None) -> list[dict]:
@@ -946,6 +1017,17 @@ TOOL_MAP: dict[str, tuple[Any, dict]] = {
     "skyrim_alchemy_list_ingredients": (skyrim_alchemy_list_ingredients, {
         "type": "object", "properties": {}, "required": []
     }),
+    "skyrim_alchemy_perfect_overlaps": (skyrim_alchemy_perfect_overlaps, {
+        "type": "object",
+        "properties": {
+            "min_shared": {
+                "type": "integer",
+                "description": "Minimum number of shared effects (default 4 = all effects match)",
+                "default": 4,
+            },
+        },
+        "required": [],
+    }),
     "skyrim_alchemy_perks": (skyrim_alchemy_perks, {
         "type": "object", "properties": {}, "required": []
     }),
@@ -975,6 +1057,17 @@ TOOL_MAP: dict[str, tuple[Any, dict]] = {
     }),
     "oblivion_alchemy_list_ingredients": (oblivion_alchemy_list_ingredients, {
         "type": "object", "properties": {}, "required": []
+    }),
+    "oblivion_alchemy_perfect_overlaps": (oblivion_alchemy_perfect_overlaps, {
+        "type": "object",
+        "properties": {
+            "min_shared": {
+                "type": "integer",
+                "description": "Minimum number of shared effects (default 4 = all effects match)",
+                "default": 4,
+            },
+        },
+        "required": [],
     }),
     "oblivion_alchemy_apparatus": (oblivion_alchemy_apparatus, {
         "type": "object",
@@ -1007,6 +1100,17 @@ TOOL_MAP: dict[str, tuple[Any, dict]] = {
     }),
     "morrowind_alchemy_list_ingredients": (morrowind_alchemy_list_ingredients, {
         "type": "object", "properties": {}, "required": []
+    }),
+    "morrowind_alchemy_perfect_overlaps": (morrowind_alchemy_perfect_overlaps, {
+        "type": "object",
+        "properties": {
+            "min_shared": {
+                "type": "integer",
+                "description": "Minimum number of shared effects (default 4 = all effects match)",
+                "default": 4,
+            },
+        },
+        "required": [],
     }),
     "morrowind_alchemy_apparatus": (morrowind_alchemy_apparatus, {
         "type": "object",
@@ -1172,6 +1276,7 @@ _TOOL_DESCRIPTIONS: dict[str, str] = {
     "skyrim_alchemy_combos": "Given Skyrim ingredient names, return all pairs that share an effect.",
     "skyrim_alchemy_list_effects": "Return all 60 distinct Skyrim alchemy effects.",
     "skyrim_alchemy_list_ingredients": "Return all Skyrim alchemy ingredients with name, weight, value, and full effect list. Use for exhaustive searches such as perfect-overlap analysis.",
+    "skyrim_alchemy_perfect_overlaps": "Find all Skyrim ingredient pairs sharing at least min_shared effects (default 4 = all four effects identical). Returns ingredient_1, ingredient_2, shared_effects list, and shared_count, sorted by overlap count descending.",
     "skyrim_alchemy_perks": "Return the Skyrim alchemy perk tree.",
     "oblivion_alchemy_ingredient": "Return weight, value, and effects for a named Oblivion alchemy ingredient.",
     "oblivion_alchemy_search": "Search Oblivion alchemy ingredients by partial name.",
@@ -1179,6 +1284,7 @@ _TOOL_DESCRIPTIONS: dict[str, str] = {
     "oblivion_alchemy_combos": "Given Oblivion ingredient names, return all pairs that share an effect.",
     "oblivion_alchemy_list_effects": "Return all distinct Oblivion alchemy effects.",
     "oblivion_alchemy_list_ingredients": "Return all Oblivion alchemy ingredients with name, weight, value, and full effect list. Use for exhaustive searches such as perfect-overlap analysis.",
+    "oblivion_alchemy_perfect_overlaps": "Find all Oblivion ingredient pairs sharing at least min_shared effects (default 4 = all four effects identical). Returns ingredient_1, ingredient_2, shared_effects list, and shared_count, sorted by overlap count descending.",
     "oblivion_alchemy_apparatus": "Return Oblivion alchemy apparatus with grade and strength.",
     "morrowind_alchemy_ingredient": "Return weight, value, and effects for a named Morrowind alchemy ingredient (hidden effects included).",
     "morrowind_alchemy_search": "Search Morrowind alchemy ingredients by partial name.",
@@ -1186,6 +1292,7 @@ _TOOL_DESCRIPTIONS: dict[str, str] = {
     "morrowind_alchemy_combos": "Given Morrowind ingredient names, return all pairs that share an effect.",
     "morrowind_alchemy_list_effects": "Return all distinct Morrowind alchemy effects.",
     "morrowind_alchemy_list_ingredients": "Return all Morrowind alchemy ingredients with name, weight, value, and full effect list (including hidden effects). Use for exhaustive searches such as perfect-overlap analysis.",
+    "morrowind_alchemy_perfect_overlaps": "Find all Morrowind ingredient pairs sharing at least min_shared effects (default 4 = all four effects identical, including hidden). Returns ingredient_1, ingredient_2, shared_effects list, and shared_count, sorted by overlap count descending.",
     "morrowind_alchemy_apparatus": "Return Morrowind alchemy apparatus with quality values.",
     "morrowind_enchant_magic_effects": "Return Morrowind magic effects with base_cost and school. Optional name/school filter.",
     "morrowind_enchant_souls": "Return Morrowind creature soul sizes. Optional partial name filter.",

@@ -136,6 +136,36 @@ def skyrim_alchemy_list_ingredients() -> list[dict]:
 
 
 @mcp.tool()
+def skyrim_alchemy_perfect_overlaps(min_shared: int = 4) -> list[dict]:
+    """Find all Skyrim ingredient pairs whose effect sets share at least min_shared effects.
+    Default min_shared=4 finds perfect overlaps (all four effects identical in any order).
+    Use min_shared=3 to find near-perfect overlaps.
+    Returns list of {ingredient_1, ingredient_2, shared_effects, shared_count}, sorted by
+    shared_count descending then alphabetically — the computation runs in the tool,
+    so the model never needs to enumerate pairs manually."""
+    effects_rows = _query(
+        "SELECT name, effect FROM skyrim_alchemy_effects ORDER BY name"
+    )
+    effects_map: dict[str, set[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], set()).add(r["effect"])
+    names = sorted(effects_map)
+    result = []
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            shared = effects_map[names[i]] & effects_map[names[j]]
+            if len(shared) >= min_shared:
+                result.append({
+                    "ingredient_1": names[i],
+                    "ingredient_2": names[j],
+                    "shared_effects": sorted(shared),
+                    "shared_count": len(shared),
+                })
+    result.sort(key=lambda r: (-r["shared_count"], r["ingredient_1"], r["ingredient_2"]))
+    return result
+
+
+@mcp.tool()
 def skyrim_alchemy_perks() -> list[dict]:
     """Return the full Skyrim alchemy perk tree with skill level requirements, prerequisites, and descriptions."""
     return _query("SELECT name, skill_level, prerequisite, description FROM skyrim_alchemy_perks ORDER BY skill_level, name")
@@ -235,6 +265,39 @@ def oblivion_alchemy_list_ingredients() -> list[dict]:
     for ing in ingredients:
         ing["effects"] = effects_map.get(ing["name"], [])
     return ingredients
+
+
+@mcp.tool()
+def oblivion_alchemy_perfect_overlaps(min_shared: int = 4) -> list[dict]:
+    """Find all Oblivion ingredient pairs whose effect sets share at least min_shared effects.
+    Default min_shared=4 finds perfect overlaps (all four effects identical in any order).
+    Use min_shared=3 to find near-perfect overlaps.
+    Note: in Oblivion only effects visible at the character's current Alchemy skill level
+    are usable in crafting — the DB stores all effects; the caller should keep this in mind.
+    Returns list of {ingredient_1, ingredient_2, shared_effects, shared_count}, sorted by
+    shared_count descending — the computation runs in the tool, so the model never needs to
+    enumerate pairs manually."""
+    effects_rows = _query(
+        "SELECT name, effect FROM oblivion_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name"
+    )
+    effects_map: dict[str, set[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], set()).add(r["effect"])
+    names = sorted(effects_map)
+    result = []
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            shared = effects_map[names[i]] & effects_map[names[j]]
+            if len(shared) >= min_shared:
+                result.append({
+                    "ingredient_1": names[i],
+                    "ingredient_2": names[j],
+                    "shared_effects": sorted(shared),
+                    "shared_count": len(shared),
+                })
+    result.sort(key=lambda r: (-r["shared_count"], r["ingredient_1"], r["ingredient_2"]))
+    return result
 
 
 @mcp.tool()
@@ -346,6 +409,38 @@ def morrowind_alchemy_list_ingredients() -> list[dict]:
     for ing in ingredients:
         ing["effects"] = effects_map.get(ing["name"], [])
     return ingredients
+
+
+@mcp.tool()
+def morrowind_alchemy_perfect_overlaps(min_shared: int = 4) -> list[dict]:
+    """Find all Morrowind ingredient pairs whose effect sets share at least min_shared effects.
+    Default min_shared=4 finds perfect overlaps (all four effects identical in any order).
+    Use min_shared=3 to find near-perfect overlaps. Includes hidden effects — in Morrowind,
+    hidden effects always count toward crafting regardless of Alchemy skill level.
+    Returns list of {ingredient_1, ingredient_2, shared_effects, shared_count}, sorted by
+    shared_count descending — the computation runs in the tool, so the model never needs to
+    enumerate pairs manually."""
+    effects_rows = _query(
+        "SELECT name, effect FROM morrowind_alchemy_effects "
+        "WHERE effect IS NOT NULL ORDER BY name"
+    )
+    effects_map: dict[str, set[str]] = {}
+    for r in effects_rows:
+        effects_map.setdefault(r["name"], set()).add(r["effect"])
+    names = sorted(effects_map)
+    result = []
+    for i in range(len(names)):
+        for j in range(i + 1, len(names)):
+            shared = effects_map[names[i]] & effects_map[names[j]]
+            if len(shared) >= min_shared:
+                result.append({
+                    "ingredient_1": names[i],
+                    "ingredient_2": names[j],
+                    "shared_effects": sorted(shared),
+                    "shared_count": len(shared),
+                })
+    result.sort(key=lambda r: (-r["shared_count"], r["ingredient_1"], r["ingredient_2"]))
+    return result
 
 
 @mcp.tool()

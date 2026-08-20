@@ -122,7 +122,7 @@ def chat(
         try:
             response = client.messages.create(
                 model=model,
-                max_tokens=4096,
+                max_tokens=8192,
                 system=system,
                 tools=_tools.TOOLS,
                 messages=conv,
