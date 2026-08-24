@@ -63,6 +63,15 @@ def main():
             conn.close()
             sys.exit(1)
 
+        # Add any CC-specific material columns not yet in the vanilla table
+        # (e.g. refined_amber, madness_ingot).  This happens on a clean first-run
+        # where the base armor step only created columns for vanilla materials.
+        existing_cols = {r[1] for r in cur.execute(f'PRAGMA table_info({TABLE_NAME})')}
+        for col in df.columns:
+            if col not in existing_cols:
+                cur.execute(f'ALTER TABLE {TABLE_NAME} ADD COLUMN "{col}" INTEGER DEFAULT 0')
+        conn.commit()
+
         cur.executemany(f"DELETE FROM {TABLE_NAME} WHERE piece = ?", pieces)
         conn.commit()
         df.to_sql(TABLE_NAME, conn, if_exists="append", method="multi", index=False)

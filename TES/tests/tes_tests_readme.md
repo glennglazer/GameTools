@@ -14,11 +14,13 @@ TES/tests/
 │   ├── morrowind/
 │   ├── oblivion/
 │   └── skyrim/
-└── integrationtests/        ← tests that spin up a real SQLite database (256 tests)
-    ├── conftest.py          ← shared fixtures and REPO_ROOT (same as unittests/)
-    ├── morrowind/
-    ├── oblivion/
-    └── skyrim/
+├── integrationtests/        ← tests that spin up a real SQLite database (256 tests)
+│   ├── conftest.py          ← shared fixtures and REPO_ROOT (same as unittests/)
+│   ├── morrowind/
+│   ├── oblivion/
+│   └── skyrim/
+└── end_to_end/              ← full pipeline smoke test (1 script)
+    └── test_pipeline_e2e.py ← builds a fresh DB from all checked-in JSON, then diffs against prod
 ```
 
 ## Test Classification
@@ -39,6 +41,7 @@ TES/tests/
 | Unit | 760 |
 | Integration | 256 |
 | **Total** | **1016** |
+| End-to-end | 1 script, 38 steps, 41 table comparisons |
 
 ## Usage
 
@@ -70,6 +73,30 @@ You can also invoke pytest directly against a subdirectory:
 ```bash
 sg docker -c "docker compose run --rm dev python -m pytest TES/tests/unittests/skyrim/ -v"
 ```
+
+## End-to-End Pipeline Test
+
+`TES/tests/end_to_end/test_pipeline_e2e.py` is a standalone script (not pytest) that:
+
+1. Creates a blank SQLite database in a temp directory
+2. Runs all 38 SQL-loading steps from the checked-in JSON source files
+3. Compares every table in the result against the production DB (`TES/database/gametools.sqlite3`)
+
+It runs the SQL-loading stage only — scrape and JSON-parse stages require network and are not included.
+
+### Usage
+
+```bash
+# All three games (38 steps, 41 tables)
+sg docker -c "docker compose run --rm dev python TES/tests/end_to_end/test_pipeline_e2e.py all"
+
+# Single game (subset of steps/tables)
+sg docker -c "docker compose run --rm dev python TES/tests/end_to_end/test_pipeline_e2e.py morrowind"
+sg docker -c "docker compose run --rm dev python TES/tests/end_to_end/test_pipeline_e2e.py oblivion"
+sg docker -c "docker compose run --rm dev python TES/tests/end_to_end/test_pipeline_e2e.py skyrim"
+```
+
+**Fail-fast behavior**: any non-zero exit from a pipeline step aborts immediately with the step label, exit code, and full stdout/stderr. SQL errors during comparison are caught per table and reported. The script exits 0 on full match, 1 on any mismatch.
 
 ## conftest.py Fixtures
 

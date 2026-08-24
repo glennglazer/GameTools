@@ -1,1 +1,3192 @@
-[{"name": "Alkanet Flower", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Alkanet Flower", "effect": "Resist Poison", "base_cost": 0.5}, {"name": "Alkanet Flower", "effect": "Light", "base_cost": 0.051}, {"name": "Alkanet Flower", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Alocasia Fruit", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Alocasia Fruit", "effect": "Light", "base_cost": 0.051}, {"name": "Alocasia Fruit", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Alocasia Fruit", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Aloe Vera Leaves", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Aloe Vera Leaves", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Aloe Vera Leaves", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Aloe Vera Leaves", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Ambrosia", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Ambrosia", "effect": null, "base_cost": null}, {"name": "Ambrosia", "effect": null, "base_cost": null}, {"name": "Ambrosia", "effect": null, "base_cost": null}, {"name": "Apple", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Apple", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Apple", "effect": "Fortify Willpower", "base_cost": 0.6}, {"name": "Apple", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Arrowroot", "effect": "Restore Agility", "base_cost": 38.0}, {"name": "Arrowroot", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Arrowroot", "effect": "Fortify Strength", "base_cost": 0.6}, {"name": "Arrowroot", "effect": "Burden", "base_cost": 0.21}, {"name": "Ashen Remains", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Ashen Remains", "effect": "Fortify Fatigue", "base_cost": 0.04}, {"name": "Ashen Remains", "effect": "Silence", "base_cost": 60.0}, {"name": "Ashen Remains", "effect": "Weakness to Fire", "base_cost": 0.1}, {"name": "Ashes of Hindaril", "effect": "Silence", "base_cost": 60.0}, {"name": "Ashes of Hindaril", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Ashes of Hindaril", "effect": "Frost Damage", "base_cost": 7.4}, {"name": "Ashes of Hindaril", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Aster Bloom Core", "effect": "Burden", "base_cost": 0.21}, {"name": "Aster Bloom Core", "effect": "Dispel", "base_cost": 3.6}, {"name": "Aster Bloom Core", "effect": "Restore Agility", "base_cost": 38.0}, {"name": "Aster Bloom Core", "effect": "Shield", "base_cost": 0.45}, {"name": "Beating Heart", "effect": "Cannibal Consumption", "base_cost": null}, {"name": "Beating Heart", "effect": null, "base_cost": null}, {"name": "Beating Heart", "effect": null, "base_cost": null}, {"name": "Beating Heart", "effect": null, "base_cost": null}, {"name": "Beef", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Beef", "effect": "Shield", "base_cost": 0.45}, {"name": "Beef", "effect": "Fortify Agility", "base_cost": 0.6}, {"name": "Beef", "effect": "Dispel", "base_cost": 3.6}, {"name": "Bergamot Seeds", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Bergamot Seeds", "effect": "Dispel", "base_cost": 3.6}, {"name": "Bergamot Seeds", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Bergamot Seeds", "effect": "Silence", "base_cost": 60.0}, {"name": "Black Tar", "effect": "Damage Speed", "base_cost": 100.0}, {"name": "Black Tar", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Black Tar", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Black Tar", "effect": "Shock Damage", "base_cost": 7.8}, {"name": "Blackberry", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Blackberry", "effect": "Resist Shock", "base_cost": 0.5}, {"name": "Blackberry", "effect": "Fortify Endurance", "base_cost": 0.6}, {"name": "Blackberry", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Blind Watcher's Eye", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Blind Watcher's Eye", "effect": "Light", "base_cost": 0.051}, {"name": "Blind Watcher's Eye", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Blind Watcher's Eye", "effect": "Reflect Spell", "base_cost": 3.5}, {"name": "Blister Pod Cap", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Blister Pod Cap", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Blister Pod Cap", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Blister Pod Cap", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Bloodgrass", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Bloodgrass", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Bloodgrass", "effect": "Burden", "base_cost": 0.21}, {"name": "Bloodgrass", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Boar Meat", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Boar Meat", "effect": "Damage Speed", "base_cost": 100.0}, {"name": "Boar Meat", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Boar Meat", "effect": "Burden", "base_cost": 0.21}, {"name": "Bog Beacon Asco Cap", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Bog Beacon Asco Cap", "effect": "Dispel", "base_cost": 3.6}, {"name": "Bog Beacon Asco Cap", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Bog Beacon Asco Cap", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Bone Marrow", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Bone Marrow", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Bone Marrow", "effect": "Frost Damage", "base_cost": 7.4}, {"name": "Bone Marrow", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Bone Shard", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Bone Shard", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Bone Shard", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Bone Shard", "effect": "Restore Willpower", "base_cost": 38.0}, {"name": "Bonemeal", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Bonemeal", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Bonemeal", "effect": "Fortify Luck", "base_cost": 0.6}, {"name": "Bonemeal", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Bread Loaf", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Bread Loaf", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Bread Loaf", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Bread Loaf", "effect": "Damage Strength", "base_cost": 100.0}, {"name": "Cairn Bolete Cap", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Cairn Bolete Cap", "effect": "Damage Intelligence", "base_cost": 100.0}, {"name": "Cairn Bolete Cap", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Cairn Bolete Cap", "effect": "Shock Damage", "base_cost": 7.8}, {"name": "Carrot", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Carrot", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Carrot", "effect": "Fortify Intelligence", "base_cost": 0.6}, {"name": "Carrot", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Carrot of Seeing", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Carrot of Seeing", "effect": "Fortify Intelligence", "base_cost": 0.6}, {"name": "Carrot of Seeing", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Carrot of Seeing", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Cheese Wedge", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Cheese Wedge", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Cheese Wedge", "effect": "Fire Shield", "base_cost": 0.95}, {"name": "Cheese Wedge", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Cheese Wheel", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Cheese Wheel", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Cheese Wheel", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Cheese Wheel", "effect": "Fortify Willpower", "base_cost": 0.6}, {"name": "Chokeberry", "effect": "Deadly Poison (bypasses poison resistance)", "base_cost": null}, {"name": "Chokeberry", "effect": null, "base_cost": null}, {"name": "Chokeberry", "effect": null, "base_cost": null}, {"name": "Chokeberry", "effect": null, "base_cost": null}, {"name": "Cinnabar Polypore Red Cap", "effect": "Restore Agility", "base_cost": 38.0}, {"name": "Cinnabar Polypore Red Cap", "effect": "Shield", "base_cost": 0.45}, {"name": "Cinnabar Polypore Red Cap", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Cinnabar Polypore Red Cap", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Cinnabar Polypore Yellow Cap", "effect": "Restore Endurance", "base_cost": 38.0}, {"name": "Cinnabar Polypore Yellow Cap", "effect": "Fortify Endurance", "base_cost": 0.6}, {"name": "Cinnabar Polypore Yellow Cap", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Cinnabar Polypore Yellow Cap", "effect": "Reflect Spell", "base_cost": 3.5}, {"name": "Clannfear Claws", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Clannfear Claws", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Clannfear Claws", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Clannfear Claws", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Clouded Funnel Cap", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Clouded Funnel Cap", "effect": "Fortify Intelligence", "base_cost": 0.6}, {"name": "Clouded Funnel Cap", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Clouded Funnel Cap", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Columbine Root Pulp", "effect": "Restore Personality", "base_cost": 38.0}, {"name": "Columbine Root Pulp", "effect": "Resist Frost", "base_cost": 0.5}, {"name": "Columbine Root Pulp", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Columbine Root Pulp", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Congealed Putrescence", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Congealed Putrescence", "effect": "Fire Damage", "base_cost": 7.5}, {"name": "Congealed Putrescence", "effect": "Restore Strength", "base_cost": 38.0}, {"name": "Congealed Putrescence", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Corn", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Corn", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Corn", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Corn", "effect": "Lightning Shield", "base_cost": 0.95}, {"name": "Crab Meat", "effect": "Restore Endurance", "base_cost": 38.0}, {"name": "Crab Meat", "effect": "Resist Shock", "base_cost": 0.5}, {"name": "Crab Meat", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Crab Meat", "effect": "Fire Shield", "base_cost": 0.95}, {"name": "Daedra Heart", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Daedra Heart", "effect": "Shock Shield", "base_cost": 0.95}, {"name": "Daedra Heart", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Daedra Heart", "effect": "Silence", "base_cost": 60.0}, {"name": "Daedra Silk", "effect": "Burden", "base_cost": 0.21}, {"name": "Daedra Silk", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Daedra Silk", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Daedra Silk", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Daedra Venin", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Daedra Venin", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Daedra Venin", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Daedra Venin", "effect": "Reflect Damage", "base_cost": 2.5}, {"name": "Daedroth Teeth", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Daedroth Teeth", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Daedroth Teeth", "effect": "Burden", "base_cost": 0.21}, {"name": "Daedroth Teeth", "effect": "Light", "base_cost": 0.051}, {"name": "Deformed Swamp Tentacle", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Deformed Swamp Tentacle", "effect": null, "base_cost": null}, {"name": "Deformed Swamp Tentacle", "effect": null, "base_cost": null}, {"name": "Deformed Swamp Tentacle", "effect": null, "base_cost": null}, {"name": "Dog Food", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Dog Food", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Dog Food", "effect": "Dispel", "base_cost": 3.6}, {"name": "Dog Food", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Dragon's Tongue", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Dragon's Tongue", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Dragon's Tongue", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Dragon's Tongue", "effect": "Fire Shield", "base_cost": 0.95}, {"name": "Dreugh Wax", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Dreugh Wax", "effect": "Resist Poison", "base_cost": 0.5}, {"name": "Dreugh Wax", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Dreugh Wax", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Dryad Saddle Polypore Cap", "effect": "Restore Luck", "base_cost": 38.0}, {"name": "Dryad Saddle Polypore Cap", "effect": "Resist Frost", "base_cost": 0.5}, {"name": "Dryad Saddle Polypore Cap", "effect": "Damage Speed", "base_cost": 100.0}, {"name": "Dryad Saddle Polypore Cap", "effect": "Frost Damage", "base_cost": 7.4}, {"name": "Ectoplasm", "effect": "Shock Damage", "base_cost": 7.8}, {"name": "Ectoplasm", "effect": "Dispel", "base_cost": 3.6}, {"name": "Ectoplasm", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Ectoplasm", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Elf Cup Cap", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Elf Cup Cap", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Elf Cup Cap", "effect": "Fortify Strength", "base_cost": 0.6}, {"name": "Elf Cup Cap", "effect": "Damage Intelligence", "base_cost": 100.0}, {"name": "Elytra Ichor", "effect": "Burden", "base_cost": 0.21}, {"name": "Elytra Ichor", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Elytra Ichor", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Elytra Ichor", "effect": "Silence", "base_cost": 60.0}, {"name": "Emetic Russula Cap", "effect": "Restore Agility", "base_cost": 38.0}, {"name": "Emetic Russula Cap", "effect": "Shield", "base_cost": 0.45}, {"name": "Emetic Russula Cap", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Emetic Russula Cap", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Felldew", "effect": "Felldew Effect", "base_cost": null}, {"name": "Felldew", "effect": null, "base_cost": null}, {"name": "Felldew", "effect": null, "base_cost": null}, {"name": "Felldew", "effect": null, "base_cost": null}, {"name": "Fennel Seeds", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Fennel Seeds", "effect": "Damage Intelligence", "base_cost": 100.0}, {"name": "Fennel Seeds", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Fennel Seeds", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Fire Salts", "effect": "Fire Damage", "base_cost": 7.5}, {"name": "Fire Salts", "effect": "Resist Frost", "base_cost": 0.5}, {"name": "Fire Salts", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Fire Salts", "effect": "Fire Shield", "base_cost": 0.95}, {"name": "Flame Stalk", "effect": "Fire Damage", "base_cost": 7.5}, {"name": "Flame Stalk", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Flame Stalk", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Flame Stalk", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Flax Seeds", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Flax Seeds", "effect": "Feather", "base_cost": 0.01}, {"name": "Flax Seeds", "effect": "Shield", "base_cost": 0.45}, {"name": "Flax Seeds", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Flour", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Flour", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Flour", "effect": "Fortify Fatigue", "base_cost": 0.04}, {"name": "Flour", "effect": "Reflect Damage", "base_cost": 2.5}, {"name": "Fly Amanita Cap", "effect": "Restore Agility", "base_cost": 38.0}, {"name": "Fly Amanita Cap", "effect": "Burden", "base_cost": 0.21}, {"name": "Fly Amanita Cap", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Fly Amanita Cap", "effect": "Lightning Damage", "base_cost": 7.8}, {"name": "Foxglove Nectar", "effect": "Resist Poison", "base_cost": 0.5}, {"name": "Foxglove Nectar", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Foxglove Nectar", "effect": "Restore Luck", "base_cost": 38.0}, {"name": "Foxglove Nectar", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Frost Salts", "effect": "Frost Damage", "base_cost": 7.4}, {"name": "Frost Salts", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Frost Salts", "effect": "Silence", "base_cost": 60.0}, {"name": "Frost Salts", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Fungus Stalk", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Fungus Stalk", "effect": "Restore Strength", "base_cost": 38.0}, {"name": "Fungus Stalk", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Fungus Stalk", "effect": "Water Walking", "base_cost": 13.0}, {"name": "Garlic", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Garlic", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Garlic", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Garlic", "effect": "Fortify Strength", "base_cost": 0.6}, {"name": "Ginkgo Leaf", "effect": "Restore Speed", "base_cost": 38.0}, {"name": "Ginkgo Leaf", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Ginkgo Leaf", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Ginkgo Leaf", "effect": "Shock Damage", "base_cost": 7.8}, {"name": "Ginseng", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Ginseng", "effect": "Cure Poison", "base_cost": 600.0}, {"name": "Ginseng", "effect": "Burden", "base_cost": 0.21}, {"name": "Ginseng", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Glow Dust", "effect": "Restore Speed", "base_cost": 38.0}, {"name": "Glow Dust", "effect": "Light", "base_cost": 0.051}, {"name": "Glow Dust", "effect": "Reflect Spell", "base_cost": 3.5}, {"name": "Glow Dust", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Gnarl Bark", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Gnarl Bark", "effect": "Fire Shield", "base_cost": 0.95}, {"name": "Gnarl Bark", "effect": "Restore Endurance", "base_cost": 38.0}, {"name": "Gnarl Bark", "effect": "Shield", "base_cost": 0.45}, {"name": "Grapes", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Grapes", "effect": "Water Walking", "base_cost": 13.0}, {"name": "Grapes", "effect": "Dispel", "base_cost": 3.6}, {"name": "Grapes", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Green Stain Cup Cap", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Green Stain Cup Cap", "effect": "Damage Speed", "base_cost": 100.0}, {"name": "Green Stain Cup Cap", "effect": "Reflect Damage", "base_cost": 2.5}, {"name": "Green Stain Cup Cap", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Green Stain Shelf Cap", "effect": "Restore Luck", "base_cost": 38.0}, {"name": "Green Stain Shelf Cap", "effect": "Fortify Luck", "base_cost": 0.6}, {"name": "Green Stain Shelf Cap", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Green Stain Shelf Cap", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Greenmote", "effect": "Greenmote Rapture", "base_cost": null}, {"name": "Greenmote", "effect": null, "base_cost": null}, {"name": "Greenmote", "effect": null, "base_cost": null}, {"name": "Greenmote", "effect": null, "base_cost": null}, {"name": "Grummite Eggs", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Grummite Eggs", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Grummite Eggs", "effect": "Dispel", "base_cost": 3.6}, {"name": "Grummite Eggs", "effect": "Silence", "base_cost": 60.0}, {"name": "Ham", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Ham", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Ham", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Ham", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Harrada Root", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Harrada Root", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Harrada Root", "effect": "Silence", "base_cost": 60.0}, {"name": "Harrada Root", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Heart of Order", "effect": "Jyggalag's Favor", "base_cost": null}, {"name": "Heart of Order", "effect": null, "base_cost": null}, {"name": "Heart of Order", "effect": null, "base_cost": null}, {"name": "Heart of Order", "effect": null, "base_cost": null}, {"name": "Hound Tooth", "effect": "Burden", "base_cost": 0.21}, {"name": "Hound Tooth", "effect": "Cure Poison", "base_cost": 600.0}, {"name": "Hound Tooth", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Hound Tooth", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Human Heart", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Human Heart", "effect": "Shock Shield", "base_cost": 0.95}, {"name": "Human Heart", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Human Heart", "effect": "Silence", "base_cost": 60.0}, {"name": "Human Heart", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Human Heart", "effect": "Shock Shield", "base_cost": 0.95}, {"name": "Human Heart", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Human Heart", "effect": "Silence", "base_cost": 60.0}, {"name": "Human Skin", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Human Skin", "effect": "Resist Shock", "base_cost": 0.5}, {"name": "Human Skin", "effect": "Reflect Damage", "base_cost": 2.5}, {"name": "Human Skin", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Hunger Tongue", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Hunger Tongue", "effect": "Cure Poison", "base_cost": 600.0}, {"name": "Hunger Tongue", "effect": "Fire Damage", "base_cost": 7.5}, {"name": "Hunger Tongue", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Hydnum Azure Giant Spore", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Hydnum Azure Giant Spore", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Hydnum Azure Giant Spore", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Hydnum Azure Giant Spore", "effect": "Restore Endurance", "base_cost": 38.0}, {"name": "Imp Fluid", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Imp Fluid", "effect": null, "base_cost": null}, {"name": "Imp Fluid", "effect": null, "base_cost": null}, {"name": "Imp Fluid", "effect": null, "base_cost": null}, {"name": "Imp Gall", "effect": "Fortify Personality", "base_cost": 0.6}, {"name": "Imp Gall", "effect": "Cure Paralysis", "base_cost": 500.0}, {"name": "Imp Gall", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Imp Gall", "effect": "Fire Damage", "base_cost": 7.5}, {"name": "Ironwood Nut", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Ironwood Nut", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Ironwood Nut", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Ironwood Nut", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Jumbo Potato", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Jumbo Potato", "effect": "Shield", "base_cost": 0.45}, {"name": "Jumbo Potato", "effect": "Burden", "base_cost": 0.21}, {"name": "Jumbo Potato", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Lady's Mantle Leaves", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Lady's Mantle Leaves", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Lady's Mantle Leaves", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Lady's Mantle Leaves", "effect": "Feather", "base_cost": 0.01}, {"name": "Lady's Smock Leaves", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Lady's Smock Leaves", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Lady's Smock Leaves", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Lady's Smock Leaves", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Lavender Sprig", "effect": "Restore Personality", "base_cost": 38.0}, {"name": "Lavender Sprig", "effect": "Fortify Willpower", "base_cost": 0.6}, {"name": "Lavender Sprig", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Lavender Sprig", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Leek", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Leek", "effect": "Fortify Agility", "base_cost": 0.6}, {"name": "Leek", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Leek", "effect": "Damage Strength", "base_cost": 100.0}, {"name": "Letifer Orca Digestive Slime", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Letifer Orca Digestive Slime", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Letifer Orca Digestive Slime", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Letifer Orca Digestive Slime", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Lettuce", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Lettuce", "effect": "Restore Luck", "base_cost": 38.0}, {"name": "Lettuce", "effect": "Fire Shield", "base_cost": 0.95}, {"name": "Lettuce", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Lichor", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Lichor", "effect": null, "base_cost": null}, {"name": "Lichor", "effect": null, "base_cost": null}, {"name": "Lichor", "effect": null, "base_cost": null}, {"name": "Mandrake Root", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Mandrake Root", "effect": "Resist Poison", "base_cost": 0.5}, {"name": "Mandrake Root", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Mandrake Root", "effect": "Fortify Willpower", "base_cost": 0.6}, {"name": "Milk Thistle Seeds", "effect": "Light", "base_cost": 0.051}, {"name": "Milk Thistle Seeds", "effect": "Frost Damage", "base_cost": 7.4}, {"name": "Milk Thistle Seeds", "effect": "Cure Paralysis", "base_cost": 500.0}, {"name": "Milk Thistle Seeds", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Minotaur Horn", "effect": "Restore Willpower", "base_cost": 38.0}, {"name": "Minotaur Horn", "effect": "Burden", "base_cost": 0.21}, {"name": "Minotaur Horn", "effect": "Fortify Endurance", "base_cost": 0.6}, {"name": "Minotaur Horn", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Monkshood Root Pulp", "effect": "Restore Strength", "base_cost": 38.0}, {"name": "Monkshood Root Pulp", "effect": "Damage Intelligence", "base_cost": 100.0}, {"name": "Monkshood Root Pulp", "effect": "Fortify Endurance", "base_cost": 0.6}, {"name": "Monkshood Root Pulp", "effect": "Burden", "base_cost": 0.21}, {"name": "Morning Glory Root Pulp", "effect": "Burden", "base_cost": 0.21}, {"name": "Morning Glory Root Pulp", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Morning Glory Root Pulp", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Morning Glory Root Pulp", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Mort Flesh", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Mort Flesh", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Mort Flesh", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Mort Flesh", "effect": "Silence", "base_cost": 60.0}, {"name": "Motherwort Sprig", "effect": "Resist Poison", "base_cost": 0.5}, {"name": "Motherwort Sprig", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Motherwort Sprig", "effect": "Silence", "base_cost": 60.0}, {"name": "Motherwort Sprig", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Mugwort Seeds", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Mugwort Seeds", "effect": null, "base_cost": null}, {"name": "Mugwort Seeds", "effect": null, "base_cost": null}, {"name": "Mugwort Seeds", "effect": null, "base_cost": null}, {"name": "Mute Screaming Maw", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Mute Screaming Maw", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Mute Screaming Maw", "effect": "Restore Willpower", "base_cost": 38.0}, {"name": "Mute Screaming Maw", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Mutton", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Mutton", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Mutton", "effect": "Dispel", "base_cost": 3.6}, {"name": "Mutton", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Nightshade", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Nightshade", "effect": "Burden", "base_cost": 0.21}, {"name": "Nightshade", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Nightshade", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Nirnroot", "effect": "Drain Health", "base_cost": 0.9}, {"name": "Nirnroot", "effect": "Drain Fatigue", "base_cost": 0.18}, {"name": "Nirnroot", "effect": "Drain Agility", "base_cost": 0.7}, {"name": "Nirnroot", "effect": "Drain Speed", "base_cost": 0.7}, {"name": "Ogre's Teeth", "effect": "Damage Intelligence", "base_cost": 100.0}, {"name": "Ogre's Teeth", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Ogre's Teeth", "effect": "Shock Damage", "base_cost": 7.8}, {"name": "Ogre's Teeth", "effect": "Fortify Strength", "base_cost": 0.6}, {"name": "Onion", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Onion", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Onion", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Onion", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Orange", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Orange", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Orange", "effect": "Burden", "base_cost": 0.21}, {"name": "Orange", "effect": "Shield", "base_cost": 0.45}, {"name": "Painted Troll Fat", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Painted Troll Fat", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Painted Troll Fat", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Painted Troll Fat", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Pear", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Pear", "effect": "Damage Speed", "base_cost": 100.0}, {"name": "Pear", "effect": "Fortify Speed", "base_cost": 0.6}, {"name": "Pear", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Peony Seeds", "effect": "Restore Strength", "base_cost": 38.0}, {"name": "Peony Seeds", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Peony Seeds", "effect": "Damage Speed", "base_cost": 100.0}, {"name": "Peony Seeds", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Pinarus' Prize Minotaur Horn", "effect": "Restore Willpower", "base_cost": 38.0}, {"name": "Pinarus' Prize Minotaur Horn", "effect": "Burden", "base_cost": 0.21}, {"name": "Pinarus' Prize Minotaur Horn", "effect": "Restore Endurance", "base_cost": 38.0}, {"name": "Pinarus' Prize Minotaur Horn", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Poisoned Apple", "effect": "Deadly Poison (bypasses poison resistance)", "base_cost": null}, {"name": "Poisoned Apple", "effect": null, "base_cost": null}, {"name": "Poisoned Apple", "effect": null, "base_cost": null}, {"name": "Poisoned Apple", "effect": null, "base_cost": null}, {"name": "Potato", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Potato", "effect": "Shield", "base_cost": 0.45}, {"name": "Potato", "effect": "Burden", "base_cost": 0.21}, {"name": "Potato", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Primrose Leaves", "effect": "Restore Willpower", "base_cost": 38.0}, {"name": "Primrose Leaves", "effect": "Restore Personality", "base_cost": 38.0}, {"name": "Primrose Leaves", "effect": "Fortify Luck", "base_cost": 0.6}, {"name": "Primrose Leaves", "effect": "Damage Strength", "base_cost": 100.0}, {"name": "Pumpkin", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Pumpkin", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Pumpkin", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Pumpkin", "effect": "Detect Life", "base_cost": 0.08}, {"name": "VL", "effect": "Damage Health", "base_cost": 12.0}, {"name": "VL", "effect": "Dispel", "base_cost": 3.6}, {"name": "VL", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "VL", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Radish", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Radish", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Radish", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Radish", "effect": "Burden", "base_cost": 0.21}, {"name": "Rat Meat", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Rat Meat", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Rat Meat", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Rat Meat", "effect": "Silence", "base_cost": 60.0}, {"name": "Rat Poison", "effect": "Rat Poison", "base_cost": null}, {"name": "Rat Poison", "effect": null, "base_cost": null}, {"name": "Rat Poison", "effect": null, "base_cost": null}, {"name": "Rat Poison", "effect": null, "base_cost": null}, {"name": "Red Kelp Gas Bladder", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Red Kelp Gas Bladder", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Red Kelp Gas Bladder", "effect": "Restore Speed", "base_cost": 38.0}, {"name": "Red Kelp Gas Bladder", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Redwort Flower", "effect": "Resist Frost", "base_cost": 0.5}, {"name": "Redwort Flower", "effect": "Cure Poison", "base_cost": 600.0}, {"name": "Redwort Flower", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Redwort Flower", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Refined Frost Salts", "effect": "Frost Damage", "base_cost": 7.4}, {"name": "Refined Frost Salts", "effect": "Frost Shield", "base_cost": 0.95}, {"name": "Refined Frost Salts", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Refined Frost Salts", "effect": "Silence", "base_cost": 60.0}, {"name": "Rice", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Rice", "effect": "Silence", "base_cost": 60.0}, {"name": "Rice", "effect": "Shock Shield", "base_cost": 0.95}, {"name": "Rice", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Root Pulp", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Root Pulp", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Root Pulp", "effect": "Fortify Strength", "base_cost": 0.6}, {"name": "Root Pulp", "effect": "Damage Intelligence", "base_cost": 100.0}, {"name": "Rot Scale", "effect": "Burden", "base_cost": 0.21}, {"name": "Rot Scale", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Rot Scale", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Rot Scale", "effect": "Silence", "base_cost": 60.0}, {"name": "Rumare Slaughterfish Scales", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Rumare Slaughterfish Scales", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Rumare Slaughterfish Scales", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Rumare Slaughterfish Scales", "effect": "Water Walking", "base_cost": 13.0}, {"name": "S'jirra's Famous Potato Bread", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "S'jirra's Famous Potato Bread", "effect": "Damage Strength", "base_cost": 100.0}, {"name": "S'jirra's Famous Potato Bread", "effect": "Detect Life", "base_cost": 0.08}, {"name": "S'jirra's Famous Potato Bread", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Sacred Lotus Seeds", "effect": "Resist Frost", "base_cost": 0.5}, {"name": "Sacred Lotus Seeds", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Sacred Lotus Seeds", "effect": "Feather", "base_cost": 0.01}, {"name": "Sacred Lotus Seeds", "effect": "Dispel", "base_cost": 3.6}, {"name": "Scales", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Scales", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Scales", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Scales", "effect": "Water Walking", "base_cost": 13.0}, {"name": "Scalon Fin", "effect": "Burden", "base_cost": 0.21}, {"name": "Scalon Fin", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Scalon Fin", "effect": "Shock Damage", "base_cost": 7.8}, {"name": "Scalon Fin", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Scamp Skin", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Scamp Skin", "effect": "Resist Shock", "base_cost": 0.5}, {"name": "Scamp Skin", "effect": "Reflect Damage", "base_cost": 2.5}, {"name": "Scamp Skin", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Screaming Maw", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Screaming Maw", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Screaming Maw", "effect": "Restore Willpower", "base_cost": 38.0}, {"name": "Screaming Maw", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Shepherd's Pie", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Shepherd's Pie", "effect": "Shield", "base_cost": 0.45}, {"name": "Shepherd's Pie", "effect": "Fortify Agility", "base_cost": 0.6}, {"name": "Shepherd's Pie", "effect": "Dispel", "base_cost": 3.6}, {"name": "Smoked Baliwog Leg", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Smoked Baliwog Leg", "effect": "Feather", "base_cost": 0.01}, {"name": "Smoked Baliwog Leg", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Smoked Baliwog Leg", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Somnalius Frond", "effect": "Restore Speed", "base_cost": 38.0}, {"name": "Somnalius Frond", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Somnalius Frond", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Somnalius Frond", "effect": "Feather", "base_cost": 0.01}, {"name": "Spiddal Stick", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Spiddal Stick", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Spiddal Stick", "effect": "Fire Damage", "base_cost": 7.5}, {"name": "Spiddal Stick", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "St. Jahn's Wort Nectar", "effect": "Resist Shock", "base_cost": 0.5}, {"name": "St. Jahn's Wort Nectar", "effect": "Damage Health", "base_cost": 12.0}, {"name": "St. Jahn's Wort Nectar", "effect": "Cure Poison", "base_cost": 600.0}, {"name": "St. Jahn's Wort Nectar", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Steel-Blue Entoloma Cap", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Steel-Blue Entoloma Cap", "effect": "Fire Damage", "base_cost": 7.5}, {"name": "Steel-Blue Entoloma Cap", "effect": "Resist Frost", "base_cost": 0.5}, {"name": "Steel-Blue Entoloma Cap", "effect": "Burden", "base_cost": 0.21}, {"name": "Stinkhorn Cap", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Stinkhorn Cap", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Stinkhorn Cap", "effect": "Water Walking", "base_cost": 13.0}, {"name": "Stinkhorn Cap", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Strawberry", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Strawberry", "effect": "Cure Poison", "base_cost": 600.0}, {"name": "Strawberry", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Strawberry", "effect": "Reflect Damage", "base_cost": 2.5}, {"name": "Summer Bolete Cap", "effect": "Restore Agility", "base_cost": 38.0}, {"name": "Summer Bolete Cap", "effect": "Shield", "base_cost": 0.45}, {"name": "Summer Bolete Cap", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Summer Bolete Cap", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Swamp Tentacle", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Swamp Tentacle", "effect": "Restore Personality", "base_cost": 38.0}, {"name": "Swamp Tentacle", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Swamp Tentacle", "effect": "Water Walking", "base_cost": 13.0}, {"name": "Sweetcake", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Sweetcake", "effect": "Feather", "base_cost": 0.01}, {"name": "Sweetcake", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Sweetcake", "effect": "Burden", "base_cost": 0.21}, {"name": "Sweetroll", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Sweetroll", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Sweetroll", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "Sweetroll", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Taproot", "effect": "Restore Luck", "base_cost": 38.0}, {"name": "Taproot", "effect": "Damage Endurance", "base_cost": 100.0}, {"name": "Taproot", "effect": "Resist Poison", "base_cost": 0.5}, {"name": "Taproot", "effect": "Shock Shield", "base_cost": 0.95}, {"name": "Thorn Hook", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Thorn Hook", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Thorn Hook", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Thorn Hook", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Tiger Lily Nectar", "effect": "Restore Endurance", "base_cost": 38.0}, {"name": "Tiger Lily Nectar", "effect": "Damage Strength", "base_cost": 100.0}, {"name": "Tiger Lily Nectar", "effect": "Water Walking", "base_cost": 13.0}, {"name": "Tiger Lily Nectar", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Tinder Polypore Cap", "effect": "Restore Willpower", "base_cost": 38.0}, {"name": "Tinder Polypore Cap", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Tinder Polypore Cap", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Tinder Polypore Cap", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Tobacco", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Tobacco", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Tobacco", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Tobacco", "effect": "Dispel", "base_cost": 3.6}, {"name": "Tomato", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Tomato", "effect": "Detect Life", "base_cost": 0.08}, {"name": "Tomato", "effect": "Burden", "base_cost": 0.21}, {"name": "Tomato", "effect": "Shield", "base_cost": 0.45}, {"name": "Troll Fat", "effect": "Damage Agility", "base_cost": 100.0}, {"name": "Troll Fat", "effect": "Fortify Personality", "base_cost": 0.6}, {"name": "Troll Fat", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Troll Fat", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Unicorn Horn", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Unicorn Horn", "effect": null, "base_cost": null}, {"name": "Unicorn Horn", "effect": null, "base_cost": null}, {"name": "Unicorn Horn", "effect": null, "base_cost": null}, {"name": "Unrefined Greenmote", "effect": "Drain Intelligence", "base_cost": 0.7}, {"name": "Unrefined Greenmote", "effect": "Drain Fatigue", "base_cost": 0.18}, {"name": "Unrefined Greenmote", "effect": "Drain Health", "base_cost": 0.9}, {"name": "Unrefined Greenmote", "effect": "Drain Magicka", "base_cost": 0.18}, {"name": "Vampire Dust", "effect": "Silence", "base_cost": 60.0}, {"name": "Vampire Dust", "effect": "Resist Disease", "base_cost": 0.5}, {"name": "Vampire Dust", "effect": "Frost Damage", "base_cost": 7.4}, {"name": "Vampire Dust", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Venison", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Venison", "effect": "Feather", "base_cost": 0.01}, {"name": "Venison", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Venison", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Viper's Bugloss Leaves", "effect": "Resist Paralysis", "base_cost": 0.75}, {"name": "Viper's Bugloss Leaves", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Viper's Bugloss Leaves", "effect": "Burden", "base_cost": 0.21}, {"name": "Viper's Bugloss Leaves", "effect": "Cure Paralysis", "base_cost": 500.0}, {"name": "Void Essence", "effect": "Fortify Strength", "base_cost": 0.6}, {"name": "Void Essence", "effect": "Fortify Endurance", "base_cost": 0.6}, {"name": "Void Essence", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Void Essence", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Void Salts", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Void Salts", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Void Salts", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Void Salts", "effect": "Dispel", "base_cost": 3.6}, {"name": "Watcher's Eye", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Watcher's Eye", "effect": "Light", "base_cost": 0.051}, {"name": "Watcher's Eye", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Watcher's Eye", "effect": "Reflect Spell", "base_cost": 3.5}, {"name": "Water Hyacinth Nectar", "effect": "Damage Luck", "base_cost": 100.0}, {"name": "Water Hyacinth Nectar", "effect": "Damage Fatigue", "base_cost": 4.4}, {"name": "Water Hyacinth Nectar", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Water Hyacinth Nectar", "effect": "Fortify Magicka", "base_cost": 0.15}, {"name": "Water Root Pod Pit", "effect": "Fire Shield", "base_cost": 0.95}, {"name": "Water Root Pod Pit", "effect": "Restore Health", "base_cost": 10.0}, {"name": "Water Root Pod Pit", "effect": "Resist Fire", "base_cost": 0.5}, {"name": "Water Root Pod Pit", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "Watermelon", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Watermelon", "effect": "Light", "base_cost": 0.051}, {"name": "Watermelon", "effect": "Burden", "base_cost": 0.21}, {"name": "Watermelon", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Wheat Grain", "effect": "Restore Fatigue", "base_cost": 2.0}, {"name": "Wheat Grain", "effect": "Damage Magicka", "base_cost": 2.45}, {"name": "Wheat Grain", "effect": "Fortify Health", "base_cost": 0.14}, {"name": "Wheat Grain", "effect": "Damage Personality", "base_cost": 100.0}, {"name": "White Seed Pod", "effect": "Restore Strength", "base_cost": 38.0}, {"name": "White Seed Pod", "effect": "Water Breathing", "base_cost": 14.5}, {"name": "White Seed Pod", "effect": "Silence", "base_cost": 60.0}, {"name": "White Seed Pod", "effect": "Light", "base_cost": 0.051}, {"name": "Wisp Core", "effect": "Burden", "base_cost": 0.21}, {"name": "Wisp Core", "effect": "Chameleon", "base_cost": 0.63}, {"name": "Wisp Core", "effect": "Light", "base_cost": 0.051}, {"name": "Wisp Core", "effect": "Restore Intelligence", "base_cost": 38.0}, {"name": "Wisp Stalk Caps", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Wisp Stalk Caps", "effect": "Damage Willpower", "base_cost": 100.0}, {"name": "Wisp Stalk Caps", "effect": "Damage Intelligence", "base_cost": 100.0}, {"name": "Wisp Stalk Caps", "effect": "Fortify Speed", "base_cost": 0.6}, {"name": "Withering Moon", "effect": "Cure Disease", "base_cost": 1400.0}, {"name": "Withering Moon", "effect": "Restore Magicka", "base_cost": 2.5}, {"name": "Withering Moon", "effect": "Reflect Spell", "base_cost": 3.5}, {"name": "Withering Moon", "effect": "Shield", "base_cost": 0.45}, {"name": "Worm's Head Cap", "effect": "Fortify Fatigue", "base_cost": 0.04}, {"name": "Worm's Head Cap", "effect": "Night-Eye", "base_cost": 22.0}, {"name": "Worm's Head Cap", "effect": "Paralyze", "base_cost": 475.0}, {"name": "Worm's Head Cap", "effect": "Restore Luck", "base_cost": 38.0}, {"name": "Wormwood Leaves", "effect": "Fortify Fatigue", "base_cost": 0.04}, {"name": "Wormwood Leaves", "effect": "Invisibility", "base_cost": 40.0}, {"name": "Wormwood Leaves", "effect": "Damage Health", "base_cost": 12.0}, {"name": "Wormwood Leaves", "effect": "Damage Magicka", "base_cost": 2.45}]
+[
+  {
+    "name": "Alkanet Flower",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Alkanet Flower",
+    "effect": "Resist Poison",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Alkanet Flower",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Alkanet Flower",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Alocasia Fruit",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Alocasia Fruit",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Alocasia Fruit",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Alocasia Fruit",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Aloe Vera Leaves",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Aloe Vera Leaves",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Aloe Vera Leaves",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Aloe Vera Leaves",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Ambrosia",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Ambrosia",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Apple",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Apple",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Apple",
+    "effect": "Fortify Willpower",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Apple",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Arrowroot",
+    "effect": "Restore Agility",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Arrowroot",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Arrowroot",
+    "effect": "Fortify Strength",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Arrowroot",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Ashen Remains",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Ashen Remains",
+    "effect": "Fortify Fatigue",
+    "base_cost": 0.04
+  },
+  {
+    "name": "Ashen Remains",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Ashen Remains",
+    "effect": "Weakness to Fire",
+    "base_cost": 0.1
+  },
+  {
+    "name": "Ashes of Hindaril",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Ashes of Hindaril",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Ashes of Hindaril",
+    "effect": "Frost Damage",
+    "base_cost": 7.4
+  },
+  {
+    "name": "Ashes of Hindaril",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Aster Bloom Core",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Aster Bloom Core",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Aster Bloom Core",
+    "effect": "Restore Agility",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Aster Bloom Core",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Beating Heart",
+    "effect": "Cannibal Consumption",
+    "base_cost": null
+  },
+  {
+    "name": "Beating Heart",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Beef",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Beef",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Beef",
+    "effect": "Fortify Agility",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Beef",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Bergamot Seeds",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Bergamot Seeds",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Bergamot Seeds",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Bergamot Seeds",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Black Tar",
+    "effect": "Damage Speed",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Black Tar",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Black Tar",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Black Tar",
+    "effect": "Shock Damage",
+    "base_cost": 7.8
+  },
+  {
+    "name": "Blackberry",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Blackberry",
+    "effect": "Resist Shock",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Blackberry",
+    "effect": "Fortify Endurance",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Blackberry",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Blind Watcher's Eye",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Blind Watcher's Eye",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Blind Watcher's Eye",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Blind Watcher's Eye",
+    "effect": "Reflect Spell",
+    "base_cost": 3.5
+  },
+  {
+    "name": "Blister Pod Cap",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Blister Pod Cap",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Blister Pod Cap",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Blister Pod Cap",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Bloodgrass",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Bloodgrass",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Bloodgrass",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Bloodgrass",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Boar Meat",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Boar Meat",
+    "effect": "Damage Speed",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Boar Meat",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Boar Meat",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Bog Beacon Asco Cap",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Bog Beacon Asco Cap",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Bog Beacon Asco Cap",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Bog Beacon Asco Cap",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Bone Marrow",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Bone Marrow",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Bone Marrow",
+    "effect": "Frost Damage",
+    "base_cost": 7.4
+  },
+  {
+    "name": "Bone Marrow",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Bone Shard",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Bone Shard",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Bone Shard",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Bone Shard",
+    "effect": "Restore Willpower",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Bonemeal",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Bonemeal",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Bonemeal",
+    "effect": "Fortify Luck",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Bonemeal",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Bread Loaf",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Bread Loaf",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Bread Loaf",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Bread Loaf",
+    "effect": "Damage Strength",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Cairn Bolete Cap",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Cairn Bolete Cap",
+    "effect": "Damage Intelligence",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Cairn Bolete Cap",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Cairn Bolete Cap",
+    "effect": "Shock Damage",
+    "base_cost": 7.8
+  },
+  {
+    "name": "Carrot",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Carrot",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Carrot",
+    "effect": "Fortify Intelligence",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Carrot",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Carrot of Seeing",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Carrot of Seeing",
+    "effect": "Fortify Intelligence",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Carrot of Seeing",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Carrot of Seeing",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Cheese Wedge",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Cheese Wedge",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Cheese Wedge",
+    "effect": "Fire Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Cheese Wedge",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Cheese Wheel",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Cheese Wheel",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Cheese Wheel",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Cheese Wheel",
+    "effect": "Fortify Willpower",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Chokeberry",
+    "effect": "Deadly Poison (bypasses poison resistance)",
+    "base_cost": null
+  },
+  {
+    "name": "Chokeberry",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Cinnabar Polypore Red Cap",
+    "effect": "Restore Agility",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Cinnabar Polypore Red Cap",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Cinnabar Polypore Red Cap",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Cinnabar Polypore Red Cap",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Cinnabar Polypore Yellow Cap",
+    "effect": "Restore Endurance",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Cinnabar Polypore Yellow Cap",
+    "effect": "Fortify Endurance",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Cinnabar Polypore Yellow Cap",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Cinnabar Polypore Yellow Cap",
+    "effect": "Reflect Spell",
+    "base_cost": 3.5
+  },
+  {
+    "name": "Clannfear Claws",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Clannfear Claws",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Clannfear Claws",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Clannfear Claws",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Clouded Funnel Cap",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Clouded Funnel Cap",
+    "effect": "Fortify Intelligence",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Clouded Funnel Cap",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Clouded Funnel Cap",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Columbine Root Pulp",
+    "effect": "Restore Personality",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Columbine Root Pulp",
+    "effect": "Resist Frost",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Columbine Root Pulp",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Columbine Root Pulp",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Congealed Putrescence",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Congealed Putrescence",
+    "effect": "Fire Damage",
+    "base_cost": 7.5
+  },
+  {
+    "name": "Congealed Putrescence",
+    "effect": "Restore Strength",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Congealed Putrescence",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Corn",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Corn",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Corn",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Corn",
+    "effect": "Lightning Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Crab Meat",
+    "effect": "Restore Endurance",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Crab Meat",
+    "effect": "Resist Shock",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Crab Meat",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Crab Meat",
+    "effect": "Fire Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Daedra Heart",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Daedra Heart",
+    "effect": "Shock Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Daedra Heart",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Daedra Heart",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Daedra Silk",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Daedra Silk",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Daedra Silk",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Daedra Silk",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Daedra Venin",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Daedra Venin",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Daedra Venin",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Daedra Venin",
+    "effect": "Reflect Damage",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Daedroth Teeth",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Daedroth Teeth",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Daedroth Teeth",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Daedroth Teeth",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Deformed Swamp Tentacle",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Deformed Swamp Tentacle",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Dog Food",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Dog Food",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Dog Food",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Dog Food",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Dragon's Tongue",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Dragon's Tongue",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Dragon's Tongue",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Dragon's Tongue",
+    "effect": "Fire Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Dreugh Wax",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Dreugh Wax",
+    "effect": "Resist Poison",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Dreugh Wax",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Dreugh Wax",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Dryad Saddle Polypore Cap",
+    "effect": "Restore Luck",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Dryad Saddle Polypore Cap",
+    "effect": "Resist Frost",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Dryad Saddle Polypore Cap",
+    "effect": "Damage Speed",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Dryad Saddle Polypore Cap",
+    "effect": "Frost Damage",
+    "base_cost": 7.4
+  },
+  {
+    "name": "Ectoplasm",
+    "effect": "Shock Damage",
+    "base_cost": 7.8
+  },
+  {
+    "name": "Ectoplasm",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Ectoplasm",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Ectoplasm",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Elf Cup Cap",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Elf Cup Cap",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Elf Cup Cap",
+    "effect": "Fortify Strength",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Elf Cup Cap",
+    "effect": "Damage Intelligence",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Elytra Ichor",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Elytra Ichor",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Elytra Ichor",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Elytra Ichor",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Emetic Russula Cap",
+    "effect": "Restore Agility",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Emetic Russula Cap",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Emetic Russula Cap",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Emetic Russula Cap",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Felldew",
+    "effect": "Felldew Effect",
+    "base_cost": null
+  },
+  {
+    "name": "Felldew",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Fennel Seeds",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Fennel Seeds",
+    "effect": "Damage Intelligence",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Fennel Seeds",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Fennel Seeds",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Fire Salts",
+    "effect": "Fire Damage",
+    "base_cost": 7.5
+  },
+  {
+    "name": "Fire Salts",
+    "effect": "Resist Frost",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Fire Salts",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Fire Salts",
+    "effect": "Fire Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Flame Stalk",
+    "effect": "Fire Damage",
+    "base_cost": 7.5
+  },
+  {
+    "name": "Flame Stalk",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Flame Stalk",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Flame Stalk",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Flax Seeds",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Flax Seeds",
+    "effect": "Feather",
+    "base_cost": 0.01
+  },
+  {
+    "name": "Flax Seeds",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Flax Seeds",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Flour",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Flour",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Flour",
+    "effect": "Fortify Fatigue",
+    "base_cost": 0.04
+  },
+  {
+    "name": "Flour",
+    "effect": "Reflect Damage",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Fly Amanita Cap",
+    "effect": "Restore Agility",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Fly Amanita Cap",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Fly Amanita Cap",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Fly Amanita Cap",
+    "effect": "Lightning Damage",
+    "base_cost": 7.8
+  },
+  {
+    "name": "Foxglove Nectar",
+    "effect": "Resist Poison",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Foxglove Nectar",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Foxglove Nectar",
+    "effect": "Restore Luck",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Foxglove Nectar",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Frost Salts",
+    "effect": "Frost Damage",
+    "base_cost": 7.4
+  },
+  {
+    "name": "Frost Salts",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Frost Salts",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Frost Salts",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Fungus Stalk",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Fungus Stalk",
+    "effect": "Restore Strength",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Fungus Stalk",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Fungus Stalk",
+    "effect": "Water Walking",
+    "base_cost": 13.0
+  },
+  {
+    "name": "Garlic",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Garlic",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Garlic",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Garlic",
+    "effect": "Fortify Strength",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Ginkgo Leaf",
+    "effect": "Restore Speed",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Ginkgo Leaf",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Ginkgo Leaf",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Ginkgo Leaf",
+    "effect": "Shock Damage",
+    "base_cost": 7.8
+  },
+  {
+    "name": "Ginseng",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Ginseng",
+    "effect": "Cure Poison",
+    "base_cost": 600.0
+  },
+  {
+    "name": "Ginseng",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Ginseng",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Glow Dust",
+    "effect": "Restore Speed",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Glow Dust",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Glow Dust",
+    "effect": "Reflect Spell",
+    "base_cost": 3.5
+  },
+  {
+    "name": "Glow Dust",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Gnarl Bark",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Gnarl Bark",
+    "effect": "Fire Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Gnarl Bark",
+    "effect": "Restore Endurance",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Gnarl Bark",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Grapes",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Grapes",
+    "effect": "Water Walking",
+    "base_cost": 13.0
+  },
+  {
+    "name": "Grapes",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Grapes",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Green Stain Cup Cap",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Green Stain Cup Cap",
+    "effect": "Damage Speed",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Green Stain Cup Cap",
+    "effect": "Reflect Damage",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Green Stain Cup Cap",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Green Stain Shelf Cap",
+    "effect": "Restore Luck",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Green Stain Shelf Cap",
+    "effect": "Fortify Luck",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Green Stain Shelf Cap",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Green Stain Shelf Cap",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Greenmote",
+    "effect": "Greenmote Rapture",
+    "base_cost": null
+  },
+  {
+    "name": "Greenmote",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Grummite Eggs",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Grummite Eggs",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Grummite Eggs",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Grummite Eggs",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Ham",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Ham",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Ham",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Ham",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Harrada Root",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Harrada Root",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Harrada Root",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Harrada Root",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Heart of Order",
+    "effect": "Jyggalag's Favor",
+    "base_cost": null
+  },
+  {
+    "name": "Heart of Order",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Hound Tooth",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Hound Tooth",
+    "effect": "Cure Poison",
+    "base_cost": 600.0
+  },
+  {
+    "name": "Hound Tooth",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Hound Tooth",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Human Heart",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Human Heart",
+    "effect": "Shock Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Human Heart",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Human Heart",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Human Skin",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Human Skin",
+    "effect": "Resist Shock",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Human Skin",
+    "effect": "Reflect Damage",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Human Skin",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Hunger Tongue",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Hunger Tongue",
+    "effect": "Cure Poison",
+    "base_cost": 600.0
+  },
+  {
+    "name": "Hunger Tongue",
+    "effect": "Fire Damage",
+    "base_cost": 7.5
+  },
+  {
+    "name": "Hunger Tongue",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Hydnum Azure Giant Spore",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Hydnum Azure Giant Spore",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Hydnum Azure Giant Spore",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Hydnum Azure Giant Spore",
+    "effect": "Restore Endurance",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Imp Fluid",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Imp Fluid",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Imp Gall",
+    "effect": "Fortify Personality",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Imp Gall",
+    "effect": "Cure Paralysis",
+    "base_cost": 500.0
+  },
+  {
+    "name": "Imp Gall",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Imp Gall",
+    "effect": "Fire Damage",
+    "base_cost": 7.5
+  },
+  {
+    "name": "Ironwood Nut",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Ironwood Nut",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Ironwood Nut",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Ironwood Nut",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Jumbo Potato",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Jumbo Potato",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Jumbo Potato",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Jumbo Potato",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Lady's Mantle Leaves",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Lady's Mantle Leaves",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Lady's Mantle Leaves",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Lady's Mantle Leaves",
+    "effect": "Feather",
+    "base_cost": 0.01
+  },
+  {
+    "name": "Lady's Smock Leaves",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Lady's Smock Leaves",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Lady's Smock Leaves",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Lady's Smock Leaves",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Lavender Sprig",
+    "effect": "Restore Personality",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Lavender Sprig",
+    "effect": "Fortify Willpower",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Lavender Sprig",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Lavender Sprig",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Leek",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Leek",
+    "effect": "Fortify Agility",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Leek",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Leek",
+    "effect": "Damage Strength",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Letifer Orca Digestive Slime",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Letifer Orca Digestive Slime",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Letifer Orca Digestive Slime",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Letifer Orca Digestive Slime",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Lettuce",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Lettuce",
+    "effect": "Restore Luck",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Lettuce",
+    "effect": "Fire Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Lettuce",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Lichor",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Lichor",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Mandrake Root",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Mandrake Root",
+    "effect": "Resist Poison",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Mandrake Root",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Mandrake Root",
+    "effect": "Fortify Willpower",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Milk Thistle Seeds",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Milk Thistle Seeds",
+    "effect": "Frost Damage",
+    "base_cost": 7.4
+  },
+  {
+    "name": "Milk Thistle Seeds",
+    "effect": "Cure Paralysis",
+    "base_cost": 500.0
+  },
+  {
+    "name": "Milk Thistle Seeds",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Minotaur Horn",
+    "effect": "Restore Willpower",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Minotaur Horn",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Minotaur Horn",
+    "effect": "Fortify Endurance",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Minotaur Horn",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Monkshood Root Pulp",
+    "effect": "Restore Strength",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Monkshood Root Pulp",
+    "effect": "Damage Intelligence",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Monkshood Root Pulp",
+    "effect": "Fortify Endurance",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Monkshood Root Pulp",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Morning Glory Root Pulp",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Morning Glory Root Pulp",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Morning Glory Root Pulp",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Morning Glory Root Pulp",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Mort Flesh",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Mort Flesh",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Mort Flesh",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Mort Flesh",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Motherwort Sprig",
+    "effect": "Resist Poison",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Motherwort Sprig",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Motherwort Sprig",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Motherwort Sprig",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Mugwort Seeds",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Mugwort Seeds",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Mute Screaming Maw",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Mute Screaming Maw",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Mute Screaming Maw",
+    "effect": "Restore Willpower",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Mute Screaming Maw",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Mutton",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Mutton",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Mutton",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Mutton",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Nightshade",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Nightshade",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Nightshade",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Nightshade",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Nirnroot",
+    "effect": "Drain Health",
+    "base_cost": 0.9
+  },
+  {
+    "name": "Nirnroot",
+    "effect": "Drain Fatigue",
+    "base_cost": 0.18
+  },
+  {
+    "name": "Nirnroot",
+    "effect": "Drain Agility",
+    "base_cost": 0.7
+  },
+  {
+    "name": "Nirnroot",
+    "effect": "Drain Speed",
+    "base_cost": 0.7
+  },
+  {
+    "name": "Ogre's Teeth",
+    "effect": "Damage Intelligence",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Ogre's Teeth",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Ogre's Teeth",
+    "effect": "Shock Damage",
+    "base_cost": 7.8
+  },
+  {
+    "name": "Ogre's Teeth",
+    "effect": "Fortify Strength",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Onion",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Onion",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Onion",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Onion",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Orange",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Orange",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Orange",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Orange",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Painted Troll Fat",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Painted Troll Fat",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Painted Troll Fat",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Painted Troll Fat",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Pear",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Pear",
+    "effect": "Damage Speed",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Pear",
+    "effect": "Fortify Speed",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Pear",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Peony Seeds",
+    "effect": "Restore Strength",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Peony Seeds",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Peony Seeds",
+    "effect": "Damage Speed",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Peony Seeds",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Pinarus' Prize Minotaur Horn",
+    "effect": "Restore Willpower",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Pinarus' Prize Minotaur Horn",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Pinarus' Prize Minotaur Horn",
+    "effect": "Restore Endurance",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Pinarus' Prize Minotaur Horn",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Poisoned Apple",
+    "effect": "Deadly Poison (bypasses poison resistance)",
+    "base_cost": null
+  },
+  {
+    "name": "Poisoned Apple",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Potato",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Potato",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Potato",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Potato",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Primrose Leaves",
+    "effect": "Restore Willpower",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Primrose Leaves",
+    "effect": "Restore Personality",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Primrose Leaves",
+    "effect": "Fortify Luck",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Primrose Leaves",
+    "effect": "Damage Strength",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Pumpkin",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Pumpkin",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Pumpkin",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Pumpkin",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "VL",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "VL",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "VL",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "VL",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Radish",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Radish",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Radish",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Radish",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Rat Meat",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Rat Meat",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Rat Meat",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Rat Meat",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Rat Poison",
+    "effect": "Rat Poison",
+    "base_cost": null
+  },
+  {
+    "name": "Rat Poison",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Red Kelp Gas Bladder",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Red Kelp Gas Bladder",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Red Kelp Gas Bladder",
+    "effect": "Restore Speed",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Red Kelp Gas Bladder",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Redwort Flower",
+    "effect": "Resist Frost",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Redwort Flower",
+    "effect": "Cure Poison",
+    "base_cost": 600.0
+  },
+  {
+    "name": "Redwort Flower",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Redwort Flower",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Refined Frost Salts",
+    "effect": "Frost Damage",
+    "base_cost": 7.4
+  },
+  {
+    "name": "Refined Frost Salts",
+    "effect": "Frost Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Refined Frost Salts",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Refined Frost Salts",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Rice",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Rice",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Rice",
+    "effect": "Shock Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Rice",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Root Pulp",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Root Pulp",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Root Pulp",
+    "effect": "Fortify Strength",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Root Pulp",
+    "effect": "Damage Intelligence",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Rot Scale",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Rot Scale",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Rot Scale",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Rot Scale",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Rumare Slaughterfish Scales",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Rumare Slaughterfish Scales",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Rumare Slaughterfish Scales",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Rumare Slaughterfish Scales",
+    "effect": "Water Walking",
+    "base_cost": 13.0
+  },
+  {
+    "name": "S'jirra's Famous Potato Bread",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "S'jirra's Famous Potato Bread",
+    "effect": "Damage Strength",
+    "base_cost": 100.0
+  },
+  {
+    "name": "S'jirra's Famous Potato Bread",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "S'jirra's Famous Potato Bread",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Sacred Lotus Seeds",
+    "effect": "Resist Frost",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Sacred Lotus Seeds",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Sacred Lotus Seeds",
+    "effect": "Feather",
+    "base_cost": 0.01
+  },
+  {
+    "name": "Sacred Lotus Seeds",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Scales",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Scales",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Scales",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Scales",
+    "effect": "Water Walking",
+    "base_cost": 13.0
+  },
+  {
+    "name": "Scalon Fin",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Scalon Fin",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Scalon Fin",
+    "effect": "Shock Damage",
+    "base_cost": 7.8
+  },
+  {
+    "name": "Scalon Fin",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Scamp Skin",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Scamp Skin",
+    "effect": "Resist Shock",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Scamp Skin",
+    "effect": "Reflect Damage",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Scamp Skin",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Screaming Maw",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Screaming Maw",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Screaming Maw",
+    "effect": "Restore Willpower",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Screaming Maw",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Shepherd's Pie",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Shepherd's Pie",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Shepherd's Pie",
+    "effect": "Fortify Agility",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Shepherd's Pie",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Smoked Baliwog Leg",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Smoked Baliwog Leg",
+    "effect": "Feather",
+    "base_cost": 0.01
+  },
+  {
+    "name": "Smoked Baliwog Leg",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Smoked Baliwog Leg",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Somnalius Frond",
+    "effect": "Restore Speed",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Somnalius Frond",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Somnalius Frond",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Somnalius Frond",
+    "effect": "Feather",
+    "base_cost": 0.01
+  },
+  {
+    "name": "Spiddal Stick",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Spiddal Stick",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Spiddal Stick",
+    "effect": "Fire Damage",
+    "base_cost": 7.5
+  },
+  {
+    "name": "Spiddal Stick",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "St. Jahn's Wort Nectar",
+    "effect": "Resist Shock",
+    "base_cost": 0.5
+  },
+  {
+    "name": "St. Jahn's Wort Nectar",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "St. Jahn's Wort Nectar",
+    "effect": "Cure Poison",
+    "base_cost": 600.0
+  },
+  {
+    "name": "St. Jahn's Wort Nectar",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Steel-Blue Entoloma Cap",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Steel-Blue Entoloma Cap",
+    "effect": "Fire Damage",
+    "base_cost": 7.5
+  },
+  {
+    "name": "Steel-Blue Entoloma Cap",
+    "effect": "Resist Frost",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Steel-Blue Entoloma Cap",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Stinkhorn Cap",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Stinkhorn Cap",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Stinkhorn Cap",
+    "effect": "Water Walking",
+    "base_cost": 13.0
+  },
+  {
+    "name": "Stinkhorn Cap",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Strawberry",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Strawberry",
+    "effect": "Cure Poison",
+    "base_cost": 600.0
+  },
+  {
+    "name": "Strawberry",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Strawberry",
+    "effect": "Reflect Damage",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Summer Bolete Cap",
+    "effect": "Restore Agility",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Summer Bolete Cap",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Summer Bolete Cap",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Summer Bolete Cap",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Swamp Tentacle",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Swamp Tentacle",
+    "effect": "Restore Personality",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Swamp Tentacle",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Swamp Tentacle",
+    "effect": "Water Walking",
+    "base_cost": 13.0
+  },
+  {
+    "name": "Sweetcake",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Sweetcake",
+    "effect": "Feather",
+    "base_cost": 0.01
+  },
+  {
+    "name": "Sweetcake",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Sweetcake",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Sweetroll",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Sweetroll",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Sweetroll",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Sweetroll",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Taproot",
+    "effect": "Restore Luck",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Taproot",
+    "effect": "Damage Endurance",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Taproot",
+    "effect": "Resist Poison",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Taproot",
+    "effect": "Shock Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Thorn Hook",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Thorn Hook",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Thorn Hook",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Thorn Hook",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Tiger Lily Nectar",
+    "effect": "Restore Endurance",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Tiger Lily Nectar",
+    "effect": "Damage Strength",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Tiger Lily Nectar",
+    "effect": "Water Walking",
+    "base_cost": 13.0
+  },
+  {
+    "name": "Tiger Lily Nectar",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Tinder Polypore Cap",
+    "effect": "Restore Willpower",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Tinder Polypore Cap",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Tinder Polypore Cap",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Tinder Polypore Cap",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Tobacco",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Tobacco",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Tobacco",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Tobacco",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Tomato",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Tomato",
+    "effect": "Detect Life",
+    "base_cost": 0.08
+  },
+  {
+    "name": "Tomato",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Tomato",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Troll Fat",
+    "effect": "Damage Agility",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Troll Fat",
+    "effect": "Fortify Personality",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Troll Fat",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Troll Fat",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Unicorn Horn",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Unicorn Horn",
+    "effect": null,
+    "base_cost": null
+  },
+  {
+    "name": "Unrefined Greenmote",
+    "effect": "Drain Intelligence",
+    "base_cost": 0.7
+  },
+  {
+    "name": "Unrefined Greenmote",
+    "effect": "Drain Fatigue",
+    "base_cost": 0.18
+  },
+  {
+    "name": "Unrefined Greenmote",
+    "effect": "Drain Health",
+    "base_cost": 0.9
+  },
+  {
+    "name": "Unrefined Greenmote",
+    "effect": "Drain Magicka",
+    "base_cost": 0.18
+  },
+  {
+    "name": "Vampire Dust",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "Vampire Dust",
+    "effect": "Resist Disease",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Vampire Dust",
+    "effect": "Frost Damage",
+    "base_cost": 7.4
+  },
+  {
+    "name": "Vampire Dust",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Venison",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Venison",
+    "effect": "Feather",
+    "base_cost": 0.01
+  },
+  {
+    "name": "Venison",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Venison",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Viper's Bugloss Leaves",
+    "effect": "Resist Paralysis",
+    "base_cost": 0.75
+  },
+  {
+    "name": "Viper's Bugloss Leaves",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Viper's Bugloss Leaves",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Viper's Bugloss Leaves",
+    "effect": "Cure Paralysis",
+    "base_cost": 500.0
+  },
+  {
+    "name": "Void Essence",
+    "effect": "Fortify Strength",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Void Essence",
+    "effect": "Fortify Endurance",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Void Essence",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Void Essence",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Void Salts",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Void Salts",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Void Salts",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Void Salts",
+    "effect": "Dispel",
+    "base_cost": 3.6
+  },
+  {
+    "name": "Watcher's Eye",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Watcher's Eye",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Watcher's Eye",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Watcher's Eye",
+    "effect": "Reflect Spell",
+    "base_cost": 3.5
+  },
+  {
+    "name": "Water Hyacinth Nectar",
+    "effect": "Damage Luck",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Water Hyacinth Nectar",
+    "effect": "Damage Fatigue",
+    "base_cost": 4.4
+  },
+  {
+    "name": "Water Hyacinth Nectar",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Water Hyacinth Nectar",
+    "effect": "Fortify Magicka",
+    "base_cost": 0.15
+  },
+  {
+    "name": "Water Root Pod Pit",
+    "effect": "Fire Shield",
+    "base_cost": 0.95
+  },
+  {
+    "name": "Water Root Pod Pit",
+    "effect": "Restore Health",
+    "base_cost": 10.0
+  },
+  {
+    "name": "Water Root Pod Pit",
+    "effect": "Resist Fire",
+    "base_cost": 0.5
+  },
+  {
+    "name": "Water Root Pod Pit",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "Watermelon",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Watermelon",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Watermelon",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Watermelon",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Wheat Grain",
+    "effect": "Restore Fatigue",
+    "base_cost": 2.0
+  },
+  {
+    "name": "Wheat Grain",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  },
+  {
+    "name": "Wheat Grain",
+    "effect": "Fortify Health",
+    "base_cost": 0.14
+  },
+  {
+    "name": "Wheat Grain",
+    "effect": "Damage Personality",
+    "base_cost": 100.0
+  },
+  {
+    "name": "White Seed Pod",
+    "effect": "Restore Strength",
+    "base_cost": 38.0
+  },
+  {
+    "name": "White Seed Pod",
+    "effect": "Water Breathing",
+    "base_cost": 14.5
+  },
+  {
+    "name": "White Seed Pod",
+    "effect": "Silence",
+    "base_cost": 60.0
+  },
+  {
+    "name": "White Seed Pod",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Wisp Core",
+    "effect": "Burden",
+    "base_cost": 0.21
+  },
+  {
+    "name": "Wisp Core",
+    "effect": "Chameleon",
+    "base_cost": 0.63
+  },
+  {
+    "name": "Wisp Core",
+    "effect": "Light",
+    "base_cost": 0.051
+  },
+  {
+    "name": "Wisp Core",
+    "effect": "Restore Intelligence",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Wisp Stalk Caps",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Wisp Stalk Caps",
+    "effect": "Damage Willpower",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Wisp Stalk Caps",
+    "effect": "Damage Intelligence",
+    "base_cost": 100.0
+  },
+  {
+    "name": "Wisp Stalk Caps",
+    "effect": "Fortify Speed",
+    "base_cost": 0.6
+  },
+  {
+    "name": "Withering Moon",
+    "effect": "Cure Disease",
+    "base_cost": 1400.0
+  },
+  {
+    "name": "Withering Moon",
+    "effect": "Restore Magicka",
+    "base_cost": 2.5
+  },
+  {
+    "name": "Withering Moon",
+    "effect": "Reflect Spell",
+    "base_cost": 3.5
+  },
+  {
+    "name": "Withering Moon",
+    "effect": "Shield",
+    "base_cost": 0.45
+  },
+  {
+    "name": "Worm's Head Cap",
+    "effect": "Fortify Fatigue",
+    "base_cost": 0.04
+  },
+  {
+    "name": "Worm's Head Cap",
+    "effect": "Night-Eye",
+    "base_cost": 22.0
+  },
+  {
+    "name": "Worm's Head Cap",
+    "effect": "Paralyze",
+    "base_cost": 475.0
+  },
+  {
+    "name": "Worm's Head Cap",
+    "effect": "Restore Luck",
+    "base_cost": 38.0
+  },
+  {
+    "name": "Wormwood Leaves",
+    "effect": "Fortify Fatigue",
+    "base_cost": 0.04
+  },
+  {
+    "name": "Wormwood Leaves",
+    "effect": "Invisibility",
+    "base_cost": 40.0
+  },
+  {
+    "name": "Wormwood Leaves",
+    "effect": "Damage Health",
+    "base_cost": 12.0
+  },
+  {
+    "name": "Wormwood Leaves",
+    "effect": "Damage Magicka",
+    "base_cost": 2.45
+  }
+]
