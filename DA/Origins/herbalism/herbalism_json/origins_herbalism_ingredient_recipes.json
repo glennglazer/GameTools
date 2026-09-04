@@ -1,0 +1,457 @@
+[
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Dwarven Regicide Antidote Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Elixir of Grounding Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Ice Salve Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Injury Kit Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Nature Salve Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Spirit Balm Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Warmth Balm Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Injury Kit Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Lesser Elixir of Grounding Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Lesser Ice Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Lesser Nature Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Lesser Spirit Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Lesser Warmth Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Potent Health Poultice Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Potent Lyrium Potion Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Swift Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Double-Baked Mabari Crunch Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Greater Injury Kit Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Incense of Awareness Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Injury Kit Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Lesser Injury Kit Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Mabari Crunch Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Rock Salve Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Swift Salve Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Elixir of Grounding Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Health Poultice Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Ice Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Injury Kit Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Lyrium Potion Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Nature Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Spirit Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Warmth Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Incense of Awareness Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Injury Kit Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Lesser Injury Kit Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Potent Health Poultice Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Potent Lyrium Potion Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Rock Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Double-Baked Mabari Crunch Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Dwarven Regicide Antidote Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Greater Health Poultice Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Greater Injury Kit Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Health Poultice Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Injury Kit Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Lesser Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Lesser Injury Kit Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Mabari Crunch Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Potent Health Poultice Recipe",
+    "quantity": 5
+  },
+  {
+    "ingredient": "Fire Crystal",
+    "recipe": "Greater Warmth Balm Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Fire Crystal",
+    "recipe": "Lesser Warmth Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Dwarven Regicide Antidote Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Elixir of Grounding Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Ice Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Nature Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Spirit Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Warmth Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Incense of Awareness Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Elixir of Grounding Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Ice Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Nature Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Spirit Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Warmth Balm Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Potent Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Potent Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Rock Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Swift Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Frostrock",
+    "recipe": "Greater Ice Salve Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Frostrock",
+    "recipe": "Lesser Ice Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Frozen Lightning",
+    "recipe": "Greater Elixir of Grounding Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Frozen Lightning",
+    "recipe": "Lesser Elixir of Grounding Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Dwarven Regicide Antidote Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Greater Nature Salve Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Lesser Nature Salve Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Greater Lyrium Potion Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Incense of Awareness Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Lesser Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Lyrium Potion Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Potent Lyrium Potion Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Swift Salve Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Spirit Shard",
+    "recipe": "Greater Spirit Balm Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Spirit Shard",
+    "recipe": "Lesser Spirit Balm Recipe",
+    "quantity": 1
+  }
+]

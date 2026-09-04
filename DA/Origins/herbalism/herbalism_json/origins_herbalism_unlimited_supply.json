@@ -1,0 +1,74 @@
+[
+  {
+    "ingredient": "Concentrator Agent",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern in Denerim Market District",
+    "note": null
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "vendor": "Bodahn Feddic",
+    "location": "Party Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Deathroot",
+    "vendor": "Varathorn",
+    "location": "Dalish Camp",
+    "note": "if you side with the werewolves he will be unavailable"
+  },
+  {
+    "ingredient": "Elfroot",
+    "vendor": "Varathorn",
+    "location": "Dalish Camp",
+    "note": "if you side with the werewolves he will be unavailable"
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "vendor": "Ruck",
+    "location": "Ruck's Cave in the Ortan Thaig area of The Deep Roads",
+    "note": "if you kill him his stock will be unavailable"
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern in Denerim Market District",
+    "note": null
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "vendor": "Bodahn Feddic",
+    "location": "Party Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Flask",
+    "vendor": "Figor",
+    "location": "Orzammar",
+    "note": "cheapest"
+  },
+  {
+    "ingredient": "Flask",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern in Denerim Market District",
+    "note": null
+  },
+  {
+    "ingredient": "Flask",
+    "vendor": "Bodahn Feddic",
+    "location": "Party Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Lifestone",
+    "vendor": "Ruck's Cave",
+    "location": "Ortan Thaig area of The Deep Roads",
+    "note": "if you kill him his stock will be unavailable"
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "vendor": "Quartermaster",
+    "location": "Circle Tower",
+    "note": null
+  }
+]

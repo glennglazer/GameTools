@@ -1,0 +1,110 @@
+[
+  {
+    "recipe": "Lesser Health Poultice Recipe",
+    "tier": 1
+  },
+  {
+    "recipe": "Lesser Lyrium Potion Recipe",
+    "tier": 1
+  },
+  {
+    "recipe": "Mabari Crunch Recipe",
+    "tier": 1
+  },
+  {
+    "recipe": "Double-Baked Mabari Crunch Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Health Poultice Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Incense of Awareness Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Lesser Injury Kit Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Lyrium Potion Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Rock Salve Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Greater Health Poultice Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Greater Lyrium Potion Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Injury Kit Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Lesser Elixir of Grounding Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Lesser Ice Salve Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Lesser Nature Salve Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Lesser Spirit Balm Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Lesser Warmth Balm Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Swift Salve Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Dwarven Regicide Antidote Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Greater Elixir of Grounding Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Greater Ice Salve Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Greater Injury Kit Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Greater Nature Salve Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Greater Spirit Balm Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Greater Warmth Balm Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Potent Health Poultice Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Potent Lyrium Potion Recipe",
+    "tier": 4
+  }
+]
