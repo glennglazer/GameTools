@@ -1,0 +1,102 @@
+[
+  {
+    "recipe": "Deathroot Extract Recipe",
+    "tier": 1
+  },
+  {
+    "recipe": "Venom Recipe",
+    "tier": 1
+  },
+  {
+    "recipe": "Acid Flask Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Concentrated Deathroot Extract Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Concentrated Venom Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Crow Poison Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Fire Bomb Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Freeze Bomb Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Shock Bomb Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Soulrot Bomb Recipe",
+    "tier": 2
+  },
+  {
+    "recipe": "Acidic Coating Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Adder's Kiss Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Concentrated Crow Poison Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Demonic Poison Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Flaming Coating Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Fleshrot Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Freezing Coating Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Magebane Poison Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Shock Coating Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Soldier's Bane Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Soulrot Coating Recipe",
+    "tier": 3
+  },
+  {
+    "recipe": "Concentrated Demonic Poison Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Concentrated Magebane Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Concentrated Soldier's Bane Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Quiet Death Recipe",
+    "tier": 4
+  }
+]

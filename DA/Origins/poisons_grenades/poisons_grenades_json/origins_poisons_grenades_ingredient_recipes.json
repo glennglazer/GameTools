@@ -1,0 +1,437 @@
+[
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Acidic Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Adder's Kiss Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Concentrated Crow Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Concentrated Demonic Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Concentrated Magebane Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Concentrated Soldier's Bane Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Demonic Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Flaming Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Fleshrot Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Freezing Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Magebane Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Quiet Death Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Shock Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Soldier's Bane Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Soulrot Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Acid Flask Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Acidic Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Concentrated Magebane Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Concentrated Soldier's Bane Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Fire Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Flaming Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Freeze Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Freezing Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Magebane Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Shock Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Shock Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Soldier's Bane Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Soulrot Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Soulrot Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Concentrated Crow Poison Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Concentrated Deathroot Extract Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Crow Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Deathroot Extract Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Fleshrot Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Quiet Death Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Concentrated Soldier's Bane Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Soldier's Bane Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Demonic Ichor",
+    "recipe": "Concentrated Demonic Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Demonic Ichor",
+    "recipe": "Demonic Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Adder's Kiss Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Concentrated Deathroot Extract Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Concentrated Venom Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Crow Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Fleshrot Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Fire Crystal",
+    "recipe": "Fire Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Fire Crystal",
+    "recipe": "Flaming Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Acid Flask Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Acidic Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Adder's Kiss Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Concentrated Crow Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Concentrated Deathroot Extract Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Concentrated Demonic Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Concentrated Magebane Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Concentrated Soldier's Bane Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Concentrated Venom Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Crow Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Deathroot Extract Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Demonic Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Fire Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Flaming Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Fleshrot Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Freeze Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Freezing Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Magebane Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Quiet Death Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Shock Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Shock Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Soldier's Bane Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Soulrot Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Soulrot Coating Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Venom Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Frostrock",
+    "recipe": "Freeze Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Frostrock",
+    "recipe": "Freezing Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Frozen Lightning",
+    "recipe": "Shock Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Frozen Lightning",
+    "recipe": "Shock Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Acid Flask Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Acidic Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Concentrated Magebane Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Magebane Poison Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Spirit Shard",
+    "recipe": "Soulrot Bomb Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Spirit Shard",
+    "recipe": "Soulrot Coating Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Adder's Kiss Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Concentrated Crow Poison Recipe",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Concentrated Venom Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Crow Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Quiet Death Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Venom Recipe",
+    "quantity": 1
+  }
+]

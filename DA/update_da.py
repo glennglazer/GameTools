@@ -4,6 +4,7 @@ DA data pipeline driver.
 
 Runs the full update pipeline for all implemented Dragon Age game/system combinations:
   - Origins herbalism (scrape → JSON → SQL)
+  - Origins poisons & grenades (scrape → JSON → SQL)
 
 Halts immediately on any subprocess failure.
 """
@@ -83,6 +84,44 @@ def update_origins_herbalism() -> None:
     )
 
 
+def update_origins_poisons_grenades() -> None:
+    """Scrape → JSON → SQL for DAO Poisons & Grenades."""
+    pg_dir    = _SCRIPT_DIR / 'Origins' / 'poisons_grenades'
+    parse_dir = pg_dir / 'poisons_grenades_parse'
+    json_dir  = pg_dir / 'poisons_grenades_json'
+    sql_dir   = pg_dir / 'poisons_grenades_sql'
+
+    raw_json      = parse_dir / 'poisons_grenades_raw.json'
+    recipes_json  = json_dir  / 'origins_poisons_grenades_recipes.json'
+    ing_rec_json  = json_dir  / 'origins_poisons_grenades_ingredient_recipes.json'
+    tiers_json    = json_dir  / 'origins_poisons_grenades_tiers.json'
+    supply_json   = json_dir  / 'origins_poisons_grenades_unlimited_supply.json'
+
+    # 1. Scrape
+    run_step(
+        'Origins poisons/grenades scrape',
+        [parse_dir / 'origins_scrape_poisons_grenades.py', raw_json],
+    )
+
+    # 2. Parse JSON
+    run_step(
+        'Origins poisons/grenades JSON parse',
+        [
+            json_dir / 'origins_parse_poisons_grenades.py',
+            raw_json, recipes_json, ing_rec_json, tiers_json, supply_json,
+        ],
+    )
+
+    # 3. SQL load
+    run_step(
+        'Origins poisons/grenades SQL load',
+        [
+            sql_dir / 'create_or_update_origins_poisons_grenades.py',
+            recipes_json, ing_rec_json, tiers_json, supply_json, _DB,
+        ],
+    )
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -90,6 +129,7 @@ def main() -> None:
 
     # Origins
     update_origins_herbalism()
+    update_origins_poisons_grenades()
 
     log.info('=== DA pipeline complete ===')
 

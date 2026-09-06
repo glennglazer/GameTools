@@ -1,0 +1,92 @@
+[
+  {
+    "ingredient": "Concentrator Agent",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern in Denerim Market District",
+    "note": null
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "vendor": "Bodahn Feddic",
+    "location": "Party Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "vendor": "Bodahn Feddic",
+    "location": "Party Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "vendor": "Alimar",
+    "location": "Dust Town",
+    "note": "If not forced to accept bribe of 10 silvers for information"
+  },
+  {
+    "ingredient": "Deathroot",
+    "vendor": "Varathorn",
+    "location": "Dalish Camp",
+    "note": "if you side with werewolves he will be unavailable"
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "vendor": "Ruck",
+    "location": "Ruck's Cave in the Ortan Thaig area of The Deep Roads",
+    "note": "if you kill him his stock will be unavailable"
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern in Denerim Market District",
+    "note": null
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "vendor": "Bodahn Feddic",
+    "location": "Party Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Flask",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern in Denerim Market District",
+    "note": null
+  },
+  {
+    "ingredient": "Flask",
+    "vendor": "Innkeeper",
+    "location": "Spoiled Princess",
+    "note": null
+  },
+  {
+    "ingredient": "Flask",
+    "vendor": "Figor",
+    "location": "Figor's Imports in Orzammar",
+    "note": "you must scare off the Carta thugs first"
+  },
+  {
+    "ingredient": "Flask",
+    "vendor": "Bodahn Feddic",
+    "location": "Party Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Lifestone",
+    "vendor": "Ruck",
+    "location": "Ruck's Cave in the Ortan Thaig area of The Deep Roads",
+    "note": "if you kill him his stock will be unavailable"
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "vendor": "Quartermaster",
+    "location": "Circle Tower",
+    "note": null
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "vendor": "Varathorn",
+    "location": "Dalish Camp",
+    "note": "if you side with werewolves he will be unavailable"
+  }
+]
