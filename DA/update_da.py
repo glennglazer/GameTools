@@ -124,6 +124,45 @@ def update_origins_poisons_grenades() -> None:
     )
 
 
+def update_origins_trap_making() -> None:
+    """Scrape → JSON → SQL for DAO Trap-Making."""
+    tm_dir    = _SCRIPT_DIR / 'Origins' / 'trap_making'
+    parse_dir = tm_dir / 'trap_making_parse'
+    json_dir  = tm_dir / 'trap_making_json'
+    sql_dir   = tm_dir / 'trap_making_sql'
+
+    raw_json      = parse_dir / 'trap_making_raw.json'
+    recipes_json  = json_dir  / 'origins_trap_making_recipes.json'
+    ing_rec_json  = json_dir  / 'origins_trap_making_ingredient_recipes.json'
+    tiers_json    = json_dir  / 'origins_trap_making_tiers.json'
+    supply_json   = json_dir  / 'origins_trap_making_unlimited_supply.json'
+    effects_json  = json_dir  / 'origins_trap_making_effects.json'
+
+    # 1. Scrape
+    run_step(
+        'Origins trap-making scrape',
+        [parse_dir / 'origins_scrape_trap_making.py', raw_json],
+    )
+
+    # 2. Parse JSON
+    run_step(
+        'Origins trap-making JSON parse',
+        [
+            json_dir / 'origins_parse_trap_making.py',
+            raw_json, recipes_json, ing_rec_json, tiers_json, supply_json, effects_json,
+        ],
+    )
+
+    # 3. SQL load
+    run_step(
+        'Origins trap-making SQL load',
+        [
+            sql_dir / 'create_or_update_origins_trap_making.py',
+            recipes_json, ing_rec_json, tiers_json, supply_json, effects_json, _DB,
+        ],
+    )
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -132,6 +171,7 @@ def main() -> None:
     # Origins
     update_origins_herbalism()
     update_origins_poisons_grenades()
+    update_origins_trap_making()
 
     log.info('=== DA pipeline complete ===')
 

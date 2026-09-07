@@ -1,0 +1,68 @@
+[
+  {
+    "ingredient": "Concentrator Agent",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern",
+    "note": null
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "vendor": "Bodahn Feddic",
+    "location": null,
+    "note": null
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "vendor": "Bodahn Feddic",
+    "location": null,
+    "note": null
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "vendor": "Alimar",
+    "location": "Dust Town",
+    "note": "cheaper"
+  },
+  {
+    "ingredient": "Deathroot",
+    "vendor": "Varathorn",
+    "location": "Dalish Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "vendor": "Varathorn",
+    "location": "Dalish Camp",
+    "note": null
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "vendor": "Bartender",
+    "location": "Gnawed Noble Tavern",
+    "note": null
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "vendor": "Bodahn Feddic",
+    "location": null,
+    "note": null
+  },
+  {
+    "ingredient": "Lifestone",
+    "vendor": "Ruck",
+    "location": null,
+    "note": null
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "vendor": "Alimar",
+    "location": "Dust Town",
+    "note": null
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "vendor": "Barlin",
+    "location": "Lothering",
+    "note": "cheaper"
+  }
+]

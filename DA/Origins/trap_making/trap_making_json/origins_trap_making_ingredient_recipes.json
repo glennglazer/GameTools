@@ -1,0 +1,327 @@
+[
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Acidic Grease Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Choking Powder Cloud Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Choking Powder Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Large Grease Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Sleeping Gas Cloud Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Sleeping Gas Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Acidic Grease Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Acidic Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Choking Powder Cloud Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Choking Powder Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Fire Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Freeze Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Mild Choking Powder Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Mild Sleeping Gas Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Poisoned Caltrop Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Shock Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Sleeping Gas Cloud Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Sleeping Gas Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Soulrot Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Mild Sleeping Gas Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Sleeping Gas Cloud Trap Plans",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Deathroot",
+    "recipe": "Sleeping Gas Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Large Grease Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Small Grease Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Fire Crystal",
+    "recipe": "Fire Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Frostrock",
+    "recipe": "Freeze Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Frozen Lightning",
+    "recipe": "Shock Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Glamour Charm",
+    "recipe": "Interesting Lure Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Glamour Charm",
+    "recipe": "Mild Lure Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Glamour Charm",
+    "recipe": "Overpowering Lure Trap Plans",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Acidic Grease Trap Plans",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Acidic Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Large Grease Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Poisoned Caltrop Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lifestone",
+    "recipe": "Small Grease Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Metal Shard",
+    "recipe": "Large Caltrop Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Metal Shard",
+    "recipe": "Large Claw Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Metal Shard",
+    "recipe": "Large Shrapnel Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Metal Shard",
+    "recipe": "Poisoned Caltrop Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Metal Shard",
+    "recipe": "Small Caltrop Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Metal Shard",
+    "recipe": "Small Claw Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Metal Shard",
+    "recipe": "Small Shrapnel Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Spirit Shard",
+    "recipe": "Soulrot Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Choking Powder Cloud Trap Plans",
+    "quantity": 3
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Choking Powder Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Toxin Extract",
+    "recipe": "Mild Choking Powder Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Acidic Grease Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Acidic Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Choking Powder Cloud Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Choking Powder Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Fire Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Freeze Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Large Claw Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Large Grease Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Large Shrapnel Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Mild Choking Powder Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Mild Sleeping Gas Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Shock Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Sleeping Gas Cloud Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Sleeping Gas Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Small Claw Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Small Grease Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Small Shrapnel Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Soulrot Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Spring Trap Plans",
+    "quantity": 1
+  }
+]

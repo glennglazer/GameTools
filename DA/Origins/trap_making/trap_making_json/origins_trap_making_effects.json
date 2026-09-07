@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Acidic Grease Trap",
+    "damage_type": "nature",
+    "power": 4,
+    "effect": "-50% movement speed to creatures who enter the area and causes them to fall unless they pass a physical resistance check"
+  },
+  {
+    "name": "Acidic Trap",
+    "damage_type": "nature",
+    "power": 100,
+    "effect": null
+  },
+  {
+    "name": "Choking Powder Cloud Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Cloud of choking powder for 20 seconds, disorienting affected targets, which inflicts -5 attack, -5 defense, -40% movement speed on all creatures in the area"
+  },
+  {
+    "name": "Choking Powder Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Disorients nearby targets, inflicts -5 attack, -5 defense, -40% movement speed for 20 seconds"
+  },
+  {
+    "name": "Fire Trap",
+    "damage_type": "fire",
+    "power": 100,
+    "effect": null
+  },
+  {
+    "name": "Freeze Trap",
+    "damage_type": "cold",
+    "power": 100,
+    "effect": null
+  },
+  {
+    "name": "Interesting Lure",
+    "damage_type": null,
+    "power": null,
+    "effect": "Distracts any enemy within a large radius unless it passes a mental resistance check. Once distracted, enemy must pass a physical resistance check or be stunned for 20 seconds as well. The lure disappears after stunning one enemy."
+  },
+  {
+    "name": "Large Caltrop Trap",
+    "damage_type": "physical",
+    "power": 8,
+    "effect": "-40% movement speed to creatures in the area"
+  },
+  {
+    "name": "Large Claw Trap",
+    "damage_type": "physical",
+    "power": 150,
+    "effect": "Target unable to move for 15 seconds unless they pass a physical resistance check"
+  },
+  {
+    "name": "Large Grease Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Releases a large grease slick that causes -50% movement speed to creatures who enter the area and causes them to fall unless they pass a physical resistance check"
+  },
+  {
+    "name": "Large Shrapnel Trap",
+    "damage_type": "physical",
+    "power": 80,
+    "effect": null
+  },
+  {
+    "name": "Mild Choking Powder Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "-5 attack, -5 defense, -40% movement speed for 10 seconds"
+  },
+  {
+    "name": "Mild Lure",
+    "damage_type": null,
+    "power": null,
+    "effect": "Distracts any enemy within a radius unless it passes a mental resistance check. Once distracted, enemy must pass a physical resistance check or be stunned for 10 seconds as well. The lure disappears after stunning one enemy."
+  },
+  {
+    "name": "Mild Sleeping Gas Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Creatures in the area fall asleep for 10 seconds unless they pass a physical resistance check"
+  },
+  {
+    "name": "Overpowering Lure",
+    "damage_type": null,
+    "power": null,
+    "effect": "Distracts any enemy within a large radius unless it passes a mental resistance check. Once distracted, enemy must pass a physical resistance check or be stunned for 20 seconds as well. The lure lingers for 10 seconds after stunning one enemy."
+  },
+  {
+    "name": "Poisoned Caltrop Trap",
+    "damage_type": "physical",
+    "power": 8,
+    "effect": "-40% movement speed to creatures in the area"
+  },
+  {
+    "name": "Poisoned Caltrop Trap",
+    "damage_type": "nature",
+    "power": 8,
+    "effect": "-40% movement speed to creatures in the area"
+  },
+  {
+    "name": "Shock Trap",
+    "damage_type": "electricity",
+    "power": 100,
+    "effect": null
+  },
+  {
+    "name": "Sleeping Gas Cloud Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Creatures entering the cloud fall asleep for 20 seconds unless they pass a physical resistance check"
+  },
+  {
+    "name": "Sleeping Gas Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Creatures in the area fall asleep for 10 seconds unless they pass a physical resistance check"
+  },
+  {
+    "name": "Small Caltrop Trap",
+    "damage_type": "physical",
+    "power": 8,
+    "effect": "-40% movement speed to creatures in the area"
+  },
+  {
+    "name": "Small Claw Trap",
+    "damage_type": "physical",
+    "power": 100,
+    "effect": "Unable to move for 15 seconds unless they pass a physical resistance check"
+  },
+  {
+    "name": "Small Grease Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Releases a small grease slick that causes -50% movement speed to creatures who enter the area and causes them to fall unless they pass a physical resistance check"
+  },
+  {
+    "name": "Small Shrapnel Trap",
+    "damage_type": "physical",
+    "power": 60,
+    "effect": null
+  },
+  {
+    "name": "Soulrot Trap",
+    "damage_type": "spirit",
+    "power": 100,
+    "effect": null
+  },
+  {
+    "name": "Spring Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "Trap knocks down the target, target is motionless for several seconds before standing back up"
+  }
+]
