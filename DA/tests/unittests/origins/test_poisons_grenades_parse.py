@@ -18,6 +18,8 @@ parse_recipe = parser.parse_recipe
 parse_locations = parser.parse_locations
 _split_vendor_entries = parser._split_vendor_entries
 _parse_vendor_entry = parser._parse_vendor_entry
+_parse_effects_table = parser._parse_effects_table
+parse_pg_effects = parser.parse_pg_effects
 
 # Canonical grenade result names (Tier Two DAO only)
 GRENADE_RESULTS = {"Acid Flask", "Fire Bomb", "Freeze Bomb", "Shock Bomb", "Soulrot Bomb"}
@@ -290,3 +292,135 @@ class TestParseLocations:
         for r in self.records:
             assert r["ingredient"] is not None
             assert r["location"] is not None
+
+
+# ─── _parse_effects_table ─────────────────────────────────────────────────────
+
+_POISONS_WIKITEXT = """\
+== Poisons ==
+{| class="daotable"
+|-
+! Tier One Poisons !! Damage per hit !! Effect
+|-
+|[[Deathroot Extract]] || 1 nature || 10% chance of stun for 3 seconds
+|-
+|[[Venom]] || 1 nature || 10% chance of -40 movement speed for 11 seconds
+|-
+! Tier Three Poisons !! Damage per hit !! Effect
+|-
+| [[Demonic Poison]] || 5 spirit || <br>
+|-
+| [[Magebane]] || 5 mana drain || <br>
+|-
+| [[Soldier's Bane]] || 5 stamina drain || <br>
+|-
+! Tier Four Poisons !! Damage per hit !! Effect
+|-
+| [[Quiet Death]] || 10 nature || 55% chance to instantly kill non-elite target at equal to or less than 20% total health
+|}
+"""
+
+_GRENADES_WIKITEXT = """\
+== Grenades ==
+{| class="daotable"
+! Tier Two Grenades !! Damage
+|-
+| [[Acid Flask]] || 80 nature
+|-
+| [[Fire Bomb]] || 80 fire
+|-
+! Tier Four Grenades !! Damage
+|-
+| [[Elemental Grenade]] || 30 cold and spirit
+|}
+"""
+
+
+class TestParseEffectsTable:
+    def setup_method(self):
+        self.poisons = _parse_effects_table(_POISONS_WIKITEXT)
+        self.grenades = _parse_effects_table(_GRENADES_WIKITEXT, stop_at="! Tier Four Grenades")
+
+    # Poisons
+    def test_poison_count(self):
+        # Wikitext fixture has 6 rows across Tier One, Three, and Four
+        # (all poison tiers are included; only grenade Tier Four is excluded)
+        assert len(self.poisons) == 6
+
+    def test_nature_damage_type(self):
+        deathroot = next(r for r in self.poisons if r["name"] == "Deathroot Extract")
+        assert deathroot["damage_type"] == "nature"
+        assert deathroot["power"] == 1
+
+    def test_spirit_damage_type(self):
+        demonic = next(r for r in self.poisons if r["name"] == "Demonic Poison")
+        assert demonic["damage_type"] == "spirit"
+        assert demonic["power"] == 5
+
+    def test_mana_drain_damage_type(self):
+        magebane = next(r for r in self.poisons if r["name"] == "Magebane")
+        assert magebane["damage_type"] == "mana drain"
+        assert magebane["power"] == 5
+
+    def test_stamina_drain_damage_type(self):
+        sb = next(r for r in self.poisons if r["name"] == "Soldier's Bane")
+        assert sb["damage_type"] == "stamina drain"
+        assert sb["power"] == 5
+
+    def test_effect_text_stored(self):
+        deathroot = next(r for r in self.poisons if r["name"] == "Deathroot Extract")
+        assert deathroot["effect"] == "10% chance of stun for 3 seconds"
+
+    def test_br_effect_is_null(self):
+        demonic = next(r for r in self.poisons if r["name"] == "Demonic Poison")
+        assert demonic["effect"] is None
+
+    def test_trailing_space_stripped(self):
+        qd = next(r for r in self.poisons if r["name"] == "Quiet Death")
+        assert not qd["effect"].endswith(" ")
+        assert "55%" in qd["effect"]
+
+    # Grenades
+    def test_tier4_grenades_excluded(self):
+        assert len(self.grenades) == 2  # only Tier Two DAO grenades
+        names = {r["name"] for r in self.grenades}
+        assert "Elemental Grenade" not in names
+
+    def test_grenade_power(self):
+        fire = next(r for r in self.grenades if r["name"] == "Fire Bomb")
+        assert fire["power"] == 80
+        assert fire["damage_type"] == "fire"
+
+    def test_grenade_effect_null(self):
+        # Grenades table has no effect column
+        for r in self.grenades:
+            assert r["effect"] is None
+
+
+# ─── parse_pg_effects ─────────────────────────────────────────────────────────
+
+class TestParsePGEffects:
+    def setup_method(self):
+        self.records = parse_pg_effects(_POISONS_WIKITEXT, _GRENADES_WIKITEXT)
+
+    def test_total_count(self):
+        assert len(self.records) == 8  # 6 poisons + 2 tier-two grenades
+
+    def test_sorted_by_name(self):
+        names = [r["name"] for r in self.records]
+        assert names == sorted(names)
+
+    def test_all_have_name_type_power(self):
+        for r in self.records:
+            assert r["name"]
+            assert r["damage_type"]
+            assert isinstance(r["power"], int)
+
+    def test_null_effect_present(self):
+        # Demonic Poison has no effect
+        demonic = next(r for r in self.records if r["name"] == "Demonic Poison")
+        assert demonic["effect"] is None
+
+    def test_non_null_effect_present(self):
+        deathroot = next(r for r in self.records if r["name"] == "Deathroot Extract")
+        assert deathroot["effect"] is not None

@@ -6,9 +6,10 @@ Scrapes raw herbalism data from the Dragon Age Fandom wiki and saves it as a sin
 
 ## Output
 
-`herbalism_raw.json` — one JSON object with two keys:
+`herbalism_raw.json` — one JSON object with three keys:
 - `recipes`: list of `{title, wikitext}` for each herbalism recipe page (27 recipes)
 - `locations_wikitext`: raw wikitext of the "Locations for unlimited supplies" section from the main Herbalism page
+- `crafted_items_wikitext`: raw wikitext of the "Dragon Age: Origins" subsection (section 4) of the Herbalism page — the wikitable of all 27 crafted items with their effect descriptions
 
 ## Usage
 
@@ -23,6 +24,7 @@ python3 DA/Origins/herbalism/herbalism_parse/origins_scrape_herbalism.py \
   - Fetched via `action=query&list=categorymembers` to enumerate pages
   - Wikitext fetched via `action=parse&prop=wikitext`
 - **Locations section**: Main `Herbalism` page, section 2 (`action=parse&section=2&prop=wikitext`)
+- **Crafted items section**: Main `Herbalism` page, section 4 — "Dragon Age: Origins" subsection under "Herbalism Crafted Items" (`action=parse&section=4&prop=wikitext`)
 
 ## Wiki API
 

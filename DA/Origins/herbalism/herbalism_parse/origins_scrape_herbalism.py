@@ -18,7 +18,8 @@ from pathlib import Path
 WIKI_API = "https://dragonage.fandom.com/api.php"
 CATEGORY = "Category:Dragon_Age:_Origins_Herbalism_recipes"
 HERBALISM_PAGE = "Herbalism"
-LOCATIONS_SECTION = 2  # "Locations for unlimited supplies"
+LOCATIONS_SECTION = 2      # "Locations for unlimited supplies"
+CRAFTED_ITEMS_SECTION = 4  # "Herbalism Crafted Items → Dragon Age: Origins"
 UA = "GameTools-Scraper/1.0 (https://github.com/glennglazer/GameTools)"
 SLEEP_BETWEEN = 0.3  # seconds; polite rate limiting
 
@@ -87,15 +88,20 @@ def main() -> None:
     print("Fetching locations section from main Herbalism page...")
     locations_wikitext = get_section_wikitext(HERBALISM_PAGE, LOCATIONS_SECTION)
 
-    # ── 4. Save raw output ────────────────────────────────────────────────────
+    # ── 4. Fetch the Crafted Items section (DAO subsection) ───────────────────
+    print("Fetching crafted items section from main Herbalism page...")
+    crafted_items_wikitext = get_section_wikitext(HERBALISM_PAGE, CRAFTED_ITEMS_SECTION)
+
+    # ── 5. Save raw output ────────────────────────────────────────────────────
     raw = {
         "recipes": recipes,
         "locations_wikitext": locations_wikitext,
+        "crafted_items_wikitext": crafted_items_wikitext,
     }
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(raw, f, indent=2, ensure_ascii=False)
 
-    print(f"\nSaved {len(recipes)} recipes + locations wikitext → {out_path}")
+    print(f"\nSaved {len(recipes)} recipes + locations + crafted items wikitext → {out_path}")
 
 
 if __name__ == "__main__":

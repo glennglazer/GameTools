@@ -19,6 +19,7 @@ from pathlib import Path
 WIKI_API = "https://dragonage.fandom.com/api.php"
 CATEGORY = "Category:Dragon Age: Origins Poison-Making recipes"
 POISON_MAKING_PAGE = "Poison-Making"
+POISONS_SECTION = 3        # "Poisons" on the Poison-Making page
 GRENADES_SECTION = 4       # "Grenades" on the Poison-Making page
 LOCATIONS_SECTION = 2      # "Locations for unlimited supplies"
 UA = "GameTools-Scraper/1.0 (https://github.com/glennglazer/GameTools)"
@@ -103,26 +104,32 @@ def main() -> None:
             print(f"  WARNING: could not fetch '{title}': {exc}", file=sys.stderr)
         time.sleep(SLEEP_BETWEEN)
 
-    # ── 3. Fetch Grenades section to identify grenade result names ────────────
+    # ── 3. Fetch Poisons section for the effects table ────────────────────────
+    print("Fetching Poisons section from Poison-Making page...")
+    poisons_wikitext = get_section_wikitext(POISON_MAKING_PAGE, POISONS_SECTION)
+
+    # ── 4. Fetch Grenades section (grenade classification + effects table) ────
     print("Fetching Grenades section from Poison-Making page...")
     grenades_wikitext = get_section_wikitext(POISON_MAKING_PAGE, GRENADES_SECTION)
     grenade_results = extract_tier2_grenade_results(grenades_wikitext)
     print(f"  Identified {len(grenade_results)} Tier Two grenade results: {grenade_results}")
 
-    # ── 4. Fetch Locations section ────────────────────────────────────────────
+    # ── 5. Fetch Locations section ────────────────────────────────────────────
     print("Fetching locations section from Poison-Making page...")
     locations_wikitext = get_section_wikitext(POISON_MAKING_PAGE, LOCATIONS_SECTION)
 
-    # ── 5. Save raw output ────────────────────────────────────────────────────
+    # ── 6. Save raw output ────────────────────────────────────────────────────
     raw = {
         "recipes": recipes,
         "grenade_results": grenade_results,
         "locations_wikitext": locations_wikitext,
+        "poisons_wikitext": poisons_wikitext,
+        "grenades_wikitext": grenades_wikitext,
     }
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(raw, f, indent=2, ensure_ascii=False)
 
-    print(f"\nSaved {len(recipes)} recipes + grenade list + locations → {out_path}")
+    print(f"\nSaved {len(recipes)} recipes + grenade list + locations + effects wikitexts → {out_path}")
 
 
 if __name__ == "__main__":

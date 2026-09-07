@@ -1,14 +1,16 @@
 """Load DAO Herbalism JSON records into the GameTools SQLite database.
 
-Creates or upserts four tables:
+Creates or upserts five tables:
   origins_herbalism_recipes          — wide recipe table (4 nullable ingredient cols)
   origins_herbalism_ingredient_recipes — ingredient → recipe reverse-lookup
   origins_herbalism_tiers            — recipe → required tier (1-4)
   origins_herbalism_unlimited_supply — vendor/location for unlimited ingredient sources
+  origins_herbalism_potion_effects   — crafted-item type/power/verbatim effects
 
 Usage:
     python3 create_or_update_origins_herbalism.py \\
-        <recipes_json> <ingredient_recipes_json> <tiers_json> <supply_json> <db>
+        <recipes_json> <ingredient_recipes_json> <tiers_json> <supply_json> \\
+        <effects_json> <db>
 """
 import argparse
 import json
@@ -26,12 +28,14 @@ _DEFAULT_RECIPES = str(_JSON_DIR / "origins_herbalism_recipes.json")
 _DEFAULT_ING_REC = str(_JSON_DIR / "origins_herbalism_ingredient_recipes.json")
 _DEFAULT_TIERS = str(_JSON_DIR / "origins_herbalism_tiers.json")
 _DEFAULT_SUPPLY = str(_JSON_DIR / "origins_herbalism_unlimited_supply.json")
+_DEFAULT_EFFECTS = str(_JSON_DIR / "origins_herbalism_potion_effects.json")
 _DEFAULT_DB = str(_FAMILY_ROOT / "database" / "gametools.sqlite3")
 
 RECIPES_TABLE = "origins_herbalism_recipes"
 ING_REC_TABLE = "origins_herbalism_ingredient_recipes"
 TIERS_TABLE = "origins_herbalism_tiers"
 SUPPLY_TABLE = "origins_herbalism_unlimited_supply"
+EFFECTS_TABLE = "origins_herbalism_potion_effects"
 
 
 def table_exists(cur: sqlite3.Cursor, name: str) -> bool:
@@ -117,6 +121,7 @@ def main() -> None:
     ap.add_argument("ingredient_recipes_json", nargs="?", default=_DEFAULT_ING_REC)
     ap.add_argument("tiers_json", nargs="?", default=_DEFAULT_TIERS)
     ap.add_argument("supply_json", nargs="?", default=_DEFAULT_SUPPLY)
+    ap.add_argument("effects_json", nargs="?", default=_DEFAULT_EFFECTS)
     ap.add_argument("db", nargs="?", default=_DEFAULT_DB)
     args = ap.parse_args()
 
@@ -131,11 +136,13 @@ def main() -> None:
     ing_recs = load_json(args.ingredient_recipes_json, "ingredient_recipes")
     tiers = load_json(args.tiers_json, "tiers")
     supply = load_json(args.supply_json, "unlimited supply")
+    effects = load_json(args.effects_json, "potion effects")
 
     df_recipes = pd.DataFrame(recipes)
     df_ing_recs = pd.DataFrame(ing_recs)
     df_tiers = pd.DataFrame(tiers)
     df_supply = pd.DataFrame(supply)
+    df_effects = pd.DataFrame(effects)
 
     conn = sqlite3.connect(str(args.db))
     cur = conn.cursor()
@@ -153,6 +160,9 @@ def main() -> None:
         full_replace(conn, cur, df_supply, SUPPLY_TABLE)
         print(f"  Upserted {len(df_supply)} rows → {SUPPLY_TABLE}")
 
+        upsert_by_key(conn, cur, df_effects, EFFECTS_TABLE, "name")
+        print(f"  Upserted {len(df_effects)} rows → {EFFECTS_TABLE}")
+
     except Exception as exc:
         print(f"Database error: {exc}", file=sys.stderr)
         import traceback
@@ -161,7 +171,7 @@ def main() -> None:
         sys.exit(1)
 
     conn.close()
-    print("Database update complete for DAO Herbalism.")
+    print("Database update complete for DAO Herbalism (5 tables).")
 
 
 if __name__ == "__main__":

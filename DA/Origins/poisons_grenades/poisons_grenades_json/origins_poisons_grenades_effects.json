@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Acid Flask",
+    "damage_type": "nature",
+    "power": 80,
+    "effect": null
+  },
+  {
+    "name": "Acidic Coating",
+    "damage_type": "nature",
+    "power": 2,
+    "effect": null
+  },
+  {
+    "name": "Adder's Kiss",
+    "damage_type": "nature",
+    "power": 3,
+    "effect": "20% chance of -40 movement speed for 13 seconds"
+  },
+  {
+    "name": "Concentrated Crow Poison",
+    "damage_type": "nature",
+    "power": 6,
+    "effect": "15% chance of stun for 7 seconds"
+  },
+  {
+    "name": "Concentrated Deathroot Extract",
+    "damage_type": "nature",
+    "power": 2,
+    "effect": "15% chance of stun for 4 seconds"
+  },
+  {
+    "name": "Concentrated Demonic Poison",
+    "damage_type": "spirit",
+    "power": 10,
+    "effect": null
+  },
+  {
+    "name": "Concentrated Magebane",
+    "damage_type": "mana drain",
+    "power": 10,
+    "effect": null
+  },
+  {
+    "name": "Concentrated Soldier's Bane",
+    "damage_type": "stamina drain",
+    "power": 10,
+    "effect": null
+  },
+  {
+    "name": "Concentrated Venom",
+    "damage_type": "nature",
+    "power": 2,
+    "effect": "15% chance of -40 movement speed for 12 seconds"
+  },
+  {
+    "name": "Crow Poison",
+    "damage_type": "nature",
+    "power": 3,
+    "effect": "10% chance of stun for 6 seconds"
+  },
+  {
+    "name": "Deathroot Extract",
+    "damage_type": "nature",
+    "power": 1,
+    "effect": "10% chance of stun for 3 seconds"
+  },
+  {
+    "name": "Demonic Poison",
+    "damage_type": "spirit",
+    "power": 5,
+    "effect": null
+  },
+  {
+    "name": "Fire Bomb",
+    "damage_type": "fire",
+    "power": 80,
+    "effect": null
+  },
+  {
+    "name": "Flame Coating",
+    "damage_type": "fire",
+    "power": 2,
+    "effect": null
+  },
+  {
+    "name": "Fleshrot",
+    "damage_type": "nature",
+    "power": 3,
+    "effect": "20% chance of stun for 5 seconds"
+  },
+  {
+    "name": "Freeze Bomb",
+    "damage_type": "frost",
+    "power": 80,
+    "effect": null
+  },
+  {
+    "name": "Freezing Coating",
+    "damage_type": "frost",
+    "power": 2,
+    "effect": null
+  },
+  {
+    "name": "Magebane",
+    "damage_type": "mana drain",
+    "power": 5,
+    "effect": null
+  },
+  {
+    "name": "Quiet Death",
+    "damage_type": "nature",
+    "power": 10,
+    "effect": "55% chance to instantly kill non-elite target at equal to or less than 20% total health"
+  },
+  {
+    "name": "Shock Bomb",
+    "damage_type": "electricity",
+    "power": 80,
+    "effect": null
+  },
+  {
+    "name": "Shock Coating",
+    "damage_type": "electricity",
+    "power": 3,
+    "effect": null
+  },
+  {
+    "name": "Soldier's Bane",
+    "damage_type": "stamina drain",
+    "power": 5,
+    "effect": null
+  },
+  {
+    "name": "Soulrot Bomb",
+    "damage_type": "spirit",
+    "power": 80,
+    "effect": null
+  },
+  {
+    "name": "Soulrot Coating",
+    "damage_type": "spirit",
+    "power": 2,
+    "effect": null
+  },
+  {
+    "name": "Venom",
+    "damage_type": "nature",
+    "power": 1,
+    "effect": "10% chance of -40 movement speed for 11 seconds"
+  }
+]

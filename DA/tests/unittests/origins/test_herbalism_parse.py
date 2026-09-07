@@ -23,6 +23,8 @@ parse_recipe = parser.parse_recipe
 parse_locations = parser.parse_locations
 _split_vendor_entries = parser._split_vendor_entries
 _parse_vendor_entry = parser._parse_vendor_entry
+classify_effect = parser.classify_effect
+parse_crafted_item_effects = parser.parse_crafted_item_effects
 
 
 # ─── strip_wiki_link ──────────────────────────────────────────────────────────
@@ -266,3 +268,238 @@ class TestParseLocations:
         for r in self.records:
             assert r["ingredient"] is not None
             assert r["location"] is not None
+
+
+# ─── classify_effect ──────────────────────────────────────────────────────────
+
+class TestClassifyEffect:
+    # Health — power computed at SP=0: (base) * multiplier
+    def test_health_poultice(self):
+        t, p = classify_effect("Instantly restores (50 + SP) health")
+        assert t == "Health"
+        assert p == 50
+
+    def test_health_formula_mult2(self):
+        t, p = classify_effect("Instantly restores (50 + SP) * 2 health")
+        assert t == "Health"
+        assert p == 100
+
+    def test_health_formula_mult3(self):
+        t, p = classify_effect("Instantly restores (50 + SP) * 3 health")
+        assert t == "Health"
+        assert p == 150
+
+    def test_health_formula_mult4(self):
+        t, p = classify_effect("Instantly restores (50 + SP) * 4 health")
+        assert t == "Health"
+        assert p == 200
+
+    # Mana — power computed at SP=0: base constant only
+    def test_mana_lyrium(self):
+        t, p = classify_effect("Instantly restores (50 + 0.5 * SP) mana")
+        assert t == "Mana"
+        assert p == 50
+
+    def test_mana_greater(self):
+        t, p = classify_effect("Instantly restores (150 + 0.5 * SP) mana")
+        assert t == "Mana"
+        assert p == 150
+
+    def test_mana_base_100(self):
+        # "Restores" (no "Instantly") — Lyrium Potion
+        t, p = classify_effect("Restores (100 + 0.5 * SP) mana")
+        assert t == "Mana"
+        assert p == 100
+
+    def test_mana_base_200(self):
+        t, p = classify_effect("Instantly restores (200 + 0.5 * SP) mana")
+        assert t == "Mana"
+        assert p == 200
+
+    # Mabari
+    def test_mabari_crunch(self):
+        t, p = classify_effect(
+            "Increases the mabari hound's health and stamina regeneration by +8/+16 "
+            "for 10 seconds, and cures a single injury"
+        )
+        assert t == "Mabari"
+        assert p is None
+
+    def test_mabari_double_baked(self):
+        t, p = classify_effect(
+            "Increases the mabari hound's health and stamina regeneration by +8/+16 "
+            "for 10 seconds, and cures up to three injuries"
+        )
+        assert t == "Mabari"
+        assert p is None
+
+    # Injury
+    def test_lesser_injury_kit(self):
+        t, p = classify_effect(
+            "Instantly regains 10 health and is cured of a single injury"
+        )
+        assert t == "Injury"
+        assert p == 10
+
+    def test_injury_kit(self):
+        t, p = classify_effect(
+            "User instantly regains 20 health and is cured of up to three injuries"
+        )
+        assert t == "Injury"
+        assert p == 20
+
+    def test_greater_injury_kit(self):
+        t, p = classify_effect(
+            "User instantly regains 40 health and is cured of all injuries"
+        )
+        assert t == "Injury"
+        assert p == 40
+
+    # Cold resistance
+    def test_lesser_ice_salve(self):
+        t, p = classify_effect("+30% cold resistance for 180 seconds")
+        assert t == "Cold Resistance"
+        assert p == 30
+
+    def test_greater_ice_salve(self):
+        t, p = classify_effect("+60% cold resistance for 180 seconds")
+        assert t == "Cold Resistance"
+        assert p == 60
+
+    # Nature resistance
+    def test_nature_salve(self):
+        t, p = classify_effect("+30% nature resistance for 180 seconds")
+        assert t == "Nature Resistance"
+        assert p == 30
+
+    # Fire resistance
+    def test_warmth_balm(self):
+        t, p = classify_effect("+30% fire resistance for 180 seconds")
+        assert t == "Fire Resistance"
+        assert p == 30
+
+    # Spirit resistance
+    def test_spirit_balm(self):
+        t, p = classify_effect("+30% spirit resistance for 180 seconds")
+        assert t == "Spirit Resistance"
+        assert p == 30
+
+    # Electricity — two surface forms
+    def test_lesser_elixir_of_grounding(self):
+        # Lesser form: "resistance to electricity damage by N%"
+        t, p = classify_effect(
+            "Increases the user's resistance to electricity damage by 30% for 3 minutes; "
+            "additionally reduces the stamina drained by electricity"
+        )
+        assert t == "Electricity Resistance"
+        assert p == 30
+
+    def test_greater_elixir_of_grounding(self):
+        # Greater form: "+N% electrical resistance"
+        t, p = classify_effect(
+            "+60% electrical resistance for 180 seconds; "
+            "additionally reduces the stamina drained by electricity"
+        )
+        assert t == "Electricity Resistance"
+        assert p == 60
+
+    # Buffs (type=None, power=None)
+    def test_incense_of_awareness(self):
+        t, p = classify_effect(
+            "+10 Defense for 120 seconds, -10 Mental Resistance for 120 seconds"
+        )
+        assert t is None
+        assert p is None
+
+    def test_rock_salve(self):
+        t, p = classify_effect(
+            "+5 Armor for 120 seconds, +10 Physical Resistance for 120 seconds, "
+            "reduced Speed for 120 seconds"
+        )
+        assert t is None
+        assert p is None
+
+    def test_swift_salve(self):
+        t, p = classify_effect(
+            "Increased movement speed for 60 seconds, increased attack speed for 60 seconds"
+        )
+        assert t is None
+        assert p is None
+
+    def test_dwarven_regicide_antidote(self):
+        t, p = classify_effect("The antidote for an exotic dwarven poison")
+        assert t is None
+        assert p is None
+
+
+# ─── parse_crafted_item_effects ───────────────────────────────────────────────
+
+_CRAFTED_ITEMS_WIKITEXT = """\
+=== Dragon Age: Origins ===
+
+{| class="daotable"
+|-
+! width="25%" | Tier One Herbalism
+! width="25%" | Effect
+|-
+|[[Lesser Health Poultice]] || Instantly restores (50 + SP) health
+|-
+|[[Lesser Lyrium Potion]] || Instantly restores (50 + 0.5 * SP) mana
+|-
+|[[Mabari Crunch]] || Increases the mabari hound's health and stamina regeneration by +8/+16 for 10 seconds, and cures a single injury
+|-
+! Tier Two Herbalism !! Effect
+|-
+|[[Incense of Awareness]] || +10 Defense for 120 seconds, -10 Mental Resistance for 120 seconds
+|-
+|[[Lesser Injury Kit]] || Instantly regains 10 health and is cured of a single injury
+|-
+|[[Lesser Ice Salve]] || +30% cold resistance for 180 seconds
+|}
+"""
+
+class TestParseCraftedItemEffects:
+    def setup_method(self):
+        self.records = parse_crafted_item_effects(_CRAFTED_ITEMS_WIKITEXT)
+
+    def test_six_records_parsed(self):
+        assert len(self.records) == 6
+
+    def test_health_poultice_type(self):
+        r = next(r for r in self.records if r["name"] == "Lesser Health Poultice")
+        assert r["type"] == "Health"
+        assert r["power"] == 50  # (50 + SP) at SP=0
+
+    def test_lyrium_potion_type(self):
+        r = next(r for r in self.records if r["name"] == "Lesser Lyrium Potion")
+        assert r["type"] == "Mana"
+        assert r["power"] == 50  # (50 + 0.5*SP) at SP=0
+
+    def test_mabari_type(self):
+        r = next(r for r in self.records if r["name"] == "Mabari Crunch")
+        assert r["type"] == "Mabari"
+        assert r["power"] is None
+
+    def test_buff_type_null(self):
+        r = next(r for r in self.records if r["name"] == "Incense of Awareness")
+        assert r["type"] is None
+        assert r["power"] is None
+
+    def test_injury_kit_power(self):
+        r = next(r for r in self.records if r["name"] == "Lesser Injury Kit")
+        assert r["type"] == "Injury"
+        assert r["power"] == 10
+
+    def test_cold_resistance_power(self):
+        r = next(r for r in self.records if r["name"] == "Lesser Ice Salve")
+        assert r["type"] == "Cold Resistance"
+        assert r["power"] == 30
+
+    def test_effects_verbatim(self):
+        r = next(r for r in self.records if r["name"] == "Lesser Health Poultice")
+        assert "50 + SP" in r["effects"]
+
+    def test_all_records_have_name_and_effects(self):
+        for r in self.records:
+            assert r["name"]
+            assert r["effects"]

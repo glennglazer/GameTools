@@ -1,0 +1,164 @@
+[
+  {
+    "name": "Lesser Health Poultice",
+    "type": "Health",
+    "power": 50,
+    "effects": "Instantly restores (50 + SP) health"
+  },
+  {
+    "name": "Lesser Lyrium Potion",
+    "type": "Mana",
+    "power": 50,
+    "effects": "Instantly restores (50 + 0.5 * SP) mana"
+  },
+  {
+    "name": "Mabari Crunch",
+    "type": "Mabari",
+    "power": null,
+    "effects": "Increases the mabari hound's health and stamina regeneration by +8/+16 for 10 seconds, and cures a single injury"
+  },
+  {
+    "name": "Double-Baked Mabari Crunch",
+    "type": "Mabari",
+    "power": null,
+    "effects": "Increases the mabari hound's health and stamina regeneration by +8/+16 for 10 seconds, and cures up to three injuries"
+  },
+  {
+    "name": "Health Poultice",
+    "type": "Health",
+    "power": 100,
+    "effects": "Instantly restores (50 + SP) * 2 health"
+  },
+  {
+    "name": "Incense of Awareness",
+    "type": null,
+    "power": null,
+    "effects": "+10 Defense for 120 seconds, -10 Mental Resistance for 120 seconds"
+  },
+  {
+    "name": "Lesser Injury Kit",
+    "type": "Injury",
+    "power": 10,
+    "effects": "Instantly regains 10 health and is cured of a single injury"
+  },
+  {
+    "name": "Lyrium Potion",
+    "type": "Mana",
+    "power": 100,
+    "effects": "Restores (100 + 0.5 * SP) mana"
+  },
+  {
+    "name": "Rock Salve",
+    "type": null,
+    "power": null,
+    "effects": "+5 Armor for 120 seconds, +10 Physical Resistance for 120 seconds, reduced Speed for 120 seconds"
+  },
+  {
+    "name": "Greater Health Poultice",
+    "type": "Health",
+    "power": 150,
+    "effects": "Instantly restores (50 + SP) * 3 health"
+  },
+  {
+    "name": "Greater Lyrium Potion",
+    "type": "Mana",
+    "power": 150,
+    "effects": "Instantly restores (150 + 0.5 * SP) mana"
+  },
+  {
+    "name": "Injury Kit",
+    "type": "Injury",
+    "power": 20,
+    "effects": "User instantly regains 20 health and is cured of up to three injuries"
+  },
+  {
+    "name": "Lesser Elixir of Grounding",
+    "type": "Electricity Resistance",
+    "power": 30,
+    "effects": "Increases the user's resistance to electricity damage by 30% for 3 minutes; additionally reduces the stamina drained by electricity"
+  },
+  {
+    "name": "Lesser Ice Salve",
+    "type": "Cold Resistance",
+    "power": 30,
+    "effects": "+30% cold resistance for 180 seconds"
+  },
+  {
+    "name": "Lesser Nature Salve",
+    "type": "Nature Resistance",
+    "power": 30,
+    "effects": "+30% nature resistance for 180 seconds"
+  },
+  {
+    "name": "Lesser Spirit Balm",
+    "type": "Spirit Resistance",
+    "power": 30,
+    "effects": "+30% spirit resistance for 180 seconds"
+  },
+  {
+    "name": "Lesser Warmth Balm",
+    "type": "Fire Resistance",
+    "power": 30,
+    "effects": "+30% fire resistance for 180 seconds"
+  },
+  {
+    "name": "Swift Salve",
+    "type": null,
+    "power": null,
+    "effects": "Increased movement speed for 60 seconds, increased attack speed for 60 seconds, increased aim speed for 60 seconds"
+  },
+  {
+    "name": "Dwarven Regicide Antidote",
+    "type": null,
+    "power": null,
+    "effects": "The antidote for an exotic dwarven poison"
+  },
+  {
+    "name": "Greater Elixir of Grounding",
+    "type": "Electricity Resistance",
+    "power": 60,
+    "effects": "+60% electrical resistance for 180 seconds; additionally reduces the stamina drained by electricity"
+  },
+  {
+    "name": "Greater Ice Salve",
+    "type": "Cold Resistance",
+    "power": 60,
+    "effects": "+60% cold resistance for 180 seconds"
+  },
+  {
+    "name": "Greater Injury Kit",
+    "type": "Injury",
+    "power": 40,
+    "effects": "User instantly regains 40 health and is cured of all injuries"
+  },
+  {
+    "name": "Greater Nature Salve",
+    "type": "Nature Resistance",
+    "power": 60,
+    "effects": "+60% nature resistance for 180 seconds"
+  },
+  {
+    "name": "Greater Spirit Balm",
+    "type": "Spirit Resistance",
+    "power": 60,
+    "effects": "+60% spirit resistance for 180 seconds"
+  },
+  {
+    "name": "Greater Warmth Balm",
+    "type": "Fire Resistance",
+    "power": 60,
+    "effects": "+60% fire resistance for 180 seconds"
+  },
+  {
+    "name": "Potent Health Poultice",
+    "type": "Health",
+    "power": 200,
+    "effects": "Instantly restores (50 + SP) * 4 health"
+  },
+  {
+    "name": "Potent Lyrium Potion",
+    "type": "Mana",
+    "power": 200,
+    "effects": "Instantly restores (200 + 0.5 * SP) mana"
+  }
+]

@@ -93,6 +93,16 @@ SUPPLY = [
      "note": "If not forced to accept bribe of 10 silvers for information"},
 ]
 
+EFFECTS = [
+    {"name": "Deathroot Extract", "damage_type": "nature", "power": 1,
+     "effect": "10% chance of stun for 3 seconds"},
+    {"name": "Fire Bomb", "damage_type": "fire", "power": 80, "effect": None},
+    {"name": "Magebane", "damage_type": "mana drain", "power": 5, "effect": None},
+    {"name": "Quiet Death", "damage_type": "nature", "power": 10,
+     "effect": "55% chance to instantly kill non-elite target at equal to or less than 20% total health"},
+    {"name": "Soldier's Bane", "damage_type": "stamina drain", "power": 5, "effect": None},
+]
+
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -102,7 +112,7 @@ def write_json(tmp_path, name, data):
     return str(p)
 
 
-def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None):
+def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, effects=None):
     import pandas as pd
     import sqlite3 as _sqlite3
 
@@ -110,6 +120,7 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None):
     ing_recs = ing_recs or ING_RECS
     tiers = tiers or TIERS
     supply = supply or SUPPLY
+    effects = effects if effects is not None else EFFECTS
 
     db_path = str(tmp_path / "test.sqlite3")
     conn = _sqlite3.connect(db_path)
@@ -119,6 +130,7 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None):
     loader.upsert_ingredient_recipes(conn, cur, pd.DataFrame(ing_recs))
     loader.upsert_by_key(conn, cur, pd.DataFrame(tiers), loader.TIERS_TABLE, "recipe")
     loader.full_replace(conn, cur, pd.DataFrame(supply), loader.SUPPLY_TABLE)
+    loader.upsert_by_key(conn, cur, pd.DataFrame(effects), loader.EFFECTS_TABLE, "name")
 
     conn.close()
     return db_path
@@ -136,6 +148,7 @@ class TestInitialLoad:
         assert "origins_poisons_grenades_ingredient_recipes" in tables
         assert "origins_poisons_grenades_tiers" in tables
         assert "origins_poisons_grenades_unlimited_supply" in tables
+        assert "origins_poisons_grenades_effects" in tables
 
     def test_recipe_count(self, tmp_path):
         db = run_loader(tmp_path)
@@ -315,4 +328,111 @@ class TestQueryPatterns:
                 (recipe_name,)
             ).fetchone()[0]
             assert wide_count == join_count, f"Mismatch for {recipe_name}"
+        conn.close()
+
+
+# ─── Effects table ────────────────────────────────────────────────────────────
+
+class TestPGEffects:
+    def test_effects_table_created(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        conn.close()
+        assert "origins_poisons_grenades_effects" in tables
+
+    def test_effects_count(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        n = conn.execute("SELECT COUNT(*) FROM origins_poisons_grenades_effects").fetchone()[0]
+        conn.close()
+        assert n == 5
+
+    def test_nature_damage_type(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT damage_type, power FROM origins_poisons_grenades_effects WHERE name='Deathroot Extract'"
+        ).fetchone()
+        conn.close()
+        assert row == ("nature", 1)
+
+    def test_fire_damage_type(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT damage_type, power FROM origins_poisons_grenades_effects WHERE name='Fire Bomb'"
+        ).fetchone()
+        conn.close()
+        assert row == ("fire", 80)
+
+    def test_mana_drain_damage_type(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT damage_type FROM origins_poisons_grenades_effects WHERE name='Magebane'"
+        ).fetchone()
+        conn.close()
+        assert row[0] == "mana drain"
+
+    def test_stamina_drain_damage_type(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT damage_type FROM origins_poisons_grenades_effects WHERE name=\"Soldier's Bane\""
+        ).fetchone()
+        conn.close()
+        assert row[0] == "stamina drain"
+
+    def test_effect_text_stored(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        effect = conn.execute(
+            "SELECT effect FROM origins_poisons_grenades_effects WHERE name='Deathroot Extract'"
+        ).fetchone()[0]
+        conn.close()
+        assert effect is not None
+        assert "stun" in effect
+
+    def test_null_effect_stored(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        effect = conn.execute(
+            "SELECT effect FROM origins_poisons_grenades_effects WHERE name='Fire Bomb'"
+        ).fetchone()[0]
+        conn.close()
+        assert effect is None
+
+    def test_no_duplicates_on_reload(self, tmp_path):
+        db = run_loader(tmp_path)
+        import pandas as pd, sqlite3 as _sqlite3
+        conn = _sqlite3.connect(db)
+        cur = conn.cursor()
+        loader.upsert_by_key(conn, cur, pd.DataFrame(EFFECTS), loader.EFFECTS_TABLE, "name")
+        n = conn.execute("SELECT COUNT(*) FROM origins_poisons_grenades_effects").fetchone()[0]
+        conn.close()
+        assert n == 5
+
+    def test_effect_updated_on_reload(self, tmp_path):
+        db = run_loader(tmp_path)
+        import pandas as pd, sqlite3 as _sqlite3
+        modified = [{**EFFECTS[0], "effect": "Updated effect text"}]
+        conn = _sqlite3.connect(db)
+        cur = conn.cursor()
+        loader.upsert_by_key(conn, cur, pd.DataFrame(modified), loader.EFFECTS_TABLE, "name")
+        effect = conn.execute(
+            "SELECT effect FROM origins_poisons_grenades_effects WHERE name='Deathroot Extract'"
+        ).fetchone()[0]
+        conn.close()
+        assert effect == "Updated effect text"
+
+    def test_unique_index_on_name(self, tmp_path):
+        """Duplicate name insert is rejected by the unique index."""
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        with pytest.raises(sqlite3.IntegrityError):
+            conn.execute(
+                "INSERT INTO origins_poisons_grenades_effects (name, damage_type, power, effect) "
+                "VALUES ('Deathroot Extract', 'nature', 1, NULL)"
+            )
         conn.close()

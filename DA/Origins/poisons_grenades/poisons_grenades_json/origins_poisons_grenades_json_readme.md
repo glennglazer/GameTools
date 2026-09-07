@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Parses raw poison-making wikitext (`poisons_grenades_raw.json`) into four structured JSON files
+Parses raw poison-making wikitext (`poisons_grenades_raw.json`) into five structured JSON files
 for the SQL loader.
 
 ## Inputs / Outputs
@@ -14,6 +14,7 @@ for the SQL loader.
 | `ingredient_recipes_json` | `origins_poisons_grenades_ingredient_recipes.json` | Ingredient → recipe join table (87 rows) |
 | `tiers_json` | `origins_poisons_grenades_tiers.json` | Recipe → required tier (25 rows) |
 | `supply_json` | `origins_poisons_grenades_unlimited_supply.json` | Unlimited supply vendor/location records (15 rows) |
+| `effects_json` | `origins_poisons_grenades_effects.json` | Crafted item damage type/power/effect (25 rows) |
 
 ## Usage
 
@@ -23,7 +24,8 @@ python3 DA/Origins/poisons_grenades/poisons_grenades_json/origins_parse_poisons_
     /abs/path/to/origins_poisons_grenades_recipes.json \
     /abs/path/to/origins_poisons_grenades_ingredient_recipes.json \
     /abs/path/to/origins_poisons_grenades_tiers.json \
-    /abs/path/to/origins_poisons_grenades_unlimited_supply.json
+    /abs/path/to/origins_poisons_grenades_unlimited_supply.json \
+    /abs/path/to/origins_poisons_grenades_effects.json
 ```
 
 ## Output Schemas
@@ -72,6 +74,18 @@ Unlimited supply records (one row per vendor):
 ```json
 {"ingredient": "Flask", "vendor": "Figor", "location": "Figor's Imports in Orzammar", "note": "you must scare off the Carta thugs first"}
 ```
+
+### `origins_poisons_grenades_effects.json`
+Crafted item effects — damage type, fixed damage value, and optional side effect:
+
+```json
+{"name": "Adder's Kiss", "damage_type": "nature", "power": 3, "effect": "20% chance of -40 movement speed for 13 seconds"}
+{"name": "Demonic Poison", "damage_type": "spirit", "power": 5, "effect": null}
+{"name": "Fire Bomb", "damage_type": "fire", "power": 80, "effect": null}
+```
+
+`damage_type` values: `nature`, `fire`, `frost`, `electricity`, `spirit`, `mana drain`, `stamina drain`.  
+`effect` is NULL when the wiki shows `<br>` (no side effect). All 25 DAO poison/grenade items use fixed damage; there are no formulas. Records are sorted by `name`.
 
 ## Parsing Notes
 

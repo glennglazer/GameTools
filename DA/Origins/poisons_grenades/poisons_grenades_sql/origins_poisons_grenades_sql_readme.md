@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Loads the four poison-making/grenade JSON files into the GameTools SQLite database,
+Loads the five poison-making/grenade JSON files into the GameTools SQLite database,
 creating tables on first run and upserting on subsequent runs.
 
 ## Tables Created
@@ -13,6 +13,7 @@ creating tables on first run and upserting on subsequent runs.
 | `origins_poisons_grenades_ingredient_recipes` | `(ingredient, recipe)` | 87 | Ingredient → recipe reverse-lookup join table |
 | `origins_poisons_grenades_tiers` | `recipe` | 25 | Recipe → required poison-making tier (1–4) |
 | `origins_poisons_grenades_unlimited_supply` | `(ingredient, vendor, location)` | 15 | Vendor/location for unlimited ingredient supplies |
+| `origins_poisons_grenades_effects` | `name` | 25 | Crafted item damage type/power/effect; `effect` nullable |
 
 ## Usage
 
@@ -28,6 +29,7 @@ python3 DA/Origins/poisons_grenades/poisons_grenades_sql/create_or_update_origin
     /abs/path/to/origins_poisons_grenades_ingredient_recipes.json \
     /abs/path/to/origins_poisons_grenades_tiers.json \
     /abs/path/to/origins_poisons_grenades_unlimited_supply.json \
+    /abs/path/to/origins_poisons_grenades_effects.json \
     /abs/path/to/gametools.sqlite3
 ```
 
@@ -50,3 +52,4 @@ Computed as 3 `.parent` calls from the script file:
 - **`origins_poisons_grenades_ingredient_recipes`**: delete by `recipe`, re-insert
 - **`origins_poisons_grenades_tiers`**: delete by `recipe`, re-insert
 - **`origins_poisons_grenades_unlimited_supply`**: full DELETE ALL + re-insert
+- **`origins_poisons_grenades_effects`**: delete by `name`, re-insert

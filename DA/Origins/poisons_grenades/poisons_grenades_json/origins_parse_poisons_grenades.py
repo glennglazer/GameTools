@@ -1,14 +1,15 @@
 """Parse raw DAO Poison-Making wiki data into structured JSON files.
 
-Reads poisons_grenades_raw.json (output of the scraper) and produces four JSON files:
+Reads poisons_grenades_raw.json (output of the scraper) and produces five JSON files:
   origins_poisons_grenades_recipes.json         — wide recipe table with `type` column
   origins_poisons_grenades_ingredient_recipes.json — ingredient → recipe mapping
   origins_poisons_grenades_tiers.json           — recipe → required tier (1-4)
   origins_poisons_grenades_unlimited_supply.json — unlimited-supply vendor/location table
+  origins_poisons_grenades_effects.json         — item name → damage_type/power/effect
 
 Usage:
     python3 origins_parse_poisons_grenades.py <raw_json> \\
-        <recipes_json> <ingredient_recipes_json> <tiers_json> <supply_json>
+        <recipes_json> <ingredient_recipes_json> <tiers_json> <supply_json> <effects_json>
 """
 import argparse
 import json
@@ -87,6 +88,78 @@ def parse_recipe(title: str, wikitext: str, grenade_results: set) -> dict:
         record[f"quantity{idx}"] = ing["quantity"]
 
     return record
+
+
+# ─── Effects parser ───────────────────────────────────────────────────────────
+
+def _parse_effects_table(wikitext: str, stop_at: str | None = None) -> list[dict]:
+    """Parse a poison or grenade effects wikitable into a list of dicts.
+
+    Each data row has the form:
+        |[[Name]] || N damage_type [|| effect_text | <br>]
+
+    Header rows (starting with '!') and section lines are skipped.
+    If stop_at is given, the wikitext is truncated at that string so that
+    Awakening-only Tier Four grenades are excluded from the grenade table.
+    """
+    if stop_at:
+        idx = wikitext.find(stop_at)
+        if idx != -1:
+            wikitext = wikitext[:idx]
+
+    records: list[dict] = []
+    for line in wikitext.splitlines():
+        line = line.strip()
+        # Data rows start with | followed by a wiki link
+        if not re.match(r"^\|\s*\[\[", line):
+            continue
+
+        parts = [p.strip() for p in line.split("||")]
+        if len(parts) < 2:
+            continue
+
+        # Cell 0: |[[Name]] (possibly with spaces)
+        name_m = re.search(r"\[\[([^\]|]+)\]\]", parts[0])
+        if not name_m:
+            continue
+        name = name_m.group(1).strip()
+
+        # Cell 1: "N damage_type"
+        damage_m = re.match(r"(\d+)\s+(.*)", parts[1])
+        if not damage_m:
+            continue
+        power = int(damage_m.group(1))
+        damage_type = damage_m.group(2).strip()
+
+        # Cell 2 (optional): effect text or <br> placeholder
+        effect: str | None = None
+        if len(parts) >= 3:
+            eff = parts[2].strip()
+            if eff and eff != "<br>":
+                effect = eff
+
+        records.append(
+            {
+                "name": name,
+                "damage_type": damage_type,
+                "power": power,
+                "effect": effect,
+            }
+        )
+    return records
+
+
+def parse_pg_effects(poisons_wikitext: str, grenades_wikitext: str) -> list[dict]:
+    """Parse poisons and Tier-Two-only grenades effects into a single sorted list.
+
+    Tier Four grenades are Awakening-only and are excluded by truncating the
+    grenades wikitext at the '! Tier Four Grenades' header.
+    """
+    poisons = _parse_effects_table(poisons_wikitext)
+    grenades = _parse_effects_table(grenades_wikitext, stop_at="! Tier Four Grenades")
+    records = poisons + grenades
+    records.sort(key=lambda r: r["name"])
+    return records
 
 
 # ─── Locations parser ─────────────────────────────────────────────────────────
@@ -198,6 +271,9 @@ def main() -> None:
     ap.add_argument(
         "supply_json", help="Output: origins_poisons_grenades_unlimited_supply.json"
     )
+    ap.add_argument(
+        "effects_json", help="Output: origins_poisons_grenades_effects.json"
+    )
     args = ap.parse_args()
 
     raw_path = Path(args.raw_json)
@@ -237,6 +313,12 @@ def main() -> None:
     # ── Parse locations ────────────────────────────────────────────────────────
     supply = parse_locations(raw["locations_wikitext"])
 
+    # ── Parse effects ──────────────────────────────────────────────────────────
+    effects = parse_pg_effects(
+        raw["poisons_wikitext"],
+        raw["grenades_wikitext"],
+    )
+
     # ── Write output files ─────────────────────────────────────────────────────
     def write(path: str, data: list) -> None:
         Path(path).parent.mkdir(parents=True, exist_ok=True)
@@ -247,6 +329,7 @@ def main() -> None:
     write(args.ingredient_recipes_json, ingredient_recipes)
     write(args.tiers_json, tiers)
     write(args.supply_json, supply)
+    write(args.effects_json, effects)
 
     poison_count = sum(1 for r in recipes if r["type"] == "poison")
     grenade_count = sum(1 for r in recipes if r["type"] == "grenade")
@@ -254,6 +337,7 @@ def main() -> None:
     print(f"Ingredient→recipe:   {len(ingredient_recipes):3d} → {args.ingredient_recipes_json}")
     print(f"Tiers:               {len(tiers):3d} → {args.tiers_json}")
     print(f"Unlimited supply:    {len(supply):3d} → {args.supply_json}")
+    print(f"Effects:             {len(effects):3d} → {args.effects_json}")
 
 
 if __name__ == "__main__":

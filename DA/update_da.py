@@ -58,6 +58,7 @@ def update_origins_herbalism() -> None:
     ing_rec_json  = json_dir  / 'origins_herbalism_ingredient_recipes.json'
     tiers_json    = json_dir  / 'origins_herbalism_tiers.json'
     supply_json   = json_dir  / 'origins_herbalism_unlimited_supply.json'
+    effects_json  = json_dir  / 'origins_herbalism_potion_effects.json'
 
     # 1. Scrape
     run_step(
@@ -70,7 +71,7 @@ def update_origins_herbalism() -> None:
         'Origins herbalism JSON parse',
         [
             json_dir / 'origins_parse_herbalism.py',
-            raw_json, recipes_json, ing_rec_json, tiers_json, supply_json,
+            raw_json, recipes_json, ing_rec_json, tiers_json, supply_json, effects_json,
         ],
     )
 
@@ -79,7 +80,7 @@ def update_origins_herbalism() -> None:
         'Origins herbalism SQL load',
         [
             sql_dir / 'create_or_update_origins_herbalism.py',
-            recipes_json, ing_rec_json, tiers_json, supply_json, _DB,
+            recipes_json, ing_rec_json, tiers_json, supply_json, effects_json, _DB,
         ],
     )
 
@@ -96,6 +97,7 @@ def update_origins_poisons_grenades() -> None:
     ing_rec_json  = json_dir  / 'origins_poisons_grenades_ingredient_recipes.json'
     tiers_json    = json_dir  / 'origins_poisons_grenades_tiers.json'
     supply_json   = json_dir  / 'origins_poisons_grenades_unlimited_supply.json'
+    effects_json  = json_dir  / 'origins_poisons_grenades_effects.json'
 
     # 1. Scrape
     run_step(
@@ -108,7 +110,7 @@ def update_origins_poisons_grenades() -> None:
         'Origins poisons/grenades JSON parse',
         [
             json_dir / 'origins_parse_poisons_grenades.py',
-            raw_json, recipes_json, ing_rec_json, tiers_json, supply_json,
+            raw_json, recipes_json, ing_rec_json, tiers_json, supply_json, effects_json,
         ],
     )
 
@@ -117,7 +119,7 @@ def update_origins_poisons_grenades() -> None:
         'Origins poisons/grenades SQL load',
         [
             sql_dir / 'create_or_update_origins_poisons_grenades.py',
-            recipes_json, ing_rec_json, tiers_json, supply_json, _DB,
+            recipes_json, ing_rec_json, tiers_json, supply_json, effects_json, _DB,
         ],
     )
 

@@ -80,24 +80,53 @@ def write_json(tmp_path, name, data):
     return str(p)
 
 
-def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None):
+EFFECTS = [
+    {
+        "name": "Lesser Health Poultice",
+        "type": "Health",
+        "power": 50,
+        "effects": "Instantly restores (50 + SP) health",
+    },
+    {
+        "name": "Lesser Lyrium Potion",
+        "type": "Mana",
+        "power": 50,
+        "effects": "Instantly restores (50 + 0.5 * SP) mana",
+    },
+    {
+        "name": "Lesser Injury Kit",
+        "type": "Injury",
+        "power": 10,
+        "effects": "Instantly regains 10 health and is cured of a single injury",
+    },
+    {
+        "name": "Lesser Ice Salve",
+        "type": "Cold Resistance",
+        "power": 30,
+        "effects": "+30% cold resistance for 180 seconds",
+    },
+    {
+        "name": "Incense of Awareness",
+        "type": None,
+        "power": None,
+        "effects": "+10 Defense for 120 seconds, -10 Mental Resistance for 120 seconds",
+    },
+]
+
+
+def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, effects=None):
     recipes = recipes or RECIPES
     ing_recs = ing_recs or ING_RECS
     tiers = tiers or TIERS
     supply = supply or SUPPLY
+    effects = effects or EFFECTS
 
     r_path = write_json(tmp_path, "recipes.json", recipes)
     ir_path = write_json(tmp_path, "ing_recs.json", ing_recs)
     t_path = write_json(tmp_path, "tiers.json", tiers)
     s_path = write_json(tmp_path, "supply.json", supply)
+    e_path = write_json(tmp_path, "effects.json", effects)
     db_path = str(tmp_path / "test.sqlite3")
-
-    loader.main.__globals__["sys"].argv = [
-        "create_or_update_origins_herbalism.py",
-        r_path, ir_path, t_path, s_path, db_path,
-    ]
-
-    import argparse
 
     # Call the main upsert functions directly (bypassing argparse)
     import pandas as pd
@@ -110,11 +139,13 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None):
     df_ir = pd.DataFrame(ing_recs)
     df_t = pd.DataFrame(tiers)
     df_s = pd.DataFrame(supply)
+    df_e = pd.DataFrame(effects)
 
     loader.upsert_by_key(conn, cur, df_r, loader.RECIPES_TABLE, "name")
     loader.upsert_ingredient_recipes(conn, cur, df_ir)
     loader.upsert_by_key(conn, cur, df_t, loader.TIERS_TABLE, "recipe")
     loader.full_replace(conn, cur, df_s, loader.SUPPLY_TABLE)
+    loader.upsert_by_key(conn, cur, df_e, loader.EFFECTS_TABLE, "name")
 
     conn.close()
     return db_path
@@ -295,3 +326,102 @@ class TestJoinQueries:
         names = {r[0] for r in rows}
         assert "Health Poultice" in names
         assert "Elixir of Grounding" in names
+
+
+# ─── Tests: potion effects table ─────────────────────────────────────────────
+
+class TestPotionEffects:
+    def test_effects_table_created(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        conn.close()
+        assert "origins_herbalism_potion_effects" in tables
+
+    def test_effects_row_count(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        count = conn.execute(
+            "SELECT COUNT(*) FROM origins_herbalism_potion_effects"
+        ).fetchone()[0]
+        conn.close()
+        assert count == 5
+
+    def test_health_type_and_power(self, tmp_path):
+        """Health potions now have power computed at SP=0."""
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT type, power FROM origins_herbalism_potion_effects "
+            "WHERE name='Lesser Health Poultice'"
+        ).fetchone()
+        conn.close()
+        assert row[0] == "Health"
+        assert row[1] == 50  # (50 + SP) at SP=0
+
+    def test_injury_power_stored(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT type, power FROM origins_herbalism_potion_effects "
+            "WHERE name='Lesser Injury Kit'"
+        ).fetchone()
+        conn.close()
+        assert row[0] == "Injury"
+        assert row[1] == 10
+
+    def test_resistance_power_stored(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT type, power FROM origins_herbalism_potion_effects "
+            "WHERE name='Lesser Ice Salve'"
+        ).fetchone()
+        conn.close()
+        assert row[0] == "Cold Resistance"
+        assert row[1] == 30
+
+    def test_buff_null_type_and_power(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        row = conn.execute(
+            "SELECT type, power FROM origins_herbalism_potion_effects "
+            "WHERE name='Incense of Awareness'"
+        ).fetchone()
+        conn.close()
+        assert row[0] is None
+        assert row[1] is None
+
+    def test_effects_text_stored(self, tmp_path):
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        effects = conn.execute(
+            "SELECT effects FROM origins_herbalism_potion_effects "
+            "WHERE name='Lesser Health Poultice'"
+        ).fetchone()[0]
+        conn.close()
+        assert "50 + SP" in effects
+
+    def test_no_duplicate_on_reload(self, tmp_path):
+        db = run_loader(tmp_path)
+        import pandas as pd
+        conn = sqlite3.connect(db)
+        cur = conn.cursor()
+        df_e = pd.DataFrame(EFFECTS)
+        loader.upsert_by_key(conn, cur, df_e, loader.EFFECTS_TABLE, "name")
+        count = conn.execute(
+            "SELECT COUNT(*) FROM origins_herbalism_potion_effects"
+        ).fetchone()[0]
+        conn.close()
+        assert count == 5
+
+    def test_filter_by_type(self, tmp_path):
+        """Querying by type works (resistance, buff, etc.)."""
+        db = run_loader(tmp_path)
+        conn = sqlite3.connect(db)
+        buffs = conn.execute(
+            "SELECT name FROM origins_herbalism_potion_effects WHERE type IS NULL"
+        ).fetchall()
+        conn.close()
+        assert len(buffs) == 1
+        assert buffs[0][0] == "Incense of Awareness"

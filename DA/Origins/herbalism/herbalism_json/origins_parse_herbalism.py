@@ -1,14 +1,15 @@
 """Parse raw DAO Herbalism wiki data into structured JSON files.
 
-Reads herbalism_raw.json (output of the scraper) and produces four JSON files:
+Reads herbalism_raw.json (output of the scraper) and produces five JSON files:
   origins_herbalism_recipes.json         — wide recipe table (4 nullable ingredient cols)
   origins_herbalism_ingredient_recipes.json — ingredient → recipe mapping (reverse lookup)
   origins_herbalism_tiers.json           — recipe → required herbalism tier (1-4)
   origins_herbalism_unlimited_supply.json — unlimited-supply vendor/location table
+  origins_herbalism_potion_effects.json  — crafted-item type/power/effects table
 
 Usage:
     python3 origins_parse_herbalism.py <raw_json> \\
-        <recipes_json> <ingredient_recipes_json> <tiers_json> <supply_json>
+        <recipes_json> <ingredient_recipes_json> <tiers_json> <supply_json> <effects_json>
 """
 import argparse
 import json
@@ -88,6 +89,112 @@ def parse_recipe(title: str, wikitext: str) -> dict:
         record[f"quantity{idx}"] = ing["quantity"]
 
     return record
+
+
+# ─── Potion effects parser ───────────────────────────────────────────────────
+
+def classify_effect(description: str) -> tuple:
+    """Return (type, power) for a crafted item description string.
+
+    Formula-based potions (Health/Mana) have their power computed at SP=0:
+      "(50 + SP) * 3" → 150,  "(100 + 0.5 * SP)" → 100.
+
+    Types returned:
+      "Health"              — health restoration; power = formula evaluated at SP=0
+      "Mana"                — mana restoration; power = formula evaluated at SP=0
+      "Mabari"              — mabari-only health/stamina recovery (power=None)
+      "Injury"              — health + injury kit (power=integer health restored)
+      "Cold Resistance"     — cold resistance (power=integer percentage)
+      "Nature Resistance"   — nature resistance (power=integer percentage)
+      "Fire Resistance"     — fire resistance (power=integer percentage)
+      "Spirit Resistance"   — spirit resistance (power=integer percentage)
+      "Electricity Resistance" — electricity resistance (power=integer percentage)
+      (None, None)          — buff (Incense of Awareness, Rock Salve, etc.)
+    """
+    d = description.lower()
+
+    # Mabari: check before health/injury because description mentions both
+    if "mabari hound" in d:
+        return "Mabari", None
+
+    # Health potions: "(base + ... SP ...) [* mult] health"
+    # At SP=0: power = base * mult  (mult defaults to 1 when absent)
+    if re.search(r"restores?\s", d) and "health" in d:
+        m = re.search(r"\((\d+)\s*\+.*?sp.*?\)\s*(?:\*\s*(\d+))?", d)
+        if m:
+            base = int(m.group(1))
+            mult = int(m.group(2)) if m.group(2) else 1
+            return "Health", base * mult
+        return "Health", None  # fallback: formula didn't match expected shape
+
+    # Mana/Lyrium potions: "(base + ... SP ...)"
+    # At SP=0: power = base  (coefficient of SP vanishes)
+    if re.search(r"restores?\s.*mana", d):
+        m = re.search(r"\((\d+)\s*\+.*?sp.*?\)", d)
+        if m:
+            return "Mana", int(m.group(1))
+        return "Mana", None  # fallback
+
+    # Injury kits: "regains N health" + mentions injuries
+    m = re.search(r"regains?\s+(\d+)\s+health", d)
+    if m and "injur" in d:
+        return "Injury", int(m.group(1))
+
+    # Resistance types (percentage-based)
+    m = re.search(r"\+?(\d+)%\s+cold\s+resistance", d)
+    if m:
+        return "Cold Resistance", int(m.group(1))
+
+    m = re.search(r"\+?(\d+)%\s+nature\s+resistance", d)
+    if m:
+        return "Nature Resistance", int(m.group(1))
+
+    m = re.search(r"\+?(\d+)%\s+fire\s+resistance", d)
+    if m:
+        return "Fire Resistance", int(m.group(1))
+
+    m = re.search(r"\+?(\d+)%\s+spirit\s+resistance", d)
+    if m:
+        return "Spirit Resistance", int(m.group(1))
+
+    # Electricity has two surface forms on the wiki:
+    #   Lesser: "resistance to electricity damage by 30%"
+    #   Greater: "+60% electrical resistance"
+    m = re.search(r"electricity\s+damage\s+by\s+(\d+)%", d)
+    if not m:
+        m = re.search(r"\+?(\d+)%\s+electrical\s+resistance", d)
+    if m:
+        return "Electricity Resistance", int(m.group(1))
+
+    # Buff (Incense of Awareness, Rock Salve, Swift Salve, Dwarven Regicide Antidote, …)
+    return None, None
+
+
+def parse_crafted_item_effects(wikitext: str) -> list[dict]:
+    """Parse the crafted-items wikitable into a list of effect records.
+
+    Each row in the wikitable has the form:
+        |[[Item Name]] || Description text
+    Header rows start with '!' and are skipped.
+    """
+    records: list[dict] = []
+    for m in re.finditer(
+        r"^\|\s*\[\[([^\]|]+)\]\]\s*\|\|\s*(.+)$",
+        wikitext,
+        re.MULTILINE,
+    ):
+        name = m.group(1).strip()
+        description = m.group(2).strip()
+        item_type, power = classify_effect(description)
+        records.append(
+            {
+                "name": name,
+                "type": item_type,
+                "power": power,
+                "effects": description,
+            }
+        )
+    return records
 
 
 # ─── Locations parser ─────────────────────────────────────────────────────────
@@ -201,6 +308,7 @@ def main() -> None:
     )
     ap.add_argument("tiers_json", help="Output: origins_herbalism_tiers.json")
     ap.add_argument("supply_json", help="Output: origins_herbalism_unlimited_supply.json")
+    ap.add_argument("effects_json", help="Output: origins_herbalism_potion_effects.json")
     args = ap.parse_args()
 
     raw_path = Path(args.raw_json)
@@ -240,6 +348,9 @@ def main() -> None:
     # ── Parse locations ───────────────────────────────────────────────────────
     supply = parse_locations(raw["locations_wikitext"])
 
+    # ── Parse crafted item effects ────────────────────────────────────────────
+    effects = parse_crafted_item_effects(raw["crafted_items_wikitext"])
+
     # ── Write output files ────────────────────────────────────────────────────
     def write(path: str, data: list) -> None:
         Path(path).parent.mkdir(parents=True, exist_ok=True)
@@ -250,11 +361,13 @@ def main() -> None:
     write(args.ingredient_recipes_json, ingredient_recipes)
     write(args.tiers_json, tiers)
     write(args.supply_json, supply)
+    write(args.effects_json, effects)
 
     print(f"Recipes:             {len(recipes):3d} → {args.recipes_json}")
     print(f"Ingredient→recipe:   {len(ingredient_recipes):3d} → {args.ingredient_recipes_json}")
     print(f"Tiers:               {len(tiers):3d} → {args.tiers_json}")
     print(f"Unlimited supply:    {len(supply):3d} → {args.supply_json}")
+    print(f"Potion effects:      {len(effects):3d} → {args.effects_json}")
 
 
 if __name__ == "__main__":
