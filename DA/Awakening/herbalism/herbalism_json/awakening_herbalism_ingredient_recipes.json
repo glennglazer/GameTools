@@ -1,0 +1,187 @@
+[
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Greater Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Master Health Poultice Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Master Lyrium Potion Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Master Stamina Draught Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Potent Stamina Draught Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Superb Health Poultice Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Superb Lyrium Potion Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Superb Stamina Draught Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Greater Stamina Draught Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Lesser Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Master Stamina Draught Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Potent Stamina Draught Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Stamina Draught Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Deep Mushroom",
+    "recipe": "Superb Stamina Draught Recipe",
+    "quantity": 6
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Greater Stamina Draught Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Master Health Poultice Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Master Lyrium Potion Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Master Stamina Draught Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Potent Stamina Draught Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Superb Health Poultice Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Superb Lyrium Potion Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Distillation Agent",
+    "recipe": "Superb Stamina Draught Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Master Health Poultice Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Elfroot",
+    "recipe": "Superb Health Poultice Recipe",
+    "quantity": 6
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Greater Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Lesser Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Master Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Master Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Master Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Potent Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Superb Health Poultice Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Superb Lyrium Potion Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Superb Stamina Draught Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Master Lyrium Potion Recipe",
+    "quantity": 8
+  },
+  {
+    "ingredient": "Lyrium Dust",
+    "recipe": "Superb Lyrium Potion Recipe",
+    "quantity": 6
+  }
+]

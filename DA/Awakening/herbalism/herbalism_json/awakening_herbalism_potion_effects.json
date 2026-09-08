@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Superb Health Poultice",
+    "type": "Health",
+    "power": 250.0,
+    "effects": "Instantly restores (50 + SP) * 5 health"
+  },
+  {
+    "name": "Master Health Poultice",
+    "type": "Health",
+    "power": 300.0,
+    "effects": "Instantly restores (50 + SP) * 6 health"
+  },
+  {
+    "name": "Superb Lyrium Potion",
+    "type": "Mana",
+    "power": 250.0,
+    "effects": "Instantly restores (50 + SP) * 5 mana"
+  },
+  {
+    "name": "Master Lyrium Potion",
+    "type": "Mana",
+    "power": 300.0,
+    "effects": "Instantly restores (50 + SP) * 6 mana"
+  },
+  {
+    "name": "Lesser Stamina Draught",
+    "type": "Stamina",
+    "power": 50.0,
+    "effects": "Instantly restores (50 + SP) stamina"
+  },
+  {
+    "name": "Stamina Draught",
+    "type": "Stamina",
+    "power": 100.0,
+    "effects": "Instantly restores (50 + SP) * 2 stamina"
+  },
+  {
+    "name": "Greater Stamina Draught",
+    "type": "Stamina",
+    "power": 150.0,
+    "effects": "Instantly restores (50 + SP) * 3 stamina"
+  },
+  {
+    "name": "Potent Stamina Draught",
+    "type": "Stamina",
+    "power": 200.0,
+    "effects": "Instantly restores (50 + SP) * 4 stamina"
+  },
+  {
+    "name": "Superb Stamina Draught",
+    "type": "Stamina",
+    "power": 250.0,
+    "effects": "Instantly restores (50 + SP) * 5 stamina"
+  },
+  {
+    "name": "Master Stamina Draught",
+    "type": "Stamina",
+    "power": 300.0,
+    "effects": "Instantly restores (50 + SP) * 6 stamina"
+  }
+]

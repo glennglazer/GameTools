@@ -1,0 +1,42 @@
+[
+  {
+    "recipe": "Greater Stamina Draught Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Lesser Stamina Draught Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Master Health Poultice Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Master Lyrium Potion Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Master Stamina Draught Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Potent Stamina Draught Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Stamina Draught Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Superb Health Poultice Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Superb Lyrium Potion Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Superb Stamina Draught Recipe",
+    "tier": 4
+  }
+]

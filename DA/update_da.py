@@ -3,13 +3,16 @@
 DA data pipeline driver.
 
 Runs the full update pipeline for all implemented Dragon Age game/system combinations:
-  - Origins herbalism (scrape → JSON → SQL)
+  - Origins herbalism (scrape → JSON → SQL), chained into Awakening herbalism
   - Origins poisons & grenades (scrape → JSON → SQL)
+  - Origins trap-making (scrape → JSON → SQL)
+  - Awakening herbalism (bootstrap DAO:A DB → sync Origins data → scrape → JSON → SQL)
 
 Halts immediately on any subprocess failure.
 """
 
 import logging
+import shutil
 import sys
 import subprocess
 from pathlib import Path
@@ -163,15 +166,81 @@ def update_origins_trap_making() -> None:
     )
 
 
+# ─── Awakening ────────────────────────────────────────────────────────────────
+
+def update_awakening_herbalism() -> None:
+    """Chain: bootstrap DAO:A DB → sync Origins herbalism → run Awakening herbalism pipeline.
+
+    Step 0: If the DAO:A database does not yet exist, copy the DAO DB to DA/Awakening/database/.
+    Step 1: Run the full DAO herbalism pipeline (scrape → JSON → SQL against the DAO DB).
+    Step 2: Re-run the DAO herbalism SQL loader against the DAO:A DB so any Origins changes
+            are reflected there (the loader is idempotent via the upsert pattern).
+    Step 3: Scrape, parse, and load Awakening-exclusive herbalism data into the DAO:A DB.
+    """
+    dao_db  = _SCRIPT_DIR / 'database' / 'gametools.sqlite3'
+    daa_dir = _SCRIPT_DIR / 'Awakening'
+    daa_db  = daa_dir / 'database' / 'gametools.sqlite3'
+
+    # Step 0 ── bootstrap DAO:A DB
+    if not daa_db.exists():
+        daa_db.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(str(dao_db), str(daa_db))
+        log.info('Bootstrapped DAO:A DB from %s → %s', dao_db, daa_db)
+
+    # Step 1 ── run the full DAO herbalism pipeline (updates DAO DB)
+    update_origins_herbalism()
+
+    # Step 2 ── sync Origins herbalism into the DAO:A DB
+    origins_herb_dir = _SCRIPT_DIR / 'Origins' / 'herbalism'
+    origins_herb_sql = origins_herb_dir / 'herbalism_sql' / 'create_or_update_origins_herbalism.py'
+    origins_herb_json = origins_herb_dir / 'herbalism_json'
+    run_step('Origins herbalism SQL → DAO:A DB', [
+        origins_herb_sql,
+        origins_herb_json / 'origins_herbalism_recipes.json',
+        origins_herb_json / 'origins_herbalism_ingredient_recipes.json',
+        origins_herb_json / 'origins_herbalism_tiers.json',
+        origins_herb_json / 'origins_herbalism_unlimited_supply.json',
+        origins_herb_json / 'origins_herbalism_potion_effects.json',
+        daa_db,
+    ])
+
+    # Step 3 ── Awakening-exclusive herbalism pipeline
+    aw_herb_dir = daa_dir / 'herbalism'
+    parse_dir   = aw_herb_dir / 'herbalism_parse'
+    json_dir    = aw_herb_dir / 'herbalism_json'
+    sql_dir     = aw_herb_dir / 'herbalism_sql'
+
+    raw_json      = parse_dir / 'herbalism_raw.json'
+    recipes_json  = json_dir  / 'awakening_herbalism_recipes.json'
+    ing_rec_json  = json_dir  / 'awakening_herbalism_ingredient_recipes.json'
+    tiers_json    = json_dir  / 'awakening_herbalism_tiers.json'
+    supply_json   = json_dir  / 'awakening_herbalism_unlimited_supply.json'
+    effects_json  = json_dir  / 'awakening_herbalism_potion_effects.json'
+
+    run_step('Awakening herbalism scrape', [
+        parse_dir / 'awakening_scrape_herbalism.py', raw_json,
+    ])
+    run_step('Awakening herbalism JSON parse', [
+        json_dir / 'awakening_parse_herbalism.py',
+        raw_json, recipes_json, ing_rec_json, tiers_json, supply_json, effects_json,
+    ])
+    run_step('Awakening herbalism SQL load', [
+        sql_dir / 'create_or_update_awakening_herbalism.py',
+        recipes_json, ing_rec_json, tiers_json, supply_json, effects_json, daa_db,
+    ])
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main() -> None:
     log.info('=== DA pipeline starting ===')
 
-    # Origins
-    update_origins_herbalism()
+    # Origins-only systems (no Awakening equivalent yet)
     update_origins_poisons_grenades()
     update_origins_trap_making()
+
+    # Awakening herbalism (chains DAO herbalism internally as step 1)
+    update_awakening_herbalism()
 
     log.info('=== DA pipeline complete ===')
 
