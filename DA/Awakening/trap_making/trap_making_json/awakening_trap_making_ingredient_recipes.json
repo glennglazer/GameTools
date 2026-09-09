@@ -1,0 +1,77 @@
+[
+  {
+    "ingredient": "Blood Lotus",
+    "recipe": "Elemental Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Dispel Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Elemental Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Misdirection Cloud Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Dispel Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Elemental Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Gravity Trap Plans",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Misdirection Cloud Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Glamour Charm",
+    "recipe": "Gravity Trap Plans",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Madcap Bulb",
+    "recipe": "Misdirection Cloud Trap Plans",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Rashvine Nettle",
+    "recipe": "Dispel Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Dispel Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Elemental Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Gravity Trap Plans",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Trap Trigger",
+    "recipe": "Misdirection Cloud Trap Plans",
+    "quantity": 1
+  }
+]

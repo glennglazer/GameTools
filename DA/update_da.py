@@ -3,12 +3,12 @@
 DA data pipeline driver.
 
 Runs the full update pipeline for all implemented Dragon Age game/system combinations:
-  - Origins trap-making (scrape → JSON → SQL)
   - Awakening herbalism (bootstrap DAO:A DB → sync Origins herbalism → scrape → JSON → SQL)
   - Awakening poisons & grenades (bootstrap DAO:A DB → sync Origins poisons/grenades → scrape → JSON → SQL)
+  - Awakening trap-making (bootstrap DAO:A DB → sync Origins trap-making → scrape → JSON → SQL)
 
-Origins herbalism and Origins poisons/grenades are called internally by their Awakening
-chain functions and are no longer invoked directly from main().
+Origins herbalism, Origins poisons/grenades, and Origins trap-making are called internally
+by their Awakening chain functions and are no longer invoked directly from main().
 
 Halts immediately on any subprocess failure.
 """
@@ -296,19 +296,83 @@ def update_awakening_poisons_grenades() -> None:
     ])
 
 
+# ─── Awakening (continued) ────────────────────────────────────────────────────
+
+def update_awakening_trap_making() -> None:
+    """Chain: bootstrap DAO:A DB → sync Origins trap-making → run Awakening pipeline.
+
+    Step 0: If the DAO:A database does not yet exist, copy the DAO DB to DA/Awakening/database/.
+    Step 1: Run the full DAO trap-making pipeline (scrape → JSON → SQL against the DAO DB).
+    Step 2: Re-run the DAO trap-making SQL loader against the DAO:A DB so any Origins
+            changes are reflected there.
+    Step 3: Scrape, parse, and load Awakening-exclusive trap-making data into the DAO:A DB.
+    """
+    dao_db  = _SCRIPT_DIR / 'database' / 'gametools.sqlite3'
+    daa_dir = _SCRIPT_DIR / 'Awakening'
+    daa_db  = daa_dir / 'database' / 'gametools.sqlite3'
+
+    # Step 0 ── bootstrap DAO:A DB
+    if not daa_db.exists():
+        daa_db.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(str(dao_db), str(daa_db))
+        log.info('Bootstrapped DAO:A DB from %s → %s', dao_db, daa_db)
+
+    # Step 1 ── run the full DAO trap-making pipeline (updates DAO DB)
+    update_origins_trap_making()
+
+    # Step 2 ── sync Origins trap-making into the DAO:A DB
+    origins_tm_dir  = _SCRIPT_DIR / 'Origins' / 'trap_making'
+    origins_tm_sql  = origins_tm_dir / 'trap_making_sql' / 'create_or_update_origins_trap_making.py'
+    origins_tm_json = origins_tm_dir / 'trap_making_json'
+    run_step('Origins trap-making SQL → DAO:A DB', [
+        origins_tm_sql,
+        origins_tm_json / 'origins_trap_making_recipes.json',
+        origins_tm_json / 'origins_trap_making_ingredient_recipes.json',
+        origins_tm_json / 'origins_trap_making_tiers.json',
+        origins_tm_json / 'origins_trap_making_unlimited_supply.json',
+        origins_tm_json / 'origins_trap_making_effects.json',
+        daa_db,
+    ])
+
+    # Step 3 ── Awakening-exclusive trap-making pipeline
+    aw_tm_dir = daa_dir / 'trap_making'
+    parse_dir = aw_tm_dir / 'trap_making_parse'
+    json_dir  = aw_tm_dir / 'trap_making_json'
+    sql_dir   = aw_tm_dir / 'trap_making_sql'
+
+    raw_json     = parse_dir / 'trap_making_raw.json'
+    recipes_json = json_dir  / 'awakening_trap_making_recipes.json'
+    ing_rec_json = json_dir  / 'awakening_trap_making_ingredient_recipes.json'
+    tiers_json   = json_dir  / 'awakening_trap_making_tiers.json'
+    supply_json  = json_dir  / 'awakening_trap_making_unlimited_supply.json'
+    effects_json = json_dir  / 'awakening_trap_making_effects.json'
+
+    run_step('Awakening trap-making scrape', [
+        parse_dir / 'awakening_scrape_trap_making.py', raw_json,
+    ])
+    run_step('Awakening trap-making JSON parse', [
+        json_dir / 'awakening_parse_trap_making.py',
+        raw_json, recipes_json, ing_rec_json, tiers_json, supply_json, effects_json,
+    ])
+    run_step('Awakening trap-making SQL load', [
+        sql_dir / 'create_or_update_awakening_trap_making.py',
+        recipes_json, ing_rec_json, tiers_json, supply_json, effects_json, daa_db,
+    ])
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main() -> None:
     log.info('=== DA pipeline starting ===')
-
-    # Origins-only systems (no Awakening equivalent yet)
-    update_origins_trap_making()
 
     # Awakening herbalism (chains DAO herbalism internally as step 1)
     update_awakening_herbalism()
 
     # Awakening poisons/grenades (chains DAO poisons/grenades internally as step 1)
     update_awakening_poisons_grenades()
+
+    # Awakening trap-making (chains DAO trap-making internally as step 1)
+    update_awakening_trap_making()
 
     log.info('=== DA pipeline complete ===')
 

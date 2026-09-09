@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dispel Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "When triggered, this trap dispels all magical effects within a large area. Friendly fire possible."
+  },
+  {
+    "name": "Elemental Trap",
+    "damage_type": "cold, electricity, fire, nature, spirit",
+    "power": 200,
+    "effect": null
+  },
+  {
+    "name": "Gravity Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "When triggered, this trap pulses with waves that pull nearby creatures back to the trap every few seconds. Pulses every 4 seconds. 20 second duration Friendly fire bugged and does not happen."
+  },
+  {
+    "name": "Misdirection Cloud Trap",
+    "damage_type": null,
+    "power": null,
+    "effect": "When triggered, this trap generates a cloud that causes creatures within to suffer from frustrating inaccuracy. All hits become misses, while critical hits become normal hits. 20 second duration. Friendly fire bugged and does not happen."
+  }
+]

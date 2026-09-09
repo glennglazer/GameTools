@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Dispel Trap Plans",
+    "result": "Dispel Trap",
+    "description": null,
+    "item_id": "gxa_im_cft_trp_401",
+    "tier": 4,
+    "ingredient1": "Rashvine Nettle",
+    "quantity1": 1,
+    "ingredient2": "Corrupter Agent",
+    "quantity2": 2,
+    "ingredient3": "Trap Trigger",
+    "quantity3": 1,
+    "ingredient4": "Concentrator Agent",
+    "quantity4": 1
+  },
+  {
+    "name": "Elemental Trap Plans",
+    "result": "Elemental Trap",
+    "description": null,
+    "item_id": "gxa_im_cft_trp_402",
+    "tier": 4,
+    "ingredient1": "Blood Lotus",
+    "quantity1": 1,
+    "ingredient2": "Corrupter Agent",
+    "quantity2": 2,
+    "ingredient3": "Trap Trigger",
+    "quantity3": 1,
+    "ingredient4": "Concentrator Agent",
+    "quantity4": 1
+  },
+  {
+    "name": "Gravity Trap Plans",
+    "result": "Gravity Trap",
+    "description": null,
+    "item_id": "gxa_im_cft_trp_403",
+    "tier": 4,
+    "ingredient1": "Glamour Charm",
+    "quantity1": 4,
+    "ingredient2": "Corrupter Agent",
+    "quantity2": 4,
+    "ingredient3": "Trap Trigger",
+    "quantity3": 1,
+    "ingredient4": null,
+    "quantity4": null
+  },
+  {
+    "name": "Misdirection Cloud Trap Plans",
+    "result": "Misdirection Cloud Trap",
+    "description": null,
+    "item_id": "gxa_im_cft_trp_404",
+    "tier": 4,
+    "ingredient1": "Madcap Bulb",
+    "quantity1": 2,
+    "ingredient2": "Corrupter Agent",
+    "quantity2": 2,
+    "ingredient3": "Concentrator Agent",
+    "quantity3": 2,
+    "ingredient4": "Trap Trigger",
+    "quantity4": 1
+  }
+]

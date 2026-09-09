@@ -1,10 +1,8 @@
 [tool.pytest.ini_options]
-# importlib mode: each test file gets a path-derived unique module name, avoiding
-# collisions when origins/ and awakening/ both contain files with identical names
-# (e.g. test_herbalism_parse.py, test_poisons_grenades_parse.py).
+# importlib mode: each test file gets a path-derived unique module name.
+# Awakening test files are prefixed with test_aw_* and Origins files with
+# plain names so basenames are globally unique across both test suites.
 addopts = "--import-mode=importlib"
-# Add test parent directories to sys.path so "from conftest import ..." resolves
-# in each test file (conftest.py lives in tests/unittests/ and tests/integrationtests/).
 pythonpath = [
     "tests/unittests",
     "tests/integrationtests",
