@@ -153,6 +153,8 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, e
     import sqlite3 as _sqlite3
 
     conn = _sqlite3.connect(db_path)
+    conn.execute("PRAGMA synchronous=OFF")
+    conn.execute("PRAGMA journal_mode=MEMORY")
     cur  = conn.cursor()
 
     df_r  = pd.DataFrame(recipes)
@@ -172,11 +174,18 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, e
     return db_path
 
 
+# ─── Module-scoped shared DB (all read-only tests share one load) ─────────────
+
+@pytest.fixture(scope="module")
+def db(tmp_path_factory):
+    tmp = tmp_path_factory.mktemp("shared")
+    return run_loader(tmp)
+
+
 # ─── Tests: initial load ──────────────────────────────────────────────────────
 
 class TestInitialLoad:
-    def test_all_tables_created(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_all_tables_created(self, db):
         conn = sqlite3.connect(db)
         tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         conn.close()
@@ -186,16 +195,14 @@ class TestInitialLoad:
         ]:
             assert table in tables
 
-    def test_recipe_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_recipe_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute(f"SELECT COUNT(*) FROM {loader.RECIPES_TABLE}").fetchone()[0]
         conn.close()
         assert count == 4
 
-    def test_type_column_values(self, tmp_path):
+    def test_type_column_values(self, db):
         """Two grenades and two poisons."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         grenades = conn.execute(
             f"SELECT COUNT(*) FROM {loader.RECIPES_TABLE} WHERE type='grenade'"
@@ -207,8 +214,7 @@ class TestInitialLoad:
         assert grenades == 2
         assert poisons == 2
 
-    def test_gxa_item_id(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_gxa_item_id(self, db):
         conn = sqlite3.connect(db)
         ids = [r[0] for r in conn.execute(
             f"SELECT item_id FROM {loader.RECIPES_TABLE}"
@@ -218,8 +224,7 @@ class TestInitialLoad:
         for item_id in ids:
             assert item_id is None or item_id.startswith("gxa_")
 
-    def test_all_tiers_4(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_all_tiers_4(self, db):
         conn = sqlite3.connect(db)
         tiers = {r[0] for r in conn.execute(
             f"SELECT DISTINCT tier FROM {loader.TIERS_TABLE}"
@@ -227,8 +232,7 @@ class TestInitialLoad:
         conn.close()
         assert tiers == {4}
 
-    def test_ingredient_recipes_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_ingredient_recipes_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute(
             f"SELECT COUNT(*) FROM {loader.ING_REC_TABLE}"
@@ -236,15 +240,13 @@ class TestInitialLoad:
         conn.close()
         assert count == len(ING_RECS)
 
-    def test_supply_table_empty(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_supply_table_empty(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute(f"SELECT COUNT(*) FROM {loader.SUPPLY_TABLE}").fetchone()[0]
         conn.close()
         assert count == 0
 
-    def test_effects_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_effects_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute(f"SELECT COUNT(*) FROM {loader.EFFECTS_TABLE}").fetchone()[0]
         conn.close()
@@ -254,8 +256,7 @@ class TestInitialLoad:
 # ─── Tests: effects table content ────────────────────────────────────────────
 
 class TestEffectsTable:
-    def test_elemental_damage_type(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_elemental_damage_type(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             f"SELECT damage_type, power FROM {loader.EFFECTS_TABLE} WHERE name='Elemental Grenade'"
@@ -264,8 +265,7 @@ class TestEffectsTable:
         assert row[0] == "cold, electricity, fire, nature, spirit"
         assert row[1] == 150
 
-    def test_elemental_coating_power(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_elemental_coating_power(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             f"SELECT power FROM {loader.EFFECTS_TABLE} WHERE name='Elemental Coating'"
@@ -273,8 +273,7 @@ class TestEffectsTable:
         conn.close()
         assert row[0] == 10
 
-    def test_dispel_null_damage(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_dispel_null_damage(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             f"SELECT damage_type, power FROM {loader.EFFECTS_TABLE} WHERE name='Dispel Coating'"
@@ -283,8 +282,7 @@ class TestEffectsTable:
         assert row[0] is None
         assert row[1] is None
 
-    def test_dispel_grenade_effect_text(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_dispel_grenade_effect_text(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             f"SELECT effect FROM {loader.EFFECTS_TABLE} WHERE name='Dispel Grenade'"
@@ -293,8 +291,7 @@ class TestEffectsTable:
         assert row[0] is not None
         assert "Dispels magic" in row[0]
 
-    def test_unique_index_on_name(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_unique_index_on_name(self, db):
         conn = sqlite3.connect(db)
         idx = conn.execute(
             f"SELECT name FROM sqlite_master WHERE type='index' "
@@ -307,8 +304,8 @@ class TestEffectsTable:
 # ─── Tests: empty supply table ────────────────────────────────────────────────
 
 class TestSupplyTable:
-    def test_empty_supply_creates_table_with_columns(self, tmp_path):
-        db = run_loader(tmp_path, supply=[])
+    def test_empty_supply_creates_table_with_columns(self, db):
+        """Empty supply (the default) creates the table with correct columns."""
         conn = sqlite3.connect(db)
         cols = [r[1] for r in conn.execute(
             f"PRAGMA table_info({loader.SUPPLY_TABLE})"
@@ -320,6 +317,7 @@ class TestSupplyTable:
         assert "note" in cols
 
     def test_supply_with_data(self, tmp_path):
+        """Uses custom supply data — needs its own DB."""
         supply_data = [{"ingredient": "Flask", "vendor": "Someone", "location": "Somewhere", "note": None}]
         db = run_loader(tmp_path, supply=supply_data)
         conn = sqlite3.connect(db)
@@ -343,6 +341,7 @@ class TestUpsert:
         assert count == 4
 
     def test_effect_updated_on_reload(self, tmp_path):
+        """Modifies power value — uses own DB to avoid contaminating shared fixture."""
         db = run_loader(tmp_path)
         import pandas as pd
         updated_effects = [{**e, "power": 999} if e["name"] == "Elemental Grenade" else e
@@ -361,9 +360,8 @@ class TestUpsert:
 # ─── Tests: query patterns ────────────────────────────────────────────────────
 
 class TestQueryPatterns:
-    def test_reverse_lookup_flask(self, tmp_path):
+    def test_reverse_lookup_flask(self, db):
         """Flask is used by all 4 recipes."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         recipes = {r[0] for r in conn.execute(
             f"SELECT recipe FROM {loader.ING_REC_TABLE} WHERE ingredient='Flask'"
@@ -371,8 +369,7 @@ class TestQueryPatterns:
         conn.close()
         assert len(recipes) == 4
 
-    def test_filter_grenades(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_filter_grenades(self, db):
         conn = sqlite3.connect(db)
         grenades = conn.execute(
             f"SELECT name FROM {loader.RECIPES_TABLE} WHERE type='grenade' ORDER BY name"
@@ -382,9 +379,8 @@ class TestQueryPatterns:
         assert grenades[0][0] == "Dispel Grenade Recipe"
         assert grenades[1][0] == "Elemental Grenade Recipe"
 
-    def test_effects_join_to_recipes(self, tmp_path):
+    def test_effects_join_to_recipes(self, db):
         """Join recipes to effects on result=name."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         rows = conn.execute(
             f"SELECT r.name, e.damage_type, e.power "

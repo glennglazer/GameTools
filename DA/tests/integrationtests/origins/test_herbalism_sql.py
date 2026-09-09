@@ -133,6 +133,8 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, e
     import sqlite3 as _sqlite3
 
     conn = _sqlite3.connect(db_path)
+    conn.execute("PRAGMA synchronous=OFF")
+    conn.execute("PRAGMA journal_mode=MEMORY")
     cur = conn.cursor()
 
     df_r = pd.DataFrame(recipes)
@@ -151,46 +153,48 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, e
     return db_path
 
 
+# ─── Module-scoped shared DB (all read-only tests share one load) ─────────────
+
+@pytest.fixture(scope="module")
+def db(tmp_path_factory):
+    tmp = tmp_path_factory.mktemp("shared")
+    return run_loader(tmp)
+
+
 # ─── Tests: initial load ──────────────────────────────────────────────────────
 
 class TestInitialLoad:
-    def test_recipes_table_created(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_recipes_table_created(self, db):
         conn = sqlite3.connect(db)
         tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         conn.close()
         assert "origins_herbalism_recipes" in tables
 
-    def test_recipes_row_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_recipes_row_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute("SELECT COUNT(*) FROM origins_herbalism_recipes").fetchone()[0]
         conn.close()
         assert count == 2
 
-    def test_ingredient_recipes_row_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_ingredient_recipes_row_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute("SELECT COUNT(*) FROM origins_herbalism_ingredient_recipes").fetchone()[0]
         conn.close()
         assert count == 5
 
-    def test_tiers_row_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_tiers_row_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute("SELECT COUNT(*) FROM origins_herbalism_tiers").fetchone()[0]
         conn.close()
         assert count == 2
 
-    def test_supply_row_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_supply_row_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute("SELECT COUNT(*) FROM origins_herbalism_unlimited_supply").fetchone()[0]
         conn.close()
         assert count == 3
 
-    def test_nullable_ingredient_columns(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_nullable_ingredient_columns(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT ingredient3, quantity3, ingredient4, quantity4 "
@@ -199,8 +203,7 @@ class TestInitialLoad:
         conn.close()
         assert row == (None, None, None, None)
 
-    def test_tier_value(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_tier_value(self, db):
         conn = sqlite3.connect(db)
         tier = conn.execute(
             "SELECT tier FROM origins_herbalism_tiers WHERE recipe='Elixir of Grounding'"
@@ -209,7 +212,7 @@ class TestInitialLoad:
         assert tier == 3
 
     def test_supply_vendor_nullable(self, tmp_path):
-        """Test that null vendor is handled correctly in supply table."""
+        """Test that null vendor is handled correctly in supply table (uses custom supply)."""
         supply_with_null = SUPPLY + [
             {"ingredient": "Lifestone", "vendor": None, "location": "Lifestone's Cave", "note": None}
         ]
@@ -221,9 +224,8 @@ class TestInitialLoad:
         conn.close()
         assert row[0] is None
 
-    def test_ingredient_recipe_query(self, tmp_path):
+    def test_ingredient_recipe_query(self, db):
         """Verify the reverse-lookup query: what recipes use Elfroot?"""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         recipes = {
             r[0] for r in conn.execute(
@@ -292,9 +294,8 @@ class TestUpsert:
 # ─── Tests: join correctness ─────────────────────────────────────────────────
 
 class TestJoinQueries:
-    def test_recipe_ingredients_join(self, tmp_path):
+    def test_recipe_ingredients_join(self, db):
         """Wide table and join table agree on ingredient count for a recipe."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
 
         # From wide table: count non-null ingredient columns
@@ -313,9 +314,8 @@ class TestJoinQueries:
         conn.close()
         assert wide_count == join_count == 3
 
-    def test_tier_join_with_recipes(self, tmp_path):
+    def test_tier_join_with_recipes(self, db):
         """Tier table joins cleanly to recipes table."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         rows = conn.execute(
             "SELECT r.name, t.tier FROM origins_herbalism_recipes r "
@@ -331,15 +331,13 @@ class TestJoinQueries:
 # ─── Tests: potion effects table ─────────────────────────────────────────────
 
 class TestPotionEffects:
-    def test_effects_table_created(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_effects_table_created(self, db):
         conn = sqlite3.connect(db)
         tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         conn.close()
         assert "origins_herbalism_potion_effects" in tables
 
-    def test_effects_row_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_effects_row_count(self, db):
         conn = sqlite3.connect(db)
         count = conn.execute(
             "SELECT COUNT(*) FROM origins_herbalism_potion_effects"
@@ -347,9 +345,8 @@ class TestPotionEffects:
         conn.close()
         assert count == 5
 
-    def test_health_type_and_power(self, tmp_path):
+    def test_health_type_and_power(self, db):
         """Health potions now have power computed at SP=0."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT type, power FROM origins_herbalism_potion_effects "
@@ -359,8 +356,7 @@ class TestPotionEffects:
         assert row[0] == "Health"
         assert row[1] == 50  # (50 + SP) at SP=0
 
-    def test_injury_power_stored(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_injury_power_stored(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT type, power FROM origins_herbalism_potion_effects "
@@ -370,8 +366,7 @@ class TestPotionEffects:
         assert row[0] == "Injury"
         assert row[1] == 10
 
-    def test_resistance_power_stored(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_resistance_power_stored(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT type, power FROM origins_herbalism_potion_effects "
@@ -381,8 +376,7 @@ class TestPotionEffects:
         assert row[0] == "Cold Resistance"
         assert row[1] == 30
 
-    def test_buff_null_type_and_power(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_buff_null_type_and_power(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT type, power FROM origins_herbalism_potion_effects "
@@ -392,8 +386,7 @@ class TestPotionEffects:
         assert row[0] is None
         assert row[1] is None
 
-    def test_effects_text_stored(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_effects_text_stored(self, db):
         conn = sqlite3.connect(db)
         effects = conn.execute(
             "SELECT effects FROM origins_herbalism_potion_effects "
@@ -402,10 +395,9 @@ class TestPotionEffects:
         conn.close()
         assert "50 + SP" in effects
 
-    def test_no_duplicate_on_reload(self, tmp_path):
-        db = run_loader(tmp_path)
-        import pandas as pd
-        conn = sqlite3.connect(db)
+    def test_no_duplicate_on_reload(self, db):
+        import pandas as pd, sqlite3 as _sqlite3
+        conn = _sqlite3.connect(db)
         cur = conn.cursor()
         df_e = pd.DataFrame(EFFECTS)
         loader.upsert_by_key(conn, cur, df_e, loader.EFFECTS_TABLE, "name")
@@ -415,9 +407,8 @@ class TestPotionEffects:
         conn.close()
         assert count == 5
 
-    def test_filter_by_type(self, tmp_path):
+    def test_filter_by_type(self, db):
         """Querying by type works (resistance, buff, etc.)."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         buffs = conn.execute(
             "SELECT name FROM origins_herbalism_potion_effects WHERE type IS NULL"

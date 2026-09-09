@@ -94,6 +94,8 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, e
 
     db_path = str(tmp_path / "test.sqlite3")
     conn = _sqlite3.connect(db_path)
+    conn.execute("PRAGMA synchronous=OFF")
+    conn.execute("PRAGMA journal_mode=MEMORY")
     cur  = conn.cursor()
 
     loader.upsert_by_key(conn, cur, pd.DataFrame(recipes), loader.RECIPES_TABLE, "name")
@@ -108,11 +110,18 @@ def run_loader(tmp_path, recipes=None, ing_recs=None, tiers=None, supply=None, e
     return db_path
 
 
+# ─── Module-scoped shared DB (all read-only tests share one load) ─────────────
+
+@pytest.fixture(scope="module")
+def db(tmp_path_factory):
+    tmp = tmp_path_factory.mktemp("shared")
+    return run_loader(tmp)
+
+
 # ─── Initial load ─────────────────────────────────────────────────────────────
 
 class TestInitialLoad:
-    def test_all_tables_created(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_all_tables_created(self, db):
         conn = sqlite3.connect(db)
         tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         conn.close()
@@ -122,15 +131,13 @@ class TestInitialLoad:
         assert "awakening_herbalism_unlimited_supply" in tables
         assert "awakening_herbalism_potion_effects" in tables
 
-    def test_recipe_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_recipe_count(self, db):
         conn = sqlite3.connect(db)
         n = conn.execute("SELECT COUNT(*) FROM awakening_herbalism_recipes").fetchone()[0]
         conn.close()
         assert n == 3
 
-    def test_result_column(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_result_column(self, db):
         conn = sqlite3.connect(db)
         result = conn.execute(
             "SELECT result FROM awakening_herbalism_recipes WHERE name='Master Health Poultice Recipe'"
@@ -138,8 +145,7 @@ class TestInitialLoad:
         conn.close()
         assert result == "Master Health Poultice"
 
-    def test_gxa_item_id(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_gxa_item_id(self, db):
         conn = sqlite3.connect(db)
         item_id = conn.execute(
             "SELECT item_id FROM awakening_herbalism_recipes WHERE name='Lesser Stamina Draught Recipe'"
@@ -147,29 +153,25 @@ class TestInitialLoad:
         conn.close()
         assert item_id == "gxa_im_cft_hrb_101"
 
-    def test_all_recipes_tier_4(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_all_recipes_tier_4(self, db):
         conn = sqlite3.connect(db)
         tiers = conn.execute("SELECT DISTINCT tier FROM awakening_herbalism_tiers").fetchall()
         conn.close()
         assert tiers == [(4,)]
 
-    def test_ingredient_recipes_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_ingredient_recipes_count(self, db):
         conn = sqlite3.connect(db)
         n = conn.execute("SELECT COUNT(*) FROM awakening_herbalism_ingredient_recipes").fetchone()[0]
         conn.close()
         assert n == 10
 
-    def test_supply_table_empty(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_supply_table_empty(self, db):
         conn = sqlite3.connect(db)
         n = conn.execute("SELECT COUNT(*) FROM awakening_herbalism_unlimited_supply").fetchone()[0]
         conn.close()
         assert n == 0
 
-    def test_effects_count(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_effects_count(self, db):
         conn = sqlite3.connect(db)
         n = conn.execute("SELECT COUNT(*) FROM awakening_herbalism_potion_effects").fetchone()[0]
         conn.close()
@@ -179,8 +181,7 @@ class TestInitialLoad:
 # ─── Effects table ────────────────────────────────────────────────────────────
 
 class TestEffectsTable:
-    def test_stamina_type_stored(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_stamina_type_stored(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT type, power FROM awakening_herbalism_potion_effects WHERE name='Lesser Stamina Draught'"
@@ -189,8 +190,7 @@ class TestEffectsTable:
         assert row[0] == "Stamina"
         assert row[1] == 50.0
 
-    def test_health_type_stored(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_health_type_stored(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT type, power FROM awakening_herbalism_potion_effects WHERE name='Master Health Poultice'"
@@ -199,8 +199,7 @@ class TestEffectsTable:
         assert row[0] == "Health"
         assert row[1] == 300.0
 
-    def test_mana_type_stored(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_mana_type_stored(self, db):
         conn = sqlite3.connect(db)
         row = conn.execute(
             "SELECT type, power FROM awakening_herbalism_potion_effects WHERE name='Superb Lyrium Potion'"
@@ -209,8 +208,7 @@ class TestEffectsTable:
         assert row[0] == "Mana"
         assert row[1] == 250.0
 
-    def test_effects_text_stored(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_effects_text_stored(self, db):
         conn = sqlite3.connect(db)
         effects = conn.execute(
             "SELECT effects FROM awakening_herbalism_potion_effects WHERE name='Superb Lyrium Potion'"
@@ -218,8 +216,7 @@ class TestEffectsTable:
         conn.close()
         assert "mana" in effects.lower()
 
-    def test_unique_index_on_name(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_unique_index_on_name(self, db):
         conn = sqlite3.connect(db)
         with pytest.raises(sqlite3.IntegrityError):
             conn.execute(
@@ -232,9 +229,8 @@ class TestEffectsTable:
 # ─── Supply table edge cases ──────────────────────────────────────────────────
 
 class TestSupplyTable:
-    def test_empty_supply_creates_table(self, tmp_path):
+    def test_empty_supply_creates_table(self, db):
         """An empty supply list still creates the table with correct columns."""
-        db = run_loader(tmp_path, supply=[])
         conn = sqlite3.connect(db)
         cols = {r[1] for r in conn.execute("PRAGMA table_info(awakening_herbalism_unlimited_supply)")}
         conn.close()
@@ -244,6 +240,7 @@ class TestSupplyTable:
         assert "note" in cols
 
     def test_supply_with_data(self, tmp_path):
+        """Uses custom supply data — needs its own DB."""
         supply = [{"ingredient": "Elfroot", "vendor": "Yuriah", "location": "Vigil's Keep", "note": None}]
         db = run_loader(tmp_path, supply=supply)
         conn = sqlite3.connect(db)
@@ -287,9 +284,8 @@ class TestUpsert:
 # ─── Query patterns ───────────────────────────────────────────────────────────
 
 class TestQueryPatterns:
-    def test_reverse_lookup_flask(self, tmp_path):
+    def test_reverse_lookup_flask(self, db):
         """All three recipes use Flask."""
-        db = run_loader(tmp_path)
         conn = sqlite3.connect(db)
         recipes = {
             r[0] for r in conn.execute(
@@ -301,8 +297,7 @@ class TestQueryPatterns:
         assert "Master Health Poultice Recipe" in recipes
         assert "Superb Lyrium Potion Recipe"   in recipes
 
-    def test_filter_by_type(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_filter_by_type(self, db):
         conn = sqlite3.connect(db)
         rows = conn.execute(
             "SELECT name FROM awakening_herbalism_potion_effects WHERE type='Stamina'"
@@ -311,8 +306,7 @@ class TestQueryPatterns:
         assert len(rows) == 1
         assert rows[0][0] == "Lesser Stamina Draught"
 
-    def test_all_tiers_are_4(self, tmp_path):
-        db = run_loader(tmp_path)
+    def test_all_tiers_are_4(self, db):
         conn = sqlite3.connect(db)
         non_4 = conn.execute(
             "SELECT COUNT(*) FROM awakening_herbalism_tiers WHERE tier != 4"
