@@ -1,0 +1,82 @@
+[
+  {
+    "ingredient": "Blood Lotus (Origins)",
+    "recipe": "Elemental Grenade Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Blood Lotus (Origins)",
+    "recipe": "Elemental Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Dispel Grenade Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Dispel Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Elemental Grenade Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Concentrator Agent",
+    "recipe": "Elemental Poison Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Dispel Grenade Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Dispel Poison Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Elemental Grenade Recipe",
+    "quantity": 2
+  },
+  {
+    "ingredient": "Corrupter Agent",
+    "recipe": "Elemental Poison Recipe",
+    "quantity": 4
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Dispel Grenade Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Dispel Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Elemental Grenade Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Flask",
+    "recipe": "Elemental Poison Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Rashvine Nettle",
+    "recipe": "Dispel Grenade Recipe",
+    "quantity": 1
+  },
+  {
+    "ingredient": "Rashvine Nettle",
+    "recipe": "Dispel Poison Recipe",
+    "quantity": 2
+  }
+]

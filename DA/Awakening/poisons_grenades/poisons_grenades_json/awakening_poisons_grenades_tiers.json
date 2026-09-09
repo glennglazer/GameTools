@@ -1,0 +1,18 @@
+[
+  {
+    "recipe": "Dispel Grenade Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Dispel Poison Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Elemental Grenade Recipe",
+    "tier": 4
+  },
+  {
+    "recipe": "Elemental Poison Recipe",
+    "tier": 4
+  }
+]

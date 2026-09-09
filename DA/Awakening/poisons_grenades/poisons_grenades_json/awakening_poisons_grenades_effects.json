@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dispel Coating",
+    "damage_type": null,
+    "power": null,
+    "effect": "Dispels magic on hit."
+  },
+  {
+    "name": "Dispel Grenade",
+    "damage_type": null,
+    "power": null,
+    "effect": "Dispels magic in affected area."
+  },
+  {
+    "name": "Elemental Coating",
+    "damage_type": "cold, electricity, fire, nature, spirit",
+    "power": 10,
+    "effect": null
+  },
+  {
+    "name": "Elemental Grenade",
+    "damage_type": "cold, electricity, fire, nature, spirit",
+    "power": 150,
+    "effect": null
+  }
+]

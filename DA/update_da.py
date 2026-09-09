@@ -3,10 +3,12 @@
 DA data pipeline driver.
 
 Runs the full update pipeline for all implemented Dragon Age game/system combinations:
-  - Origins herbalism (scrape → JSON → SQL), chained into Awakening herbalism
-  - Origins poisons & grenades (scrape → JSON → SQL)
   - Origins trap-making (scrape → JSON → SQL)
-  - Awakening herbalism (bootstrap DAO:A DB → sync Origins data → scrape → JSON → SQL)
+  - Awakening herbalism (bootstrap DAO:A DB → sync Origins herbalism → scrape → JSON → SQL)
+  - Awakening poisons & grenades (bootstrap DAO:A DB → sync Origins poisons/grenades → scrape → JSON → SQL)
+
+Origins herbalism and Origins poisons/grenades are called internally by their Awakening
+chain functions and are no longer invoked directly from main().
 
 Halts immediately on any subprocess failure.
 """
@@ -230,17 +232,83 @@ def update_awakening_herbalism() -> None:
     ])
 
 
+# ─── Awakening (continued) ────────────────────────────────────────────────────
+
+def update_awakening_poisons_grenades() -> None:
+    """Chain: bootstrap DAO:A DB → sync Origins poisons/grenades → run Awakening pipeline.
+
+    Step 0: If the DAO:A database does not yet exist, copy the DAO DB to DA/Awakening/database/.
+    Step 1: Run the full DAO poisons/grenades pipeline (scrape → JSON → SQL against the DAO DB).
+    Step 2: Re-run the DAO poisons/grenades SQL loader against the DAO:A DB so any Origins
+            changes are reflected there.
+    Step 3: Scrape, parse, and load Awakening-exclusive poisons/grenades data into the DAO:A DB.
+    """
+    dao_db  = _SCRIPT_DIR / 'database' / 'gametools.sqlite3'
+    daa_dir = _SCRIPT_DIR / 'Awakening'
+    daa_db  = daa_dir / 'database' / 'gametools.sqlite3'
+
+    # Step 0 ── bootstrap DAO:A DB
+    if not daa_db.exists():
+        daa_db.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(str(dao_db), str(daa_db))
+        log.info('Bootstrapped DAO:A DB from %s → %s', dao_db, daa_db)
+
+    # Step 1 ── run the full DAO poisons/grenades pipeline (updates DAO DB)
+    update_origins_poisons_grenades()
+
+    # Step 2 ── sync Origins poisons/grenades into the DAO:A DB
+    origins_pg_dir  = _SCRIPT_DIR / 'Origins' / 'poisons_grenades'
+    origins_pg_sql  = origins_pg_dir / 'poisons_grenades_sql' / 'create_or_update_origins_poisons_grenades.py'
+    origins_pg_json = origins_pg_dir / 'poisons_grenades_json'
+    run_step('Origins poisons/grenades SQL → DAO:A DB', [
+        origins_pg_sql,
+        origins_pg_json / 'origins_poisons_grenades_recipes.json',
+        origins_pg_json / 'origins_poisons_grenades_ingredient_recipes.json',
+        origins_pg_json / 'origins_poisons_grenades_tiers.json',
+        origins_pg_json / 'origins_poisons_grenades_unlimited_supply.json',
+        origins_pg_json / 'origins_poisons_grenades_effects.json',
+        daa_db,
+    ])
+
+    # Step 3 ── Awakening-exclusive poisons/grenades pipeline
+    aw_pg_dir = daa_dir / 'poisons_grenades'
+    parse_dir = aw_pg_dir / 'poisons_grenades_parse'
+    json_dir  = aw_pg_dir / 'poisons_grenades_json'
+    sql_dir   = aw_pg_dir / 'poisons_grenades_sql'
+
+    raw_json     = parse_dir / 'poisons_grenades_raw.json'
+    recipes_json = json_dir  / 'awakening_poisons_grenades_recipes.json'
+    ing_rec_json = json_dir  / 'awakening_poisons_grenades_ingredient_recipes.json'
+    tiers_json   = json_dir  / 'awakening_poisons_grenades_tiers.json'
+    supply_json  = json_dir  / 'awakening_poisons_grenades_unlimited_supply.json'
+    effects_json = json_dir  / 'awakening_poisons_grenades_effects.json'
+
+    run_step('Awakening poisons/grenades scrape', [
+        parse_dir / 'awakening_scrape_poisons_grenades.py', raw_json,
+    ])
+    run_step('Awakening poisons/grenades JSON parse', [
+        json_dir / 'awakening_parse_poisons_grenades.py',
+        raw_json, recipes_json, ing_rec_json, tiers_json, supply_json, effects_json,
+    ])
+    run_step('Awakening poisons/grenades SQL load', [
+        sql_dir / 'create_or_update_awakening_poisons_grenades.py',
+        recipes_json, ing_rec_json, tiers_json, supply_json, effects_json, daa_db,
+    ])
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main() -> None:
     log.info('=== DA pipeline starting ===')
 
     # Origins-only systems (no Awakening equivalent yet)
-    update_origins_poisons_grenades()
     update_origins_trap_making()
 
     # Awakening herbalism (chains DAO herbalism internally as step 1)
     update_awakening_herbalism()
+
+    # Awakening poisons/grenades (chains DAO poisons/grenades internally as step 1)
+    update_awakening_poisons_grenades()
 
     log.info('=== DA pipeline complete ===')
 
