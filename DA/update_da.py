@@ -6,6 +6,7 @@ Runs the full update pipeline for all implemented Dragon Age game/system combina
   - Awakening herbalism (bootstrap DAO:A DB → sync Origins herbalism → scrape → JSON → SQL)
   - Awakening poisons & grenades (bootstrap DAO:A DB → sync Origins poisons/grenades → scrape → JSON → SQL)
   - Awakening trap-making (bootstrap DAO:A DB → sync Origins trap-making → scrape → JSON → SQL)
+  - Awakening runecrafting (standalone Awakening-only system; no Origins sync step needed)
 
 Origins herbalism, Origins poisons/grenades, and Origins trap-making are called internally
 by their Awakening chain functions and are no longer invoked directly from main().
@@ -360,6 +361,52 @@ def update_awakening_trap_making() -> None:
     ])
 
 
+def update_awakening_runecrafting() -> None:
+    """Scrape → JSON → SQL for DAO:A Runecrafting.
+
+    Runecrafting is an entirely new Awakening system with no Origins equivalent,
+    so no chained Origins sync step is needed.  The DAO:A DB is bootstrapped
+    from the DAO DB if it does not yet exist, then the three pipeline stages run
+    directly against the DAO:A DB.
+    """
+    dao_db  = _SCRIPT_DIR / 'database' / 'gametools.sqlite3'
+    daa_dir = _SCRIPT_DIR / 'Awakening'
+    daa_db  = daa_dir / 'database' / 'gametools.sqlite3'
+
+    # Bootstrap DAO:A DB if it doesn't exist yet
+    if not daa_db.exists():
+        daa_db.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(str(dao_db), str(daa_db))
+        log.info('Bootstrapped DAO:A DB from %s → %s', dao_db, daa_db)
+
+    aw_rc_dir = daa_dir / 'runecrafting'
+    parse_dir = aw_rc_dir / 'runecrafting_parse'
+    json_dir  = aw_rc_dir / 'runecrafting_json'
+    sql_dir   = aw_rc_dir / 'runecrafting_sql'
+
+    raw_json    = parse_dir / 'runecrafting_raw.json'
+    skill_json  = json_dir  / 'awakening_runecrafting_skill.json'
+    tracing_json = json_dir / 'awakening_runecrafting_tracing_acquisition.json'
+    hybrid_json  = json_dir / 'awakening_runecrafting_hybrid_tracing_acquisition.json'
+    armor_json   = json_dir / 'awakening_runecrafting_armor_runes.json'
+    weapon_json  = json_dir / 'awakening_runecrafting_weapon_runes.json'
+    costs_json   = json_dir / 'awakening_runecrafting_costs.json'
+
+    run_step('Awakening runecrafting scrape', [
+        parse_dir / 'awakening_scrape_runecrafting.py', raw_json,
+    ])
+    run_step('Awakening runecrafting JSON parse', [
+        json_dir / 'awakening_parse_runecrafting.py',
+        raw_json, skill_json, tracing_json, hybrid_json,
+        armor_json, weapon_json, costs_json,
+    ])
+    run_step('Awakening runecrafting SQL load', [
+        sql_dir / 'create_or_update_awakening_runecrafting.py',
+        skill_json, tracing_json, hybrid_json,
+        armor_json, weapon_json, costs_json, daa_db,
+    ])
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -373,6 +420,9 @@ def main() -> None:
 
     # Awakening trap-making (chains DAO trap-making internally as step 1)
     update_awakening_trap_making()
+
+    # Awakening runecrafting (standalone; no Origins equivalent)
+    update_awakening_runecrafting()
 
     log.info('=== DA pipeline complete ===')
 

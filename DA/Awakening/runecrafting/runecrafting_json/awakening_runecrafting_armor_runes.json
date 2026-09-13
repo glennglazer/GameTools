@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Barrier",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+1 armor\"]}",
+    "description": "The Tevinter symbol for protection."
+  },
+  {
+    "name": "Barrier",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+2 Armor\"]}",
+    "description": "The Tevinter symbol for protection."
+  },
+  {
+    "name": "Barrier",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+3 Armor\"]}",
+    "description": "The Tevinter symbol for protection."
+  },
+  {
+    "name": "Barrier",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+4 Armor\"]}",
+    "description": "The Tevinter symbol for protection."
+  },
+  {
+    "name": "Barrier",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+5 Armor\"]}",
+    "description": "The Tevinter symbol for protection."
+  },
+  {
+    "name": "Barrier",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+6 Armor\"]}",
+    "description": "The Tevinter symbol for protection."
+  },
+  {
+    "name": "Barrier",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+7 Armor\"]}",
+    "description": "The Tevinter symbol for protection."
+  },
+  {
+    "name": "Immunity",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"3% fire resistance\"]}",
+    "description": "To counter the elements, the Tevinters inscribed this rune."
+  },
+  {
+    "name": "Immunity",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"6% fire resistance\"]}",
+    "description": "To counter the elements, the Tevinters inscribed this rune."
+  },
+  {
+    "name": "Immunity",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"9% fire resistance\"]}",
+    "description": "To counter the elements, the Tevinters inscribed this rune."
+  },
+  {
+    "name": "Immunity",
+    "level": "Master",
+    "effect": "{\"effects\": [\"12% fire resistance\"]}",
+    "description": "To counter the elements, the Tevinters inscribed this rune."
+  },
+  {
+    "name": "Immunity",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"15% fire resistance\", \"15% cold resistance\", \"15% electricity resistance\"]}",
+    "description": "To counter the elements, the Tevinters inscribed this rune."
+  },
+  {
+    "name": "Immunity",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"20% fire resistance\"]}",
+    "description": "To counter the elements, the Tevinters inscribed this rune."
+  },
+  {
+    "name": "Immunity",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"25% fire resistance\"]}",
+    "description": "To counter the elements, the Tevinters inscribed this rune."
+  },
+  {
+    "name": "Reservoir",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+1 willpower\"]}",
+    "description": "A Tevinter mark meaning \"pool\"."
+  },
+  {
+    "name": "Reservoir",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+2 Willpower\"]}",
+    "description": "A Tevinter mark meaning \"pool\"."
+  },
+  {
+    "name": "Reservoir",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+3 Willpower\"]}",
+    "description": "A Tevinter mark meaning \"pool\"."
+  },
+  {
+    "name": "Reservoir",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+4 Willpower\"]}",
+    "description": "A Tevinter mark meaning \"pool\"."
+  },
+  {
+    "name": "Reservoir",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+5 Willpower\"]}",
+    "description": "A Tevinter mark meaning \"pool\"."
+  },
+  {
+    "name": "Reservoir",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+6 Willpower\"]}",
+    "description": "A Tevinter mark meaning \"pool\"."
+  },
+  {
+    "name": "Reservoir",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+7 Willpower\"]}",
+    "description": "A Tevinter mark meaning \"pool\"."
+  },
+  {
+    "name": "Stout",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+2 constitution\"]}",
+    "description": "To the Tevinter magisters, this symbol meant health."
+  },
+  {
+    "name": "Stout",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+4 constitution\"]}",
+    "description": "To the Tevinter magisters, this symbol meant health."
+  },
+  {
+    "name": "Stout",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+6 Constitution\"]}",
+    "description": "To the Tevinter magisters, this symbol meant health."
+  },
+  {
+    "name": "Stout",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+8 Constitution\"]}",
+    "description": "To the Tevinter magisters, this symbol meant health."
+  },
+  {
+    "name": "Stout",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+10 constitution\"]}",
+    "description": "To the Tevinter magisters, this symbol meant health."
+  },
+  {
+    "name": "Stout",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+12 Constitution\"]}",
+    "description": "To the Tevinter magisters, this symbol meant health."
+  },
+  {
+    "name": "Stout",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+14 Constitution\"]}",
+    "description": "To the Tevinter magisters, this symbol meant health."
+  },
+  {
+    "name": "Tempest",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+2 missile avoidance\"]}",
+    "description": "\"Wind\", to a Tevinter eye."
+  },
+  {
+    "name": "Tempest",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+4 missile avoidance\"]}",
+    "description": "\"Wind\", to a Tevinter eye."
+  },
+  {
+    "name": "Tempest",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+6 missile avoidance\"]}",
+    "description": "\"Wind\", to a Tevinter eye."
+  },
+  {
+    "name": "Tempest",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+8 missile avoidance\"]}",
+    "description": "\"Wind\", to a Tevinter eye."
+  },
+  {
+    "name": "Tempest",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+10 missile avoidance\"]}",
+    "description": "\"Wind\", to a Tevinter eye."
+  },
+  {
+    "name": "Tempest",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+12 missile avoidance\"]}",
+    "description": "\"Wind\", to a Tevinter eye."
+  },
+  {
+    "name": "Tempest",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+14 missile avoidance\"]}",
+    "description": "\"Wind\", to a Tevinter eye."
+  },
+  {
+    "name": "Amplification",
+    "level": null,
+    "effect": "{\"effects\": [\"5% fire damage\", \"5% cold damage\", \"5% electricity damage\", \"5% nature damage\", \"5% spirit damage\"]}",
+    "description": "This rune is drawn slightly larger than most."
+  },
+  {
+    "name": "Diligence",
+    "level": null,
+    "effect": "{\"effects\": [\"Flank immunity\"]}",
+    "description": "A Tevinter eye, all-seeing"
+  },
+  {
+    "name": "Endurance",
+    "level": null,
+    "effect": "{\"effects\": [\"-5% fatigue\"]}",
+    "description": "The Tevinter glyph for tenacity."
+  },
+  {
+    "name": "Evasion",
+    "level": null,
+    "effect": "{\"effects\": [\"+5% chance to dodge\"]}",
+    "description": "This shape is the closest the ancient Tevinters came to the concept of zero."
+  }
+]

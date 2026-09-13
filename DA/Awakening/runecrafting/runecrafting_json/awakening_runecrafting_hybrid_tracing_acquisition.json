@@ -1,0 +1,42 @@
+[
+  {
+    "tracing": "Intensifying",
+    "type": "Weapon",
+    "location": "Bartender at The Crown and Lion."
+  },
+  {
+    "tracing": "Momentum",
+    "type": "Weapon",
+    "location": "Blackmarsh"
+  },
+  {
+    "tracing": "Menacing",
+    "type": "Weapon",
+    "location": "Glassric"
+  },
+  {
+    "tracing": "Elemental",
+    "type": "Weapon",
+    "location": "Kal'Hirol"
+  },
+  {
+    "tracing": "Evasion",
+    "type": "Armor",
+    "location": "Cera"
+  },
+  {
+    "tracing": "Endurance",
+    "type": "Armor",
+    "location": "Yuriah (+1 upgrade)"
+  },
+  {
+    "tracing": "Amplification",
+    "type": "Armor",
+    "location": "Octham"
+  },
+  {
+    "tracing": "Diligence",
+    "type": "Armor",
+    "location": "Blackmarsh"
+  }
+]

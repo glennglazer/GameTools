@@ -1,0 +1,132 @@
+[
+  {
+    "tracing": "Flame",
+    "type": "Weapon",
+    "journeyman": "{\"sources\": [\"Initial\"]}",
+    "expert": "{\"sources\": [\"Cera\"]}",
+    "master": "{\"sources\": [\"Cera\"]}",
+    "grandmaster": "{\"sources\": [\"Cera\"]}",
+    "masterpiece": "{\"sources\": [\"Kal'Hirol - Trade Quarter\"]}",
+    "paragon": "{\"sources\": [\"Kal'Hirol - Trade Quarter\"]}"
+  },
+  {
+    "tracing": "Frost",
+    "type": "Weapon",
+    "journeyman": "{\"sources\": [\"Initial\"]}",
+    "expert": "{\"sources\": [\"Cera\"]}",
+    "master": "{\"sources\": [\"Cera\"]}",
+    "grandmaster": "{\"sources\": [\"Vigil's Keep - Throne Room\", \"Yuriah\"]}",
+    "masterpiece": "{\"sources\": [\"Architect's Lab\"]}",
+    "paragon": "{\"sources\": [\"Architect's Lab\"]}"
+  },
+  {
+    "tracing": "Slow",
+    "type": "Weapon",
+    "journeyman": "{\"sources\": [\"Cera\", \"Octham\"]}",
+    "expert": "{\"sources\": [\"Cera\", \"Octham\"]}",
+    "master": "{\"sources\": [\"Octham\"]}",
+    "grandmaster": "{\"sources\": [\"Blackmarsh\", \"Octham\"]}",
+    "masterpiece": "{\"sources\": [\"Yuriah\"]}",
+    "paragon": "{\"sources\": [\"Blackmarsh\"]}"
+  },
+  {
+    "tracing": "Hale",
+    "type": "Weapon<ref name=\"bug1\">Bug: Masterpiece and Paragon level Hale and Dweomer Runes are erroneously classified as Armor Runes, however resistance bonuses are still granted normally. </ref>",
+    "journeyman": "{\"sources\": [\"Cera\", \"Glassric\"]}",
+    "expert": "{\"sources\": [\"Glassric\"]}",
+    "master": "{\"sources\": [\"Glassric\"]}",
+    "grandmaster": "{\"sources\": [\"Vigil's Keep - Throne Room\"]}",
+    "masterpiece": "{\"sources\": [\"Silverite Mine\"]}",
+    "paragon": "{\"sources\": [\"Silverite Mine\"]}"
+  },
+  {
+    "tracing": "Dweomer",
+    "type": "Weapon<ref name=\"bug1\" />",
+    "journeyman": "{\"sources\": [\"Cera\", \"Octham\"]}",
+    "expert": "{\"sources\": [\"Octham\"]}",
+    "master": "{\"sources\": [\"Octham\"]}",
+    "grandmaster": "{\"sources\": [\"Yuriah (+1 upgrade)\"]}",
+    "masterpiece": "{\"sources\": [\"Yuriah (+2 upgrades)\"]}",
+    "paragon": "{\"sources\": [\"Yuriah (+3 upgrades)\"]}"
+  },
+  {
+    "tracing": "Cold Iron",
+    "type": "Weapon<ref name=\"bug2\">Bug: Masterpiece and Paragon level Cold Iron and Silverite Runes are erroneously classified as Armor Runes. These effects do not trigger as Armor Runes, making them useless. </ref>",
+    "journeyman": "{\"sources\": [\"Cera\", \"Glassric\"]}",
+    "expert": "{\"sources\": [\"Glassric\"]}",
+    "master": "{\"sources\": [\"Glassric\"]}",
+    "grandmaster": "{\"sources\": [\"Glassric\"]}",
+    "masterpiece": "{\"sources\": [\"Kal'Hirol - Main Hall\"]}",
+    "paragon": "{\"sources\": [\"Kal'Hirol - Main Hall\"]}"
+  },
+  {
+    "tracing": "Silverite",
+    "type": "Weapon<ref name=\"bug2\" />",
+    "journeyman": "{\"sources\": [\"Cera\", \"Glassric\"]}",
+    "expert": "{\"sources\": [\"Glassric\"]}",
+    "master": "{\"sources\": [\"Glassric\"]}",
+    "grandmaster": "{\"sources\": [\"Yuriah (+1 upgrade)\"]}",
+    "masterpiece": "{\"sources\": [\"Yuriah (+2 upgrades)\"]}",
+    "paragon": "{\"sources\": [\"Yuriah (+3 upgrades)\"]}"
+  },
+  {
+    "tracing": "Lightning",
+    "type": "Weapon",
+    "journeyman": "{\"sources\": [\"Cera\"]}",
+    "expert": "{\"sources\": [\"Cera\"]}",
+    "master": "{\"sources\": [\"Cera\"]}",
+    "grandmaster": "{\"sources\": [\"Yuriah (+1 upgrade)\"]}",
+    "masterpiece": "{\"sources\": [\"Yuriah (+1 upgrade)\"]}",
+    "paragon": "{\"sources\": [\"Yuriah (+2 upgrades)\"]}"
+  },
+  {
+    "tracing": "Paralyze",
+    "type": "Weapon",
+    "journeyman": "{\"sources\": [\"Cera\", \"Octham\"]}",
+    "expert": "{\"sources\": [\"Cera\", \"Octham\"]}",
+    "master": "{\"sources\": [\"Octham\"]}",
+    "grandmaster": "{\"sources\": [\"Octham\"]}",
+    "masterpiece": "{\"sources\": [\"Kal'Hirol - Main Hall\"]}",
+    "paragon": "{\"sources\": [\"Kal'Hirol - Main Hall\"]}"
+  },
+  {
+    "tracing": "Stout",
+    "type": "Armor",
+    "journeyman": "{\"sources\": [\"Initial\"]}",
+    "expert": "{\"sources\": [\"Glassric\"]}",
+    "master": "{\"sources\": [\"Glassric\"]}",
+    "grandmaster": "{\"sources\": [\"Glassric\"]}",
+    "masterpiece": "{\"sources\": [\"Kal'Hirol - Trade Quarter\"]}",
+    "paragon": "{\"sources\": [\"Kal'Hirol - Trade Quarter\"]}"
+  },
+  {
+    "tracing": "Tempest",
+    "type": "Armor",
+    "journeyman": "{\"sources\": [\"Cera\"]}",
+    "expert": "{\"sources\": [\"Cera\"]}",
+    "master": "{\"sources\": [\"Cera\"]}",
+    "grandmaster": "{\"sources\": [\"Cera\"]}",
+    "masterpiece": "{\"sources\": [\"Vigil's Keep - Deep Roads\"]}",
+    "paragon": "{\"sources\": [\"Vigil's Keep - Deep Roads\"]}"
+  },
+  {
+    "tracing": "Immunity",
+    "type": "Armor",
+    "journeyman": "{\"sources\": [\"Cera\", \"Octham\"]}",
+    "expert": "{\"sources\": [\"Octham\"]}",
+    "master": "{\"sources\": [\"Octham\"]}",
+    "grandmaster": "{\"sources\": [\"Octham\"]}",
+    "masterpiece": "{\"sources\": [\"Kal'Hirol - Main Hall\"]}",
+    "paragon": "{\"sources\": [\"Kal'Hirol - Main Hall\"]}"
+  },
+  {
+    "tracing": "Reservoir",
+    "type": "Armor",
+    "journeyman": "{\"sources\": [\"Cera\", \"Glassric\"]}",
+    "expert": "{\"sources\": [\"Glassric\"]}",
+    "master": "{\"sources\": [\"Cera\", \"Glassric\"]}",
+    "grandmaster": "{\"sources\": [\"Yuriah (+1 upgrade)\"]}",
+    "masterpiece": "{\"sources\": [\"Yuriah (+2 upgrades)\"]}",
+    "paragon": "{\"sources\": [\"Yuriah (+2 upgrades)\"]}"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Novice Barrier Rune",
+    "gold": 0,
+    "silver": 65,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Immunity Rune",
+    "gold": 0,
+    "silver": 80,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Reservoir Rune",
+    "gold": 1,
+    "silver": 0,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Stout Rune",
+    "gold": 1,
+    "silver": 20,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Tempest Rune",
+    "gold": 0,
+    "silver": 60,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Cold Iron Rune",
+    "gold": 0,
+    "silver": 60,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Dweomer Rune",
+    "gold": 0,
+    "silver": 65,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Flame Rune",
+    "gold": 0,
+    "silver": 60,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Frost Rune",
+    "gold": 0,
+    "silver": 60,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Hale Rune",
+    "gold": 0,
+    "silver": 57,
+    "bronze": 50
+  },
+  {
+    "name": "Novice Lightning Rune",
+    "gold": 0,
+    "silver": 60,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Paralyze Rune",
+    "gold": 1,
+    "silver": 0,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Silverite Rune",
+    "gold": 0,
+    "silver": 70,
+    "bronze": 0
+  },
+  {
+    "name": "Novice Slow Rune",
+    "gold": 0,
+    "silver": 80,
+    "bronze": 0
+  },
+  {
+    "name": "Blank Runestone",
+    "gold": 0,
+    "silver": 0,
+    "bronze": 50
+  },
+  {
+    "name": "Etching Agent",
+    "gold": 0,
+    "silver": 8,
+    "bronze": 0
+  }
+]

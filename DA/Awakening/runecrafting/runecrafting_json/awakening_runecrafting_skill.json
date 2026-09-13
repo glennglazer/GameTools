@@ -1,0 +1,22 @@
+[
+  {
+    "level": "Runecrafting",
+    "character_level": 20,
+    "rune_levels": "{\"rune_levels\": [\"Journeyman\", \"Expert\"]}"
+  },
+  {
+    "level": "Improved Runecrafting",
+    "character_level": 22,
+    "rune_levels": "{\"rune_levels\": [\"Master\"]}"
+  },
+  {
+    "level": "Expert Runecrafting",
+    "character_level": 24,
+    "rune_levels": "{\"rune_levels\": [\"Grandmaster\", \"Masterpiece\"]}"
+  },
+  {
+    "level": "Master Runecrafting",
+    "character_level": 26,
+    "rune_levels": "{\"rune_levels\": [\"Paragon\"]}"
+  }
+]

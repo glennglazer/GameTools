@@ -1,0 +1,404 @@
+[
+  {
+    "name": "Cold Iron",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+2 damage vs. undead\"]}",
+    "description": "This forms the Tevinter symbol for the Fade."
+  },
+  {
+    "name": "Cold Iron",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+4 Damage vs. Undead\"]}",
+    "description": "This forms the Tevinter symbol for the Fade."
+  },
+  {
+    "name": "Cold Iron",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+6 Damage vs. Undead\"]}",
+    "description": "This forms the Tevinter symbol for the Fade."
+  },
+  {
+    "name": "Cold Iron",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+8 Damage vs. Undead\"]}",
+    "description": "This forms the Tevinter symbol for the Fade."
+  },
+  {
+    "name": "Cold Iron",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+10 Damage vs. Undead\"]}",
+    "description": "This forms the Tevinter symbol for the Fade."
+  },
+  {
+    "name": "Cold Iron",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+12 damage vs undead\"]}",
+    "description": "This forms the Tevinter symbol for the Fade."
+  },
+  {
+    "name": "Cold Iron",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+14 damage vs. undead\"]}",
+    "description": "This forms the Tevinter symbol for the Fade."
+  },
+  {
+    "name": "Dweomer",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+2% spell resistance\"]}",
+    "description": "Dweomer runes get their name from the ancient Tevinter name for dwarves."
+  },
+  {
+    "name": "Dweomer",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+4% Spell Resistance\"]}",
+    "description": "Dweomer runes get their name from the ancient Tevinter name for dwarves."
+  },
+  {
+    "name": "Dweomer",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+6% Spell Resistance\"]}",
+    "description": "Dweomer runes get their name from the ancient Tevinter name for dwarves."
+  },
+  {
+    "name": "Dweomer",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+8% Spell Resistance\"]}",
+    "description": "Dweomer runes get their name from the ancient Tevinter name for dwarves."
+  },
+  {
+    "name": "Dweomer",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+10% Spell Resistance\"]}",
+    "description": "Dweomer runes get their name from the ancient Tevinter name for dwarves."
+  },
+  {
+    "name": "Dweomer",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+12% spell resistance\"]}",
+    "description": "Dweomer runes get their name from the ancient Tevinter name for dwarves."
+  },
+  {
+    "name": "Dweomer",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+14% spell resistance\"]}",
+    "description": "Dweomer runes get their name from the ancient Tevinter name for dwarves."
+  },
+  {
+    "name": "Flame",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+1 Fire Damage\"]}",
+    "description": "This lyrium rune is the ancient Tevinter symbol for Toth, god of fire."
+  },
+  {
+    "name": "Flame",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+2 fire damage\"]}",
+    "description": "This lyrium rune is the ancient Tevinter symbol for Toth, god of fire."
+  },
+  {
+    "name": "Flame",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+3 Fire Damage\"]}",
+    "description": "This lyrium rune is the ancient Tevinter symbol for Toth, god of fire."
+  },
+  {
+    "name": "Flame",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+4 Fire Damage\"]}",
+    "description": "This lyrium rune is the ancient Tevinter symbol for Toth, god of fire."
+  },
+  {
+    "name": "Flame",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+5 Fire Damage\"]}",
+    "description": "This lyrium rune is the ancient Tevinter symbol for Toth, god of fire."
+  },
+  {
+    "name": "Flame",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+6 Fire Damage\"]}",
+    "description": "This lyrium rune is the ancient Tevinter symbol for Toth, god of fire."
+  },
+  {
+    "name": "Flame",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+7 Fire Damage\"]}",
+    "description": "This lyrium rune is the ancient Tevinter symbol for Toth, god of fire."
+  },
+  {
+    "name": "Frost",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+1 Frost Damage\"]}",
+    "description": "This is the Tevinter rune for winter."
+  },
+  {
+    "name": "Frost",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+2 Frost Damage\"]}",
+    "description": "This is the Tevinter rune for winter."
+  },
+  {
+    "name": "Frost",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+3 Frost Damage\"]}",
+    "description": "This is the Tevinter rune for winter."
+  },
+  {
+    "name": "Frost",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+4 Frost Damage\"]}",
+    "description": "This is the Tevinter rune for winter."
+  },
+  {
+    "name": "Frost",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+5 Frost Damage\"]}",
+    "description": "This is the Tevinter rune for winter."
+  },
+  {
+    "name": "Frost",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+6 Frost Damage\"]}",
+    "description": "This is the Tevinter rune for winter."
+  },
+  {
+    "name": "Frost",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+7 Frost Damage\"]}",
+    "description": "This is the Tevinter rune for winter."
+  },
+  {
+    "name": "Hale",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+5% Physical Resistance\"]}",
+    "description": "This is an old Tevinter symbol for endurance."
+  },
+  {
+    "name": "Hale",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+10% Physical Resistance\"]}",
+    "description": "This is an old Tevinter symbol for endurance."
+  },
+  {
+    "name": "Hale",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+15% Physical Resistance\"]}",
+    "description": "This is an old Tevinter symbol for endurance."
+  },
+  {
+    "name": "Hale",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+20% physical resistance\"]}",
+    "description": "This is an old Tevinter symbol for endurance."
+  },
+  {
+    "name": "Hale",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+25 Physical Resistance\"]}",
+    "description": "This is an old Tevinter symbol for endurance."
+  },
+  {
+    "name": "Hale",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+30 Physical Resistance\"]}",
+    "description": "This is an old Tevinter symbol for endurance."
+  },
+  {
+    "name": "Hale",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+35 Physical Resistance\"]}",
+    "description": "This is an old Tevinter symbol for endurance."
+  },
+  {
+    "name": "Lightning",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+1 Electrical Damage\"]}",
+    "description": "This symbol is the old Tevinter rune for tempest."
+  },
+  {
+    "name": "Lightning",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+2 Electrical Damage\"]}",
+    "description": "This symbol is the old Tevinter rune for tempest."
+  },
+  {
+    "name": "Lightning",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+3 Electrical Damage\"]}",
+    "description": "This symbol is the old Tevinter rune for tempest."
+  },
+  {
+    "name": "Lightning",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+4 Electrical Damage\"]}",
+    "description": "This symbol is the old Tevinter rune for tempest."
+  },
+  {
+    "name": "Lightning",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+5 Electrical Damage\"]}",
+    "description": "This symbol is the old Tevinter rune for tempest."
+  },
+  {
+    "name": "Lightning",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+6 Electricity Damage\"]}",
+    "description": "This symbol is the old Tevinter rune for tempest."
+  },
+  {
+    "name": "Lightning",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+7 electricity damage\"]}",
+    "description": "This symbol is the old Tevinter rune for tempest."
+  },
+  {
+    "name": "Paralyze",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"5% chance of paralysis for 4s\"]}",
+    "description": "Lyrium has been formed into the shape of the Tevinter rune for stillness."
+  },
+  {
+    "name": "Paralyze",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"5% chance of paralysis for 5s\"]}",
+    "description": "Lyrium has been formed into the shape of the Tevinter rune for stillness."
+  },
+  {
+    "name": "Paralyze",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"5% chance of paralysis for 6s\"]}",
+    "description": "Lyrium has been formed into the shape of the Tevinter rune for stillness."
+  },
+  {
+    "name": "Paralyze",
+    "level": "Master",
+    "effect": "{\"effects\": [\"5% chance of paralysis for 7s\"]}",
+    "description": "Lyrium has been formed into the shape of the Tevinter rune for stillness."
+  },
+  {
+    "name": "Paralyze",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"5% chance of paralysis for 8s\"]}",
+    "description": "Lyrium has been formed into the shape of the Tevinter rune for stillness."
+  },
+  {
+    "name": "Paralyze",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"5% chance of paralysis for 9s\"]}",
+    "description": "Lyrium has been formed into the shape of the Tevinter rune for stillness."
+  },
+  {
+    "name": "Paralyze",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"5% chance of paralysis for 10s\"]}",
+    "description": "Lyrium has been formed into the shape of the Tevinter rune for stillness."
+  },
+  {
+    "name": "Silverite",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"+2 damage vs. darkspawn\"]}",
+    "description": "The emblem of Dumat, the first archdemon, symbol of betrayal and the First Blight."
+  },
+  {
+    "name": "Silverite",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"+4 Damage vs. Darkspawn\"]}",
+    "description": "The emblem of Dumat, the first archdemon, symbol of betrayal and the First Blight."
+  },
+  {
+    "name": "Silverite",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"+6 Damage vs. Darkspawn\"]}",
+    "description": "The emblem of Dumat, the first archdemon, symbol of betrayal and the First Blight."
+  },
+  {
+    "name": "Silverite",
+    "level": "Master",
+    "effect": "{\"effects\": [\"+8 Damage vs. Darkspawn\"]}",
+    "description": "The emblem of Dumat, the first archdemon, symbol of betrayal and the First Blight."
+  },
+  {
+    "name": "Silverite",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"+10 Damage vs. Darkspawn\"]}",
+    "description": "The emblem of Dumat, the first archdemon, symbol of betrayal and the First Blight."
+  },
+  {
+    "name": "Silverite",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"+12 damage vs. darkspawn\"]}",
+    "description": "The emblem of Dumat, the first archdemon, symbol of betrayal and the First Blight."
+  },
+  {
+    "name": "Silverite",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"+14 damage vs. darkspawn\"]}",
+    "description": "The emblem of Dumat, the first archdemon, symbol of betrayal and the First Blight."
+  },
+  {
+    "name": "Slow",
+    "level": "Novice",
+    "effect": "{\"effects\": [\"Low chance to reduce movement speed\"]}",
+    "description": "The ancient Tevinter symbol for sloth."
+  },
+  {
+    "name": "Slow",
+    "level": "Journeyman",
+    "effect": "{\"effects\": [\"Low chance to reduce movement speed\"]}",
+    "description": "The ancient Tevinter symbol for sloth."
+  },
+  {
+    "name": "Slow",
+    "level": "Expert",
+    "effect": "{\"effects\": [\"Moderate chance to reduce movement speed\"]}",
+    "description": "The ancient Tevinter symbol for sloth."
+  },
+  {
+    "name": "Slow",
+    "level": "Master",
+    "effect": "{\"effects\": [\"High chance to reduce movement speed\"]}",
+    "description": "The ancient Tevinter symbol for sloth."
+  },
+  {
+    "name": "Slow",
+    "level": "Grandmaster",
+    "effect": "{\"effects\": [\"Highest chance to reduce movement speed\"]}",
+    "description": "The ancient Tevinter symbol for sloth."
+  },
+  {
+    "name": "Slow",
+    "level": "Masterpiece",
+    "effect": "{\"effects\": [\"Chance to reduce movement speed.\"]}",
+    "description": "The ancient Tevinter symbol for sloth.."
+  },
+  {
+    "name": "Slow",
+    "level": "Paragon",
+    "effect": "{\"effects\": [\"Chance to reduce movement speed.\"]}",
+    "description": "The ancient Tevinter symbol for sloth."
+  },
+  {
+    "name": "Elemental",
+    "level": null,
+    "effect": "{\"effects\": [\"+2 damage from each element\"]}",
+    "description": "The old Tevinter rune for the world itself."
+  },
+  {
+    "name": "Intensifying",
+    "level": null,
+    "effect": "{\"effects\": [\"5% ranged critical chance\", \"5% melee critical chance\", \"20% critical/backstab damage\"]}",
+    "description": "No word precisely captures the meaning of this rune, but it is something like \"bigger\"."
+  },
+  {
+    "name": "Menacing",
+    "level": null,
+    "effect": "{\"effects\": [\"Increases Hostility\"]}",
+    "description": "The Tevinters used this rune to mean anger."
+  },
+  {
+    "name": "Momentum",
+    "level": null,
+    "effect": "{\"effects\": [\"Increases Attack Speed\"]}",
+    "description": "The Tevinter rune for speed."
+  }
+]
