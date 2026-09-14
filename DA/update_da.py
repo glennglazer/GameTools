@@ -7,6 +7,7 @@ Runs the full update pipeline for all implemented Dragon Age game/system combina
   - Awakening poisons & grenades (bootstrap DAO:A DB → sync Origins poisons/grenades → scrape → JSON → SQL)
   - Awakening trap-making (bootstrap DAO:A DB → sync Origins trap-making → scrape → JSON → SQL)
   - Awakening runecrafting (standalone Awakening-only system; no Origins sync step needed)
+  - DA2 crafting (standalone; 4 tables in DA/database/gametools.sqlite3)
 
 Origins herbalism, Origins poisons/grenades, and Origins trap-making are called internally
 by their Awakening chain functions and are no longer invoked directly from main().
@@ -407,6 +408,34 @@ def update_awakening_runecrafting() -> None:
     ])
 
 
+# ─── DA2 ─────────────────────────────────────────────────────────────────────
+
+def update_da2_crafting() -> None:
+    """Scrape → JSON → SQL for DA2 Crafting. Standalone; uses DA/database/gametools.sqlite3."""
+    da2_dir   = _SCRIPT_DIR / 'DA2' / 'crafting'
+    parse_dir = da2_dir / 'crafting_parse'
+    json_dir  = da2_dir / 'crafting_json'
+    sql_dir   = da2_dir / 'crafting_sql'
+
+    raw_json       = parse_dir / 'da2_crafting_raw.json'
+    locations_json = json_dir  / 'da2_crafting_recipe_locations.json'
+    resources_json = json_dir  / 'da2_crafting_resources.json'
+    recipes_json   = json_dir  / 'da2_crafting_recipes.json'
+    effects_json   = json_dir  / 'da2_crafting_item_effects.json'
+
+    run_step('DA2 crafting scrape', [
+        parse_dir / 'da2_scrape_crafting.py', raw_json,
+    ])
+    run_step('DA2 crafting JSON parse', [
+        json_dir / 'da2_parse_crafting.py',
+        raw_json, locations_json, resources_json, recipes_json, effects_json,
+    ])
+    run_step('DA2 crafting SQL load', [
+        sql_dir / 'create_or_update_da2_crafting.py',
+        locations_json, resources_json, recipes_json, effects_json, _DB,
+    ])
+
+
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -423,6 +452,9 @@ def main() -> None:
 
     # Awakening runecrafting (standalone; no Origins equivalent)
     update_awakening_runecrafting()
+
+    # DA2 crafting (standalone; goes into DA/database/gametools.sqlite3)
+    update_da2_crafting()
 
     log.info('=== DA pipeline complete ===')
 

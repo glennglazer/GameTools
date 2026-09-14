@@ -34,7 +34,7 @@ def strip_all_wiki_markup(text: str) -> str:
 
 def get_field(name: str, block: str) -> str | None:
     """Extract a named field value from a RecipeTransformer wikitext block."""
-    pattern = rf"\|\s*{re.escape(name)}\s*=\s*(.*?)(?=\n\s*\||\n\s*}}}}|$)"
+    pattern = rf"\|[ \t]*{re.escape(name)}[ \t]*=[ \t]*(.*?)(?=\n[ \t]*\||\n[ \t]*}}}}|$)"
     m = re.search(pattern, block, re.DOTALL)
     if m:
         return m.group(1).strip() or None

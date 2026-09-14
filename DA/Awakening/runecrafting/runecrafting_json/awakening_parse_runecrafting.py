@@ -111,10 +111,12 @@ def parse_item_transformer(wikitext: str) -> dict:
 
     block = wikitext[start + len(marker) : pos]
 
-    # Each field: |key = value ... until the next |key line or end of block
+    # Each field: |key = value ... until the next |key line or end of block.
+    # Use [ \t]* (not \s*) around = so a trailing newline on an empty-value
+    # field is NOT consumed, preventing (.*?) from capturing the next field name.
     fields: dict[str, str] = {}
     for fm in re.finditer(
-        r"\|(\w+)\s*=\s*(.*?)(?=\n\s*\|[a-zA-Z]|\Z)", block, re.DOTALL
+        r"\|[ \t]*(\w+)[ \t]*=[ \t]*(.*?)(?=\n[ \t]*\|[a-zA-Z]|\Z)", block, re.DOTALL
     ):
         key = fm.group(1).strip()
         val = fm.group(2).strip()

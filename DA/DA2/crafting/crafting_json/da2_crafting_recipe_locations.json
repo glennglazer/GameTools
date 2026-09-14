@@ -1,0 +1,167 @@
+[
+  {
+    "name": "Elfroot Potion",
+    "act": "{\"acts\": [1]}",
+    "location": "given by Lady Elegant in Lowtown"
+  },
+  {
+    "name": "Restoration Potion",
+    "act": "{\"acts\": [1, 2, 3]}",
+    "location": "bought from Formari Herbalist shop in The Gallows"
+  },
+  {
+    "name": "Elixir of Purity",
+    "act": "{\"acts\": [1, 2, 3]}",
+    "location": "bought at the Black Emporium"
+  },
+  {
+    "name": "Life Ward Potion",
+    "act": "{\"acts\": [2]}",
+    "location": "bought from Formari Herbalist shop in The Gallows"
+  },
+  {
+    "name": "Rock Armor Potion",
+    "act": "{\"acts\": [2]}",
+    "location": "found in Lowtown at night, in a Pile of Rubble next to the entrance to Gamlen's house"
+  },
+  {
+    "name": "Mighty Offense Potion",
+    "act": "{\"acts\": [2]}",
+    "location": "found at Sundermount Mountain graveyard, in a Pile of Bones to the right just after you exit the cave"
+  },
+  {
+    "name": "Elixir of Heroism",
+    "act": "{\"acts\": [2]}",
+    "location": "found in Hightown During quest Demands of The Qun"
+  },
+  {
+    "name": "Rune of Protection",
+    "act": "{\"acts\": [1]}",
+    "location": "gift from Worthy in Hightown the first time you talk to him"
+  },
+  {
+    "name": "Rune of Fortune",
+    "act": "{\"acts\": [1, 2, 3]}",
+    "location": "bought at the Black Emporium"
+  },
+  {
+    "name": "Rune of Frost Warding",
+    "act": "{\"acts\": [1]}",
+    "location": "found in Sanctuary during the main quest Enemies Among Us"
+  },
+  {
+    "name": "Rune of Impact",
+    "act": "{\"acts\": [1]}",
+    "location": "found in Wilmod's camp during the main quest Enemies Among Us"
+  },
+  {
+    "name": "Rune of Fire Warding",
+    "act": "{\"acts\": [1]}",
+    "location": "found in the Wounded Coast in a pile of bones in Southernmost ruins"
+  },
+  {
+    "name": "Rune of Lightning Warding",
+    "act": "{\"acts\": [1, 2, 3]}",
+    "location": "bought at Mages Goods Shop in The Gallows"
+  },
+  {
+    "name": "Rune of Frost",
+    "act": "{\"acts\": [1, 2, 3]}",
+    "location": "bought at Lirene's Fereldan Imports in Lowtown"
+  },
+  {
+    "name": "Rune of Fire",
+    "act": "{\"acts\": [1]}",
+    "location": "found in the Dark Foundry during the quest The First Sacrifice"
+  },
+  {
+    "name": "Rune of Lightning",
+    "act": "{\"acts\": [1]}",
+    "location": "found at Sundermount or in a chest at The Blooming Rose"
+  },
+  {
+    "name": "Rune of Nature Warding",
+    "act": "{\"acts\": [2]}",
+    "location": "found at Smuggler's Cut during main quest Blackpowder Courtesy"
+  },
+  {
+    "name": "Rune of Spirit Warding",
+    "act": "{\"acts\": [2, 3]}",
+    "location": "bought at Mage Goods shop in The Gallows"
+  },
+  {
+    "name": "Rune of Nature",
+    "act": "{\"acts\": [2, 3]}",
+    "location": "bought at Master Ilen's Shop in the Dalish Camp on Sundermount"
+  },
+  {
+    "name": "Rune of Spirit",
+    "act": "{\"acts\": [2]}",
+    "location": "found in Brekker's Hideaway during the quest Inside Job"
+  },
+  {
+    "name": "Rune of Striking",
+    "act": "{\"acts\": [2]}",
+    "location": "found in DuPuis Estate during the quest Prime Suspect"
+  },
+  {
+    "name": "Rune of Defense",
+    "act": "{\"acts\": [2]}",
+    "location": "found on a skeleton at the Wounded Coast"
+  },
+  {
+    "name": "Rune of Devastation",
+    "act": "{\"acts\": [3]}",
+    "location": "found in the Sewer Passage during the quest On The Loose"
+  },
+  {
+    "name": "Rune of Valiance",
+    "act": "{\"acts\": [3]}",
+    "location": "found on a Pile of Bones in a small ruin, south west of the Varterral Hunting Grounds Cave on Sundermount"
+  },
+  {
+    "name": "Debilitating Poison",
+    "act": "{\"acts\": [1]}",
+    "location": "given in Darktown from Tomwise"
+  },
+  {
+    "name": "Tar Bomb",
+    "act": "{\"acts\": [1]}",
+    "location": "bought in the Docks from Shady Merchant"
+  },
+  {
+    "name": "Deathroot Toxin",
+    "act": "{\"acts\": [1]}",
+    "location": "bought in the Docks from Shady Merchant"
+  },
+  {
+    "name": "Crow Venom",
+    "act": "{\"acts\": [1]}",
+    "location": "bought in Black Emporium"
+  },
+  {
+    "name": "Combustion Grenade",
+    "act": "{\"acts\": [1]}",
+    "location": "Found on one of the bodies of the Tal-Vashoth during the Blackpowder Promise quest"
+  },
+  {
+    "name": "Mythal's Favor",
+    "act": "{\"acts\": [2]}",
+    "location": "Found in a Crate in the Wounded Coast outside a cave that is blocked"
+  },
+  {
+    "name": "Arcane Poison",
+    "act": "{\"acts\": [2]}",
+    "location": "Looted from Elven Fanatic in Side Alley during Blackpowder Courtesy main quest"
+  },
+  {
+    "name": "Fell Poison",
+    "act": "{\"acts\": [3]}",
+    "location": "can be looted from the corpse of Huon during the quest \"On The Loose\""
+  },
+  {
+    "name": "Fell Grenade",
+    "act": "{\"acts\": [3]}",
+    "location": "Found in a crate in the Wounded Coast in the south western section near the Hidden Lair"
+  }
+]

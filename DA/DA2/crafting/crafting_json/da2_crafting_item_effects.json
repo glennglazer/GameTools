@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Elfroot Potion",
+    "effects": "Health regeneration: 80%; Injuries: -1"
+  },
+  {
+    "name": "Restoration Potion",
+    "effects": "Health regeneration: 80%; Mana/stamina regeneration: 40%"
+  },
+  {
+    "name": "Elixir of Purity",
+    "effects": "+10% damage vs. darkspawn"
+  },
+  {
+    "name": "Life Ward Potion",
+    "effects": "Health regeneration: 40%"
+  },
+  {
+    "name": "Rock Armor Potion",
+    "effects": "+10% damage resistance"
+  },
+  {
+    "name": "Mighty Offense Potion",
+    "effects": "+10% damage"
+  },
+  {
+    "name": "Elixir of Heroism",
+    "effects": "Level: +1 for all party members"
+  },
+  {
+    "name": "Rune of Protection",
+    "effects": "+10% armor"
+  },
+  {
+    "name": "Rune of Fortune",
+    "effects": "Enemies drop more coin"
+  },
+  {
+    "name": "Rune of Frost Warding",
+    "effects": "+ cold resistance"
+  },
+  {
+    "name": "Rune of Impact",
+    "effects": "+20% physical damage"
+  },
+  {
+    "name": "Rune of Fire Warding",
+    "effects": "+ fire resistance"
+  },
+  {
+    "name": "Rune of Lightning Warding",
+    "effects": "+ electricity resistance"
+  },
+  {
+    "name": "Rune of Frost",
+    "effects": "+20% cold damage"
+  },
+  {
+    "name": "Rune of Fire",
+    "effects": "+20% fire damage"
+  },
+  {
+    "name": "Rune of Lightning",
+    "effects": "+20% electricity damage"
+  },
+  {
+    "name": "Rune of Nature Warding",
+    "effects": "+ nature resistance"
+  },
+  {
+    "name": "Rune of Spirit Warding",
+    "effects": "+ spirit resistance"
+  },
+  {
+    "name": "Rune of Nature",
+    "effects": "+20% nature damage"
+  },
+  {
+    "name": "Rune of Spirit",
+    "effects": "+20% spirit damage"
+  },
+  {
+    "name": "Rune of Striking",
+    "effects": "+X% critical chance"
+  },
+  {
+    "name": "Rune of Defense",
+    "effects": "+ defense"
+  },
+  {
+    "name": "Rune of Devastation",
+    "effects": "+X% damage"
+  },
+  {
+    "name": "Rune of Valiance",
+    "effects": "+2 to all attributes"
+  },
+  {
+    "name": "Debilitating Poison",
+    "effects": "Enemy damage: -15%"
+  },
+  {
+    "name": "Tar Bomb",
+    "effects": "Enemy attack speed: 0%; Enemy movement speed: 0%"
+  },
+  {
+    "name": "Deathroot Toxin",
+    "effects": "+(0.5 * LVL) nature damage"
+  },
+  {
+    "name": "Crow Venom",
+    "effects": "Enemy attack speed: -25%; Enemy movement speed: -25%"
+  },
+  {
+    "name": "Combustion Grenade",
+    "effects": "(20 * LVL) fire damage; 100% chance to stun"
+  },
+  {
+    "name": "Mythal's Favor",
+    "effects": "Revives fallen companions"
+  },
+  {
+    "name": "Arcane Poison",
+    "effects": "Enemy -15% magic resistance"
+  },
+  {
+    "name": "Fell Poison",
+    "effects": "+(0.01 * user's health) physical damage; +(0.01 * user's maximum health) health regeneration rate"
+  },
+  {
+    "name": "Fell Grenade",
+    "effects": "(100 * LVL) fire damage"
+  }
+]

@@ -1,0 +1,464 @@
+[
+  {
+    "name": "Elfroot",
+    "location": "The Bone Pit",
+    "quest": null,
+    "description": "On the far south east end of the map.",
+    "act": 1
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Bone Pit Mines",
+    "quest": "The Bone Pit",
+    "description": "Up the first set of stairs after killing the third group of dragonlings. (Must be gotten before you leave the mines)",
+    "act": 1
+  },
+  {
+    "name": "Lyrium",
+    "location": "Bone Pit Mines",
+    "quest": "The Bone Pit",
+    "description": "In the main area when you first enter, look for it on the north- western side of the big open area after killing the dragon and a handful of dragonlings. (Must be gotten before you leave the mines)",
+    "act": 1
+  },
+  {
+    "name": "Deathroot",
+    "location": "Darktown",
+    "quest": null,
+    "description": "On the south end of the map near the door to the sewers in the Abandoned Mining Tunnels.",
+    "act": 1
+  },
+  {
+    "name": "Embrium",
+    "location": "Dead Man's Pass",
+    "quest": "Blackpowder Promise",
+    "description": "At the corner where the four paths meet.",
+    "act": 1
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Deep Roads",
+    "quest": "The Deep Roads Expedition",
+    "description": "To the left side of the stairs in the first room where you face Darkspawn.",
+    "act": 1
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Deep Roads",
+    "quest": "The Deep Roads Expedition",
+    "description": "To the left after the exit of the second room, past where the Emissary spawns.",
+    "act": 1
+  },
+  {
+    "name": "Lyrium",
+    "location": "Deep Roads",
+    "quest": "The Deep Roads Expedition",
+    "description": "Where Sandal is found.",
+    "act": 1
+  },
+  {
+    "name": "Lyrium",
+    "location": "Deep Roads",
+    "quest": "The Deep Roads Expedition",
+    "description": "Past the inactive golems, down the stairs and on the left.",
+    "act": 1
+  },
+  {
+    "name": "Silverite",
+    "location": "Deep Roads",
+    "quest": "The Deep Roads Expedition",
+    "description": "Just before the blue-lyruim veined caves, in a pit to the right of the main path where you fight the monstrous spider.",
+    "act": 1
+  },
+  {
+    "name": "Orichalcum",
+    "location": "Deep Roads",
+    "quest": "The Deep Roads Expedition",
+    "description": "In the Primeval Ruins, at the top of the stairs in the first room after Bartrand's camp, where you fight the first golem.",
+    "act": 1
+  },
+  {
+    "name": "Deathroot",
+    "location": "Disused Passage",
+    "quest": null,
+    "description": "In the second rectangular room without the flame trap.",
+    "act": 1
+  },
+  {
+    "name": "Spindleweed",
+    "location": "Lowtown",
+    "quest": null,
+    "description": "In the side-street between the two eastern exits during daytime.",
+    "act": 1
+  },
+  {
+    "name": "Lyrium",
+    "location": "Runaway's Cavern",
+    "quest": "Act of Mercy",
+    "description": "West of where you meet Alain.",
+    "act": 1
+  },
+  {
+    "name": "Deathroot",
+    "location": "Sanctuary",
+    "quest": "Enemies Among Us",
+    "description": "On the right past the first group of shades.",
+    "act": 1
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Slaver Caverns",
+    "quest": "Wayward Son",
+    "description": "In the back of the cave up on the platform in the first room. (Must be gotten before you leave the caverns)",
+    "act": 1
+  },
+  {
+    "name": "Spindleweed",
+    "location": "Slaver Caverns",
+    "quest": "Wayward Son",
+    "description": "Behind the mine cart near the entrance. (Must be gotten before you leave the caverns)",
+    "act": 1
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Sundermount",
+    "quest": null,
+    "description": "In the graveyard just before the altar on the mountain path.",
+    "act": 1
+  },
+  {
+    "name": "Elfroot",
+    "location": "Sundermount",
+    "quest": null,
+    "description": "In the loop to the left between the entrance and the Dalish Camp.",
+    "act": 1
+  },
+  {
+    "name": "Elfroot",
+    "location": "Sundermount",
+    "quest": null,
+    "description": "Behind the clump of stone in the first clearing up the mountain path, where the Dalish hunter insults Merrill.",
+    "act": 1
+  },
+  {
+    "name": "Elfroot",
+    "location": "Sundermount Ambush Site",
+    "quest": "The Way It Should Be",
+    "description": "On the west side of the looping southern trail.",
+    "act": 1
+  },
+  {
+    "name": "Silverite",
+    "location": "Sundermount Caverns",
+    "quest": null,
+    "description": "Next to the door in the fire pit room just after the entrance.",
+    "act": 1
+  },
+  {
+    "name": "Lyrium",
+    "location": "Tal-Vashoth Cavern",
+    "quest": "Blackpowder Promise",
+    "description": "On the eastern side of the map. Go through the first 3 doors, follow the tracks and then go down the stairs on the left.",
+    "act": 1
+  },
+  {
+    "name": "Silverite",
+    "location": "Tal-Vashoth Cavern",
+    "quest": "Blackpowder Promise",
+    "description": "Through the first 3 doors, follow the tracks and then up the stairs.",
+    "act": 1
+  },
+  {
+    "name": "Silverite",
+    "location": "Vimmark Mountain Pass",
+    "quest": "Shepherding Wolves",
+    "description": "After dealing with the qunari retrace your steps to the cavern to find it on the left of the slope.",
+    "act": 1
+  },
+  {
+    "name": "Glitterdust",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "At the end of the south-pointing dead end on the most northeast side of the map.",
+    "act": 1
+  },
+  {
+    "name": "Elfroot",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "On the south side of the north path just past that first north-east clearing.",
+    "act": 1
+  },
+  {
+    "name": "Elfroot",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "At the dead end on the far west of the map.",
+    "act": 1
+  },
+  {
+    "name": "Spindleweed",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "On the path to the north-eastern clearing.",
+    "act": 1
+  },
+  {
+    "name": "Lyrium",
+    "location": "Bone Pit Mines",
+    "quest": "Cave Crawling",
+    "description": "Up the stairs to the south of the entrance.",
+    "act": 2
+  },
+  {
+    "name": "Deathroot",
+    "location": "The Bone Pit",
+    "quest": null,
+    "description": "On the right near the entrance.",
+    "act": 2
+  },
+  {
+    "name": "Glitterdust",
+    "location": "The Bone Pit",
+    "quest": null,
+    "description": "In front of the second mine entrance towards the east.",
+    "act": 2
+  },
+  {
+    "name": "Lyrium",
+    "location": "Rotting Cave",
+    "quest": "Forbidden Knowledge",
+    "description": "Bone pits, in the cave where you find the evil tome.",
+    "act": 2
+  },
+  {
+    "name": "Lyrium",
+    "location": "Dank Cave",
+    "quest": "Forbidden Knowledge",
+    "description": "To the right of the stairs just after exiting the narrow hall.",
+    "act": 2
+  },
+  {
+    "name": "Deathroot",
+    "location": "Darktown",
+    "quest": null,
+    "description": "Next to the stairs in the pit before Anders's Clinic.",
+    "act": 2
+  },
+  {
+    "name": "Spindleweed",
+    "location": "Gallows Dungeon",
+    "quest": "Dissent",
+    "description": "Through the door on the left at the entrance.",
+    "act": 2
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Gallows Dungeon",
+    "quest": "Dissent",
+    "description": "In the first clearing where you fight the spiders.",
+    "act": 2
+  },
+  {
+    "name": "Glitterdust",
+    "location": "Holding Caves",
+    "quest": "A Bitter Pill",
+    "description": "Near where the four paths meet.",
+    "act": 2
+  },
+  {
+    "name": "Embrium",
+    "location": "Holding Caves",
+    "quest": "A Bitter Pill",
+    "description": "On the west (high) path near the start.",
+    "act": 2
+  },
+  {
+    "name": "Orichalcum",
+    "location": "The Killer's Lair",
+    "quest": "All That Remains",
+    "description": "About halfway through. In the first narrow corridor-like section after the large initial room.",
+    "act": 2
+  },
+  {
+    "name": "Spindleweed",
+    "location": "Lowtown",
+    "quest": null,
+    "description": "In the south-eastern dead end behind the armor merchant during daytime.",
+    "act": 2
+  },
+  {
+    "name": "Silverite",
+    "location": "Smuggler's Cut",
+    "quest": "Blackpowder Courtesy",
+    "description": "Near the exit to the wilderness.",
+    "act": 2
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Smuggler's Cut",
+    "quest": "Blackpowder Courtesy",
+    "description": "In the southernmost of the two dead end areas curling off of the west side of the big loop, just south of the Wilderness exit.",
+    "act": 2
+  },
+  {
+    "name": "Glitterdust",
+    "location": "Sundermount",
+    "quest": null,
+    "description": "Around the first bend on the way up the mountain path.",
+    "act": 2
+  },
+  {
+    "name": "Elfroot",
+    "location": "Sundermount",
+    "quest": null,
+    "description": "In the stone ruin on the low path past the Dalish Camp close to where you are sent to slay the Varterral",
+    "act": 2
+  },
+  {
+    "name": "Embrium",
+    "location": "Sundermount",
+    "quest": null,
+    "description": "On the upper path above the cave pass, on the right side of the Revenant clearing.",
+    "act": 2
+  },
+  {
+    "name": "Silverite",
+    "location": "Sundermount Caverns",
+    "quest": null,
+    "description": "|In the first room, on the small path on your left.",
+    "act": 2
+  },
+  {
+    "name": "Orichalcum",
+    "location": "Sundermount Caverns",
+    "quest": null,
+    "description": "In the main room (after the campfire room) on your left in a cove.",
+    "act": 2
+  },
+  {
+    "name": "Orichalcum",
+    "location": "Sundermount Caverns",
+    "quest": null,
+    "description": "In the main room, up the stairs and on your left in a cove.",
+    "act": 2
+  },
+  {
+    "name": "Orichalcum",
+    "location": "Varterral Hunting Ground",
+    "quest": "Mirror Image",
+    "description": "A little less than halfway through, at the bottom of a short stair, on a plateau to the left.",
+    "act": 2
+  },
+  {
+    "name": "Glitterdust",
+    "location": "Varterral Hunting Ground",
+    "quest": "Mirror Image",
+    "description": "After the orichalcum down the stairs and to the left.",
+    "act": 2
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Varterral Hunting Ground",
+    "quest": "Mirror Image",
+    "description": "Up the stairs and to the left from the large open room where you fight the Varterral.",
+    "act": 2
+  },
+  {
+    "name": "Elfroot",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "About halfway down the east-west path on the south side, a little past the first Raiders.",
+    "act": 2
+  },
+  {
+    "name": "Embrium",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "On the south path en route to the Raiders on the Cliffs quest.",
+    "act": 2
+  },
+  {
+    "name": "Embrium",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "On the north path where it slopes up to the right.",
+    "act": 2
+  },
+  {
+    "name": "Dragon's Blood",
+    "location": "The Bone Pit",
+    "quest": "Mine Massacre",
+    "description": "Collected from the High Dragon's corpse.",
+    "act": 3
+  },
+  {
+    "name": "Ambrosia",
+    "location": "Castillon's Landing",
+    "quest": "No Rest for the Wicked",
+    "description": "In a box in the upstairs office.",
+    "act": 3
+  },
+  {
+    "name": "Deep Mushroom",
+    "location": "Drakestone Mines",
+    "quest": "Justice",
+    "description": "On the north side of the first room down the stairs from the entrance, when looking for Drakestone.",
+    "act": 3
+  },
+  {
+    "name": "Deathroot",
+    "location": "Darktown",
+    "quest": null,
+    "description": "On the south end past the giant wheel.",
+    "act": 3
+  },
+  {
+    "name": "Spindleweed",
+    "location": "Lowtown",
+    "quest": null,
+    "description": "During daytime, next to the stairs in the Foundry District.",
+    "act": 3
+  },
+  {
+    "name": "Felandaris",
+    "location": "Pride's End",
+    "quest": "A New Path",
+    "description": "To the right of Audacity's idol.",
+    "act": 3
+  },
+  {
+    "name": "Glitterdust",
+    "location": "Sundermount",
+    "quest": null,
+    "description": "On the ledge just prior to the dead-end clearing at the top of the upper mountain path. It is right before the \"travel down the mountain\" if you've already done Merrill's side quest. if not, it's on the little curve off the path before the entrance to cave of her mission.",
+    "act": 3
+  },
+  {
+    "name": "Lyrium",
+    "location": "Sundermount Caverns",
+    "quest": null,
+    "description": "First room after entrance on your left.",
+    "act": 3
+  },
+  {
+    "name": "Orichalcum",
+    "location": "Sundermount Caverns",
+    "quest": null,
+    "description": "On the left in the second room where you fight the shades and spiders.",
+    "act": 3
+  },
+  {
+    "name": "Elfroot",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "Just past the mine cart on the southern path.",
+    "act": 3
+  },
+  {
+    "name": "Embrium",
+    "location": "The Wounded Coast",
+    "quest": null,
+    "description": "To the left just short of the far western exit.",
+    "act": 3
+  }
+]
